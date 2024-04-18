@@ -2,4 +2,6 @@
 
 The following guides will teach you how to configure IoT Connect.
 
-[SDK JSON](./SDK_JSON.md)
+| Section                   | Purpose                    |
+|---------------------------|----------------------------|
+| [SDK JSON](./SDK_JSON.md) | Configure the C&Python SDK |
