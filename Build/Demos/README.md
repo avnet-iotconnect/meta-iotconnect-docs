@@ -18,22 +18,32 @@ git clone git@github.com:avnet-iotconnect/meta-iotconnect-demos.git -b {YOCTO_VE
 cd ..
 ```
 
-5. Enter the docker environment:
+5. Check the `Makefile` for if the image being built is a `core-image` or just `image`:
+```bash
+cat Makefile
+```
+
+6. Edit the demos file to ensure the demos are being built for the right image type:
+```bash
+gio open ./path/to/meta-iotconnect-demos/conf/layer.conf
+```
+
+7. Enter the docker environment:
 ```bash
 make env
 ```
 
-6. Add the SDK to bitbake:
+8. Add the SDK to bitbake:
 ```bash
 bitbake-layers add-layer ../path/to/meta-iotconnect-demos
 ```
 
-7. Exit docker to the host:
+9. Exit docker to the host:
 ```bash
 exit
 ```
 
-8. You should now be back in the root project directory with the `Makefile` on the host where you can build the project:
+10. You should now be back in the root project directory with the `Makefile` on the host where you can build the project:
 ```bash
 make build
 ```
