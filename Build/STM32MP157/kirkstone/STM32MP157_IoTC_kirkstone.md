@@ -8,6 +8,7 @@ After you have built this you will need to add the [SDK](../../IoTC-SDK/README.m
 ## Requirements
 - Repo (from Google): https://android.googlesource.com/tools/repo
 - Docker: 
+
     https://docs.docker.com/engine/install/ubuntu/
     
     https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user
@@ -30,7 +31,7 @@ repo init -u https://github.com/STMicroelectronics/oe-manifest.git -b refs/tags/
 repo sync    
 ```
 
-3. Download the provided `Makefile` and `Dockerfile` to the project directory:
+3. Download the provided `Makefile` and `Dockerfile`:
 ```bash
 wget https://raw.githubusercontent.com/avnet-iotconnect/meta-iotconnect-docs/main/Build/STM32MP157/kirkstone/Makefile && \
 wget https://raw.githubusercontent.com/avnet-iotconnect/meta-iotconnect-docs/main/Build/STM32MP157/kirkstone/Dockerfile
