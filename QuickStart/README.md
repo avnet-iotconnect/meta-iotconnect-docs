@@ -1,6 +1,7 @@
 # IoT Connect Quick Start and Flash Guide
 
-Download a prebuild SDK image and flash onto your boards. If you wish to build your own images go to: [Build Guide](../Build/README.md)
+Download a prebuild SDK image and flash onto your boards.
+If you wish to build your own images go to: [Build Guide](../Build/README.md)
 
 | Board                           | C  | Python | Combined |
 |:-------------------------------:|:--:|:------:|:--------:|
