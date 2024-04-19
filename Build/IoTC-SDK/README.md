@@ -1,6 +1,6 @@
 # IoT Connect SDK Build Guide
 
-Ensure you first have built the [base image](./README.md) for your board.
+Ensure you first have built the [base image](../README.md) for your board.
 
 1. Find the directory with all your Yocto layer source files, this may be named `layers`, `sources` or otherwise. This will depend on how your Yocto project is configured.
 

@@ -1,6 +1,6 @@
 # IoT Connect Demo Build Guide
 
-Ensure you first have built the [base image](./README.md) for your board.
+Ensure you first have built the [base image](../README.md) for your board.
 
 You will also need the [SDK](../IoTC-SDK/README.md) installed.
 
