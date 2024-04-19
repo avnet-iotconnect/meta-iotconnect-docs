@@ -30,7 +30,7 @@ repo init -u https://github.com/STMicroelectronics/oe-manifest.git -b refs/tags/
 repo sync    
 ```
 
-3. Download provided Makefile and Dockerfile to project directory:
+3. Download the provided `Makefile` and `Dockerfile` to the project directory:
 ```bash
 wget https://raw.githubusercontent.com/avnet-iotconnect/meta-iotconnect-docs/main/Build/STM32MP157/kirkstone/Makefile && \
 wget https://raw.githubusercontent.com/avnet-iotconnect/meta-iotconnect-docs/main/Build/STM32MP157/kirkstone/Dockerfile
