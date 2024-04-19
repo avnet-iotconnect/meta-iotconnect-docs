@@ -1,9 +1,10 @@
-## Build Instructions
+# STM32MP157 IoTC Kirkstone Base Image Build Guide
 Tested on Ubuntu 22.04 (2024-04-19)
 
-This will build a base Yocto image for your board.
+This will build a base Yocto image without IoTC for your board.
+After you have built this you will need to add either the [C SDK](../../IoTC-C-SDK/README.md) or the [Python SDK](../../IoTC-Python-SDK/README.md) or both.
 
-# Requirements
+## Requirements
 - Repo (from Google): https://android.googlesource.com/tools/repo
 - Docker: https://docs.docker.com/engine/install/ubuntu/ + https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user
 - Git: `name` and `email` configured globally:
@@ -13,7 +14,7 @@ This will build a base Yocto image for your board.
     `git config --global user.email "{YOUR_EMAIL_HERE}"`
 - STM32_Programmer_CLI: https://www.st.com/en/development-tools/stm32cubeprog.html
 
-# Method
+## Method
 1. Create project directory and enter it
 ```bash
 mkdir STM32MP157_IoTC_kirkstone && cd STM32MP157_IoTC_kirkstone
@@ -44,7 +45,7 @@ MACHINE=stm32mp1
 source layers/meta-st/scripts/envsetup.sh
 ```
 
-6. Exit the docker image and return to the host:
+6. Exit docker and return to the host:
 ```bash
 exit
 ```
