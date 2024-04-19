@@ -85,9 +85,7 @@ Flashing instructions based on [Build, Deploy, & Run a Qt Enabled Image on the R
 cd yocto_rzboard/build/tmp/deploy/images/rzboard/
 git clone https://github.com/Avnet/rzboard_flash_util.git
 cd rzboard_flash_util
-python3 -m venv venv
-source venv/bin/activate
-pip3 install -r requirements.txt
+sudo pip3 install -r requirements.txt
 
 # finally to flash
 sudo ./flash_rzboard.py --full --image_path ../	
