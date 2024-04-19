@@ -7,8 +7,9 @@ This will build a base Yocto image for your board.
 - Repo (from Google): https://android.googlesource.com/tools/repo
 - Docker: https://docs.docker.com/engine/install/ubuntu/ + https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user
 - Git: `name` and `email` configured globally:
-`git config --global user.name "{YOUR_NAME_HERE}"`
-`git config --global user.email "{YOUR_EMAIL_HERE}"`
+    `git config --global user.name "{YOUR_NAME_HERE}"`
+
+    `git config --global user.email "{YOUR_EMAIL_HERE}"`
 - STM32_Programmer_CLI: https://www.st.com/en/development-tools/stm32cubeprog.html
 
 # Method
