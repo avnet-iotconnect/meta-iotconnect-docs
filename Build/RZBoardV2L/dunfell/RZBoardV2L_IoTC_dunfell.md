@@ -23,7 +23,7 @@ After you have built this you will need to add the [SDK](../../IoTC-SDK/README.m
 mkdir RZBoardV2L_IoTC_dunfell && cd RZBoardV2L_IoTC_dunfell 
 ```
 
-2. Download the following packages manually and place inside `RZBoardV2L_IoTC_dunfell` directory
+2. Download the following packages manually and place inside the `RZBoardV2L_IoTC_dunfell` directory
 
 | Package Name                  | Version                   | File                                                                                                                                                                      |
 |-------------------------------|---------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -36,8 +36,8 @@ mkdir RZBoardV2L_IoTC_dunfell && cd RZBoardV2L_IoTC_dunfell
 
 3. Download the provided `Makefile` and `Dockerfile`:
 ```bash
-wget https://raw.githubusercontent.com/avnet-iotconnect/meta-iotconnect-docs/main/Build/RZBoardV2L/Dockerfile && \
-wget https://raw.githubusercontent.com/avnet-iotconnect/meta-iotconnect-docs/main/Build/RZBoardV2L/Makefile
+wget https://raw.githubusercontent.com/avnet-iotconnect/meta-iotconnect-docs/main/Build/RZBoardV2L/dunfell/Dockerfile && \
+wget https://raw.githubusercontent.com/avnet-iotconnect/meta-iotconnect-docs/main/Build/RZBoardV2L/dunfell/Makefile
 ```
 
 4. Enter the docker environment:
@@ -62,15 +62,19 @@ git clone https://github.com/Avnet/meta-rzboard.git -b rzboard_dunfell_5.10_v2
 ```bash
 mkdir -p ./build/conf
 cp meta-rzboard/conf/rzboard/* build/conf/
+```
+
+8. Increase the image size of `avnet-core-image.bb`:
+```bash
+echo -e "\nIMAGE_ROOTFS_SIZE = "5120000" >> meta-rzboard/recipes-core/images/avnet-core-image.bb
+```
+
+9. Exit docker and return to the host
+```bash
 exit
 ```
 
-8. Increase the image size of `avnet-core-image.bb`, you will need to add the line below to `meta-rzboard/recipes-core/images/avnet-core-image.bb`:
-```bash
-IMAGE_ROOTFS_SIZE = "5120000"
-```
-
-9. Build the project:
+10. Build the project:
 ```bash
 make build
 ```
