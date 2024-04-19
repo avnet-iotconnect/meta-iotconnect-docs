@@ -66,7 +66,7 @@ cp meta-rzboard/conf/rzboard/* build/conf/
 
 8. Increase the image size of `avnet-core-image.bb`:
 ```bash
-echo -e "\nIMAGE_ROOTFS_SIZE = "5120000"" >> meta-rzboard/recipes-core/images/avnet-core-image.bb
+echo -e "\nIMAGE_ROOTFS_SIZE = \"5120000\"" >> meta-rzboard/recipes-core/images/avnet-core-image.bb
 ```
 
 9. Exit docker and return to the host
