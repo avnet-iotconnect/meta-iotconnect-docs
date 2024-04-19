@@ -6,9 +6,9 @@ Ensure you first have built the base image for your board.
 
 2. `cd` into your Yocto layers directory.
 
-3. Clone the SDK into your sources directory.
+3. Clone the SDK into your sources directory. Make sure you checkout the right version of the SDK for your Yocto version. This may be `kirkstone`, `dunfell`, or otherwise.
 ```bash
-git clone git@github.com:avnet-iotconnect/meta-iotconnect.git
+git clone git@github.com:avnet-iotconnect/meta-iotconnect.git -b {YOCTO_VERSION_HERE}
 ```
 
 4. Go back to the top level of your project where the `Makefile` exists, in most cases it should be just:

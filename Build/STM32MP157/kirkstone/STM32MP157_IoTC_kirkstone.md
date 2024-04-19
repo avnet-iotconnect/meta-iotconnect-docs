@@ -3,7 +3,7 @@ Tested on Ubuntu 22.04 (2024-04-19)
 
 This will build a base Yocto image without IoTC for your board.
 
-After you have built this you will need to add the [SDK](../../IoTC-C-SDK/README.md) and the [demos](../../Demos/README.md).
+After you have built this you will need to add the [SDK](../../IoTC-SDK/README.md) and the [demos](../../Demos/README.md).
 
 ## Requirements
 - Repo (from Google): https://android.googlesource.com/tools/repo
