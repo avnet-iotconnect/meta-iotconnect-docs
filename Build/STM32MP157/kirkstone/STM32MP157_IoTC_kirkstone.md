@@ -27,8 +27,8 @@ repo sync
 
 3. Download provided Makefile and Dockerfile to project directory:
 ```bash
-wget https://raw.githubusercontent.com/ylin-witekio/meta-iotconnect-docs/STM32MP157/kirkstone/Makefile && \
-wget https://raw.githubusercontent.com/ylin-witekio/meta-iotconnect-docs/STM32MP157/kirkstone/Dockerfile
+wget https://raw.githubusercontent.com/ylin-witekio/meta-iotconnect-docs/main/Build/STM32MP157/kirkstone/Makefile && \
+wget https://raw.githubusercontent.com/ylin-witekio/meta-iotconnect-docs/main/Build/STM32MP157/kirkstone/Dockerfile
 ```
 
 4. Enter the docker environment:
