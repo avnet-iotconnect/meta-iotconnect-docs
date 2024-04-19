@@ -1,6 +1,6 @@
 # IoT Connect SDK Build Guide
 
-Ensure you first have built the base image for your board.
+Ensure you first have built the [base image](./README.md) for your board.
 
 1. Find the directory with all your Yocto layer source files, this may be named `layers`, `sources` or otherwise. This will depend on how your Yocto project is configured.
 
@@ -16,12 +16,12 @@ git clone git@github.com:avnet-iotconnect/meta-iotconnect.git -b {YOCTO_VERSION_
 cd ..
 ```
 
-5. Enter the docker environment
+5. Enter the docker environment:
 ```bash
 make env
 ```
 
-6. Add the SDK to bitbake
+6. Add the SDK to bitbake:
 ```bash
 bitbake-layers add-layer ../path/to/meta-iotconnect
 ```
