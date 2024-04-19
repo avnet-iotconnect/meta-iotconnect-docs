@@ -1,9 +1,9 @@
 # RZ Board V2L IoTC Quick Start Guide
 
-1. Download the SDCard image from: 
+1. Download the SDCard image [here](./README.md)
 or
 ```
-wget {URL_HERE} -o rzboardv2l_iotc.img
+wget {URL_HERE} -o RZBoardV2L_IoTC.img
 ```
 
 2. Flash the image to the SDCard with Balena Etcher.
