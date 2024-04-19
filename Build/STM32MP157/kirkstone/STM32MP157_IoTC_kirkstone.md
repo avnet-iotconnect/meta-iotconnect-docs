@@ -2,11 +2,15 @@
 Tested on Ubuntu 22.04 (2024-04-19)
 
 This will build a base Yocto image without IoTC for your board.
-After you have built this you will need to add either the [C SDK](../../IoTC-C-SDK/README.md) or the [Python SDK](../../IoTC-Python-SDK/README.md) or both.
+
+After you have built this you will need to add the [SDK](../../IoTC-C-SDK/README.md) and the [demos](../../Demos/README.md).
 
 ## Requirements
 - Repo (from Google): https://android.googlesource.com/tools/repo
-- Docker: https://docs.docker.com/engine/install/ubuntu/ + https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user
+- Docker: 
+    https://docs.docker.com/engine/install/ubuntu/
+    
+    https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user
 - Git: `name` and `email` configured globally:
 
     `git config --global user.name "{YOUR_NAME_HERE}"`
@@ -15,12 +19,12 @@ After you have built this you will need to add either the [C SDK](../../IoTC-C-S
 - STM32_Programmer_CLI: https://www.st.com/en/development-tools/stm32cubeprog.html
 
 ## Method
-1. Create project directory and enter it
+1. Create project directory and enter it:
 ```bash
 mkdir STM32MP157_IoTC_kirkstone && cd STM32MP157_IoTC_kirkstone
 ```
 
-2. Use repo tool to get the yocto sources
+2. Use `repo` to get Yocto sources:
 ```bash
 repo init -u https://github.com/STMicroelectronics/oe-manifest.git -b refs/tags/openstlinux-5.15-yocto-kirkstone-mp1-v23.07.26 && \
 repo sync    
@@ -28,8 +32,8 @@ repo sync
 
 3. Download provided Makefile and Dockerfile to project directory:
 ```bash
-wget https://raw.githubusercontent.com/ylin-witekio/meta-iotconnect-docs/main/Build/STM32MP157/kirkstone/Makefile && \
-wget https://raw.githubusercontent.com/ylin-witekio/meta-iotconnect-docs/main/Build/STM32MP157/kirkstone/Dockerfile
+wget https://raw.githubusercontent.com/avnet-iotconnect/meta-iotconnect-docs/main/Build/STM32MP157/kirkstone/Makefile && \
+wget https://raw.githubusercontent.com/avnet-iotconnect/meta-iotconnect-docs/main/Build/STM32MP157/kirkstone/Dockerfile
 ```
 
 4. Enter the docker environment:
@@ -41,7 +45,7 @@ make docker
 ```bash
 DISTRO=openstlinux-weston
 MACHINE=stm32mp1
-# go through all of the EULA and accept everything
+# Go through all of the EULA and accept everything
 source layers/meta-st/scripts/envsetup.sh
 ```
 
@@ -50,14 +54,14 @@ source layers/meta-st/scripts/envsetup.sh
 exit
 ```
 
-7. Build the image on the host
+7. Build the image on the host:
 ```bash
 make build
 ```
 
 ### Extras
 
-1. To flash
+1. Flash the board:
 ```bash
 make flash
 ```

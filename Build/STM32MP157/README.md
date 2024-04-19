@@ -2,8 +2,9 @@
 
 First build the base for the Yotco image:
 - [Kirkstone](./kirkstone/STM32MP157_IoTC_kirkstone.md)
-- [Dunfell](./dunfell/STM32MP157_IoTC_dunfell.md)
 
-Then add your SDK of choice:
+Then add the SDK:
 - [C SDK](../IoTC-C-SDK/README.md)
-- [Python SDK](../IoTC-Python-SDK/README.md)
+
+You may also want to add the demos:
+- [Demos](../Demos/README.md)

@@ -2,6 +2,9 @@
 
 First build the base for the Yotco image:
 
-Then add your SDK of choice:
-[C SDK](../IoTC-C-SDK/README.md)
-[Python SDK](../IoTC-Python-SDK/README.md)
+Then add the SDK:
+- [C SDK](../IoTC-C-SDK/README.md)
+
+You may also want to add the demos:
+- [Demos](../Demos/README.md)
+
