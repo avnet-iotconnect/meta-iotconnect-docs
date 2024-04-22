@@ -13,37 +13,28 @@ You will also need the [SDK](../IoTC-SDK/README.md) installed.
 git clone git@github.com:avnet-iotconnect/meta-iotconnect-demos.git -b {YOCTO_VERSION_HERE}
 ```
 
-4. Go back to the top level of your project where the `Makefile` exists, in most cases it should be just:
-```bash
-cd ..
-```
-
-5. Check the `Makefile` for if the image being built is a `core-image` or just `image`:
-```bash
-cat Makefile
-```
-
-6. Edit the demos file to ensure the demos are being built for the right image type:
-```bash
-gio open ./path/to/meta-iotconnect-demos/conf/layer.conf
-```
-
-7. Enter the docker environment:
+4. Enter the docker environment:
 ```bash
 make env
 ```
 
-8. Add the SDK to bitbake:
+5. Add the SDK to bitbake:
 ```bash
 bitbake-layers add-layer ../path/to/meta-iotconnect-demos
 ```
 
-9. Exit docker to the host:
+6. Exit docker to the host:
 ```bash
 exit
 ```
 
-10. You should now be back in the root project directory with the `Makefile` on the host where you can build the project:
+7. You should now be back in the root project directory with the `Makefile` on the host where you can build the project:
 ```bash
 make build
 ```
+
+
+## Notes:
+
+1. If you are having issues with the demos not appearing, it may be worth a try replacing `IMAGE_INSTALL` with `CORE_IMAGE_EXTRA_INSTALL` in 
+`meta-iotconnect-demos/conf/layer.conf`
