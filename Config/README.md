@@ -5,6 +5,6 @@ Make sure you have either installed a [prebuilt](../QuickStart/README.md) or [co
 
 The following guides will teach you how to configure IoT Connect.
 
-| Section                   | Purpose                    |
-|---------------------------|----------------------------|
-| [SDK JSON](./SDK_JSON.md)| Configure the C & Python SDK |
+| Section                   | Purpose                      |
+|---------------------------|------------------------------|
+| [SDK JSON](./SDK_JSON.md) | Configure the C & Python SDK |
