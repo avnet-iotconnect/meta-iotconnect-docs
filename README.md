@@ -4,4 +4,4 @@
 |---------------------------------------|-----------------------|
 | [Quick Start](./QuickStart/README.md) | Flash prebuilt images |
 | [Build](./Build/README.md)            | Build from source     |
-| [Config](./QuickStart/README.md)      | Configuration Guide   |
+| [Config](./Config/README.md)          | Configuration Guide   |
