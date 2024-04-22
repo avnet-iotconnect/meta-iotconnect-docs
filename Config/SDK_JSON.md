@@ -26,7 +26,7 @@ The config json provides a quick and easy way to provide a user's executable wit
     // The discovery URL for starting the IoTC login process. It WILL be different depending on if you are using AWS or Azure.
     "discovery_url": "",
 
-    // Use IOTC_CT_AZURE or IOTC_CT_AWS to select connection type, only used for the C SDK
+    // Use IOTC_CT_AZURE or IOTC_CT_AWS to select connection type
     "connection_type": "IOTC_CT_AZURE",
     
     // This is the auth method used to connect the device.
