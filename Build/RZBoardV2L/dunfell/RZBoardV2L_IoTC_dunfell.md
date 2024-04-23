@@ -40,41 +40,31 @@ wget https://raw.githubusercontent.com/avnet-iotconnect/meta-iotconnect-docs/mai
 wget https://raw.githubusercontent.com/avnet-iotconnect/meta-iotconnect-docs/main/Build/RZBoardV2L/dunfell/Makefile
 ```
 
-4. Enter the docker environment:
-```bash
-make docker
-```
-
-5. Download and execute the project setup script:
+4. Download and execute the project setup script:
 ```bash
 wget https://raw.githubusercontent.com/Avnet/meta-rzboard/rzboard_dunfell_5.10_v3/tools/create_yocto_rz_src.sh && \
 chmod a+x create_yocto_rz_src.sh && \
 ./create_yocto_rz_src.sh
 ```
 
-6. Clone meta-rzboard
+5. Clone meta-rzboard
 ```bash
 cd ./yocto_rzboard
 git clone https://github.com/Avnet/meta-rzboard.git -b rzboard_dunfell_5.10_v3
 ```
 
-7. Copy over build conf:
+6. Copy over build conf:
 ```bash
 mkdir -p ./build/conf
 cp meta-rzboard/conf/rzboard/* build/conf/
 ```
 
-8. Increase the image size of `avnet-core-image.bb`:
+7. Increase the image size of `avnet-core-image.bb`:
 ```bash
 echo -e "\nIMAGE_ROOTFS_SIZE = \"5120000\"" >> meta-rzboard/recipes-core/images/avnet-core-image.bb
 ```
 
-9. Exit docker and return to the host
-```bash
-exit
-```
-
-10. Build the project:
+8. Build the project:
 ```bash
 make build
 ```

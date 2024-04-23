@@ -1,30 +1,36 @@
 .PHONY: docker build env
 
+# Modifiy these as needed
+DOCKER_IMAGE_NAME=rzboardv2l-dunfell
+BIBTAKE_IMAGE_NAME=avnet-core-image
+BUILD_FOLDER_PATH=build/
+OE_INIT_PATH=./poky/oe-init-build-env
+
 docker:
-	docker build -t yocto-rzboard . && \
+	docker build -t $(DOCKER_IMAGE_NAME) . && \
 	docker run --rm -it \
 	--security-opt seccomp=unconfined \
 	-v  $${PWD}:$${PWD}:Z \
 	-v ~/.gitconfig:/etc/gitconfig:Z \
-	yocto-rzboard \
+	$(DOCKER_IMAGE_NAME) \
 	--workdir=$${PWD}
 
-
 build:
+	docker build -t $(DOCKER_IMAGE_NAME) . && \
 	docker run --rm -it \
 	--security-opt seccomp=unconfined \
 	-v  $${PWD}:$${PWD}:Z \
 	-v ~/.gitconfig:/etc/gitconfig:Z \
-	yocto-rzboard \
-	--workdir=$${PWD}/yocto_rzboard \
-	/bin/bash -c 'source poky/oe-init-build-env build/ && bitbake avnet-core-image && exit'
-
+	$(DOCKER_IMAGE_NAME) \
+	--workdir=$${PWD} \
+	/bin/bash -c 'source $(OE_INIT_PATH) $(BUILD_FOLDER_PATH) && bitbake $(BIBTAKE_IMAGE_NAME) && exit'
 
 env:
+	docker build -t $(DOCKER_IMAGE_NAME) . && \
 	docker run --rm -it \
 	--security-opt seccomp=unconfined \
 	-v  $${PWD}:$${PWD}:Z \
 	-v ~/.gitconfig:/etc/gitconfig:Z \
-	yocto-rzboard \
-	--workdir=$${PWD}/yocto_rzboard \
-	/bin/bash -c 'source poky/oe-init-build-env build/ && bash'
+	$(DOCKER_IMAGE_NAME) \
+	--workdir=$${PWD} \
+	/bin/bash -c 'source $(OE_INIT_PATH) $(BUILD_FOLDER_PATH) && bash'
