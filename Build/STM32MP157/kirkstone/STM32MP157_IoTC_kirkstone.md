@@ -37,12 +37,7 @@ wget https://raw.githubusercontent.com/avnet-iotconnect/meta-iotconnect-docs/mai
 wget https://raw.githubusercontent.com/avnet-iotconnect/meta-iotconnect-docs/main/Build/STM32MP157/kirkstone/Dockerfile
 ```
 
-4. Enter the docker environment:
-```bash
-make docker
-```
-
-5. Setup the environment:
+4. Setup the environment:
 ```bash
 DISTRO=openstlinux-weston
 MACHINE=stm32mp1
@@ -50,12 +45,7 @@ MACHINE=stm32mp1
 source layers/meta-st/scripts/envsetup.sh
 ```
 
-6. Exit docker and return to the host:
-```bash
-exit
-```
-
-7. Build the image on the host:
+5. Build the image on the host:
 ```bash
 make build
 ```

@@ -8,7 +8,8 @@ RUN apt-get update && \
     libgmp-dev \
     libmpc-dev \
     libssl-dev \
-    python3-pip
+    python3-pip \
+    vim
 
 USER usersetup
 
