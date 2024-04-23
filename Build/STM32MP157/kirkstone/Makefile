@@ -1,11 +1,11 @@
 .PHONY: docker build env
 
 # Modifiy these as needed
-DOCKER_IMAGE_NAME=rzboardv2l-dunfell
-BIBTAKE_IMAGE_NAME=avnet-core-image
+DOCKER_IMAGE_NAME=yocto-stm32m157-kirkstone
+BITBAKE_IMAGE_NAME=st-image-weston
 LAYERS_SOURCES_PATH=layers
-BUILD_FOLDER_PATH=build/
-OE_INIT_PATH=./poky/oe-init-build-env
+BUILD_FOLDER_PATH=build-openstlinuxweston-stm32mp1
+OE_INIT_PATH=./openembedded-core/oe-init-build-env
 
 docker:
 	docker build -t $(DOCKER_IMAGE_NAME) . && \
@@ -23,8 +23,8 @@ build:
 	-v  $${PWD}:$${PWD}:Z \
 	-v ~/.gitconfig:/etc/gitconfig:Z \
 	$(DOCKER_IMAGE_NAME) \
-	--workdir=$${PWD}/$(LAYERS_SOURCES_PATH) \
-	/bin/bash -c 'source $(OE_INIT_PATH) $(BUILD_FOLDER_PATH) && bitbake $(BIBTAKE_IMAGE_NAME) && exit'
+	--workdir=$${PWD} \
+	/bin/bash -c 'source $(LAYERS_SOURCES_PATH)/$(OE_INIT_PATH) $(BUILD_FOLDER_PATH) && bitbake $(BITBAKE_IMAGE_NAME) && exit'
 
 env:
 	docker build -t $(DOCKER_IMAGE_NAME) . && \
