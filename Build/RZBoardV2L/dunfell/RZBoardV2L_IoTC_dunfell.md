@@ -47,7 +47,7 @@ chmod a+x create_yocto_rz_src.sh && \
 ./create_yocto_rz_src.sh
 ```
 
-5. Clone meta-rzboard
+5. Clone meta-rzboard into our sources:
 ```bash
 cd ./yocto_rzboard
 git clone https://github.com/Avnet/meta-rzboard.git -b rzboard_dunfell_5.10_v3
@@ -66,6 +66,7 @@ echo -e "\nIMAGE_ROOTFS_SIZE = \"5120000\"" >> meta-rzboard/recipes-core/images/
 
 8. Build the project:
 ```bash
+cd ..
 make build
 ```
 
