@@ -17,6 +17,7 @@ docker:
 
 
 build:
+	docker build -t $(DOCKER_IMAGE_NAME) . && \
 	docker run --rm -it \
 	--security-opt seccomp=unconfined \
 	-v  $${PWD}:$${PWD}:Z \
@@ -27,6 +28,7 @@ build:
 
 
 env:
+	docker build -t $(DOCKER_IMAGE_NAME) . && \
 	docker run --rm -it \
 	--security-opt seccomp=unconfined \
 	-v  $${PWD}:$${PWD}:Z \
