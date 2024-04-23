@@ -13,8 +13,9 @@ You will also need the [SDK](../IoTC-SDK/README.md) installed.
 git clone git@github.com:avnet-iotconnect/meta-iotconnect-demos.git -b {YOCTO_VERSION_HERE}
 ```
 
-4. Enter the docker environment:
+4. Return to the top level with the `Makefile` and enter the docker environment:
 ```bash
+cd ..
 make env
 ```
 

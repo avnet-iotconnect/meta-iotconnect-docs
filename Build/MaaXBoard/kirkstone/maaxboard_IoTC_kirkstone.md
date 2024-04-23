@@ -17,8 +17,6 @@ After you have built this you will need to add the [SDK](../../IoTC-SDK/README.m
 
     `git config --global user.email "{YOUR_EMAIL_HERE}"`
 
--...
-
 ## Method
 1. Create project directory and enter it:
 ```bash

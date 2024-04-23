@@ -25,13 +25,13 @@ mkdir RZBoardV2L_IoTC_dunfell && cd RZBoardV2L_IoTC_dunfell
 
 2. Download the following packages manually and place inside the `RZBoardV2L_IoTC_dunfell` directory
 
-| Package Name                  | Version                   | File                                                                                                                                                                      |
+| Package Name                  | Version                   | Download File                                                                                                                                                             |
 |-------------------------------|---------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| RZ/V Verified Linux Package   | V3.0.2                    | [RTK0EF0045Z0024AZJ-v3.0.2.zip](https://www.renesas.com/us/en/document/swo/rzv-verified-linux-package-v302rtk0ef0045z0024azj-v302zip?r=1628526)                           |
-| RZ MPU Graphics Library       | Evaluation Version V1.4   | [RTK0EF0045Z13001ZJ-v1.4_EN.zip](https://www.renesas.com/us/en/document/swo/rz-mpu-graphics-library-evaluation-version-rzv2l-rtk0ef0045z13001zj-v14enzip?r=1843541)       |
-| RZ MPU Codec Library          | Evaluation Version V1.0.1 | [RTK0EF0045Z15001ZJ-v1.0.1_EN.zip](https://www.renesas.com/us/en/document/swo/rz-mpu-video-codec-library-evaluation-version-rzv2l-rtk0ef0045z15001zj-v101enzip?r=1844066) |
-| RZ/V2L DRP-AI Support Package | V7.30                     | [r11an0549ej0730-rzv2l-drpai-sp.zip](https://www.renesas.com/us/en/document/sws/rzv2l-drp-ai-support-package-version-730?r=1558356)                                       |
-| RZ/V2L Multi-OS Package       | V1.10                     | [r01an6238ej0110-rzv2l-cm33-multi-os-pkg.zip](https://www.renesas.com/us/en/document/sws/rzv-multi-os-package-v110)                                                       |
+| RZ/V Verified Linux Package   | V3.0.4                    | [RTK0EF0045Z0024AZJ-v3.0.4.zip](https://www.renesas.com/us/en/document/swo/rzv-verified-linux-package-v304rtk0ef0045z0024azj-v304zip?r=1628526)                           |
+| RZ MPU Graphics Library       | Evaluation Version V1.1.0 | [RTK0EF0045Z13001ZJ-v1.1.0_EN.zip](https://www.renesas.com/us/en/document/sws/rz-mpu-graphics-library-evaluation-version-rzv2l-rtk0ef0045z13001zj-v110enzip?r=1843541)    |
+| RZ MPU Codec Library          | Evaluation Version V1.1.0 | [RTK0EF0045Z15001ZJ-v1.1.0_EN.zip](https://www.renesas.com/us/en/document/sws/rz-mpu-video-codec-library-evaluation-version-rzv2l-rtk0ef0045z15001zj-v110enzip?r=1844066) |
+| RZ/V2L DRP-AI Support Package | V7.40                     | [r11an0549ej0740-rzv2l-drpai-sp.zip](https://www.renesas.com/us/en/document/sws/rzv2l-drp-ai-support-package-version-740?r=1558356)                                       |
+| RZ/V2L Multi-OS Package       | V1.11                     | [r01an6238ej0111-rzv2l-cm33-multi-os-pkg.zip](https://www.renesas.com/us/en/document/sws/rzv-multi-os-package-v111?r=1570181)                                             |
 
 
 3. Download the provided `Makefile` and `Dockerfile`:
@@ -47,7 +47,7 @@ make docker
 
 5. Download and execute the project setup script:
 ```bash
-wget https://raw.githubusercontent.com/Avnet/meta-rzboard/rzboard_dunfell_5.10_v2/tools/create_yocto_rz_src.sh && \
+wget https://raw.githubusercontent.com/Avnet/meta-rzboard/rzboard_dunfell_5.10_v3/tools/create_yocto_rz_src.sh && \
 chmod a+x create_yocto_rz_src.sh && \
 ./create_yocto_rz_src.sh
 ```
@@ -55,7 +55,7 @@ chmod a+x create_yocto_rz_src.sh && \
 6. Clone meta-rzboard
 ```bash
 cd ./yocto_rzboard
-git clone https://github.com/Avnet/meta-rzboard.git -b rzboard_dunfell_5.10_v2
+git clone https://github.com/Avnet/meta-rzboard.git -b rzboard_dunfell_5.10_v3
 ```
 
 7. Copy over build conf:
@@ -92,5 +92,5 @@ sudo ./flash_rzboard.py --full --image_path ../
 ```
 
 #### Notes:
-- Based on the [meta-rzboard](https://github.com/Avnet/meta-rzboard/tree/rzboard_dunfell_5.10_v2) repository
+- Based on the [meta-rzboard](https://github.com/Avnet/meta-rzboard/tree/rzboard_dunfell_5.10_v3) repository
 - Flashing instructions based on [Build, Deploy, & Run a Qt Enabled Image on the RZBoard V2L](https://www.hackster.io/lucas-keller/build-deploy-run-a-qt-enabled-image-on-the-rzboard-v2l-de6c41#toc-hardware-configuration-11)
