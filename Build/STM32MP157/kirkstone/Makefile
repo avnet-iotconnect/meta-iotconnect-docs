@@ -1,32 +1,40 @@
+.PHONY: docker build env
+
+# Modifiy these as needed
+DOCKER_IMAGE_NAME=rzboardv2l-dunfell
+BIBTAKE_IMAGE_NAME=avnet-core-image
+LAYERS_SOURCES_PATH=layers
+BUILD_FOLDER_PATH=build/
+OE_INIT_PATH=./poky/oe-init-build-env
+
 docker:
-	docker build -t yocto-stm32mp17-kirkstone . && \
+	docker build -t $(DOCKER_IMAGE_NAME) . && \
 	docker run --rm -it \
 	--security-opt seccomp=unconfined \
 	-v  $${PWD}:$${PWD}:Z \
 	-v ~/.gitconfig:/etc/gitconfig:Z \
-	yocto-stm32mp17-kirkstone \
-	--workdir=$${PWD}
-
+	$(DOCKER_IMAGE_NAME) \
+	--workdir=$${PWD}/$(LAYERS_SOURCES_PATH)
 
 build:
+	docker build -t $(DOCKER_IMAGE_NAME) . && \
 	docker run --rm -it \
 	--security-opt seccomp=unconfined \
 	-v  $${PWD}:$${PWD}:Z \
 	-v ~/.gitconfig:/etc/gitconfig:Z \
-	yocto-stm32mp17-kirkstone \
-	--workdir=$${PWD} \
-	/bin/bash -c 'source ./layers/openembedded-core/oe-init-build-env ./build-openstlinuxweston-stm32mp1/ && bitbake st-image-weston && exit'
-
+	$(DOCKER_IMAGE_NAME) \
+	--workdir=$${PWD}/$(LAYERS_SOURCES_PATH) \
+	/bin/bash -c 'source $(OE_INIT_PATH) $(BUILD_FOLDER_PATH) && bitbake $(BIBTAKE_IMAGE_NAME) && exit'
 
 env:
+	docker build -t $(DOCKER_IMAGE_NAME) . && \
 	docker run --rm -it \
 	--security-opt seccomp=unconfined \
 	-v  $${PWD}:$${PWD}:Z \
 	-v ~/.gitconfig:/etc/gitconfig:Z \
-	yocto-stm32mp17-kirkstone \
-	--workdir=$${PWD} \
-	/bin/bash -c 'source ./layers/openembedded-core/oe-init-build-env build-openstlinuxweston-stm32mp1/ && bash'
-
+	$(DOCKER_IMAGE_NAME) \
+	--workdir=$${PWD}/$(LAYERS_SOURCES_PATH) \
+	/bin/bash -c 'source $(OE_INIT_PATH) $(BUILD_FOLDER_PATH) && bash'
 
 STM32_PROGRAMMER_PATH := $(shell dirname "$(shell find / -type f -name STM32_Programmer_CLI -print -quit 2>/dev/null)")
 export PATH := $(STM32_PROGRAMMER_PATH):$(PATH)

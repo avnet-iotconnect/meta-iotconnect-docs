@@ -3,6 +3,7 @@
 # Modifiy these as needed
 DOCKER_IMAGE_NAME=rzboardv2l-dunfell
 BIBTAKE_IMAGE_NAME=avnet-core-image
+LAYERS_SOURCES_PATH=yocto_rzboard
 BUILD_FOLDER_PATH=build/
 OE_INIT_PATH=./poky/oe-init-build-env
 
@@ -13,7 +14,7 @@ docker:
 	-v  $${PWD}:$${PWD}:Z \
 	-v ~/.gitconfig:/etc/gitconfig:Z \
 	$(DOCKER_IMAGE_NAME) \
-	--workdir=$${PWD}
+	--workdir=$${PWD}/$(LAYERS_SOURCES_PATH)
 
 build:
 	docker build -t $(DOCKER_IMAGE_NAME) . && \
@@ -22,7 +23,7 @@ build:
 	-v  $${PWD}:$${PWD}:Z \
 	-v ~/.gitconfig:/etc/gitconfig:Z \
 	$(DOCKER_IMAGE_NAME) \
-	--workdir=$${PWD} \
+	--workdir=$${PWD}/$(LAYERS_SOURCES_PATH) \
 	/bin/bash -c 'source $(OE_INIT_PATH) $(BUILD_FOLDER_PATH) && bitbake $(BIBTAKE_IMAGE_NAME) && exit'
 
 env:
@@ -32,5 +33,5 @@ env:
 	-v  $${PWD}:$${PWD}:Z \
 	-v ~/.gitconfig:/etc/gitconfig:Z \
 	$(DOCKER_IMAGE_NAME) \
-	--workdir=$${PWD} \
+	--workdir=$${PWD}/$(LAYERS_SOURCES_PATH) \
 	/bin/bash -c 'source $(OE_INIT_PATH) $(BUILD_FOLDER_PATH) && bash'

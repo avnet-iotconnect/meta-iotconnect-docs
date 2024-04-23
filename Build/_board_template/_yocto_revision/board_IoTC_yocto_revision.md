@@ -22,24 +22,19 @@ After you have built this you will need to add the [SDK](../../IoTC-SDK/README.m
 ## Method
 1. Create project directory and enter it:
 ```bash
-mkdir XXX && cd $_
+mkdir {BOARD-NAME}_IoTC_{YOCTO-VERSION} && cd {BOARD-NAME}_IoTC_{YOCTO-VERSION}
 ```
 
 2. Use `repo` to get Yocto sources:
 ```bash
-repo init -u XXX && \
+repo init -u {REPO_URL} && \
 repo sync    
 ```
 
 3. Download the provided `Makefile` and `Dockerfile`:
 ```bash
-wget https://raw.githubusercontent.com/avnet-iotconnect/meta-iotconnect-docs/main/Build/XXX/XXX/Makefile && \
-wget https://raw.githubusercontent.com/avnet-iotconnect/meta-iotconnect-docs/main/Build/XXX/XXX/Dockerfile
-```
-
-4. Enter the docker environment:
-```bash
-make docker
+wget https://raw.githubusercontent.com/avnet-iotconnect/meta-iotconnect-docs/main/Build/{BOARD-NAME}/{YOCTO-VERSION}/Makefile && \
+wget https://raw.githubusercontent.com/avnet-iotconnect/meta-iotconnect-docs/main/Build/{BOARD-NAME}/{YOCTO-VERSION}/Dockerfile
 ```
 
 5. Setup the environment:
@@ -47,12 +42,8 @@ make docker
 XXX
 ```
 
-6. Exit docker and return to the host:
+7. Return to the top level and build the image:
 ```bash
-exit
-```
-
-7. Build the image on the host:
-```bash
+cd ..
 make build
 ```
