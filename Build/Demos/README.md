@@ -35,7 +35,8 @@ make build
 ```
 
 
-## Notes:
+## Troubleshooting:
 
-1. If you are having issues with the demos not appearing, it may be worth a try replacing `IMAGE_INSTALL` with `CORE_IMAGE_EXTRA_INSTALL` in 
-`meta-iotconnect-demos/conf/layer.conf`
+1. If you are having issues with the demos not appearing, it may be worth a try replacing `IMAGE_INSTALL` with `CORE_IMAGE_EXTRA_INSTALL` in `meta-iotconnect-demos/conf/layer.conf`.
+2. If you are having connection issues try `ping 1.1.1.1` to test your network connection. Then try `ping google.com` to see if your DNS works. If you are able to get network but no DNS you may need to install a DNS resolver such as systemd-resolved.
+3. If your Yocto image fails to build you can modify the `Makefile` to change `bitbake` to `bitbake -k`, by adding `-k` bitbake will continue even on failure. This sometimes is able to resolve a failing build. Another thing you can try is removing systemd from your builds. This has been observed to fail on some platforms such as the RZ.

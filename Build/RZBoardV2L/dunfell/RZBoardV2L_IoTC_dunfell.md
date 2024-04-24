@@ -85,3 +85,4 @@ sudo ./flash_rzboard.py --full --image_path ../
 #### Notes:
 - Based on the [meta-rzboard](https://github.com/Avnet/meta-rzboard/tree/rzboard_dunfell_5.10_v3) repository
 - Flashing instructions based on [Build, Deploy, & Run a Qt Enabled Image on the RZBoard V2L](https://www.hackster.io/lucas-keller/build-deploy-run-a-qt-enabled-image-on-the-rzboard-v2l-de6c41#toc-hardware-configuration-11)
+- You may have to remove systemd from the demo files in order for the Yocto image to build.
