@@ -75,7 +75,7 @@ make build
 1. Using Balena Etcher or `dd` write `avnet-core-image-rzboard.wic` to an SD card. This file will be a symlink to another file named `avnet-core-image-rzboard-YYYYMMDDXXXXX.rootfs.wic`. While it's doing that you can continue on the rest of the guide.
 
 2. Setup the device by connecting the serial port, the jumper wire, and changing the dip switches. You can skip the ethernet port.
-![RZBoardV2L Flashing wiring diagram](https://hackster.imgix.net/uploads/attachments/1634133/image_Epd2Fx4Hue.png)
+![RZBoardV2L Flashing wiring diagram](https://hackster.imgix.net/uploads/attachments/1634133/image_Epd2Fx4Hue.png?auto=compress%2Cformat&w=740&h=555&fit=max)
 
 3. Download the flash tool to the your images dir:
 ```bash
