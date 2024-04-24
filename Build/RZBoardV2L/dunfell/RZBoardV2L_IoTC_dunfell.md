@@ -71,16 +71,40 @@ make build
 ```
 
 ### Flashing
-Flashing instructions based on [Build, Deploy, & Run a Qt Enabled Image on the RZBoard V2L](https://www.hackster.io/lucas-keller/build-deploy-run-a-qt-enabled-image-on-the-rzboard-v2l-de6c41#toc-hardware-configuration-11) but there are some small changes to the instructions, read the instructions to set the jumpers, set dip switches etc and follow the procedure below to download and setup the flashing tool.
+
+1. Using Balena Etcher or `dd` write `avnet-core-image-rzboard.wic` to an SD card. This file will be a symlink to another file named `avnet-core-image-rzboard-YYYYMMDDXXXXX.rootfs.wic`. While it's doing that you can continue on the rest of the guide.
+
+2. Setup the device by connecting the serial port, the jumper wire, and changing the dip switches. You can skip the ethernet port.
+![RZBoardV2L Flashing wiring diagram](https://hackster.imgix.net/uploads/attachments/1634133/image_Epd2Fx4Hue.png)
+
+3. Download the flash tool to the your images dir:
 ```bash
 cd yocto_rzboard/build/tmp/deploy/images/rzboard/
 git clone https://github.com/Avnet/rzboard_flash_util.git
 cd rzboard_flash_util
-sudo pip3 install -r requirements.txt
-
-# finally to flash
-sudo ./flash_rzboard.py --full --image_path ../	
 ```
+
+4. Install python requirements as root:
+```bash
+sudo pip3 install -r requirements.txt
+```
+
+5. Flash the bootloader to the device:
+```bash
+sudo ./flash_rzboard.py --bootloader --image_path ../
+```
+
+6. When prompted to power on the board: connect the power cable and hold the power button for a few seconds until the LED turns on. The script will start flashing your bootloader. After it's done power off the device.
+
+
+7. Flip the dip switches to the following position to boot from the SDCard:
+
+| Switch | Position |
+|--------|----------|
+| 1      | OFF      |
+| 2      | ON       |
+
+8. Remove the jumper but leave the serial cable, plug the SD Card in and hold the power button to boot the device. As it's booting you should be able to read the serial output with `minicom` or a similar utility.
 
 #### Notes:
 - Based on the [meta-rzboard](https://github.com/Avnet/meta-rzboard/tree/rzboard_dunfell_5.10_v3) repository
