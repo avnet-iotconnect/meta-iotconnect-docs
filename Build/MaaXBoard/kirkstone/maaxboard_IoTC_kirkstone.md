@@ -20,13 +20,13 @@ After you have built this you will need to add the [SDK](../../IoTC-SDK/README.m
 ## Method
 1. Create project directory and enter it:
 ```bash
-mkdir imx-yocto-bsp  && cd $_
+mkdir MaaXBoard_IoTC_kirkstone  && cd MaaXBoard_IoTC_kirkstone
 ```
 
 2. Use `repo` to get Yocto sources:
 ```bash
 repo init -u https://github.com/nxp-imx/imx-manifest  -b imx-linux-kirkstone -m imx-5.15.71-2.2.2.xml && repo sync && \
-git clone https://github.com/Avnet/meta-maaxboard.git -b kirkstone sources/meta-maaxboard  
+git clone https://github.com/Avnet/meta-maaxboard.git -b kirkstone sources/meta-maaxboard
 ```
 
 3. Download the provided `Makefile` and `Dockerfile`:
@@ -54,6 +54,7 @@ exit
 ```bash
 make build
 ```
+
 ### Extras
 
 Instructions for using a serial adapter and UART are found [here](https://www.hackster.io/monica/getting-started-with-maaxboard-headless-setup-24102b)  

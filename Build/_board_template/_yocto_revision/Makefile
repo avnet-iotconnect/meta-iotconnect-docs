@@ -1,7 +1,7 @@
 .PHONY: docker build env
 
 # Modifiy these as needed
-DOCKER_IMAGE_NAME=board-yocto-branch
+DOCKER_IMAGE_NAME={BOARD_NAME}-iotc-{YOCTO_VERSION}-docker
 BIBTAKE_IMAGE_NAME=core-image-base
 LAYERS_SOURCES_PATH=layers
 BUILD_FOLDER_PATH=build/

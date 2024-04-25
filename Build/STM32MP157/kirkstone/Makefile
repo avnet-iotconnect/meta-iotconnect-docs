@@ -1,7 +1,7 @@
 .PHONY: docker build env
 
 # Modifiy these as needed
-DOCKER_IMAGE_NAME=yocto-stm32m157-kirkstone
+DOCKER_IMAGE_NAME=stm32m157-iotc-kirkstone-docker
 BITBAKE_IMAGE_NAME=st-image-weston
 LAYERS_SOURCES_PATH=layers
 BUILD_FOLDER_PATH=build-openstlinuxweston-stm32mp1

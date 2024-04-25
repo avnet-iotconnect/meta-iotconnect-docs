@@ -1,7 +1,7 @@
 .PHONY: docker build env
 
 # Modifiy these as needed
-DOCKER_IMAGE_NAME=maaxboard-yocto-kirkstone
+DOCKER_IMAGE_NAME=maaxboard-iotc-kirkstone-docker
 BIBTAKE_IMAGE_NAME=core-image-base
 BUILD_FOLDER_PATH=./maaxboard/build/
 OE_INIT_PATH=./sources/poky/oe-init-build-env

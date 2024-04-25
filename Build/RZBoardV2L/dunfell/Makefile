@@ -1,7 +1,7 @@
 .PHONY: docker build env
 
 # Modifiy these as needed
-DOCKER_IMAGE_NAME=rzboardv2l-dunfell
+DOCKER_IMAGE_NAME=rzboardv2l-iotc-dunfell-docker
 BIBTAKE_IMAGE_NAME=avnet-core-image
 LAYERS_SOURCES_PATH=yocto_rzboard
 BUILD_FOLDER_PATH=build/
