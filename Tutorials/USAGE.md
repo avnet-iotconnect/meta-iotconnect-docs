@@ -2,11 +2,26 @@
 
 These instructions guide you through using the demos provided by IoTConnect.
 
-After a board is flashed with the example image or compiled from source, and you have successfully booted the board and accessed the command line through a serial interface or ssh you can use the next steps to get you familiarized with the demo applications. 
+You will first need a board that has been flash with an [example image](../QuickStart/README.md) or a [compiled image](../Build/README.md). You will also need access to the board either via a serial interface or ssh.
 
 The IoTConnect demos and all related data live in `/usr/iotc`, in that directory you will find `bin` and `local`.
 Inside `bin` you will find two folders, each of these contain the executables for the C and Python Demos.
-Inside `local` reside configuration jsons, certificates and scripts that are executed as commands on the device from the IoTConnect portal.
+Inside `local` reside configuration jsons, certificates, and scripts that are executed as commands on the device from the IoTConnect portal.
+
+```
+/usr/iotc/
+├── bin/
+│   ├── iotc-c-sdk/
+│   │   └── iotc-c-demo
+│   └── iotc-python-sdk/
+│       └── iotc-python-demo.py
+└── local/
+    ├── certs/
+    │   └── YOUR_CERTS.pem
+    ├── scripts/
+    │   └── YOUR_SCRIPTS.sh
+    └── config.json
+```
 
 You will need to fill out the `config.json` provided when provisioning the device on IoTConnect.
 There is a further in-depth guide on filling out the `config.json` [here](SDK_JSON.md).
