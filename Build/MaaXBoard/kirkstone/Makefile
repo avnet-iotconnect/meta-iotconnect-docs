@@ -3,9 +3,8 @@
 # Modifiy these as needed
 DOCKER_IMAGE_NAME=maaxboard-iotc-kirkstone-docker
 BIBTAKE_IMAGE_NAME=core-image-base
-LAYERS_SOURCES_PATH=sources
-BUILD_FOLDER_PATH=build/
-OE_INIT_PATH=poky/oe-init-build-env
+BUILD_FOLDER_PATH=./maaxboard/build/
+OE_INIT_PATH=./sources/poky/oe-init-build-env
 
 docker:
 	docker build -t $(DOCKER_IMAGE_NAME) . && \
@@ -14,7 +13,7 @@ docker:
 	-v  $${PWD}:$${PWD}:Z \
 	-v ~/.gitconfig:/etc/gitconfig:Z \
 	$(DOCKER_IMAGE_NAME) \
-	--workdir=$${PWD}/$(LAYERS_SOURCES_PATH)
+	--workdir=$${PWD}
 
 
 build:
@@ -23,7 +22,7 @@ build:
 	-v  $${PWD}:$${PWD}:Z \
 	-v ~/.gitconfig:/etc/gitconfig:Z \
 	$(DOCKER_IMAGE_NAME) \
-	--workdir=$${PWD}/$(LAYERS_SOURCES_PATH) \
+	--workdir=$${PWD} \
 	/bin/bash -c 'source $(OE_INIT_PATH) $(BUILD_FOLDER_PATH) && bitbake $(BIBTAKE_IMAGE_NAME) && exit'
 
 
@@ -33,5 +32,5 @@ env:
 	-v  $${PWD}:$${PWD}:Z \
 	-v ~/.gitconfig:/etc/gitconfig:Z \
 	$(DOCKER_IMAGE_NAME) \
-	--workdir=$${PWD}/$(LAYERS_SOURCES_PATH) \
+	--workdir=$${PWD} \
 	/bin/bash -c 'source $(OE_INIT_PATH) $(BUILD_FOLDER_PATH) && bash'
