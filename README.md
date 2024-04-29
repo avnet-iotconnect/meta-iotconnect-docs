@@ -5,3 +5,5 @@
 | [Quick Start](./QuickStart/README.md) | Flash prebuilt images |
 | [Build](./Build/README.md)            | Build from source     |
 | [Tutorials](./Tutorials/README.md)    | Configuration Guide   |
+| [meta-iotconnect](./Build/IoTC-SDK/GENERIC-README.md) | Adding the SDKs to an existing Yocto project |
+| [meta-iotconnect-demos](./Build/Demos/GENERIC-README.md) | Adding the Demos to an existing Yocto project |
