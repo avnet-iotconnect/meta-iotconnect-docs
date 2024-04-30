@@ -1,7 +1,7 @@
 # Generic IoT Connect Yocto Demo Build Guide
 
 This is a generic guide on how to add the IoTConnect C and Python [Demos](https://github.com/avnet-iotconnect/meta-iotconnect-demos) to your existing Yocto build environment.
-First you will need to add the [SDK meta-layer](./IoTC-SDK/GENERIC-README.md)
+First you will need to add the [SDK meta-layer](../IoTC-SDK/GENERIC-README.md)
 
 1. Find the directory with all your Yocto layer source files, this may be named `layers`, `sources` or otherwise. This will depend on how your Yocto project is configured.
 
