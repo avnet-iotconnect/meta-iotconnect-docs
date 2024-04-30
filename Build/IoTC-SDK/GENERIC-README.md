@@ -10,11 +10,15 @@ This is a generic guide on how to add the IoTConnect C and Python [SDKs](https:/
 ```bash
 git clone git@github.com:avnet-iotconnect/meta-iotconnect.git -b <YOCTO_VERSION_HERE>
 ```
-4. Enter the `bitbake` environment, usually by `source <path-to-poky>/oe-init-build-env`
+4. Enter the `bitbake` environment, usually by `source ./path/to/poky/oe-init-build-env`
 
 5. Add the SDK to bitbake (relative to your `/build/` folder):
 ```bash
-bitbake-layers add-layer <path-to>/meta-iotconnect
+bitbake-layers add-layer ../path/to/meta-iotconnect
 ```
-This provides a recipe for the C SDK which you can add to your own recipes through `RDEPENDS_${PN} += " iotc-c-sdk"`
-as well as the Python SDK through `RDEPENDS_${PN} += " python3-iotconnect-sdk"`
+
+This provides a recipe for the C and Python SDK which you can add to your own recipes through:
+```
+RDEPENDS_${PN} += " iotc-c-sdk"
+RDEPENDS_${PN} += " python3-iotconnect-sdk"
+```

@@ -1,7 +1,7 @@
 # BOARD IoTC Build Guide
 
 First build the base for the Yocto image:
-- [Mickledore](./mickledore/msc-sm2s-imx8plus_IoTC_mickledore.md)
+- [Mickledore](./mickledore/MSC-SM2S-IMX8Plus_IoTC_mickledore.md)
 
 Then add the SDK:
 - [SDK](../IoTC-SDK/README.md)

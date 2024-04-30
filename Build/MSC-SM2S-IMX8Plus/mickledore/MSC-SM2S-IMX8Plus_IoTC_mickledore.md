@@ -1,4 +1,4 @@
-# msc-sm2s-imx8plus IoTC mickledore Base Image Build Guide
+# MSC SM2S-IMX8Plus IoTC mickledore Base Image Build Guide
 
 This will build a base Yocto image without IoTC for your board.
 
@@ -37,33 +37,29 @@ You will have to download and follow guides hosted on [Avnet Embedded](https://e
 
 ## Flashing
 
-You will need to follow the `uuu` tool to flash the board's eMMC, instructions are at [App_Note_035_Using_NXP_Mfgtool+uuu](https://embedded.avnet.com/?__wpdmlo=8965#) 
+1. Follow the `uuu` tool to flash the board's eMMC, instructions are at [App_Note_035_Using_NXP_Mfgtool+uuu](https://embedded.avnet.com/?__wpdmlo=8965#).
 
-You will need set the boot switches as below for eMMC flash and boot
+2. Set the boot switches as below for eMMC flash and boot:
 
-4 - Away from ON
+| Dip |     |
+|-----|-----|
+| 1   | ON  |
+| 2   | OFF |
+| 3   | OFF |
+| 4   | OFF |
 
-3 - Away from ON
-
-2 - Away from ON
-
-1 - Towards ON
-
-
-
-If your board already has a bootloader installed on it then you can flash `msc-image-base-sm2s-imx8mp.wic` to an SD card with `dd`
+3. If your board already has a bootloader installed on it then you can flash `msc-image-base-sm2s-imx8mp.wic` to an SD card with Balena Etcher or `dd`:
 ```bash
 sudo dd if=msc-image-base-sm2s-imx8mp.wic of=/dev/mmcblk0 bs=8M conv=fdatasync status=progress
 ```
 
-You will need set the boot switches as below for SD card boot
+4. Set the boot switches as below for SD card boot:
 
-4 - Towards ON
+| Dip |     |
+|-----|-----|
+| 1   | OFF |
+| 2   | ON  |
+| 3   | ON  |
+| 4   | ON  |
 
-3 - Towards ON
-
-2 - Towards ON
-
-1 - Away from ON
-
-Insert the SD card and power on the device
+5. Insert the SD card and power on the device.
