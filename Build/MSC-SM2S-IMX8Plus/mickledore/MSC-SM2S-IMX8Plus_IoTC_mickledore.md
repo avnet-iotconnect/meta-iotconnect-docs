@@ -39,7 +39,7 @@ You will have to download and follow guides hosted on [Avnet Embedded](https://e
 
 1. Follow the `uuu` tool to flash the board's eMMC, instructions are at [App_Note_035_Using_NXP_Mfgtool+uuu](https://embedded.avnet.com/?__wpdmlo=8965#).
 
-2. Set the boot switches as below for eMMC flash and boot:
+2. Set the dip switches as below for eMMC flash and boot:
 
 | Dip |     |
 |-----|-----|
@@ -53,7 +53,7 @@ You will have to download and follow guides hosted on [Avnet Embedded](https://e
 sudo dd if=msc-image-base-sm2s-imx8mp.wic of=/dev/mmcblk0 bs=8M conv=fdatasync status=progress
 ```
 
-4. Set the boot switches as below for SD card boot:
+4. Set the dip switches as below for SD card boot:
 
 | Dip |     |
 |-----|-----|
