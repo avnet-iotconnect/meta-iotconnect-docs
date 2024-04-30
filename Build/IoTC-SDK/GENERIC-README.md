@@ -1,6 +1,6 @@
 # Generic IoT Connect Yocto SDK Build Guide
 
-This is a generic guide on how to add the IoTConnect C and Python SDKs to your existing Yocto build environment.
+This is a generic guide on how to add the IoTConnect C and Python [SDKs](https://github.com/avnet-iotconnect/meta-iotconnect) to your existing Yocto build environment.
 
 1. Find the directory with all your Yocto layer source files, this may be named `layers`, `sources` or otherwise. This will depend on how your Yocto project is configured.
 
