@@ -19,7 +19,7 @@ After you have built this you will need to add the [SDK](../../IoTC-SDK/README.m
 ## Method
 1. Create project directory and enter it:
 ```bash
-mkdir SAMA5D2_IoTC_Kirkstone && cd SAMA5D2_IoTC_Kirkstone
+mkdir SAMA5D2_IoTC_kirkstone && cd SAMA5D2_IoTC_kirkstone
 ```
 
 2. Clone layer sources:
