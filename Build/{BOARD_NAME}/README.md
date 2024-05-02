@@ -1,7 +1,7 @@
 # {BOARD_NAME} IoTC Build Guide
 
 First build the base for the Yocto image:
-- [{YOCTO_VERSION}](./_yocto_revision/board_IoTC_yocto_revision.md)
+- [{YOCTO_VERSION}](./{YOCTO_VERSION}/{BOARD_NAME}_IoTC_{YOCTO_VERSION}.md)
 
 Then add the SDK:
 - [SDK](../IoTC-SDK/README.md)
