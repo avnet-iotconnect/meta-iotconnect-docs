@@ -1,6 +1,6 @@
 # STM32MP135 IoTC Build Guide
 
-First build the base for the Yotco image:
+First build the base for the Yocto image:
 - [Kirkstone](./kirkstone/STM32MP135_IoTC_kirkstone.md)
 
 Then add the SDK:

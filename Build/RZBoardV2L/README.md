@@ -1,6 +1,6 @@
 # RZ Board V2L IoTC Build Guide
 
-First build the base for the Yotco image:
+First build the base for the Yocto image:
 - [Dunfell](./dunfell/RZBoardV2L_IoTC_dunfell.md)
 
 Then add the SDK:
