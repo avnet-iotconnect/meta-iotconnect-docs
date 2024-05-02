@@ -1,4 +1,4 @@
-# Raspberry Pi IoTC Kirkstone Base Image Build Guide
+# Raspberry Pi IoTC Dunfell Base Image Build Guide
 
 This will build a base Yocto image without IoTC for your board.
 
@@ -19,23 +19,23 @@ After you have built this you will need to add the [SDK](../../IoTC-SDK/README.m
 ## Method
 1. Create project directory and enter it:
 ```bash
-mkdir RaspberryPi_IoTC_kirkstone && cd RaspberryPi_IoTC_kirkstone
+mkdir RaspberryPi_IoTC_dunfell && cd RaspberryPi_IoTC_dunfell
 ```
 
 2. Clone the layer sources:
 ```bash
 mkdir layers && \
 cd layers && \
-git clone -b kirkstone git://git.yoctoproject.org/poky.git && \
-git clone -b kirkstone git://git.yoctoproject.org/meta-raspberrypi.git && \
-git clone -b kirkstone git://git.openembedded.org/meta-openembedded && \
+git clone -b dunfell git://git.yoctoproject.org/poky.git && \
+git clone -b dunfell git://git.yoctoproject.org/meta-raspberrypi.git && \
+git clone -b dunfell git://git.openembedded.org/meta-openembedded && \
 cd ..
 ```
 
 3. Download the provided `Makefile` and `Dockerfile`:
 ```bash
-wget https://raw.githubusercontent.com/avnet-iotconnect/meta-iotconnect-docs/main/Build/RaspberryPi/kirkstone/Makefile && \
-wget https://raw.githubusercontent.com/avnet-iotconnect/meta-iotconnect-docs/main/Build/RaspberryPi/kirkstone/Dockerfile
+wget https://raw.githubusercontent.com/avnet-iotconnect/meta-iotconnect-docs/main/Build/RaspberryPi/dunfell/Makefile && \
+wget https://raw.githubusercontent.com/avnet-iotconnect/meta-iotconnect-docs/main/Build/RaspberryPi/dunfell/Dockerfile
 ```
 
 4. Enter the docker environment:
