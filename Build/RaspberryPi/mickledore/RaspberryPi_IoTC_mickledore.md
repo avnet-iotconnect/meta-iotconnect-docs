@@ -1,4 +1,4 @@
-# Raspberry Pi IoTC Dunfell Base Image Build Guide
+# Raspberry Pi IoTC mickledore Base Image Build Guide
 
 This will build a base Yocto image without IoTC for your board.
 
@@ -19,23 +19,23 @@ After you have built this you will need to add the [SDK](../../IoTC-SDK/README.m
 ## Method
 1. Create project directory and enter it:
 ```bash
-mkdir RaspberryPi_IoTC_dunfell && cd RaspberryPi_IoTC_dunfell
+mkdir RaspberryPi_IoTC_mickledore && cd RaspberryPi_IoTC_mickledore
 ```
 
 2. Clone the layer sources:
 ```bash
 mkdir layers && \
 cd layers && \
-git clone -b dunfell git://git.yoctoproject.org/poky.git && \
-git clone -b dunfell git://git.yoctoproject.org/meta-raspberrypi.git && \
-git clone -b dunfell git://git.openembedded.org/meta-openembedded && \
+git clone -b mickledore git://git.yoctoproject.org/poky.git && \
+git clone -b mickledore git://git.yoctoproject.org/meta-raspberrypi.git && \
+git clone -b mickledore git://git.openembedded.org/meta-openembedded && \
 cd ..
 ```
 
 3. Download the provided `Makefile` and `Dockerfile`:
 ```bash
-wget https://raw.githubusercontent.com/avnet-iotconnect/meta-iotconnect-docs/main/Build/RaspberryPi/dunfell/Makefile && \
-wget https://raw.githubusercontent.com/avnet-iotconnect/meta-iotconnect-docs/main/Build/RaspberryPi/dunfell/Dockerfile
+wget https://raw.githubusercontent.com/avnet-iotconnect/meta-iotconnect-docs/main/Build/RaspberryPi/mickledore/Makefile && \
+wget https://raw.githubusercontent.com/avnet-iotconnect/meta-iotconnect-docs/main/Build/RaspberryPi/mickledore/Dockerfile
 ```
 
 4. Enter the docker environment:
@@ -84,7 +84,12 @@ layers/meta-raspberrypi/conf/machine/raspberrypi5.conf
 MACHINE ??= "raspberrypi4"
 ```
 
-9. Build the image:
+9. Accept the license agreement for synaptic:
+```bash
+echo "LICENSE_FLAGS_ACCEPTED = \"synaptics-killswitch\"" >> layers/build/conf/local.conf
+```
+
+10. Build the image:
 ```bash
 make build
 ```

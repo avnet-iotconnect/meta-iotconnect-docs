@@ -84,7 +84,7 @@ layers/meta-raspberrypi/conf/machine/raspberrypi5.conf
 MACHINE ??= "raspberrypi4"
 ```
 
-9. Return to the top level and build the image:
+9. Build the image:
 ```bash
 make build
 ```

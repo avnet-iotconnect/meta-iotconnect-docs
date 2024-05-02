@@ -1,6 +1,7 @@
 # Raspberry Pi IoTC Build Guide
 
 First build the base for the Yocto image:
+- [Mickledore](./mickledore/RaspberryPi_IoTC_mickledore.md)
 - [Kirkstone](./kirkstone/RaspberryPi_IoTC_kirkstone.md)
 - [Dunfell](./kirkstone/RaspberryPi_IoTC_dunfell.md)
 
