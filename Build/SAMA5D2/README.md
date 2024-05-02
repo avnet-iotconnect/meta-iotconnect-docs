@@ -1,4 +1,4 @@
-# {BOARD_NAME} IoTC Build Guide
+# SAMA5D2 IoTC Build Guide
 
 First build the base for the Yocto image:
 - [Kirkstone](./kirkstone/SAMA5D2_IoTC_kirkstone.md)

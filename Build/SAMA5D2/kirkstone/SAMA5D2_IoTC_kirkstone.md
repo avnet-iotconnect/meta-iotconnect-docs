@@ -1,4 +1,4 @@
-# {BOARD_NAME} IoTC {YOCTO_VERSION} Base Image Build Guide
+# SAMA5D2 IoTC Kirkstone Base Image Build Guide
 
 This will build a base Yocto image without IoTC for your board.
 
