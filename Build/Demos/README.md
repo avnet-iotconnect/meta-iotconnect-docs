@@ -10,7 +10,7 @@ You will also need the [SDK](../IoTC-SDK/README.md) installed.
 
 3. Clone the SDK into your sources directory. Make sure you checkout the right version of the SDK for your Yocto version. This may be `kirkstone`, `dunfell`, or otherwise.
 ```bash
-git clone git@github.com:avnet-iotconnect/meta-iotconnect-demos.git -b {YOCTO_VERSION_HERE}
+git clone git@github.com:avnet-iotconnect/meta-iotconnect-demos.git -b {YOCTO_VERSION}
 ```
 
 4. Return to the top level with the `Makefile` and enter the docker environment:

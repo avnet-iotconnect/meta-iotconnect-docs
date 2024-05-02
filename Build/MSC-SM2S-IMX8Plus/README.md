@@ -1,4 +1,4 @@
-# BOARD IoTC Build Guide
+# MSC SM2S IMX8Plus IoTC Build Guide
 
 First build the base for the Yocto image:
 - [Mickledore](./mickledore/MSC-SM2S-IMX8Plus_IoTC_mickledore.md)

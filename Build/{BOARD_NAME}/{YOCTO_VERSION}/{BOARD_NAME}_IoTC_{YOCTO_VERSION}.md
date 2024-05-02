@@ -1,4 +1,4 @@
-# BOARD IoTC YOCTO_REVISION Base Image Build Guide
+# {BOARD_NAME} IoTC {YOCTO_VERSION} Base Image Build Guide
 
 This will build a base Yocto image without IoTC for your board.
 
@@ -16,13 +16,12 @@ After you have built this you will need to add the [SDK](../../IoTC-SDK/README.m
     `git config --global user.name "{YOUR_NAME_HERE}"`
 
     `git config --global user.email "{YOUR_EMAIL_HERE}"`
-
--...
+- ...
 
 ## Method
 1. Create project directory and enter it:
 ```bash
-mkdir {BOARD-NAME}_IoTC_{YOCTO-VERSION} && cd {BOARD-NAME}_IoTC_{YOCTO-VERSION}
+mkdir {BOARD_NAME}_IoTC_{YOCTO_VERSION} && cd {BOARD_NAME}_IoTC_{YOCTO_VERSION}
 ```
 
 2. Use `repo` to get Yocto sources:
@@ -33,8 +32,8 @@ repo sync
 
 3. Download the provided `Makefile` and `Dockerfile`:
 ```bash
-wget https://raw.githubusercontent.com/avnet-iotconnect/meta-iotconnect-docs/main/Build/{BOARD-NAME}/{YOCTO-VERSION}/Makefile && \
-wget https://raw.githubusercontent.com/avnet-iotconnect/meta-iotconnect-docs/main/Build/{BOARD-NAME}/{YOCTO-VERSION}/Dockerfile
+wget https://raw.githubusercontent.com/avnet-iotconnect/meta-iotconnect-docs/main/Build/{BOARD_NAME}/{YOCTO_VERSION}/Makefile && \
+wget https://raw.githubusercontent.com/avnet-iotconnect/meta-iotconnect-docs/main/Build/{BOARD_NAME}/{YOCTO_VERSION}/Dockerfile
 ```
 
 5. Setup the environment:

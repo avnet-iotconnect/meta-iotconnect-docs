@@ -8,7 +8,7 @@ This is a generic guide on how to add the IoTConnect C and Python [SDKs](https:/
 
 3. Clone the SDK into your sources directory. Make sure you checkout the right version of the SDK for your Yocto version. This may be `kirkstone`, `dunfell`, or otherwise.
 ```bash
-git clone git@github.com:avnet-iotconnect/meta-iotconnect.git -b <YOCTO_VERSION_HERE>
+git clone git@github.com:avnet-iotconnect/meta-iotconnect.git -b {YOCTO_VERSION}
 ```
 4. Enter the `bitbake` environment, usually by `source ./path/to/poky/oe-init-build-env`
 
