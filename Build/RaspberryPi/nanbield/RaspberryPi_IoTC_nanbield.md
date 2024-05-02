@@ -1,4 +1,4 @@
-# Raspberry Pi IoTC Mickledore Base Image Build Guide
+# Raspberry Pi IoTC Nanbield Base Image Build Guide
 
 This will build a base Yocto image without IoTC for your board.
 
@@ -19,23 +19,23 @@ After you have built this you will need to add the [SDK](../../IoTC-SDK/README.m
 ## Method
 1. Create project directory and enter it:
 ```bash
-mkdir RaspberryPi_IoTC_mickledore && cd RaspberryPi_IoTC_mickledore
+mkdir RaspberryPi_IoTC_nanbield && cd RaspberryPi_IoTC_nanbield
 ```
 
 2. Clone the layer sources:
 ```bash
 mkdir layers && \
 cd layers && \
-git clone -b mickledore git://git.yoctoproject.org/poky.git && \
-git clone -b mickledore git://git.yoctoproject.org/meta-raspberrypi.git && \
-git clone -b mickledore git://git.openembedded.org/meta-openembedded && \
+git clone -b nanbield git://git.yoctoproject.org/poky.git && \
+git clone -b nanbield git://git.yoctoproject.org/meta-raspberrypi.git && \
+git clone -b nanbield git://git.openembedded.org/meta-openembedded && \
 cd ..
 ```
 
 3. Download the provided `Makefile` and `Dockerfile`:
 ```bash
-wget https://raw.githubusercontent.com/avnet-iotconnect/meta-iotconnect-docs/main/Build/RaspberryPi/mickledore/Makefile && \
-wget https://raw.githubusercontent.com/avnet-iotconnect/meta-iotconnect-docs/main/Build/RaspberryPi/mickledore/Dockerfile
+wget https://raw.githubusercontent.com/avnet-iotconnect/meta-iotconnect-docs/main/Build/RaspberryPi/nanbield/Makefile && \
+wget https://raw.githubusercontent.com/avnet-iotconnect/meta-iotconnect-docs/main/Build/RaspberryPi/nanbield/Dockerfile
 ```
 
 4. Enter the docker environment:
