@@ -1,4 +1,4 @@
-# BOARD IoTC YOCTO_REVISION Base Image Build Guide
+# Raspberry Pi IoTC Kirkstone Base Image Build Guide
 
 This will build a base Yocto image without IoTC for your board.
 
