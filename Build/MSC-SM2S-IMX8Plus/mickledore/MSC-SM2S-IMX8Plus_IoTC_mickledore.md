@@ -1,8 +1,8 @@
-# MSC SM2S-IMX8Plus IoTC Mickledore Base Image Build Guide
+# MSC SM2S-IMX8Plus IoTC Mickledore Base + IoTC Image Build Guide
 
 This will build a base Yocto image without IoTC for your board.
 
-After you have built this you will need to add the [SDK](../../IoTC-SDK/README.md) and the [demos](../../Demos/README.md).
+This board is slightly different to the others so the [SDK](../../IoTC-SDK/README.md) and [demos](../../Demos/README.md) instructions will be included below.
 
 ## Method
 
