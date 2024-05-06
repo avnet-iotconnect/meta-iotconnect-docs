@@ -1,4 +1,4 @@
-# MSC SM2S-IMX8Plus IoTC mickledore Base Image Build Guide
+# MSC SM2S-IMX8Plus IoTC Mickledore Base Image Build Guide
 
 This will build a base Yocto image without IoTC for your board.
 
@@ -37,9 +37,9 @@ cd ../../ && \
 make
 ```
 
-## Flashing
+#### Flashing
 
-1. Follow the `uuu` tool to flash the board's eMMC, instructions are at [App_Note_035_Using_NXP_Mfgtool+uuu](https://embedded.avnet.com/?__wpdmlo=8965#).
+1. Follow the `uuu` tool to flash the board's eMMC, instructions are at: [App_Note_035_Using_NXP_Mfgtool+uuu](https://embedded.avnet.com/?__wpdmlo=8965#)
 
 2. Set the dip switches as below for eMMC flash and boot:
 
