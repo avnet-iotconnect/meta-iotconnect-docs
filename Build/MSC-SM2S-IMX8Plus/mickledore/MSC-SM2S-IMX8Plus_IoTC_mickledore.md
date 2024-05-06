@@ -8,31 +8,33 @@ After you have built this you will need to add the [SDK](../../IoTC-SDK/README.m
 
 You will have to download and follow guides hosted on [Avnet Embedded](https://embedded.avnet.com/product/msc-sm2s-imx8plus/#mechanical_data).
 
-1. Start off getting access to the MSC git server (Chapter 3.1 to 3.2) of [App_Note_030_Building_from_MSC_Git_V1_9](https://embedded.avnet.com/?__wpdmlo=8955#)
+1. Start off getting access to the MSC git server (Chapter 3.1 to 3.2) of:  [App_Note_030_Building_from_MSC_Git_V1_9](https://embedded.avnet.com/?__wpdmlo=8955#)
 
-2. Get the url for the git server (Chapter 3.2) from [App_Note_030_Addendum_Building_from_MSC_Git_2024-04-25](https://embedded.avnet.com/?__wpdmlo=9219#)
+2. Get the url for the git server (Chapter 3.2) from: [App_Note_030_Addendum_Building_from_MSC_Git_2024-04-25](https://embedded.avnet.com/?__wpdmlo=9219#)
 
-3. Follow these commands ( you will need to replace the XXXXXXX with the url from the pdf)
+3. Clone the private repo, you will need to replace the XXXXXXX with the url from the pdf:
 ```bash
-    git clone ssh://gitolite@XXXXXXX:9418/msc_ol99/msc-ldk --branch master && cd msc-ldk
-    git checkout 96b9a738fc532547ab05d502769cec4fdffafdfb
-    ./setup.py --bsp=01047 --checkout-layers --re-create-conf
-
-    # this build the basic image without IoTConnect layers
-    make  
+git clone ssh://gitolite@XXXXXXX:9418/msc_ol99/msc-ldk --branch master && cd msc-ldk
+git checkout 96b9a738fc532547ab05d502769cec4fdffafdfb
+./setup.py --bsp=01047 --checkout-layers --re-create-conf
 ```
 
-4. Since this board is built in a different way to the others, the steps for adding the SDK and Demos will be given below:
+4. Build the base image:
 ```bash
-    cd sources && \
-    git clone git@github.com:avnet-iotconnect/meta-iotconnect.git -b mickledore && \
-    git clone git@github.com:avnet-iotconnect/meta-iotconnect-demos.git -b mickledore && \
-    cd .. && \
-    cd build/01047 && \
-    ./bitbake-layers add-layer ../../sources/meta-iotconnect && \
-    ./bitbake-layers add-layer ../../sources/meta-iotconnect-demos && \
-    cd ../../ && \
-    make
+make  
+```
+
+5. Since this board is built in a different way to the others, the steps for adding the SDK and Demos will be given below:
+```bash
+cd sources && \
+git clone git@github.com:avnet-iotconnect/meta-iotconnect.git -b mickledore && \
+git clone git@github.com:avnet-iotconnect/meta-iotconnect-demos.git -b mickledore && \
+cd .. && \
+cd build/01047 && \
+./bitbake-layers add-layer ../../sources/meta-iotconnect && \
+./bitbake-layers add-layer ../../sources/meta-iotconnect-demos && \
+cd ../../ && \
+make
 ```
 
 ## Flashing
