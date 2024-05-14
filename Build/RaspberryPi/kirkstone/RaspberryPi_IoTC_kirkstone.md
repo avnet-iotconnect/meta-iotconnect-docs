@@ -83,8 +83,14 @@ layers/meta-raspberrypi/conf/machine/raspberrypi5.conf
 ```
 MACHINE ??= "raspberrypi4"
 ```
+9. Enable Serial and UART in `layers/build/conf/local.conf`:
+```bash
+# Add these lines to the bottom
+ENABLE_UART = "1"
+ENABLE_SERIAL = "1"
+```
 
-9. Build the image:
+10. Build the image:
 ```bash
 make build
 ```
