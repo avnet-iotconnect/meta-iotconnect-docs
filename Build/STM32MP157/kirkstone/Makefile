@@ -14,8 +14,7 @@ docker:
 	-v  $${PWD}:$${PWD}:Z \
 	-v ~/.gitconfig:/etc/gitconfig:Z \
 	$(DOCKER_IMAGE_NAME) \
-	--workdir=$${PWD}/$(LAYERS_SOURCES_PATH)
-
+	--workdir=$${PWD}
 build:
 	docker build -t $(DOCKER_IMAGE_NAME) . && \
 	docker run --rm -it \
@@ -33,10 +32,10 @@ env:
 	-v  $${PWD}:$${PWD}:Z \
 	-v ~/.gitconfig:/etc/gitconfig:Z \
 	$(DOCKER_IMAGE_NAME) \
-	--workdir=$${PWD}/$(LAYERS_SOURCES_PATH) \
-	/bin/bash -c 'source $(OE_INIT_PATH) $(BUILD_FOLDER_PATH) && bash'
+	--workdir=$${PWD} \
+	/bin/bash -c 'source $(LAYERS_SOURCES_PATH)/$(OE_INIT_PATH) $(BUILD_FOLDER_PATH) && bash'
 
-STM32_PROGRAMMER_PATH := $(shell dirname "$(shell find / -type f -name STM32_Programmer_CLI -print -quit 2>/dev/null)")
+STM32_PROGRAMMER_PATH := $(shell dirname "$(shell find ~/STMicroelectronics -type f -name STM32_Programmer_CLI -print -quit 2>/dev/null)")
 export PATH := $(STM32_PROGRAMMER_PATH):$(PATH)
 
 flash:	
