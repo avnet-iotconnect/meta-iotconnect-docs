@@ -1,4 +1,4 @@
-# STM32MP157 IoTC Kirkstone Base Image Build Guide
+# STM32MP1 IoTC Kirkstone Base Image Build Guide
 Tested on Ubuntu 22.04 (2024-04-19)
 
 This will build a base Yocto image without IoTC for your board.
@@ -22,7 +22,7 @@ After you have built this you will need to add the [SDK](../../IoTC-SDK/README.m
 ## Method
 1. Create project directory and enter it:
 ```bash
-mkdir STM32MP157_IoTC_kirkstone && cd STM32MP157_IoTC_kirkstone
+mkdir STM32MP1_IoTC_kirkstone && cd STM32MP1_IoTC_kirkstone
 ```
 
 2. Use `repo` to get Yocto sources:
@@ -33,8 +33,8 @@ repo sync
 
 3. Download the provided `Makefile` and `Dockerfile`:
 ```bash
-wget https://raw.githubusercontent.com/avnet-iotconnect/meta-iotconnect-docs/main/Build/STM32MP157/kirkstone/Makefile && \
-wget https://raw.githubusercontent.com/avnet-iotconnect/meta-iotconnect-docs/main/Build/STM32MP157/kirkstone/Dockerfile
+wget https://raw.githubusercontent.com/avnet-iotconnect/meta-iotconnect-docs/main/Build/STM32MP1/kirkstone/Makefile && \
+wget https://raw.githubusercontent.com/avnet-iotconnect/meta-iotconnect-docs/main/Build/STM32MP1/kirkstone/Dockerfile
 ```
 
 4. Enter the docker environment:
@@ -47,6 +47,7 @@ make docker
 cd ..
 DISTRO=openstlinux-weston
 MACHINE=stm32mp1
+EULA_stm32mp1=1
 # Go through all of the EULA and accept everything
 source layers/meta-st/scripts/envsetup.sh
 ```
@@ -63,7 +64,7 @@ make build
 
 ### Extras
 
-1. Flash the board:
+1. Flash the board, replace XXX with either 157 or 135 for your board
 ```bash
-make flash
+make flash target=XXX
 ```
