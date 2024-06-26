@@ -70,9 +70,51 @@ cd ..
 make build
 ```
 
-### Flashing
+### Flashing via eMMC
+
+1. Setup the device by connecting the serial port, the jumper wire, and changing the dip switches. You can skip the ethernet port.
+![RZBoardV2L Flashing wiring diagram](https://hackster.imgix.net/uploads/attachments/1634133/image_Epd2Fx4Hue.png?auto=compress%2Cformat&w=740&h=555&fit=max)
+
+Dip switch configured as shown
+| Switch | Position |
+|--------|----------|
+| 1      | ON       |
+| 2      | OFF      |
+
+Jumper wire connected across the board like in the diagram.
+SD card removed.
+
+2. Navigate to the images directory, this will contain the flash tool `flash_util.py`:
+```bash
+cd yocto_rzboard/build/tmp/deploy/images/rzboard/
+```
+
+3. Flash the bootloader to the device:
+```bash
+sudo ./flash_util.py --bootloader
+```
+4. When prompted to power on the board: connect the power cable and hold the power button for a few seconds until the LED turns on. The script will start flashing your bootloader. After it's done power off the device.
+
+5. Unplug the Jumper wire going across the board.
+   
+6. Flash the image to the device:
+```bash
+sudo ./flash_util.py --roofs
+```
+It is also possible to specify the path to an exisiting image using 
+```bash
+sudo ./flash_util.py --roofs --image_rootfs <path-to>.rootfs.wic
+```
+
+7. When prompted to power on the board: connect the power cable and hold the power button for a few seconds until the LED turns on. After it's done power off the device.
+
+8. Use the power switch again to power the device, as it's booting you should be able to read the serial output with `minicom` or a similar utility.
+
+### Flashing SD Card
 
 1. Using Balena Etcher or `dd` write `avnet-core-image-rzboard.wic` to an SD card. This file will be a symlink to another file named `avnet-core-image-rzboard-YYYYMMDDXXXXX.rootfs.wic`. While it's doing that you can continue on the rest of the guide.
+
+
 
 2. Setup the device by connecting the serial port, the jumper wire, and changing the dip switches. You can skip the ethernet port.
 ![RZBoardV2L Flashing wiring diagram](https://hackster.imgix.net/uploads/attachments/1634133/image_Epd2Fx4Hue.png?auto=compress%2Cformat&w=740&h=555&fit=max)
