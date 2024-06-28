@@ -99,11 +99,11 @@ sudo ./flash_util.py --bootloader
    
 6. Flash the image to the device:
 ```bash
-sudo ./flash_util.py --roofs
+sudo ./flash_util.py --rootfs
 ```
 It is also possible to specify the path to an exisiting image using 
 ```bash
-sudo ./flash_util.py --roofs --image_rootfs <path-to>.rootfs.wic
+sudo ./flash_util.py --rootfs --image_rootfs <path-to>.rootfs.wic
 ```
 
 7. When prompted to power on the board: connect the power cable and hold the power button for a few seconds until the LED turns on. After it's done power off the device.
