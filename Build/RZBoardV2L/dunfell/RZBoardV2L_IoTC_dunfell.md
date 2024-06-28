@@ -84,32 +84,45 @@ Dip switch configured as shown
 Jumper wire connected across the board like in the diagram.
 SD card removed.
 
-2. Navigate to the images directory, this will contain the flash tool `flash_util.py`:
+3. Navigate to the images directory and download the flash tool to the your images dir:
 ```bash
 cd yocto_rzboard/build/tmp/deploy/images/rzboard/
+git clone https://github.com/Avnet/rzboard_flash_util.git
+cd rzboard_flash_util
 ```
 
-3. Flash the bootloader to the device:
+4. Install python requirements as root:
 ```bash
-sudo ./flash_util.py --bootloader
+sudo pip3 install -r requirements.txt
 ```
-4. When prompted to power on the board: connect the power cable and hold the power button for a few seconds until the LED turns on. The script will start flashing your bootloader. After it's done power off the device.
 
-5. Unplug the Jumper wire going across the board.
-   
-6. Flash the image to the device:
+5. Flash the bootloader to the device:
 ```bash
-sudo ./flash_util.py --rootfs
+sudo ./flash_rzboard.py --bootloader --image_path ../
 ```
-It is also possible to specify the path to an exisiting image using 
+5. When prompted to power on the board: connect the power cable and hold the power button for a few seconds until the LED turns on. The script will start flashing your bootloader. After it's done power off the device.
+
+6. Unplug the Jumper wire going across the board.
+
+7. At this point configure host with static ip as per image above (192.168.1.99) and connect host and RZ board with an ethernet cable.
+
+8. Flash the image to the device:
 ```bash
-sudo ./flash_util.py --rootfs --image_rootfs <path-to>.rootfs.wic
+python flash_rzboard.py --image_path ../ --static_ip 192.168.1.88 --image_rootfs ../avnet-core-image-rzboard.wic 
 ```
 
-7. When prompted to power on the board: connect the power cable and hold the power button for a few seconds until the LED turns on. After it's done power off the device.
+9. When prompted to power on the board: connect the power cable and hold the power button for a few seconds until the LED turns on. After it's done power off the device.
 
-8. Use the power switch again to power the device, as it's booting you should be able to read the serial output with `minicom` or a similar utility.
+10. Use the power switch again to power the device, as it's booting you should be able to read the serial output with `minicom` or a similar utility.
 
+| Login  | Password |
+|--------|----------|
+| root   | avnet    |
+
+
+
+
+<!--
 ### Flashing SD Card
 
 1. Using Balena Etcher or `dd` write `avnet-core-image-rzboard.wic` to an SD card. This file will be a symlink to another file named `avnet-core-image-rzboard-YYYYMMDDXXXXX.rootfs.wic`. While it's doing that you can continue on the rest of the guide.
@@ -148,7 +161,15 @@ sudo ./flash_rzboard.py --bootloader --image_path ../
 
 8. Remove the jumper but leave the serial cable, plug the SD Card in and hold the power button to boot the device. As it's booting you should be able to read the serial output with `minicom` or a similar utility.
 
+| Login  | Password |
+|--------|----------|
+| root   | avnet    |
+
+
+-->
+
 #### Notes:
 - Based on the [meta-rzboard](https://github.com/Avnet/meta-rzboard/tree/rzboard_dunfell_5.10_v3) repository
 - Flashing instructions based on [Build, Deploy, & Run a Qt Enabled Image on the RZBoard V2L](https://www.hackster.io/lucas-keller/build-deploy-run-a-qt-enabled-image-on-the-rzboard-v2l-de6c41#toc-hardware-configuration-11)
+- Flashine instructions also based on [RZBoard V2l](https://www.avnet.com/wps/wcm/connect/onesite/86d72e54-3eef-4ceb-8464-de54e28dd79f/RzBoard+V2L+Hardware+User+Guide+%28v1.0%29.pdf?MOD=AJPERES&CACHEID=ROOTWORKSPACE.Z18_NA5A1I41L0ICD0ABNDMDDG0000-86d72e54-3eef-4ceb-8464-de54e28dd79f-ogmeSxB)
 - You may have to remove systemd from the demo files in order for the Yocto image to build.
