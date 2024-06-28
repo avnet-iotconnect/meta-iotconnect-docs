@@ -109,9 +109,22 @@ exit
 make build
 ```
 
-### Extras
+### Flashing
 
-1. Flash the board
+1. Download and install [STM32_Programmer_CLI](https://www.st.com/en/development-tools/stm32cubeprog.html) if you haven't already 
+
+2. Head to where you've installed programmer (f.e. `cd ~/STMicroelectronics/STM32Cube/STM32CubeProgrammer/`) and copy udev rules. You might need to restart `udev.service` after that. (`systemctl restart udev.service`)
 ```bash
-make flash target=157
+cp Drivers/rules/* /etc/udev/rules.d/
 ```
+
+3. Make sure boot DIP switches on the other side of the board are set correctly - both must be in OFF position.
+
+4. Connect the USB-C cables ![picture](https://wiki.st.com/stm32mpu/nsfr_img_auth.php/5/53/STM32MP157x-DKx_flashing_configuration.png)
+
+4. Flash the board, replace XXX with either 157 or 135 for your board
+```bash
+make flash target=XXX
+```
+
+5. After done flashing power off the board and flip both DIP switches to ON.
