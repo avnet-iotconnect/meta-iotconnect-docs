@@ -40,7 +40,7 @@ export PATH := $(STM32_PROGRAMMER_PATH):$(PATH)
 
 flash:
 ifeq ($(target), 157)
-		cd ./build-openstlinuxweston-stm32mp1/tmp-glibc/deploy/images/stm32mp1/ && STM32_Programmer_CLI -c port=usb1 -w flashlayout_st-image-weston/trusted/FlashLayout_sdcard_stm32mp157c-dk2-trusted.tsv && cd -
+		cd ./build-openstlinuxweston-stm32mp1/tmp-glibc/deploy/images/stm32mp1/ && STM32_Programmer_CLI -c port=usb1 -w flashlayout_st-image-ai/optee/FlashLayout_sdcard_stm32mp157f-dk2-optee.tsv && cd -
 else ifeq ($(target), 135)
 		cd ./build-openstlinuxweston-stm32mp1/tmp-glibc/deploy/images/stm32mp1/ && STM32_Programmer_CLI -c port=usb1 -w flashlayout_st-image-weston/optee/FlashLayout_sdcard_stm32mp135f-dk-optee.tsv && cd -
 else
