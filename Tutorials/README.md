@@ -1,4 +1,4 @@
-# IoT Connect Configuration Guide
+# IoTConnect Tutorials
 
 Make sure you have either installed a [prebuilt](../QuickStart/README.md) or [compiled](../Build/README.md) image.
 
