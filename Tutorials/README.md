@@ -7,5 +7,6 @@ The following guides will teach you how to configure IoT Connect.
 
 | Section                   | Purpose                      |
 |---------------------------|------------------------------|
-| [SDK JSON](./SDK_JSON.md) | Configure the C & Python SDK |
-| [USAGE](./USAGE.md)       | How to execute the demos     |
+| [IOTC SETUP/CREDS](./SDK_JSON.md) | Configure the C & Python SDK with your IoTConnect credentials |
+| [DEMO META OVERVIEW](./USAGE.md)       | How to execute the demos     |
+| [OTA EXAMPLE](./OTA.md)       | Example OTA Python Application     |
