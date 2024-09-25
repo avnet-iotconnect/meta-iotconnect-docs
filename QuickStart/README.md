@@ -7,6 +7,7 @@ If you wish to build your own images go to: [Build Guide](../Build/README.md)
 |:-------------------------------:|:--------:|
 | [STM32MP135](./STM32MP135.md)   | [✅](https://iotconnect-sdk-images.s3.amazonaws.com/MPU/kirkstone/st/mpu135dk/st-image-weston-kirkstone-stm32mp135.zip)      |
 | [STM32MP157](./STM32MP157.md)   | [✅](https://iotconnect-sdk-images.s3.amazonaws.com/MPU/kirkstone/st/mpu157dk/st-image-weston-kirkstone-stm32mp157.zip)      |
+| [STM32MP253](./STM32MP253.md)   | [temp link](https://www.icloud.com/iclouddrive/00anwGLtLX0f6nUKNPq35tU7Q#en.SOURCES-stm32mp2-openstlinux-6.1-yocto-mickledore-mpu-v24.06.26_2)      |
 | [RZ Board V2L](./RZBoardV2L.md) | [Work in Progress]()                                                                                                                       |
 | MaaXBoard                       | [✅](https://iotconnect-sdk-images.s3.amazonaws.com/MPU/kirkstone/maaxboard/core-image-base-maaxboard-demo.wic.gz)|
 | MSC-SM2S-IMX8PLUS               | [✅](https://iotconnect-sdk-images.s3.amazonaws.com/MPU/kirkstone/msc/core-image-base-sm2s-imx8mp-demo.wic.gz)|
