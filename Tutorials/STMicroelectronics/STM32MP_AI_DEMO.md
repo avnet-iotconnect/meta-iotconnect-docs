@@ -1,25 +1,18 @@
-# IoTConnect AI Classification Script Documentation
-This documentation describes the setup and usage of scripts used for AI classification on STM32MP2 devices integrated with IoTConnect. These scripts are designed to enable remote execution via the IoTConnect platform and run AI models such as MobileNet for image classification.
+# IoTConnect AI Classification on STM32MP1/MP2 Devices (X-Linux-AI)
+This document provides details specific to using IoTConnect for running AI classification demos on STM32MP1 and MP2 devices, which utilize the X-Linux-AI package.
 
-## Table of Contents
-- Prerequisites
-- Directory Structure
-- Script Configuration
-- Creating IoTConnect Commands
-- Handling Commands on the Device
-- Running AI Classification
-- Troubleshooting
+## Overview
+STM32MP1 and MP2 devices running X-Linux-AI can perform AI classification using pre-trained models such as MobileNet. These AI tasks can be triggered remotely from the IoTConnect platform using cloud-to-device commands.
 
 ## Prerequisites
-Before proceeding, ensure you have the following:
-- STM32MP2 device with Linux OS.
-- IoTConnect platform access (CPID, DUID, etc.).
-- IoTConnect Python SDK installed on the device.
-- AI classification scripts and models (such as MobileNet) stored on the device.
-- Proper permissions and setup for sudo or user-level script execution.
+Before proceeding, ensure you have:
 
-## Directory Structure
-Your project directory should follow a structure similar to the following:
+An STM32MP1 or MP2 device running the X-Linux-AI package.
+IoTConnect platform access with the necessary credentials (CPID, DUID, etc.).
+AI classification scripts and models (such as MobileNet) installed on the device.
+The IoTConnect Python SDK installed on the device.
+Directory Structure
+Ensure your project has a structure similar to this:
 
 ```
 /usr/iotc-c/app/
@@ -32,137 +25,65 @@ Your project directory should follow a structure similar to the following:
 └── resources/
     └── config_board.sh
 ```
+- scripts/: Contains shell scripts that are remotely triggered from IoTConnect.
+- models/: Contains pre-trained AI models like MobileNet.
+- resources/: Stores configuration files like config_board.sh.
 
-- scripts/: Contains shell scripts that can be triggered remotely from IoTConnect.
-- models/: Pre-trained AI models for classification (e.g., MobileNet in TensorFlow Lite format).
-- resources/: Additional configuration scripts or resources.
+## AI Classification Script
+The primary AI classification script is launch_ai_classification.sh, which runs an AI model inference using Python. Ensure the script has executable permissions.
 
-## Script Configuration
-### AI Classification Script (launch_ai_classification.sh)
-This script runs an AI classification using a MobileNet model and Python inference script. Make sure the script has executable permissions.
-
-Example content for launch_ai_classification.sh:
+### Script Example:
 ```
 #!/bin/bash
 # AI classification script for STM32MP2
-
 MODEL_PATH="/usr/local/x-linux-ai/image-classification/models/mobilenet/mobilenet_v2_1.0_224_int8_per_tensor.tflite"
 SCRIPT_PATH="/usr/local/x-linux-ai/image-classification/stai_mpu_image_classification.py"
-
-# Run Python AI classification
+### Run Python AI classification
 python3 $SCRIPT_PATH -m $MODEL_PATH
 ```
-- MODEL_PATH: The path to the pre-trained model.
+- MODEL_PATH: Points to the pre-trained model.
 - SCRIPT_PATH: The Python script that performs inference using the model.
 
-Make the script executable:
+### Make the script executable:
 ```
 chmod +x /usr/iotc-c/app/scripts/launch_ai_classification.sh
 ```
-### Memory Usage Script (memory_usage.sh)
-A utility script to track memory usage per user on the device:
-```
-#!/bin/bash
-
-total_mem=0
-printf "%-10s%-10s\n" User MemUsage'(%)'
-
-while read u m; do
-    [[ $old_user != $u ]] && { printf "%-10s%-0.1f\n" $old_user $total_mem; total_mem=0; }
-    total_mem="$(echo $m + $total_mem | bc)"
-    old_user=$u
-done < <(ps --no-headers -eo user,%mem | sort -k1)
-
-#EOF
-```
-
-This can be useful for tracking resource consumption during AI classification.
-
-## Creating IoTConnect Commands
-To trigger a script remotely via IoTConnect, you need to create a command in the IoTConnect platform.
-
-### Step-by-Step Command Creation
-1) Log in to IoTConnect and navigate to the Commands section.
-2) Create a new command, for example:
-
-	- Command Name: "launch_ai_classification"
-	- Command Payload:
+### Deploying and Running the AI Classification
+1) Create IoTConnect Command
+To run the AI classification script remotely, create a command in IoTConnect:
+- Command Name: launch_ai_classification
+- Command Payload:
 ```
 {
   "command": "launch_ai_classification",
   "script": "/usr/iotc-c/app/scripts/launch_ai_classification.sh"
 }
 ```
-3) Save the command and assign it to your device.
-4) You can also create additional commands to run other scripts, such as monitoring memory usage:
-	- Command Name: "memory_usage"
-	- Command Payload:
-```
-{
-  "command": "memory_usage",
-  "script": "/usr/iotc-c/app/scripts/memory_usage.sh"
-}
-```
+2) Assign the Command to Your Device
+Once the command is created, assign it to your STM32MP1/MP2 device. The device will listen for the command and execute the classification script when received.
 
-## Handling Commands on the Device
-The device needs to be configured to listen for incoming commands and run the specified scripts. Below is an example of Python code that can be used on the device to handle commands.
+3) Run AI Classification
+Send the command from the IoTConnect platform and monitor the device logs for successful execution of the AI classification.
 
-### Example Python Script (iot_command_handler.py)
+## Monitoring and Troubleshooting
+Memory Usage Monitoring: The memory_usage.sh script can be used to track memory consumption during the classification process.
+Device Logs: Monitor logs on the device to ensure the classification is running as expected. For permission errors, verify that scripts have the necessary executable permissions.
+Example Command Handler (on Device)
+The following Python script can be used to handle incoming commands from IoTConnect and execute the AI classification:
 ```
 import subprocess
 from iotconnect import IoTConnectSDK
 
-# Initialize IoTConnect SDK
-iotc = IoTConnectSDK(device_id="<YOUR_DEVICE_ID>", client_key="<YOUR_CLIENT_KEY>")
+iotc = IoTConnectSDK(device_id="DEVICE_ID", client_key="CLIENT_KEY")
 
 def on_command_received(command):
-    print(f"Received command: {command}")
-    if 'command' in command and 'script' in command:
-        script_path = command['script']
-        try:
-            subprocess.run(script_path, check=True)
-            print(f"Successfully executed: {script_path}")
-        except subprocess.CalledProcessError as e:
-            print(f"Error executing script: {str(e)}")
-    else:
-        print("Unknown command or missing script path.")
+    script_path = command.get('script')
+    if script_path:
+        subprocess.run(script_path, shell=True)
 
-# Set the command handler
 iotc.on_command_received = on_command_received
-
-# Start listening for commands
 iotc.connect()
 ```
-
-### How It Works
-	- The device listens for commands from IoTConnect.
-	- When a command is received, the script path is extracted from the payload, and the script is executed using subprocess.run().
-
-## Running AI Classification
-Once the setup is complete:
-
-1) Send a command from IoTConnect:
-	- Command: "launch_ai_classification"
-	- Payload:
-```
-{
-  "command": "launch_ai_classification",
-  "script": "/usr/iotc-c/app/scripts/launch_ai_classification.sh"
-}
-```
-2) Monitor device logs to ensure the AI classification is running.
-3) Verify the output of the AI classification either through logs or by checking the system’s output on a display if configured.
-
 ## Troubleshooting
-### Common Issues:
-1) Connection Errors:
-	- Ensure the device's credentials (DUID, CPID, certificates) are correctly configured.
-	- Verify that the IoTConnect Python SDK is correctly installed.
-2) Permission Denied:
-	- Ensure the scripts have executable permissions:
-```
-chmod +x /usr/iotc-c/app/scripts/*.sh
-```
-3) Script Not Running:
-	- Verify that the script path in the IoTConnect command matches the script’s location on the device.
-	- Check the device logs for error messages related to subprocess.run.
+- Command Not Executing: Ensure that the script path provided in the command payload is correct and that the script is executable.
+- Memory Issues: If the device is running out of memory, check usage with memory_usage.sh or other monitoring tools.
