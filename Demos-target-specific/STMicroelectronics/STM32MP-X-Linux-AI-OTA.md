@@ -7,26 +7,25 @@ This tutorial explains how to create and install an Over-The-Air (OTA) update us
 The OTA payload consists of a specific folder structure, which is compressed into a `.tar.gz` file and uploaded to the device. The folder structure is as follows:
 ```
 ota-payload-template/
-├── install.sh
-├── application/
-├── local_data/
-│ ├── certs/
-│ ├── classification
-│ ├── confidence
-│ ├── running-model
-│ ├── set-conf-level
-│ ├── version
-│ ├── temp
-│ ├── scripts/
-│ ├── x-linux-ai/
-│ │ ├── image-classification/
-│ │ │ ├── stai_mpu_S3_image_classification.py
-│ │ │ ├── launch_python_s3_image_classification.sh
-│ │ │ ├── models/
-│ │ │ │ ├── mobilenet/
-│ │ │ │ │ ├── model_files
-│ │ │ │ └── testdata/
-└── README.md
+├── install.sh                  # Script to handle the installation of the payload
+├── application/                 # Contains application-specific files (optional, depending on your use case)
+├── local_data/                  # Contains local data and scripts for the update
+│   ├── certs/                   # Certificates required for local device security (optional)
+│   ├── scripts/                 # Custom scripts (e.g., for starting/stopping services)
+├── x-linux-ai/                  # Main directory for AI-related files
+│   ├── image-classification/    # Sub-directory for image classification models and data
+│   │   ├── models/
+│   │   │   └── testdata/        # Test data for image classification models
+│   ├── object-detection/        # Sub-directory for object detection models and data
+│   │   ├── models/
+│   │   │   └── testdata/        # Test data for object detection models
+│   ├── pose-estimation/         # Sub-directory for pose estimation models and data
+│   │   ├── models/
+│   │   │   └── testdata/        # Test data for pose estimation models
+│   ├── semantic-segmentation/   # Sub-directory for semantic segmentation models and data
+│   │   ├── models/
+│   │   │   └── testdata/        # Test data for semantic segmentation models
+└── README                       # Documentation file (optional)
 ```
 ### Key Components:
 
@@ -39,43 +38,78 @@ ota-payload-template/
 An example payload might look like this:
 ```
 ota-payload-template/
-├── application/
-│ ├── telemetry_demo.py
-├── local_data/
-│ ├── certs/
-│ ├── classification
-│ ├── confidence
-│ ├── running-model
-│ ├── set-conf-level
-│ ├── version
-│ ├── temp
-│ ├── scripts/
-│ ├── control_led.sh
-│ ├── get_mem_usage.sh
-│ ├── image_class_live.sh
-│ ├── stop_video.sh
-│ ├── object_detect_live.sh
-│ ├── object_detect_s3.sh
-│ ├── image_class_s3.sh
-│ ├── stop_image_classification.sh
-│ ├── sametic_seg.sh
-│ └── pose_detect.sh
-│ ├── x-linux-ai/
-│ │ ├── image-classification/
-│ │ │ ├── stai_mpu_S3_image_classification.py
-│ │ │ ├── launch_python_s3_image_classification.sh
-│ │ │ ├── models/
-│ │ │ │ ├── mobilenet/
-│ │ │ │ │ ├── model_files
-│ │ │ │ └── testdata/
-└── install.sh
+├── install.sh                  
+├── application/                
+├── local_data/                  
+│   ├── certs/                   
+│   ├── scripts/
+│   │   ├── control_led.sh
+│   │   ├── get_mem_usage.sh
+│   │   ├── image_class_live.sh
+│   │   ├── stop_video.sh
+│   │   ├── object_detect_live.sh
+│   │   ├── object_detect_s3.sh
+│   │   ├── image_class_s3.sh
+│   │   ├── stop_image_classification.sh
+│   │   ├── sametic_seg.sh
+│   │   └── pose_detect.sh
+│   ├── data/   
+│   │   ├── classification
+│   │   ├── confidence
+│   │   ├── running-model
+│   │   ├── set-conf-level
+│   │   ├── version              
+├── x-linux-ai/                 
+│   ├── image-classification/
+│   │   ├── stai_mpu_S3_image_classification.py
+│   │   ├── launch_python_s3_image_classification.sh
+│   │   ├── models/
+│   │   │   └── testdata/       
+│   ├── object-detection/
+│   │   ├── stai_mpu_s3_object_detection.py
+│   │   ├── launch_python_object_detection_S3.sh      
+│   │   ├── models/
+│   │   │   └── testdata/        
+│   ├── pose-estimation/        
+│   │   ├── models/
+│   │   │   └── testdata/        
+│   ├── semantic-segmentation/   
+│   │   ├── models/
+│   │   │   └── testdata/        
+└── README                      
 ```
+**Payload Details:**
 
-This payload would:
+install.sh:
 
-- Update `application/telemetry_demo.py`, replacing the current Python file.
-- Add new scripts to the device.
-- Update the local configuration (local_data/config.json) and other files like `classification`, `confidence`, and `version`.
+    This script will manage the installation of the payload contents on the target device.
+
+application/:
+
+    This folder is reserved for any application files you may want to update. 
+    
+local_data/:
+
+    certs/: This directory holds the certificates for the device.
+    scripts/: Contains all the script files related to device control (like LED, memory usage, video, object detection, etc.).
+    data/: Contains the core data files like classification, confidence, running-model, etc., which will be transferred to /usr/iotc/local/data/.
+
+x-linux-ai/:
+
+    image-classification/:
+        Contains the Python script stai_mpu_S3_image_classification.py and the launcher script launch_python_s3_image_classification.sh.
+        The models/ folder would include any new models, as well as contain any test data uploaded by the user.
+    object-detection/:
+        Contains object detection-related scripts like stai_mpu_s3_object_detection.py and launch_python_object_detection_S3.sh.
+        The models/ folder would include any new models, as well as contain any test data uploaded by the user.
+    pose-estimation/:
+        Contains the models and test data for pose estimation tasks.
+    semantic-segmentation/:
+        Contains the models and test data for semantic segmentation tasks.
+
+README:
+
+    The README file, if present, provides documentation or guidance for the OTA update or its structure.
 
 ## Creating the OTA Payload
 
