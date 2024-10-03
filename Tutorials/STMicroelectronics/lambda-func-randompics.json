@@ -1,0 +1,153 @@
+import boto3
+import random
+import time
+from botocore.exceptions import ClientError
+
+# Initialize S3 and SSM clients
+s3 = boto3.client('s3')
+ssm = boto3.client('ssm')
+
+# The bucket where your images and confidence values are stored
+bucket_name = 'aiimagecapture'
+
+# Retry function for confidence file
+def get_confidence_file_with_retry(s3, bucket_name, confidence_key, max_retries=5, backoff_factor=0.5):
+    for attempt in range(1, max_retries + 1):
+        try:
+            print(f"Attempting to retrieve confidence file from S3 (Attempt {attempt}/{max_retries}): {confidence_key}")
+            confidence_obj = s3.get_object(Bucket=bucket_name, Key=confidence_key)
+            confidence_data = confidence_obj['Body'].read().decode('utf-8')
+            confidence_value = float(confidence_data.split(': ')[1].replace('%', ''))
+            print(f"Confidence for {confidence_key}: {confidence_value}%")
+            return confidence_value
+        except s3.exceptions.NoSuchKey:
+            print(f"Confidence file not found at {confidence_key}, proceeding without moving it to archive.")
+            return None
+        except Exception as e:
+            print(f"Error retrieving confidence file (Attempt {attempt}/{max_retries}): {e}")
+            if attempt == max_retries:
+                raise e
+            sleep_time = backoff_factor * (2 ** (attempt - 1))
+            jitter = random.uniform(0, 0.1)
+            print(f"Retrying in {sleep_time + jitter:.2f} seconds...")
+            time.sleep(sleep_time + jitter)
+    return None
+
+# Function to check if the image has been processed
+def check_if_processed(s3, bucket_name, image_key):
+    try:
+        # Check if the image exists in the 'processed/' folder
+        s3.head_object(Bucket=bucket_name, Key=f'processed/{image_key}')
+        print(f"Image {image_key} has already been processed.")
+        return True
+    except ClientError as e:
+        if e.response['Error']['Code'] == '404':
+            # The image is not yet processed
+            print(f"Image {image_key} has not been processed yet.")
+            return False
+        else:
+            # Handle other potential errors
+            raise e
+            
+# Main Lambda function handler
+def lambda_handler(event, context):
+    # Step 1: Check if Lambda is enabled by reading from SSM Parameter Store
+    try:
+        lambda_enabled_param = ssm.get_parameter(Name='/myapp/lambda-enabled')['Parameter']['Value']
+        if lambda_enabled_param.lower() != 'true':
+            print("Lambda function is disabled.")
+            return
+    except Exception as e:
+        print(f"Error retrieving lambda-enabled parameter: {e}")
+        return
+
+    # Step 2: List objects in the "images/" folder in S3
+    try:
+        response = s3.list_objects_v2(Bucket=bucket_name, Prefix='images/')
+        if 'Contents' not in response:
+            print("No images found in the bucket.")
+            return
+
+        # Get all image keys (ignoring the folder itself and subdirectories)
+        images = [item['Key'] for item in response['Contents'] if item['Key'] != 'images/' and not item['Key'].endswith('/')]
+        if not images:
+            print("No images found in the images folder.")
+            return
+    except Exception as e:
+        print(f"Error listing objects in S3: {e}")
+        return
+
+    # Step 3: Select a random image from the images list
+    random_image = random.choice(images)
+    print(f"Selected random image: {random_image}")
+
+    # Step 4: Check if the image has already been processed
+    if check_if_processed(s3, bucket_name, random_image):
+        print(f"Skipping {random_image}, as it has already been processed.")
+        return
+
+    # Step 5: Construct the correct confidence key with folder structure including 'images/'
+    confidence_key = f"confidence/{random_image.replace('.jpg', '_confidence.txt')}"
+    print(f"Attempting to retrieve confidence file from S3 bucket: {bucket_name} with key: {confidence_key}")
+
+    # Step 6: Retrieve the confidence value for the image using retry logic
+    confidence_value = get_confidence_file_with_retry(s3, bucket_name, confidence_key)
+    if confidence_value is None:
+        print(f"No confidence value found for {random_image}, proceeding without archiving.")
+    
+    # Step 7: Always update bottom.jpg with the random image, regardless of confidence
+    try:
+        copy_source = {'Bucket': bucket_name, 'Key': random_image}
+        s3.copy_object(CopySource=copy_source, Bucket=bucket_name, Key='bottom.jpg')
+        print(f"Successfully copied {random_image} to bottom.jpg")
+    except Exception as e:
+        print(f"Error copying image to bottom.jpg: {e}")
+        return
+
+    # Step 8: Store original filename in metadata for bottom.jpg
+    try:
+        s3.put_object(Bucket=bucket_name, Key='metadata/bottom_original_filename.txt', Body=random_image)
+        print(f"Stored original filename {random_image} in metadata/bottom_original_filename.txt")
+    except Exception as e:
+        print(f"Error storing original filename metadata: {e}")
+        return
+
+    # Step 9: Check if confidence is below the threshold and move to archive if needed
+    if confidence_value is not None:
+        confidence_threshold = 70  # Example threshold
+        if confidence_value < confidence_threshold:
+            try:
+                # Move the image to the archive folder
+                copy_source = {'Bucket': bucket_name, 'Key': random_image}
+                archive_key = f"archive/{random_image.replace('images/', '')}"
+
+                # Copy the image to the archive folder
+                s3.copy_object(Bucket=bucket_name, CopySource=copy_source, Key=archive_key)
+                print(f"Copied {random_image} to {archive_key}.")
+
+                # Mark the image as processed **before** deleting it
+                s3.copy_object(CopySource={'Bucket': bucket_name, 'Key': random_image},
+                               Bucket=bucket_name, Key=f'processed/{random_image}')
+                print(f"Marked image {random_image} as processed.")
+
+                # Now delete the original image from the images folder
+                s3.delete_object(Bucket=bucket_name, Key=random_image)
+                print(f"Deleted {random_image} from the images folder.")
+
+            except Exception as e:
+                print(f"Error moving image to archive or marking as processed: {e}")
+                return
+        else:
+            print(f"Confidence {confidence_value}% is above the threshold, keeping the image in 'images/'.")
+
+    # Step 10: Get the image refresh interval from SSM Parameter Store
+    try:
+        interval_param = ssm.get_parameter(Name='/myapp/image-refresh-interval')['Parameter']['Value']
+        interval_seconds = int(interval_param)
+    except Exception as e:
+        print(f"Error retrieving image-refresh-interval parameter: {e}")
+        return
+
+    # Sleep for the specified interval
+    print(f"Waiting {interval_seconds} seconds before the next image rotation.")
+    time.sleep(interval_seconds)
