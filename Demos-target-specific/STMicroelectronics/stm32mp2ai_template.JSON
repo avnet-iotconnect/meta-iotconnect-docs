@@ -1,0 +1,154 @@
+{
+    "code": "stm32mp2ai",
+    "name": "stm32mp257 AI Demo",
+    "authType": 2,
+    "attributes": [
+        {
+            "name": "version",
+            "type": "STRING",
+            "description": "",
+            "unit": "",
+            "aggregateTypes": []
+        },
+        {
+            "name": "accel",
+            "type": "DECIMAL",
+            "description": "",
+            "unit": "",
+            "aggregateTypes": []
+        },
+        {
+            "name": "temperature",
+            "type": "DECIMAL",
+            "description": "",
+            "unit": "",
+            "aggregateTypes": []
+        },
+        {
+            "name": "confidence",
+            "type": "DECIMAL",
+            "description": "AI Classification confidence level",
+            "unit": "%",
+            "aggregateTypes": []
+        },
+        {
+            "name": "classification",
+            "type": "STRING",
+            "description": "Classification name",
+            "unit": "",
+            "aggregateTypes": []
+        },
+        {
+            "name": "threshold",
+            "type": "DECIMAL",
+            "description": "Minimum confidence level to publish to results",
+            "unit": "",
+            "aggregateTypes": []
+        },
+        {
+            "name": "runningmodel",
+            "type": "STRING",
+            "description": "",
+            "unit": "",
+            "aggregateTypes": []
+        }
+    ],
+    "commands": [
+        {
+            "name": "1A - Image Classification: S3 Bucket",
+            "command": "image_class_s3.sh",
+            "requiredParam": false,
+            "requiredAck": true,
+            "isOTACommand": false
+        },
+        {
+            "name": "1B STOP Image Classification:  Live Camera",
+            "command": "stop_video.sh",
+            "requiredParam": false,
+            "requiredAck": true,
+            "isOTACommand": false
+        },
+        {
+            "name": "set-threshold",
+            "command": "set-threshold.sh",
+            "requiredParam": true,
+            "requiredAck": true,
+            "isOTACommand": false
+        },
+        {
+            "name": "1A STOP Image Classification:  S3 Bucket",
+            "command": "stop_image_classification.sh",
+            "requiredParam": false,
+            "requiredAck": true,
+            "isOTACommand": false
+        },
+        {
+            "name": "control_led",
+            "command": "control_led.sh",
+            "requiredParam": false,
+            "requiredAck": true,
+            "isOTACommand": false
+        },
+        {
+            "name": "2B - Object Detection:  Live",
+            "command": "object_detect_live.sh",
+            "requiredParam": false,
+            "requiredAck": true,
+            "isOTACommand": false
+        },
+        {
+            "name": "4 - Semantic Segmentation",
+            "command": "semantic_sec.sh",
+            "requiredParam": false,
+            "requiredAck": true,
+            "isOTACommand": false
+        },
+        {
+            "name": "get_mem_usage",
+            "command": "get_mem_usage.sh",
+            "requiredParam": false,
+            "requiredAck": true,
+            "isOTACommand": false
+        },
+        {
+            "name": "3 - Pose Detection",
+            "command": "pose_detect.sh",
+            "requiredParam": false,
+            "requiredAck": true,
+            "isOTACommand": false
+        },
+        {
+            "name": "1B - Image Classification:  Live Camera",
+            "command": "image_class_live.sh",
+            "requiredParam": false,
+            "requiredAck": true,
+            "isOTACommand": false
+        },
+        {
+            "name": "2A - Object Detection:  S3 Bucket",
+            "command": "object_detect_s3.sh",
+            "requiredParam": false,
+            "requiredAck": true,
+            "isOTACommand": false
+        },
+        {
+            "name": "get_last_ota_file_changes",
+            "command": "get_last_ota_file_changes.sh",
+            "requiredParam": false,
+            "requiredAck": true,
+            "isOTACommand": false
+        }
+    ],
+    "messageVersion": "2.1",
+    "msgCode": "XG4EYQN",
+    "greenGrass": "0",
+    "wireless": "0",
+    "properties": {
+        "description": null,
+        "dataFrequency": "5",
+        "fileSupport": false
+    },
+    "_meta": {
+        "version": "2.0"
+    }
+}
