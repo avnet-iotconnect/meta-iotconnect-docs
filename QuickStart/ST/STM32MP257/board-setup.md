@@ -28,7 +28,7 @@ The STM32MP257 board supports AI and IoT applications, enabling image classifica
 - **Hardware**:
   - STM32MP257 evaluation board
   - Power supply and cables (USB, Ethernet)
-  - MicroSD card (minimum 4GB) or eMMC storage
+  - MicroSD card (minimum 32GB) or eMMC storage
 
 ---
 
@@ -39,7 +39,7 @@ The STM32MP257 board supports AI and IoT applications, enabling image classifica
    - Power on the board and connect any necessary peripherals as outlined in Section 2 of the [UM3359 Manual](um3359-evaluation-board-with-stm32mp257f-mpu-stmicroelectronics.pdf).
 
 2. **Connect Storage**:
-   - Insert a MicroSD card if flashing to SD memory.
+   - Insert a MicroSD card.
    - Ensure all connections are secure before proceeding.
 
 ---
@@ -66,7 +66,7 @@ After flashing, proceed with network setup for IoTConnect integration and OTA up
   - Verify the network connection for stable communication.
 
 - **IoTConnect Initial Setup**:
-  - To enable IoTConnect functionality, configure the connection as described in the [AI Demo Setup Guide](stm32mp-ai-demo.md).
+  - To enable IoTConnect functionality, configure the connection as described in the [IoTConnect Setup Guide](IoTConnect-setup.md).
 
 ---
 
