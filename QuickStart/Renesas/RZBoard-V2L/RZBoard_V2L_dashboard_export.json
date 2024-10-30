@@ -1,0 +1,708 @@
+{
+    "ddType": 2,
+    "items": [
+        {
+            "widgetGuid": "A8CB394D-15B1-42C9-94FC-AD7BDC599E2A",
+            "widgetProperties": {
+                "i": "Image",
+                "background": "#FFFFFF",
+                "fontColor": "#343434",
+                "fontFamily": "Proxima Nova",
+                "fontSize": "18",
+                "title": "",
+                "titleAlign": "",
+                "contents": {
+                    "option": {
+                        "imageUpload": "false",
+                        "imageUrl": "true",
+                        "imageDevice": "false",
+                        "imageTelemetry": "false",
+                        "key": "option",
+                        "position": "center"
+                    },
+                    "upload": {
+                        "imageurl": "",
+                        "key": "upload"
+                    },
+                    "url": {
+                        "imageurl": "https://saleshosted.z13.web.core.windows.net/demo/rzboard/RZ-title.png",
+                        "key": "url"
+                    },
+                    "device": {
+                        "deviceGuid": "",
+                        "deviceName": "",
+                        "imageurl": "",
+                        "key": "device"
+                    },
+                    "telemetry": {
+                        "deviceGuid": "",
+                        "deviceName": "",
+                        "imageurl": "",
+                        "key": "telemetry"
+                    }
+                }
+            },
+            "properties": {
+                "x": "0",
+                "y": "0",
+                "w": "40",
+                "h": "15",
+                "i": "Image",
+                "minW": "5",
+                "minH": "5",
+                "isStatic": "false"
+            }
+        },
+        {
+            "widgetGuid": "F66A9747-6C71-40E5-8639-9F53233494D2",
+            "widgetProperties": {
+                "i": "Label",
+                "background": "#0404df",
+                "fontColor": "#ffffff",
+                "fontFamily": "Proxima Nova",
+                "fontSize": "26",
+                "title": "RZBoard V2L Active Model",
+                "titleAlign": "",
+                "contents": ""
+            },
+            "properties": {
+                "x": "40",
+                "y": "0",
+                "w": "20",
+                "h": "2",
+                "i": "Label",
+                "minW": "6",
+                "minH": "2",
+                "maxH": "2",
+                "isStatic": "false"
+            }
+        },
+        {
+            "widgetGuid": "6FEFF6B7-15C4-4095-A156-87A1B38D2FF5",
+            "widgetProperties": {
+                "i": "Transformation",
+                "background": "#ffffff",
+                "fontColor": "#ffffff",
+                "fontFamily": "Proxima Nova",
+                "fontSize": "10",
+                "title": "demo",
+                "titleAlign": "",
+                "contents": {
+                    "Transformation": {
+                        "device": {
+                            "deviceGuid": "B31A12DD-5352-4D0B-8805-1AB1957C41A0",
+                            "deviceUniqueId": "mcl-RZboard1"
+                        },
+                        "attributes": {
+                            "attribute": [
+                                {
+                                    "attributeGuid": "2238DF97-5C2B-4BFB-A654-2D57B59CAE0C",
+                                    "attributeName": "cpu_usage",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "0",
+                                    "deviceUpdatedDate": "2024-09-24T05:04:37.057Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "0"
+                                },
+                                {
+                                    "attributeGuid": "9303E294-F262-420B-AC87-418CB59F6027",
+                                    "attributeName": "version",
+                                    "checked": "false",
+                                    "dataType": "STRING",
+                                    "attributeLatestValue": "1.0.1",
+                                    "deviceUpdatedDate": "2024-09-24T05:04:37.057Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "1.0.1"
+                                },
+                                {
+                                    "attributeGuid": "43A92B1D-F409-4611-A93D-5606AF4F536A",
+                                    "attributeName": "running_model",
+                                    "checked": "true",
+                                    "dataType": "STRING",
+                                    "attributeLatestValue": "none",
+                                    "deviceUpdatedDate": "2024-09-24T05:04:37.057Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "none"
+                                },
+                                {
+                                    "attributeGuid": "6236BB0B-9903-4FA8-986A-D2EB381F80DE",
+                                    "attributeName": "mem_usage",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "34.8",
+                                    "deviceUpdatedDate": "2024-09-24T05:04:37.057Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "34.8"
+                                },
+                                {
+                                    "attributeGuid": "1F22DEFB-18B9-4B71-8223-D73C8493ABEF",
+                                    "attributeName": "script_version",
+                                    "checked": "false",
+                                    "dataType": "STRING",
+                                    "attributeLatestValue": "1.1.0\n",
+                                    "deviceUpdatedDate": "2024-09-23T01:08:44.360Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "1.1.0\n"
+                                }
+                            ]
+                        },
+                        "key": "Transformation",
+                        "transformations": [
+                            {
+                                "condition": "eq",
+                                "conditionValue": "demoA",
+                                "type": "Url",
+                                "errors": "",
+                                "typeValue": "https://saleshosted.z13.web.core.windows.net/demo/rzboard/demoA.png"
+                            },
+                            {
+                                "condition": "eq",
+                                "conditionValue": "demoB",
+                                "type": "Url",
+                                "errors": "",
+                                "typeValue": "https://saleshosted.z13.web.core.windows.net/demo/rzboard/demoB.png"
+                            },
+                            {
+                                "condition": "eq",
+                                "conditionValue": "demoC",
+                                "type": "Url",
+                                "errors": "",
+                                "typeValue": "https://saleshosted.z13.web.core.windows.net/demo/rzboard/demoC.png"
+                            },
+                            {
+                                "condition": "eq",
+                                "conditionValue": "demoD",
+                                "type": "Url",
+                                "errors": "",
+                                "typeValue": "https://saleshosted.z13.web.core.windows.net/demo/rzboard/demoD.png"
+                            },
+                            {
+                                "condition": "ne",
+                                "conditionValue": "demoD",
+                                "type": "Url",
+                                "errors": "",
+                                "typeValue": "https://saleshosted.z13.web.core.windows.net/demo/rzboard/none.png"
+                            }
+                        ],
+                        "position": "center"
+                    }
+                }
+            },
+            "properties": {
+                "x": "40",
+                "y": "2",
+                "w": "20",
+                "h": "9",
+                "i": "Transformation",
+                "minW": "7",
+                "minH": "4",
+                "isStatic": "false"
+            }
+        },
+        {
+            "widgetGuid": "21A18C90-2DBC-4283-89D2-B01E1B70E363",
+            "widgetProperties": {
+                "i": "gauge",
+                "background": "#000000",
+                "fontColor": "#ffffff",
+                "fontFamily": "Proxima Nova",
+                "fontSize": "24",
+                "title": "CPU Usage",
+                "titleAlign": "",
+                "contents": {
+                    "gauge": {
+                        "device": {
+                            "deviceGuid": "B31A12DD-5352-4D0B-8805-1AB1957C41A0",
+                            "deviceUniqueId": "mcl-RZboard1"
+                        },
+                        "attributes": {
+                            "attribute": [
+                                {
+                                    "attributeGuid": "2238DF97-5C2B-4BFB-A654-2D57B59CAE0C",
+                                    "attributeName": "cpu_usage",
+                                    "checked": "true",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "1",
+                                    "deviceUpdatedDate": "2024-09-22T18:35:13.833Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "1"
+                                },
+                                {
+                                    "attributeGuid": "6236BB0B-9903-4FA8-986A-D2EB381F80DE",
+                                    "attributeName": "mem_usage",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "34.3",
+                                    "deviceUpdatedDate": "2024-09-22T18:35:13.833Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "34.3"
+                                }
+                            ]
+                        },
+                        "minValue": "0",
+                        "maxValue": "100",
+                        "version": "2.0",
+                        "zones": [
+                            {
+                                "zoneColor": "#7ed321",
+                                "zoneName": "Low Usage",
+                                "upToValue": "20",
+                                "showColorPicker": "false"
+                            },
+                            {
+                                "zoneName": "Moderate Usage",
+                                "zoneColor": "#f8e71c",
+                                "upToValue": "50",
+                                "showColorPicker": "false"
+                            },
+                            {
+                                "zoneName": "High Usage",
+                                "zoneColor": "#f5a623",
+                                "upToValue": "75",
+                                "showColorPicker": "false"
+                            },
+                            {
+                                "zoneName": "Very High Usage",
+                                "zoneColor": "#d0021b",
+                                "upToValue": "100",
+                                "showColorPicker": "false"
+                            }
+                        ],
+                        "key": "gauge"
+                    }
+                }
+            },
+            "properties": {
+                "x": "40",
+                "y": "11",
+                "w": "10",
+                "h": "9",
+                "i": "gauge",
+                "minW": "10",
+                "minH": "9",
+                "maxH": "15",
+                "maxW": "16",
+                "isStatic": "false"
+            }
+        },
+        {
+            "widgetGuid": "21A18C90-2DBC-4283-89D2-B01E1B70E363",
+            "widgetProperties": {
+                "i": "gauge",
+                "background": "#000000",
+                "fontColor": "#ffffff",
+                "fontFamily": "Proxima Nova",
+                "fontSize": "24",
+                "title": "Storage",
+                "titleAlign": "",
+                "contents": {
+                    "gauge": {
+                        "device": {
+                            "deviceGuid": "B31A12DD-5352-4D0B-8805-1AB1957C41A0",
+                            "deviceUniqueId": "mcl-RZboard1"
+                        },
+                        "attributes": {
+                            "attribute": [
+                                {
+                                    "attributeGuid": "2238DF97-5C2B-4BFB-A654-2D57B59CAE0C",
+                                    "attributeName": "cpu_usage",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "5",
+                                    "deviceUpdatedDate": "2024-09-23T00:51:14.137Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "5"
+                                },
+                                {
+                                    "attributeGuid": "6236BB0B-9903-4FA8-986A-D2EB381F80DE",
+                                    "attributeName": "mem_usage",
+                                    "checked": "true",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "44.1",
+                                    "deviceUpdatedDate": "2024-09-23T00:51:14.137Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "44.1"
+                                }
+                            ]
+                        },
+                        "minValue": "0",
+                        "maxValue": "100",
+                        "version": "2.0",
+                        "zones": [
+                            {
+                                "zoneColor": "#7ed321",
+                                "zoneName": "Low Usage",
+                                "upToValue": "20",
+                                "showColorPicker": "false"
+                            },
+                            {
+                                "zoneName": "Moderate Usage",
+                                "zoneColor": "#f8e71c",
+                                "upToValue": "50",
+                                "showColorPicker": "false"
+                            },
+                            {
+                                "zoneName": "High Usage",
+                                "zoneColor": "#f5a623",
+                                "upToValue": "75",
+                                "showColorPicker": "false"
+                            },
+                            {
+                                "zoneName": "Very High Usage",
+                                "zoneColor": "#d0021b",
+                                "upToValue": "100",
+                                "showColorPicker": "false"
+                            }
+                        ],
+                        "key": "gauge"
+                    }
+                }
+            },
+            "properties": {
+                "x": "50",
+                "y": "11",
+                "w": "10",
+                "h": "9",
+                "i": "gauge",
+                "minW": "10",
+                "minH": "9",
+                "maxH": "15",
+                "maxW": "16",
+                "isStatic": "false"
+            }
+        },
+        {
+            "widgetGuid": "F7979C1B-8637-4667-90A2-6961052C6E21",
+            "widgetProperties": {
+                "i": "Live",
+                "background": "#e0d9d9",
+                "fontColor": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": "24",
+                "title": "FW Version",
+                "titleAlign": "",
+                "contents": {
+                    "attributeValue": {
+                        "attributeName": "version",
+                        "key": "attributeValue"
+                    },
+                    "attributeTime": {
+                        "attributeName": "version",
+                        "key": "attributeTime"
+                    },
+                    "live": {
+                        "device": {
+                            "deviceGuid": "B31A12DD-5352-4D0B-8805-1AB1957C41A0",
+                            "deviceUniqueId": "mcl-RZboard1"
+                        },
+                        "attributes": {
+                            "attribute": [
+                                {
+                                    "attributeGuid": "2238DF97-5C2B-4BFB-A654-2D57B59CAE0C",
+                                    "attributeName": "cpu_usage",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "0.5",
+                                    "deviceUpdatedDate": "2024-09-23T01:53:44.470Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "0.5"
+                                },
+                                {
+                                    "attributeGuid": "9303E294-F262-420B-AC87-418CB59F6027",
+                                    "attributeName": "version",
+                                    "checked": "true",
+                                    "dataType": "STRING",
+                                    "attributeLatestValue": "1.0.1",
+                                    "deviceUpdatedDate": "2024-09-23T01:53:44.470Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "1.0.1"
+                                },
+                                {
+                                    "attributeGuid": "43A92B1D-F409-4611-A93D-5606AF4F536A",
+                                    "attributeName": "running_model",
+                                    "checked": "false",
+                                    "dataType": "STRING",
+                                    "attributeLatestValue": "none",
+                                    "deviceUpdatedDate": "2024-09-23T01:53:44.470Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "none"
+                                },
+                                {
+                                    "attributeGuid": "6236BB0B-9903-4FA8-986A-D2EB381F80DE",
+                                    "attributeName": "mem_usage",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "37.9",
+                                    "deviceUpdatedDate": "2024-09-23T01:53:44.470Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "37.9"
+                                },
+                                {
+                                    "attributeGuid": "1F22DEFB-18B9-4B71-8223-D73C8493ABEF",
+                                    "attributeName": "script_version",
+                                    "checked": "false",
+                                    "dataType": "STRING",
+                                    "attributeLatestValue": "1.1.0\n",
+                                    "deviceUpdatedDate": "2024-09-23T01:08:44.360Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "1.1.0\n"
+                                }
+                            ]
+                        },
+                        "rules": "",
+                        "key": "live"
+                    }
+                }
+            },
+            "properties": {
+                "x": "0",
+                "y": "15",
+                "w": "9",
+                "h": "4",
+                "i": "Live",
+                "minW": "7",
+                "minH": "4",
+                "maxH": "4",
+                "isStatic": "false"
+            }
+        },
+        {
+            "widgetGuid": "F7979C1B-8637-4667-90A2-6961052C6E21",
+            "widgetProperties": {
+                "i": "Live",
+                "background": "#e0d9d9",
+                "fontColor": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": "24",
+                "title": "App Version",
+                "titleAlign": "",
+                "contents": {
+                    "attributeValue": {
+                        "attributeName": "script_version",
+                        "key": "attributeValue"
+                    },
+                    "attributeTime": {
+                        "attributeName": "script_version",
+                        "key": "attributeTime"
+                    },
+                    "live": {
+                        "device": {
+                            "deviceGuid": "B31A12DD-5352-4D0B-8805-1AB1957C41A0",
+                            "deviceUniqueId": "mcl-RZboard1"
+                        },
+                        "attributes": {
+                            "attribute": [
+                                {
+                                    "attributeGuid": "2238DF97-5C2B-4BFB-A654-2D57B59CAE0C",
+                                    "attributeName": "cpu_usage",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "0.5",
+                                    "deviceUpdatedDate": "2024-09-23T01:53:44.470Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "0.5"
+                                },
+                                {
+                                    "attributeGuid": "9303E294-F262-420B-AC87-418CB59F6027",
+                                    "attributeName": "version",
+                                    "checked": "false",
+                                    "dataType": "STRING",
+                                    "attributeLatestValue": "1.0.1",
+                                    "deviceUpdatedDate": "2024-09-23T01:53:44.470Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "1.0.1"
+                                },
+                                {
+                                    "attributeGuid": "43A92B1D-F409-4611-A93D-5606AF4F536A",
+                                    "attributeName": "running_model",
+                                    "checked": "false",
+                                    "dataType": "STRING",
+                                    "attributeLatestValue": "none",
+                                    "deviceUpdatedDate": "2024-09-23T01:53:44.470Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "none"
+                                },
+                                {
+                                    "attributeGuid": "6236BB0B-9903-4FA8-986A-D2EB381F80DE",
+                                    "attributeName": "mem_usage",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "37.9",
+                                    "deviceUpdatedDate": "2024-09-23T01:53:44.470Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "37.9"
+                                },
+                                {
+                                    "attributeGuid": "1F22DEFB-18B9-4B71-8223-D73C8493ABEF",
+                                    "attributeName": "script_version",
+                                    "checked": "true",
+                                    "dataType": "STRING",
+                                    "attributeLatestValue": "1.1.0\n",
+                                    "deviceUpdatedDate": "2024-09-23T01:08:44.360Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "1.1.0\n"
+                                }
+                            ]
+                        },
+                        "rules": "",
+                        "key": "live"
+                    }
+                }
+            },
+            "properties": {
+                "x": "9",
+                "y": "15",
+                "w": "9",
+                "h": "4",
+                "i": "Live",
+                "minW": "7",
+                "minH": "4",
+                "maxH": "4",
+                "isStatic": "false"
+            }
+        },
+        {
+            "widgetGuid": "E413CDFD-54EB-465E-BA97-CE610867E440",
+            "widgetProperties": {
+                "i": "DeviceCommand",
+                "background": "#e0d9d9",
+                "fontColor": "#000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": "24",
+                "title": "RZBoard V2L Decice Commands",
+                "titleAlign": "",
+                "contents": {
+                    "deviceCommand": {
+                        "template": "540A3E92-0C47-409B-BCBB-2CCCD73AA435",
+                        "device": "mcl-RZboard1",
+                        "deviceGuid": "B31A12DD-5352-4D0B-8805-1AB1957C41A0",
+                        "key": "deviceCommand"
+                    }
+                }
+            },
+            "properties": {
+                "x": "18",
+                "y": "15",
+                "w": "22",
+                "h": "14",
+                "i": "DeviceCommand",
+                "minW": "22",
+                "minH": "10",
+                "maxH": "20",
+                "maxW": "35",
+                "isStatic": "false"
+            }
+        },
+        {
+            "widgetGuid": "A8CB394D-15B1-42C9-94FC-AD7BDC599E2A",
+            "widgetProperties": {
+                "i": "Image",
+                "background": "#FFFFFF",
+                "fontColor": "#343434",
+                "fontFamily": "Proxima Nova",
+                "fontSize": "18",
+                "title": "",
+                "titleAlign": "",
+                "contents": {
+                    "option": {
+                        "imageUpload": "false",
+                        "imageUrl": "true",
+                        "imageDevice": "false",
+                        "imageTelemetry": "false",
+                        "key": "option",
+                        "position": "center"
+                    },
+                    "upload": {
+                        "imageurl": "",
+                        "key": "upload"
+                    },
+                    "url": {
+                        "imageurl": "https://saleshosted.z13.web.core.windows.net/demo/rzboard/rzboard-devicecmds.png",
+                        "key": "url"
+                    },
+                    "device": {
+                        "deviceGuid": "",
+                        "deviceName": "",
+                        "imageurl": "",
+                        "key": "device"
+                    },
+                    "telemetry": {
+                        "deviceGuid": "",
+                        "deviceName": "",
+                        "imageurl": "",
+                        "key": "telemetry"
+                    }
+                }
+            },
+            "properties": {
+                "x": "0",
+                "y": "19",
+                "w": "18",
+                "h": "10",
+                "i": "Image",
+                "minW": "5",
+                "minH": "5",
+                "isStatic": "false"
+            }
+        },
+        {
+            "widgetGuid": "4EE53CD1-E428-402D-B610-A6664D39024E",
+            "widgetProperties": {
+                "i": "OTAUpdates",
+                "background": "#e0d9d9",
+                "fontColor": "#343434",
+                "fontFamily": "Proxima Nova",
+                "fontSize": "18",
+                "title": "OTA Updates",
+                "titleAlign": "",
+                "contents": {
+                    "uniqueId": {
+                        "fontColor": "#2e71be",
+                        "fontFamily": "Proxima Nova",
+                        "fontSize": "16",
+                        "title": "Unique ID",
+                        "contentTitle": "Unique Id",
+                        "key": "uniqueId"
+                    },
+                    "version": {
+                        "fontColor": "#2e71be",
+                        "fontFamily": "Proxima Nova",
+                        "fontSize": "16",
+                        "title": "Version",
+                        "contentTitle": "Version",
+                        "key": "version"
+                    },
+                    "updatedDate": {
+                        "fontColor": "#2e71be",
+                        "fontFamily": "Proxima Nova",
+                        "fontSize": "16",
+                        "title": "Updated Date",
+                        "contentTitle": "Updated Date",
+                        "key": "updatedDate"
+                    },
+                    "status": {
+                        "fontColor": "#2e71be",
+                        "fontFamily": "Proxima Nova",
+                        "fontSize": "16",
+                        "title": "Status",
+                        "contentTitle": "Status",
+                        "key": "status"
+                    }
+                }
+            },
+            "properties": {
+                "x": "40",
+                "y": "20",
+                "w": "20",
+                "h": "9",
+                "i": "OTAUpdates",
+                "minW": "13",
+                "minH": "9",
+                "maxH": "902",
+                "maxW": "1094",
+                "isStatic": "false"
+            }
+        }
+    ]
+}
