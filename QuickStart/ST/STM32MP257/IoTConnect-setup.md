@@ -30,10 +30,10 @@ This guide outlines the steps to configure your STM32MP257 device for IoTConnect
 ### 2. Template Import and Device Registration
 
 1. **Create a Device Template**:
-   - Download the device template file: [MP157F_template.json](MP157F_template.json).
+   - Download the device template file: [STM32MP2-AI_template.json](./device-templates/stm32mp2ai_template.JSON).
    - In IoTConnect, navigate to the **Device** icon in the left menu and select **Templates**.
    - Click **Create Template** and then **Import**.
-   - Upload the `MP157F_template.json` file and save it.
+   - Upload the `stm32mp2ai_template.JSON` file and save it.
 
 2. **Register the Device**:
    - Go to the **Device** menu and select **Create Device**.
@@ -41,7 +41,7 @@ This guide outlines the steps to configure your STM32MP257 device for IoTConnect
      - **Unique ID**: STM32MP157F (or another unique identifier).
      - **Display Name**: STM32MP157F (or preferred name).
      - **Entity**: Choose your entity.
-     - **Template**: Select the `MP157F_template` you just imported.
+     - **Template**: Select the `stm32mp2ai_template` you just imported.
    - Save the device, then access **Connection Info** to download the certificate package by clicking the certificate icon.
 
 ---
@@ -52,12 +52,11 @@ This guide outlines the steps to configure your STM32MP257 device for IoTConnect
    - After creating the device, download the certificate package, which includes:
      - `device.key`: Private key for the device.
      - `DeviceCertificate.pem`: Public certificate for the device.
-     - `RootCA.pem`: Root certificate for secure connection.
 
 2. **Retrieve CPID, Discovery URL, and Environment**:
    - Go to **Settings > Key Vault** in the IoTConnect dashboard to find the following details:
      - **CPID** (Company ID)
-     - **Environment** (e.g., `aws`, `azure`)
+     - **Environment**
      - **Discovery URL**
 
 ---
@@ -67,13 +66,12 @@ This guide outlines the steps to configure your STM32MP257 device for IoTConnect
 To connect the STM32MP257 to IoTConnect, update the `config.json` file on your device with your device ID, CPID, environment, and certificate paths.
 
 1. **SSH into the Board**:
-   - Obtain the board’s IP address and use SSH to access the device:
+   - Obtain the board’s IP address and use SSH to access the device. You can find the board's IP address by selecting the Netdata app on the board's GUI.
      ```bash
      ssh root@<board_ip>
      ```
    - Default credentials:
      - Username: `root`
-     - Password: `root`
 
 2. **Locate and Edit config.json**:
    - Navigate to the `config.json` file:
