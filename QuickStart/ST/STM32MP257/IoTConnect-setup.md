@@ -30,7 +30,7 @@ This guide outlines the steps to configure your STM32MP257 device for IoTConnect
 ### 2. Template Import and Device Registration
 
 1. **Create a Device Template**:
-   - Download the device template file: [STM32MP2-AI_template.json](./device-templates/stm32mp2ai_template.JSON).
+   - Download the device template file: [STM32MP2-AI_template.json](./device-templates/stm32mp2ai_template.JSON) 
    - In IoTConnect, navigate to the **Device** icon in the left menu and select **Templates**.
    - Click **Create Template** and then **Import**.
    - Upload the `stm32mp2ai_template.JSON` file and save it.
