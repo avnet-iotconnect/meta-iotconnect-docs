@@ -1,6 +1,6 @@
-# STM32MP257 AI and IoT Demo Repository
+# STM32MP257 AI Demo
 
-Welcome to the STM32MP257 AI and IoT Demo repository. This repository provides all the necessary documentation and scripts to set up and operate your STM32MP257 board with AI-based image classification and IoT capabilities using IoTConnect.
+This repository provides all the necessary documentation and scripts to set up and operate your STM32MP257 board with AI-based image classification and IoT capabilities using IoTConnect.
 
 ---
 
