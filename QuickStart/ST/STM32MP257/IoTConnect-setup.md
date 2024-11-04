@@ -87,10 +87,10 @@ To connect the STM32MP257 to IoTConnect, update the `config.json` file on your d
      {
          "sdk_ver": "2.1",
          "duid": "STM32MP157F",  // Device Unique ID
-         "cpid": "your-cpid-here",  // CPID from IoTConnect
-         "env": "your-environment-here",  // aws or azure
-         "discovery_url": "https://your-discovery-url-here",  // Discovery URL
-         "iotc_server_cert": "/path/to/RootCA.pem",
+         "cpid": "your-cpid-here",  // CPID from IoTConnect Key Vault
+         "env": "your-environment-here",  // env from IoTConnect Key Vault
+         "discovery_url": "https://your-discovery-url-here",  // Discovery URL from IoTConnect Key Vault
+         "iotc_server_cert": "/path/to/RootCA.pem", // Discovery URL from IoTConnect Key Vault's "Root CA Authorities" tab
          "auth": {
              "auth_type": "IOTC_AT_X509",
              "params": {
