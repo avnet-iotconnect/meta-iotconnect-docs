@@ -85,9 +85,16 @@ A Device Template define the type of telemetery the platform should expect to re
 * Download the premade device template [device_template_stm32mp2ai.JSON](https://github.com/avnet-iotconnect/meta-iotconnect-docs/blob/main/QuickStart/ST/STM32MP257/demo-iotc-x-linux-ai/templates/device_template_stm32mp2ai.JSON?raw=1) (**MUST** Right-Click and "Save-As" to get the raw json file)
 * Import the template into your IoTConnect instance. (A guide on [Importing a Device Template](https://github.com/avnet-iotconnect/avnet-iotconnect.github.io/blob/main/documentation/iotconnect/import_device_template.md) is available or for more information, please see the [IoTConnect Documentation](https://docs.iotconnect.io/iotconnect/) website.)
 
-# 9. Set Up Device in IoTConnect
+# 9. Create a Device in IoTConnect
 
-3. **Register Device**: Use the Device menu to register, then download the device's certificates and place them in the appropriate directory.
+1. **Click** the Device icon and the "Device" sub-menu
+2. At the top-right, click on the "Create Device" button
+3. Enter "STM32MP257" for both **Unique ID** and **Device Name**
+4. Select the entity in the drop-down (if this is a new/trial account, there is only one option)
+5. Select the template ("stm32mp257 AI Demo") from the template dropdown box
+6. Leave the Device Certificate as "Auto-generated"
+7. Click Save & View
+8. Click the "Download device configuration" icon at the top-right ans save it to your working
 
 ---
 
