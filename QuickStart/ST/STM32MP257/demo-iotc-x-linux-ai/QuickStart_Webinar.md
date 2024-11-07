@@ -46,7 +46,7 @@ See the reference image below for cable connections.
 3. Extract the contents of the **.tar**
 
 ### Configuration Script
-1. Download the device configuration script [onboard.zip](scripts/onboard.zip)
+1. Download the device configuration script [onboard.zip](scripts/onboard.zip?raw=1)
 2. Extract the contents to the same location as the `stm32mp25-eval-image` folder
 
 ---
