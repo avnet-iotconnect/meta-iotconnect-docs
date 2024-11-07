@@ -26,7 +26,6 @@ import subprocess
 import re
 import os.path
 #added - start
-import boto3
 from datetime import datetime
 import cv2
 #added - stop
@@ -34,10 +33,17 @@ from os import path
 from PIL import Image
 from timeit import default_timer as timer
 from mobilenet_pp import NeuralNetwork
-#added - start
-# Initialize S3 client
-#s3 = boto3.client('s3')
-#added - stop
+
+import requests
+from PIL import Image
+import numpy as np
+
+# Set constants for S3 bucket and object names
+S3_BUCKET_NAME = "aiimagecapture"
+BOTTOM_IMAGE_URL = f"https://{S3_BUCKET_NAME}.s3.amazonaws.com/bottom.jpg"
+LOG_FILE_URL = f"https://{S3_BUCKET_NAME}.s3.amazonaws.com/classification_log.txt"
+classification_file_path = '/usr/iotc/local/data/classification'
+
 #init gstreamer
 Gst.init(None)
 Gst.init_check(None)
@@ -826,22 +832,12 @@ class Application:
     Class that handles the whole application
     """
     def __init__(self, args):
-        # Initialize Boto3 session and credentials
-        self.session = boto3.Session()
 
-        # Get the credentials
-        credentials = self.session.get_credentials()
-        current_credentials = credentials.get_frozen_credentials()
-
-        # Output credentials (for debugging)
-        print("AWS Access Key:", current_credentials.access_key)
-        print("AWS Secret Key:", current_credentials.secret_key)
-
-        # Create the S3 client
-        self.s3 = self.session.client('s3')
+        # Path constants for local usage
+        self.download_path = "/tmp/downloaded_image.jpg"
+        self.classification_file_path = classification_file_path
         
         #init variables uses :
-        self.s3 = boto3.client('s3')
         self.exit_app = False
         self.dcmipp_camera = False
         self.first_drawing_call = True
@@ -898,108 +894,139 @@ class Application:
         self.overlay_window = OverlayWindow(args,self)
         self.main()
     
-    def download_image_from_s3(self, bucket_name, object_name, download_path):
+    def download_image_from_s3(self, image_url):
+        """
+        Downloads an image from a public S3 URL.
+        """
         try:
-            self.s3.download_file(bucket_name, object_name, download_path)
-            print(f"Downloaded {object_name} from bucket {bucket_name}")
-            return download_path
+            response = requests.get(image_url)
+            if response.status_code == 200:
+                with open(self.download_path, 'wb') as file:
+                    file.write(response.content)
+                print(f"Downloaded {image_url}")
+                return self.download_path
+            else:
+                print(f"Failed to download image, status code: {response.status_code}")
+                return None
         except Exception as e:
-            print(f"Failed to download {object_name} from {bucket_name}: {e}")
+            print(f"Error downloading image: {e}")
             return None
-
-
-    def classify_s3_image(self, bucket_name, object_name):
+            
+    def download_log_from_s3(self, log_url):
         """
-        Download an image from S3, classify it using NPU, and store the classification label in S3.
-        Also update a log file with the classification label.
-        Avoid logging the same label consecutively.
+        Downloads the existing log file from a public S3 URL.
         """
-        download_path = "/tmp/downloaded_image.jpg"
+        try:
+            response = requests.get(log_url)
+            if response.status_code == 200:
+                return response.text  # Returning the log file contents as a string
+            else:
+                print(f"Failed to download log file, status code: {response.status_code}")
+                return ""
+        except Exception as e:
+            print(f"Error downloading log file: {e}")
+            return ""
+
+    def upload_log_to_s3(self, log_data, log_url):
+        """
+        Uploads the updated log to a public S3 URL if allowed.
+        """
+        try:
+            response = requests.put(log_url, data=log_data)
+            if response.status_code == 200:
+                print("Log file uploaded successfully.")
+            else:
+                print(f"Failed to upload log, status code: {response.status_code}")
+        except Exception as e:
+            print(f"Error uploading log: {e}")
+
+    def classify_s3_image(self):
+        """
+        Download `bottom.jpg` from S3, classify it using NPU, and log the classification label and confidence.
+        Write classification label and confidence to separate files, and update the log with both.
+        Only logs unique classification-confidence pairs.
+        """
         classification_file_path = '/usr/iotc/local/data/classification'
-        log_file_key = 'classification_log.txt'  # S3 key for the log file
+        confidence_file_path = '/usr/iotc/local/data/confidence'
+        log_url = "https://aiimagecapture.s3.amazonaws.com/classification_log.txt"  # Public S3 URL for log file
+        unique_pair_file = "/usr/iotc/local/data/last_classification_confidence.txt"  # Store last unique pair
+
+        # Initialize default values for label and confidence
+        label = "Unknown"
+        confidence = 0.0
 
         # Download the image from S3
-        image_path = self.download_image_from_s3(bucket_name, object_name, download_path)
+        image_path = self.download_image_from_s3(BOTTOM_IMAGE_URL)
         if image_path is None:
             print("Failed to download the image.")
             return
 
-        # Load the image using OpenCV (or another method depending on the NPU input requirements)
+        # Load the image and prepare for inference
         img = cv2.imread(image_path)
         if img is None:
             print("Failed to load image.")
             return
-
-        # Preprocess the image for inference
         img_resized = cv2.resize(img, (self.nn_input_width, self.nn_input_height))
 
-        # Perform inference using the NPU
+        # Perform inference
         try:
-            self.nn.launch_inference(img_resized)  # Perform inference
-            accuracy, label_index = self.nn.get_results()  # Get classification results
-            labels = self.nn.get_labels()  # Get the list of labels
-            if not labels or label_index >= len(labels):
-                print("Failed to retrieve valid labels.")
-                return
+            self.nn.launch_inference(img_resized)
+            accuracy, label_index = self.nn.get_results()
+            labels = self.nn.get_labels()
+            label = labels[label_index] if labels else "Unknown"
+            confidence = accuracy * 100  # Convert to percentage
+            print(f"Classification: {label}, Confidence: {confidence:.2f}%")
         except Exception as e:
             print(f"Error during NPU inference: {e}")
-            return
 
-        # Get the classification label
-        label = labels[label_index]
-        print(f"Classification: {label}")
-
-        # Write classification to local file
+        # Write classification and confidence to local files
         try:
             with open(classification_file_path, 'w') as f_classification:
                 f_classification.write(label)
-            print(f"Classification written to {classification_file_path}: {label}")
+            with open(confidence_file_path, 'w') as f_confidence:
+                f_confidence.write(f"{confidence:.2f}")
+            print(f"Classification and confidence written to files: {label}, {confidence:.2f}%")
         except Exception as e:
-            print(f"Error writing classification to file: {e}")
-            return
+            print(f"Error writing classification/confidence to files: {e}")
 
-        # Fetch the existing log file from S3
+        # Check if the current classification-confidence pair is different from the last logged pair
+        new_pair = f"{label}, {confidence:.2f}%"
+        
+        # Read the last unique pair from the file, if it exists
         try:
-            response = self.s3.get_object(Bucket=bucket_name, Key=log_file_key)
-            existing_log = response['Body'].read().decode('utf-8')
-            latest_log_entry = existing_log.splitlines()[0] if existing_log else None  # Get the most recent log entry
-        except self.s3.exceptions.NoSuchKey:
-            print(f"No existing log file found. Creating new log.")
-            existing_log = ""
-            latest_log_entry = None  # No log exists yet
-        except Exception as e:
-            print(f"Failed to retrieve existing log file: {e}")
-            return
+            with open(unique_pair_file, 'r') as f_last_pair:
+                last_pair = f_last_pair.read().strip()
+        except FileNotFoundError:
+            last_pair = ""  # If the file doesn't exist, assume no prior pair
 
-        # Check if the new label is the same as the last logged one
-        if latest_log_entry and latest_log_entry.split(',')[1].strip() == label:
-            print(f"Skipping log update since the label '{label}' is the same as the previous entry.")
-            return
+        if new_pair != last_pair:
+            # Only log if the new pair is unique
+            timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            new_log_entry = f"{timestamp}, {label}, {confidence:.2f}%\n"
 
-        # Log classification details (new entry at the top)
-        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        new_log_entry = f"{timestamp}, {label}\n"
-        updated_log = new_log_entry + existing_log  # Prepend the new entry at the top
+            # Fetch existing log content from S3
+            existing_log = self.download_log_from_s3(log_url)
+            updated_log = new_log_entry + existing_log  # Prepend the new entry
 
-        # Upload the updated log back to S3
-        try:
-            self.s3.put_object(Bucket=bucket_name, Key=log_file_key, Body=updated_log)
-            print(f"Log file updated in S3: {log_file_key}")
-        except Exception as e:
-            print(f"Failed to update log file in S3: {e}")
-            return
+            # Upload updated log back to S3
+            self.upload_log_to_s3(updated_log, log_url)
+            print("New unique entry added to log.")
 
- 
+            # Update the last classification-confidence pair file
+            with open(unique_pair_file, 'w') as f_last_pair:
+                f_last_pair.write(new_pair)
+        else:
+            print("Duplicate entry detected; not logging.")
+
+
     def run(self):
         """
-        Continuously download an image every 5 seconds, classify it, and repeat.
+        Continuously download an image, classify it, and repeat every 5 seconds.
         """
-        s3_bucket_name = "aiimagecapture"
-        s3_object_name = "bottom.jpg"
         while True:
-            print("Starting new classification cycle...")
-            self.classify_s3_image(s3_bucket_name, s3_object_name)
-            time.sleep(5)  # Wait for 5 seconds before the next cycle
+            print("Starting classification cycle...")
+            self.classify_s3_image()
+            time.sleep(5)
     
     def process_picture(self):
         """
@@ -1332,22 +1359,17 @@ class Application:
         return True
 
 
+# Main function
 if __name__ == '__main__':
-#replaced  
-    # Example usage for loading an image from S3 and classifying it.
-    s3_bucket_name = "aiimagecapture"  # Update this with your actual S3 bucket name
-    s3_object_name = "bottom.jpg"  # Update this with the path to the image in your S3 bucket
-
     try:
-        # Initialize the neural network model
+        # Parse arguments
         application = Application(args)
         
-        # Start the continuous loop to download and classify images
+        # Start continuous classification loop
         application.run()
     except Exception as exc:
         print("Main Exception: ", exc)
-
+    
     Gtk.main()
-    print("gtk main finished")
-    print("application exited properly")
+    print("Application exited properly")
     os._exit(0)
