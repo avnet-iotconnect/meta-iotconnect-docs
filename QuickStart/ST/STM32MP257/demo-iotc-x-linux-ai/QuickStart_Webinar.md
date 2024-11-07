@@ -37,7 +37,8 @@ See the reference image below for cable connections.
 # 4. Installing Required Tools
 1. Create a [MyST Account](https://my.st.com/cas/login) if you don't have one.
 2. Download and Install [STM32CubeProgrammer](https://www.st.com/en/development-tools/stm32cubeprog.html) (Tested with v2.17)
-3. Ensure the USB Serial Link and DFU drivers are installed.
+   * Ensure the USB Serial Link and DFU drivers are installed.
+3. Download and Install [Git for Windows](https://gitforwindows.org/) (or similar application for bash)
 
 ---
 
@@ -111,22 +112,24 @@ A Device Template define the type of telemetery the platform should expect to re
 The script in the next sction will need to connect to the board update files and configure connection settings.
 To accomplish this task, the IP Address of the board is required.  This can be obtained in a couple of ways:
 1. Login to your router and find the DHCP lease
-2. Connect to the board via a serial terminal such as https://www.serialterminal.com/
+2. Connect to the board via a serial terminal such as https://googlechromelabs.github.io/serial-terminal/
+   * Look for a Device called `ST-LINK VCP Ctrl(COM##)`
+   * Type `ifconfig` and look for the IP address under **end0**
+
+* Take note of the IP Address
 
 # 11. Running the Device Setup Script
 
-### 6.2 Running the Script
+1. Navigate to your working directory that contains the "onboard" folder in windows explorer
+2. Right-click on the onboard folder and select "Open Git Bash here"
+3. Enter ```./initial-device-config-and-update.sh```
+4. Enter the IP address of the board
+5. Assuming you placed the `iotcDeviceConfig.json` in the onboarding folder, just hit Enter
+6. Assuming you placed the `STM32MP257-certificates.zip` in the onboarding folder, just hit Enter
+7. When prompted to replace the .crt file Enter `A`
+8. When prompted again, Enter `yes`
 
-1. **Download or Transfer the `initial-device.sh` Script**: Place the script in your working directory.
-2. **Run the Script**:
-   ```bash
-   ./initial-device.sh
-3. **Follow the Prompts**: The script will prompt you for details like the target IP address, paths to `iotcDeviceConfig.json`, and the certificate zip file.
-   - The script will automatically:
-     - Configure device-specific settings in `config.json`.
-     - Transfer necessary files (application data, local data, AI models) to the target directories on the device.
-     - Run the installation script remotely on the device to finalize setup.
-4. **Script Completion**: After completion, your device should be fully configured and ready for IoTConnect. If any issues arise, the script provides feedback to help with troubleshooting.
+**Script Completion**: After completion, your device should be fully configured and ready for IoTConnect. If any issues arise, the script provides feedback to help with troubleshooting.
 
 ---
 
