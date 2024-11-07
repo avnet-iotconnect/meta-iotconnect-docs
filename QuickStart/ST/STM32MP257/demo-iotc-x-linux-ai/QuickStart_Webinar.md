@@ -50,7 +50,8 @@ See the reference image below for cable connections.
 
 ### Configuration Script
 1. Download the device configuration script [onboard.zip](scripts/onboard.zip)
-2. Extract the contents to
+2. Extract the contents to the same location as the `stm32mp25-eval-image` folder
+
 ---
 
 # 6. Flash the Custom Image
@@ -98,11 +99,12 @@ A Device Template define the type of telemetery the platform should expect to re
 5. Select the template ("stm32mp257 AI Demo") from the template dropdown box
 6. Leave the Device Certificate as "Auto-generated"
 7. Click Save & View
-8. Click the "Download device configuration" icon at the top-right ans save it to your working
+8. Click the "Download device configuration" icon at the top-right and save the file "iotcDeviceConfig.json" into the `..\onboard\` folder
+9. Click the link for "Connection Info" and then the icon in the top-right and save the file "STM32MP257-certificates.zip" into the `..\onboard\` folder
 
 ---
 
-## 6. Running the Initial Device Setup Script
+# 10. Running the Device Setup Script
 
 The `initial-device.sh` script automates much of the setup, including configuring `config.json`, transferring files, and setting up certificates.
 
