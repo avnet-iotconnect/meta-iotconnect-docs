@@ -1,7 +1,7 @@
 # STM32MP257x-EV1 Evaluation Kit QuickStart for Webinar
 
 # 1. Introduction
- This guide is designed to walk through the steps to connect the STM32MP257-EV1 to the Avnet IoTConnect platform and demonstrate the on-board Imgage Classification functionality as shown in the webinar hosted by ST and Avnet November, 2024.
+This guide is designed to walk through the steps to connect the STM32MP257-EV1 to the Avnet IoTConnect platform and demonstrate the on-board Imgage Classification functionality as shown in the webinar hosted by ST and Avnet November, 2024. For greatest reach, this guide is written to be following on a Windows 10/11 host machine.
 
 # 2. Hardware Requirements
 * STM32MP257F-EV1 Evaluation Board
