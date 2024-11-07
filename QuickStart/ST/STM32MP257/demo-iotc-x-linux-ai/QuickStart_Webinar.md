@@ -73,6 +73,9 @@ See the reference image below for cable connections.
 
 9. Press the RESET button to boot the system with the new image.
 
+> [!NOTE]
+> It may take up to 5 minutes for the board to fully boot
+
 ---
 
 # 7. Cloud Account Setup
