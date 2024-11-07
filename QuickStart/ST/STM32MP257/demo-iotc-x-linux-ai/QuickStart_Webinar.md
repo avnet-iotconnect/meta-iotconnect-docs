@@ -1,7 +1,7 @@
 # STM32MP257x-EV1 Evaluation Kit QuickStart for Webinar
 
 # 1. Introduction
-This guide is designed to walk through the steps to connect the STM32MP257-EV1 to the Avnet IoTConnect platform and demonstrate the on-board Imgage Classification functionality as shown in the webinar hosted by ST and Avnet November, 2024. For greatest reach, this guide is written to be following on a Windows 10/11 host machine.
+This guide is designed to walk through the steps to connect the STM32MP257-EV1 to the Avnet IoTConnect platform and demonstrate the on-board Image Classification functionality as shown in the webinar hosted by ST and Avnet November, 2024. For greatest reach, this guide is written to be following on a Windows 10/11 host machine.
 
 # 2. Hardware Requirements
 * STM32MP257F-EV1 Evaluation Board
@@ -132,8 +132,8 @@ To accomplish this task, the IP Address of the board is required.  This can be o
 
 ---
 # 12. Import a Dashboard
-The interactive demo can be visualized by using the Dynamic Dashboard feature of IoTConnect.  
-A preconfigured demo dashboard is available here: [dashboard_template_stm32mp2_classification.json](templates/dashboard_template_stm32mp2_classification.json) (**must** Right-Click the link, Save As)
+The interactive demo can be loaded by using the Dynamic Dashboard feature of IoTConnect.  
+The pre-configured demo dashboard is available here: [dashboard_template_stm32mp2_classification.json](templates/dashboard_template_stm32mp2_classification.json) (**must** Right-Click the link, Save As)
 
 * **Download** the template then select "Create Dashboard" from the top of the IoTConnect portal
 * **Select** the "Import Dashboard" option and **Select** the *Template* and *Device Name* used previously 
@@ -141,7 +141,7 @@ A preconfigured demo dashboard is available here: [dashboard_template_stm32mp2_c
 
 You will now be in the dashboard edit mode. You can add/remove widgets or just click **Save** in the upper-right to exit the edit mode.
 
-## 13. Using the Demo
+# 13. Using the Demo
 
 1. **Import Dashboard Template**: Download the dashboard JSON template and import it into IoTConnect.
 2. **Assign Device to Dashboard**: Select your device to display live telemetry and AI demo outputs.
