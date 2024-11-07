@@ -1,13 +1,9 @@
 # STM32MP257x-EV1 Evaluation Kit QuickStart for Webinar
 
 # 1. Introduction
+ This guide is designed to walk through the steps to connect the STM32MP257-EV1 to the Avnet IoTConnect platform and demonstrate the on-board Imgage Classification functionality as shown in the webinar hosted by ST and Avnet in November, 2024.
 
-# 2. Requirements
-
-## Environment
-* Windows 10/11
-
-## Hardware
+# 2. Hardware Requirements
 * STM32MP257F-EV1 Evaluation Board
 * MicroSD Card (minimum 16GB)
 * 2x USB Type-C Cables
