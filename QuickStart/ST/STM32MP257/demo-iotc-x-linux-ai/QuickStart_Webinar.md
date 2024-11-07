@@ -141,7 +141,7 @@ A preconfigured demo dashboard is available here: [dashboard_template_stm32mp2_c
 
 You will now be in the dashboard edit mode. You can add/remove widgets or just click **Save** in the upper-right to exit the edit mode.
 
-## 13. Using the Demo
+# 13. Using the Demo
 
 1. **Import Dashboard Template**: Download the dashboard JSON template and import it into IoTConnect.
 2. **Assign Device to Dashboard**: Select your device to display live telemetry and AI demo outputs.
