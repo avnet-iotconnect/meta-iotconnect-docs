@@ -1,53 +1,49 @@
-# STM32MP257x-EV1 Evaluation Kit AI Demos Quickstart Guide
+# STM32MP257x-EV1 Evaluation Kit QuickStart for Webinar
 
-## 1. Starter Package Content
+# 1. Introduction
 
-### Required Hardware
-- **STM32MP257F-EV1 Evaluation Board**
-- **MicroSD Card** (minimum 16GB)
-- **USB Type-C Cables**
-- **Power Supply** (5V, 3A)
+# 2. Requirements
 
-### Optional Materials
-- **7” LVDS WSVGA Display with Touch Panel (B-LVDS7-WSVGA)**
-- **Camera Module Bundle (B-CAMS-IMX)**
+## Environment
+* Windows 10/11
 
----
+## Hardware
+* STM32MP257F-EV1 Evaluation Board
+* MicroSD Card (minimum 16GB)
+* 2x USB Type-C Cables
+* (Optional) 7” LVDS WSVGA Display with Touch Panel (B-LVDS7-WSVGA)
+* (Optional) Camera Module Bundle (B-CAMS-IMX)
+* (Optional) 5V, 3A Power Supply with barrel jack (Or USB port that can provide equivalent power)
 
-## 2. Hardware Assembly
-
+# 3. Hardware Setup
+See the reference image below for cable connections.
 <details>
 <summary>Reference Image</summary>
 <img src="https://wiki.stmicroelectronics.cn/stm32mpu/nsfr_img_auth.php/thumb/d/d7/STM32MP257x-EV1_connections.jpg/800px-STM32MP257x-EV1_connections.jpg" alt="STM32MP257x-EV1 Connections">
 </details>
 
-### Minimal Setup
-1. Provide WAN access by connecting an Ethernet cable to port labeled #2 in the reference image.
-2. Provide Power and Debug Access by connecting a USB-C cable from your host to the target port labeled #1 in the reference image.
-   - If your host cannot provide 3A power over its USB port, adjust the header above the power receptacle labeled #6 in the reference image and use an external 5V/3A power supply.
-3. Provide SD-Card Flash programming over DFU by connecting a USB-C cable from your host to the target port labeled #4 in the reference image.
+1. Connect an Ethernet cable from your LAN (router/switch) to the port labeled **#2** in the reference image.
+2. Connect a USB-C cable from your PC to the port labeled **#1** in the reference image.
+> [!NOTE]
+> If using the optional display and camera, your host machine must be able to supply 3A on the USB port.  If it cannot, use a wall adapter (e.g. phone charger) that meets the power requirements or adjust the header above the power receptacle labeled **#6** in the reference image and use an external 5V/3A barrel style connector and power supply.
+3. Connect a USB-C cable from your host machine to the port labeled **#4** in the reference image.
 
 ---
 
-## 3. Installing Required Tools
-1. Create a MyST Account.
-2. **Download and Install STM32CubeProgrammer V2.17** from [ST's website](https://www.st.com/en/development-tools/stm32cubeprog.html).
-3. **Install USB Serial Link Drivers**:
-   - For Linux, install `libusb1.0`.
-   - For Windows, install the STM32CubeProgrammer DFU driver.
+# 4. Installing Required Tools
+1. Create a [MyST Account](https://my.st.com/cas/login) if you don't have one.
+2. Download and Install [STM32CubeProgrammer](https://www.st.com/en/development-tools/stm32cubeprog.html) (Tested with v2.17)
+3. Ensure the USB Serial Link and DFU drivers are installed.
 
 ---
 
-## 4. Flashing the Custom Image
+# 5. Flashing the Custom Image
 
-### 4.1 Download the Custom Image
-Download the custom TAR file [here](https://iotconnect-sdk-images.s3.amazonaws.com/MPU/hardknott/rz/rzboard-iotc-demo.zip).
-
-### 4.2 Flashing Instructions
-1. **Set Boot Switches**: Configure the board to boot from UART/USB.
+1. Download the custom image: [stm32mp25-eval-image.tar.gz](https://iotconnect-sdk-images.s3.us-east-1.amazonaws.com/MPU/mickledore/st/stm32mp257x-ev1/stm32mp25-eval-image.tar.gz).
+2. Set Boot Switches to boot from UART/USB using the reference image below
 
 <details>
-<summary>Reference Image</summary>
+<summary>Boot Switchs for UART/USB boot</summary>
 <img src="https://wiki.stmicroelectronics.cn/stm32mpu/nsfr_img_auth.php/thumb/d/d8/STM32MP257x-EV1_boot_switches_UART_USB_mode.jpg/450px-STM32MP257x-EV1_boot_switches_UART_USB_mode.jpg" alt="UART USB Mode Boot Switches">
 </details>
 
