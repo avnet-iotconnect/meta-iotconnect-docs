@@ -111,7 +111,7 @@ A Device Template define the type of telemetery the platform should expect to re
 # 10. Obtain Board IP address
 The script in the next sction will need to connect to the board update files and configure connection settings.
 To accomplish this task, the IP Address of the board is required.  This can be obtained in a couple of ways:
-1. Login to your router and find the DHCP lease
+1. Login to your router and find the DHCP lease associated with hostname `stm32mp25-eval`
 2. Connect to the board via a serial terminal such as https://googlechromelabs.github.io/serial-terminal/
    * Look for a Device called `ST-LINK VCP Ctrl(COM##)`
    * Type `ifconfig` and look for the IP address under **end0**
