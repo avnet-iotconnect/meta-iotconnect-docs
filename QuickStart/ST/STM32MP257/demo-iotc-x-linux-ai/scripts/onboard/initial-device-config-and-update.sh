@@ -86,13 +86,25 @@ ssh ${TARGET_USER}@${TARGET_IP} "mkdir -p ${TARGET_DIR}"
 echo "Transferring files to ${TARGET_USER}@${TARGET_IP}:${TARGET_DIR}..."
 scp -r application local_data x-linux-ai install.sh ${TARGET_USER}@${TARGET_IP}:${TARGET_DIR}/
 
-# Step 3: Run the installation script on the target
+# Step 3: Run the installation script on the target and set permissions
 echo "Running installation script on the target..."
 ssh ${TARGET_USER}@${TARGET_IP} "cd ${TARGET_DIR} && ./install.sh"
 
-# Step 4: Verify the success of the installation
+# Step 4: Set file permissions and install requirements
 if [ $? -eq 0 ]; then
     echo "OTA update completed successfully."
+
+    # Set read and write permissions for all files in /usr/iotc/local/data
+    ssh ${TARGET_USER}@${TARGET_IP} "chmod -R u+rw,g+rw,o+rw /usr/iotc/local/data/*"
+    echo "Read and write permissions set on /usr/iotc/local/data/*"
+
+    # Make all scripts in /usr/iotc/local/scripts executable
+    ssh ${TARGET_USER}@${TARGET_IP} "chmod -R u+x,g+x,o+x /usr/iotc/local/scripts/*"
+    echo "Executable permissions set on all scripts in /usr/iotc/local/scripts/*"
+
+    # Install the requests library if not already installed
+    ssh ${TARGET_USER}@${TARGET_IP} "python3 -m pip install --user requests || echo 'requests installation failed'"
+    echo "Checked for and installed 'requests' package"
 
     # Execute the IoTConnect program
     echo "Starting IoTConnect program..."
