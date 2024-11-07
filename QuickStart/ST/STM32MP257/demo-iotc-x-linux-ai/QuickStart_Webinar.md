@@ -15,7 +15,7 @@ This guide is designed to walk through the steps to connect the STM32MP257-EV1 t
 See the reference image below for cable connections.
 <details>
 <summary>Reference Image</summary>
-<img src="https://wiki.stmicroelectronics.cn/stm32mpu/nsfr_img_auth.php/thumb/d/d7/STM32MP257x-EV1_connections.jpg/800px-STM32MP257x-EV1_connections.jpg" alt="STM32MP257x-EV1 Connections">
+<img src="https://github.com/avnet-iotconnect/meta-iotconnect-docs/blob/main/QuickStart/ST/STM32MP257/media/STM32MP257x-EV1_connections.jpg" alt="STM32MP257x-EV1 Connections">
 </details>
 
 1. Connect an Ethernet cable from your LAN (router/switch) to the port labeled **#2** in the reference image.
