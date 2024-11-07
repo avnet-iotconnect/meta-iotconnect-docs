@@ -95,6 +95,11 @@ ssh ${TARGET_USER}@${TARGET_IP} "/bin/sh ${TARGET_DIR}/install.sh"
 # Step 4: Set file permissions and install requirements
 if [ $? -eq 0 ]; then
     echo "OTA update completed successfully."
+    
+    # Copy the labels file on the target device
+    echo "Copying labels_imagenet_2012.txt to labels_imagenet_2012 on the target device..."
+    ssh ${TARGET_USER}@${TARGET_IP} "cp /usr/local/x-linux-ai/image-classification/labels_imagenet_2012.txt /usr/local/x-linux-ai/image-classification/labels_imagenet_2012"
+    echo "Labels file copied successfully."
 
     # Set read and write permissions for all files in /usr/iotc/local/data
     ssh ${TARGET_USER}@${TARGET_IP} "chmod -R u+rw,g+rw,o+rw /usr/iotc/local/data/*"
@@ -104,9 +109,11 @@ if [ $? -eq 0 ]; then
     ssh ${TARGET_USER}@${TARGET_IP} "find /usr/iotc/local/scripts -type f -exec chmod +x {} \;"
     echo "Executable permissions set on all files within /usr/iotc/local/scripts and its subdirectories"
     
-    # Install the requests library for the 'weston' user if not already installed 
+    # Install the requests library for both 'weston' and 'root' users
+    echo "Installing 'requests' package for 'root' and 'weston' users..."
+    ssh ${TARGET_USER}@${TARGET_IP} "python3 -m pip install requests"
     ssh ${TARGET_USER}@${TARGET_IP} "su -l weston -c 'python3 -m pip install --user requests'"
-    echo "'requests' package installed for 'weston' user"
+    echo "'requests' package installed for both 'root' and 'weston' users."
 
     # Execute the IoTConnect program
     echo "Starting IoTConnect program..."
