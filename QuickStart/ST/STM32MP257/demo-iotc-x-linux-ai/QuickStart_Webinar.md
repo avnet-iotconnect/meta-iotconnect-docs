@@ -59,7 +59,7 @@ See the reference image below for cable connections.
 5. Click "Connect"
 6. Click "Download" and wait as this will take 5-10 minutes.
 7. Once the download is complete, close the programmer.
-8. Configure the board to boot from the SD card by changing the boot switch 1 to closed (see reference image below)
+8. Configure the board to boot from the SD card by changing boot switch 1 to closed (see reference image below)
 
 <details>
 <summary>Boot Switches for SD card boot</summary>
@@ -70,10 +70,22 @@ See the reference image below for cable connections.
 
 ---
 
-## 5. Set Up Device in IoTConnect
+# 7. Cloud Account Setup
+An IoTConnect account with AWS backend is required.  If you need to create an account, a free trial subscription is available.
+[IoTConnect Free Trial (AWS Version)](https://subscription.iotconnect.io/subscribe?cloud=aws)
 
-1. **Create an IoTConnect Account**: Register [here](https://www.iotconnect.io).
-2. **Import Device Template**: Download `STM32MP2-AI_template.json` and import it in IoTConnect under Templates.
+> [!NOTE]
+> Be sure to check any SPAM folder for the temporary password after registering.
+
+See the IoTConnect [Subscription Information](https://github.com/avnet-iotconnect/avnet-iotconnect.github.io/blob/main/documentation/iotconnect/subscription/subscription.md) for more details on the trial.
+
+# 8. IoTConnect Device Template Setup
+A Device Template define the type of telemetery the platform should expect to recieve.
+* Download the premade device template [device_template_stm32mp2ai.JSON](https://github.com/avnet-iotconnect/meta-iotconnect-docs/blob/main/QuickStart/ST/STM32MP257/demo-iotc-x-linux-ai/templates/device_template_stm32mp2ai.JSON?raw=1) (**MUST** Right-Click and "Save-As" to get the raw json file)
+* Import the template into your IoTConnect instance. (A guide on [Importing a Device Template](https://github.com/avnet-iotconnect/avnet-iotconnect.github.io/blob/main/documentation/iotconnect/import_device_template.md) is available or for more information, please see the [IoTConnect Documentation](https://docs.iotconnect.io/iotconnect/) website.)
+
+# 9. Set Up Device in IoTConnect
+
 3. **Register Device**: Use the Device menu to register, then download the device's certificates and place them in the appropriate directory.
 
 ---
