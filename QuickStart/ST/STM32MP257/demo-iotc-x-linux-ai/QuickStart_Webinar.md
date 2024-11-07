@@ -23,10 +23,14 @@ See the reference image below for cable connections.
 </details>
 
 1. Connect an Ethernet cable from your LAN (router/switch) to the port labeled **#2** in the reference image.
-2. Connect a USB-C cable from your PC to the port labeled **#1** in the reference image.
-> [!NOTE]
-> If using the optional display and camera, your host machine must be able to supply 3A on the USB port.  If it cannot, use a wall adapter (e.g. phone charger) that meets the power requirements or adjust the header above the power receptacle labeled **#6** in the reference image and use an external 5V/3A barrel style connector and power supply.
-3. Connect a USB-C cable from your host machine to the port labeled **#4** in the reference image.
+2. Connect a USB-C cable from your host machine to the port labeled **#4** in the reference image.
+3. Insert the MicroSD card into the slot.
+4. Set all the Boot Switches to "open" to allow booting from UART/USB (see reference image below).
+5. Connect a USB-C cable from your PC to the port labeled **#1** in the reference image.
+<details>
+<summary>Boot Switches for UART/USB boot</summary>
+<img src="https://wiki.stmicroelectronics.cn/stm32mpu/nsfr_img_auth.php/thumb/d/d8/STM32MP257x-EV1_boot_switches_UART_USB_mode.jpg/450px-STM32MP257x-EV1_boot_switches_UART_USB_mode.jpg" alt="UART USB Mode Boot Switches">
+</details>
 
 ---
 
@@ -37,28 +41,31 @@ See the reference image below for cable connections.
 
 ---
 
-# 5. Flashing the Custom Image
+# 5. Obtain the Custom Image
 
 1. Download the custom image: [stm32mp25-eval-image.tar.gz](https://iotconnect-sdk-images.s3.us-east-1.amazonaws.com/MPU/mickledore/st/stm32mp257x-ev1/stm32mp25-eval-image.tar.gz).
-2. Set Boot Switches to boot from UART/USB using the reference image below
+2. Extract the contents of the **.gz**
+3. Extract the contents of the **.tar**
+
+---
+
+# 6. Flash the Custom Image
+1. Launch the STM32CubeProgrammer
+2. Click "Open File" and navigate to the following file:
+   - File: `..\stm32mp25-eval-image\flashlayout_st-image-ai\optee\FlashLayout_sdcard_stm32mp257f-ev1-optee.tsv`
+3. Click "Browse" to the right of the "Binaries Path" field and navigate to the following directory:
+   - Browse: `..\stm32mp25-eval-image\`
+4. In the upper-right corner, click the connection drop-down and select "USB"
+5. Click "Connect"
+6. Click "Download" and wait as this will take 5-10 minutes.
+7. Once the download is complete, configure the board to boot from the SD card by changing the booth switch 1 to closed
 
 <details>
-<summary>Boot Switchs for UART/USB boot</summary>
-<img src="https://wiki.stmicroelectronics.cn/stm32mpu/nsfr_img_auth.php/thumb/d/d8/STM32MP257x-EV1_boot_switches_UART_USB_mode.jpg/450px-STM32MP257x-EV1_boot_switches_UART_USB_mode.jpg" alt="UART USB Mode Boot Switches">
-</details>
-
-2. **Use STM32CubeProgrammer to Flash**:
-   - File: `..\STimage\flashlayout_st-image-ai\optee\FlashLayout_sdcard_stm32mp257f-ev1-optee.tsv`
-   - Folder: `..\STimage`
-
-3. **Set Boot Switches**: After flashing, configure the board to boot from the SD card.
-
-<details>
-<summary>Reference Image</summary>
+<summary>Boot Switches for SD card boot</summary>
 <img src="https://wiki.stmicroelectronics.cn/stm32mpu/nsfr_img_auth.php/thumb/1/11/STM32MP257x-EV1_boot_switches_microSD_card.jpg/450px-STM32MP257x-EV1_boot_switches_microSD_card.jpg" alt="SD Card Boot Switches">
 </details>
 
-4. **Reboot**: Press the reset button to boot with the new system.
+8. Press the reset button to boot the system with the new image.
 
 ---
 
