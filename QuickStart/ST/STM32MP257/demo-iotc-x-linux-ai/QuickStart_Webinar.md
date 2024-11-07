@@ -72,6 +72,7 @@ See the reference image below for cable connections.
 
 # 7. Cloud Account Setup
 An IoTConnect account with AWS backend is required.  If you need to create an account, a free trial subscription is available.
+
 [IoTConnect Free Trial (AWS Version)](https://subscription.iotconnect.io/subscribe?cloud=aws)
 
 > [!NOTE]
