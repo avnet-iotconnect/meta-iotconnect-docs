@@ -1,11 +1,11 @@
 {
-  "sdk_ver": "2.1",
+  "sdk_ver": "",
   "__comment_duid": "Your Device's name",
-  "duid": "stm32mp2ai3",
+  "duid": "",
   "_comment_cpid": "CPID from portal's Key Vault",
-  "cpid": "378DC01FEAE14C0697BD2E87E431A07E",
+  "cpid": "",
   "_comment_env": "Environment from portal's Key Vault",
-  "env": "poc",
+  "env": "",
   "_comment_iotc_server_cert": "Path to Global root cert, different depending on AWS/Azure instance",
   "iotc_server_cert": "/etc/ssl/certs/Amazon_Root_CA_1.pem",
   "_comment_sdk_id": "'SDK Identities -> Language: Python **, Version: 1.0' from portal's Key Vault, only needed for Python SDK",
@@ -17,8 +17,8 @@
   "auth": {
     "auth_type": "IOTC_AT_X509",
     "params": {
-      "client_key": "/usr/iotc/local/certs/pk_stm32mp2ai3.pem",
-      "client_cert": "/usr/iotc/local/certs/cert_stm32mp2ai3.crt"
+      "client_key": "/usr/iotc/local/certs/",
+      "client_cert": "/usr/iotc/local/certs/"
     }
   },
   "device": {
@@ -27,31 +27,6 @@
       {
         "name": "version",
         "private_data": "/usr/iotc/local/data/version",
-        "private_data_type": "ascii"
-      },
-      {
-        "name": "runningmodel",
-        "private_data": "/usr/iotc/local/data/running-model",
-        "private_data_type": "ascii"
-      },
-      {
-        "name": "threshold",
-        "private_data": "/usr/iotc/local/data/set-conf-level",
-        "private_data_type": "ascii"
-      },
-      {
-        "name": "classification",
-        "private_data": "/usr/iotc/local/data/classification",
-        "private_data_type": "ascii"
-      },
-      {
-        "name": "confidence",
-        "private_data": "/usr/iotc/local/data/confidence",
-        "private_data_type": "ascii"
-      },
-      {
-        "name": "accel",
-        "private_data": "/usr/iotc/local/data/script-version",
         "private_data_type": "ascii"
       }
     ]
