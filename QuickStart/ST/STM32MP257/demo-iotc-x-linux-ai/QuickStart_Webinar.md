@@ -1,13 +1,9 @@
 # STM32MP257x-EV1 Evaluation Kit QuickStart for Webinar
 
 # 1. Introduction
+This guide is designed to walk through the steps to connect the STM32MP257-EV1 to the Avnet IoTConnect platform and demonstrate the on-board Imgage Classification functionality as shown in the webinar hosted by ST and Avnet November, 2024. For greatest reach, this guide is written to be following on a Windows 10/11 host machine.
 
-# 2. Requirements
-
-## Environment
-* Windows 10/11
-
-## Hardware
+# 2. Hardware Requirements
 * STM32MP257F-EV1 Evaluation Board
 * MicroSD Card (minimum 16GB)
 * 2x USB Type-C Cables
@@ -37,7 +33,8 @@ See the reference image below for cable connections.
 # 4. Installing Required Tools
 1. Create a [MyST Account](https://my.st.com/cas/login) if you don't have one.
 2. Download and Install [STM32CubeProgrammer](https://www.st.com/en/development-tools/stm32cubeprog.html) (Tested with v2.17)
-3. Ensure the USB Serial Link and DFU drivers are installed.
+   * Ensure the USB Serial Link and DFU drivers are installed.
+3. Download and Install [Git for Windows](https://gitforwindows.org/) (or similar application for bash)
 
 ---
 
@@ -110,27 +107,41 @@ A Device Template define the type of telemetery the platform should expect to re
 # 10. Obtain Board IP address
 The script in the next sction will need to connect to the board update files and configure connection settings.
 To accomplish this task, the IP Address of the board is required.  This can be obtained in a couple of ways:
-1. Login to your router and find the DHCP lease
-2. Connect to the board via a serial terminal such as https://www.serialterminal.com/
+1. Login to your router and find the DHCP lease associated with hostname `stm32mp25-eval`
+2. Connect to the board via a serial terminal such as https://googlechromelabs.github.io/serial-terminal/
+   * Look for a Device called `ST-LINK VCP Ctrl(COM##)`
+   * Type `ifconfig` and look for the IP address under **end0**
+
+* Take note of the IP Address
 
 # 11. Running the Device Setup Script
 
-### 6.2 Running the Script
+1. Navigate to your working directory that contains the "onboard" folder in windows explorer
+2. Right-click on the onboard folder and select "Open Git Bash here"
+3. Enter
+```
+./initial-device-config-and-update.sh
+```
+5. Enter the IP address of the board
+6. Assuming you placed the `iotcDeviceConfig.json` in the onboarding folder, just hit Enter
+7. Assuming you placed the `STM32MP257-certificates.zip` in the onboarding folder, just hit Enter
+8. When prompted to replace the .crt file type `A`
+9. When prompted again, type `yes`
 
-1. **Download or Transfer the `initial-device.sh` Script**: Place the script in your working directory.
-2. **Run the Script**:
-   ```bash
-   ./initial-device.sh
-3. **Follow the Prompts**: The script will prompt you for details like the target IP address, paths to `iotcDeviceConfig.json`, and the certificate zip file.
-   - The script will automatically:
-     - Configure device-specific settings in `config.json`.
-     - Transfer necessary files (application data, local data, AI models) to the target directories on the device.
-     - Run the installation script remotely on the device to finalize setup.
-4. **Script Completion**: After completion, your device should be fully configured and ready for IoTConnect. If any issues arise, the script provides feedback to help with troubleshooting.
+**Script Completion**: After completion, your device should be fully configured and ready for IoTConnect. If any issues arise, the script provides feedback to help with troubleshooting.
 
 ---
+# 12. Import a Dashboard
+The interactive demo can be visualized by using the Dynamic Dashboard feature of IoTConnect.  
+A preconfigured demo dashboard is available here: [dashboard_template_stm32mp2_classification.json](templates/dashboard_template_stm32mp2_classification.json) (**must** Right-Click the link, Save As)
 
-## 7. Viewing the Demo Through IoTConnect
+* **Download** the template then select "Create Dashboard" from the top of the IoTConnect portal
+* **Select** the "Import Dashboard" option and **Select** the *Template* and *Device Name* used previously 
+* **Input** a name and complete the import
+
+You will now be in the dashboard edit mode. You can add/remove widgets or just click **Save** in the upper-right to exit the edit mode.
+
+## 13. Using the Demo
 
 1. **Import Dashboard Template**: Download the dashboard JSON template and import it into IoTConnect.
 2. **Assign Device to Dashboard**: Select your device to display live telemetry and AI demo outputs.
