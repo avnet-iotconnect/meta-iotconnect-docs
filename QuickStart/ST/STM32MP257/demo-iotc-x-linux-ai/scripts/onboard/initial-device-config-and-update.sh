@@ -4,11 +4,12 @@
 read -p "Enter the target IP address: " TARGET_IP
 
 # Prompt for paths and convert them to Unix format if necessary
-read -p "Enter the full path to iotcDeviceConfig.json [iotcDeviceConfig.json]: " DEVICE_CONFIG
+read -p "Enter the full path and filename for iotcDeviceConfig.json [default: ./iotcDeviceConfig.json]: " DEVICE_CONFIG
 DEVICE_CONFIG=${DEVICE_CONFIG:-iotcDeviceConfig.json}
 DEVICE_CONFIG=$(cygpath -u "$DEVICE_CONFIG" 2>/dev/null || echo "$DEVICE_CONFIG")
 
-read -p "Enter the full path to the certificate zip file: " CERT_ZIP
+read -p "Enter the full path and filename for the certificates zip file [default: ./STM32MP257-certificates.zip]: " CERT_ZIP
+CERT_ZIP=${CERT_ZIP:-STM32MP257-certificates.zip}
 CERT_ZIP=$(cygpath -u "$CERT_ZIP" 2>/dev/null || echo "$CERT_ZIP")
 
 # Define constants
@@ -98,7 +99,7 @@ if [ $? -eq 0 ]; then
     
     # Copy the labels file on the target device
     echo "Copying labels_imagenet_2012.txt to labels_imagenet_2012 on the target device..."
-    ssh ${TARGET_USER}@${TARGET_IP} "cp /usr/local/x-linux-ai/image-classification/labels_imagenet_2012.txt /usr/local/x-linux-ai/image-classification/labels_imagenet_2012"
+    ssh ${TARGET_USER}@${TARGET_IP} "cp /usr/local/x-linux-ai/image-classification/models/mobilenet/labels_imagenet_2012.txt /usr/local/x-linux-ai/image-classification/models/mobilenet/labels_imagenet_2012"
     echo "Labels file copied successfully."
 
     # Set read and write permissions for all files in /usr/iotc/local/data
