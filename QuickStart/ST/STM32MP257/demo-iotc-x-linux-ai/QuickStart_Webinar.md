@@ -58,14 +58,15 @@ See the reference image below for cable connections.
 4. In the upper-right corner, click the connection drop-down and select "USB"
 5. Click "Connect"
 6. Click "Download" and wait as this will take 5-10 minutes.
-7. Once the download is complete, configure the board to boot from the SD card by changing the booth switch 1 to closed
+7. Once the download is complete, close the programmer.
+8. Configure the board to boot from the SD card by changing the boot switch 1 to closed (see reference image below)
 
 <details>
 <summary>Boot Switches for SD card boot</summary>
 <img src="https://wiki.stmicroelectronics.cn/stm32mpu/nsfr_img_auth.php/thumb/1/11/STM32MP257x-EV1_boot_switches_microSD_card.jpg/450px-STM32MP257x-EV1_boot_switches_microSD_card.jpg" alt="SD Card Boot Switches">
 </details>
 
-8. Press the reset button to boot the system with the new image.
+9. Press the RESET button to boot the system with the new image.
 
 ---
 
