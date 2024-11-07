@@ -104,34 +104,13 @@ A Device Template define the type of telemetery the platform should expect to re
 
 ---
 
-# 10. Running the Device Setup Script
+# 10. Obtain Board IP address
+The script in the next sction will need to connect to the board update files and configure connection settings.
+To accomplish this task, the IP Address of the board is required.  This can be obtained in a couple of ways:
+1. Login to your router and find the DHCP lease
+2. Connect to the board via a serial terminal such as https://www.serialterminal.com/
 
-The `initial-device.sh` script automates much of the setup, including configuring `config.json`, transferring files, and setting up certificates.
-
-### 6.1 Initial Device Script Overview
-The script organizes files into specific directories on the device, including:
-
-- **Configuration Files**
-  - `config.json`: Configures device-specific details like CPID, DUID, environment, and server certificate paths.
-  - `Certs/`: Contains device certificates for secure connection.
-
-- **Application and AI Demo Scripts**: IoTConnect Python SDK and support scripts.
-  - `iotc-python-sdk`: Core SDK for IoTConnect interaction.
-  - `iotc-python-demo.py`: Example script to demonstrate data exchange.
-  - `x-linux-ai`: AI demo scripts and model data.
-    - `image-classification`: Scripts for launching MobileNetV2 model for image classification.
-    - `object-detection`: Scripts for object detection using pre-trained models.
-    - `pose-estimation`: Scripts for human pose estimation.
-    - `semantic-segmentation`: Scripts for semantic segmentation tasks.
-
-- **Local Data Files**
-  - `local_data`: Stores runtime data and command information.
-  - `data/classification`: Stores classification results.
-    - `confidence`: Records model confidence scores.
-    - `running-model`: Tracks the active AI model.
-    - `set-conf-level`: Configures confidence thresholds.
-    - `version`: Holds version information.
-  - `scripts`: Command scripts to control and monitor device functions, such as starting/stopping models, controlling LEDs, and checking memory usage.
+# 11. Running the Device Setup Script
 
 ### 6.2 Running the Script
 
