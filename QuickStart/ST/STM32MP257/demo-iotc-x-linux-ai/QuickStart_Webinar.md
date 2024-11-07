@@ -41,12 +41,16 @@ See the reference image below for cable connections.
 
 ---
 
-# 5. Obtain the Custom Image
+# 5. Obtain the Custom Image and Configuration Script
 
+### Custom Image
 1. Download the custom image: [stm32mp25-eval-image.tar.gz](https://iotconnect-sdk-images.s3.us-east-1.amazonaws.com/MPU/mickledore/st/stm32mp257x-ev1/stm32mp25-eval-image.tar.gz).
 2. Extract the contents of the **.gz**
 3. Extract the contents of the **.tar**
 
+### Configuration Script
+1. Download the device configuration script [onboard.zip](scripts/onboard.zip)
+2. Extract the contents to
 ---
 
 # 6. Flash the Custom Image
