@@ -132,8 +132,8 @@ To accomplish this task, the IP Address of the board is required.  This can be o
 
 ---
 # 12. Import a Dashboard
-The interactive demo can be visualized by using the Dynamic Dashboard feature of IoTConnect.  
-A preconfigured demo dashboard is available here: [dashboard_template_stm32mp2_classification.json](templates/dashboard_template_stm32mp2_classification.json) (**must** Right-Click the link, Save As)
+The interactive demo can be loaded by using the Dynamic Dashboard feature of IoTConnect.  
+The pre-configured demo dashboard is available here: [dashboard_template_stm32mp2_classification.json](templates/dashboard_template_stm32mp2_classification.json) (**must** Right-Click the link, Save As)
 
 * **Download** the template then select "Create Dashboard" from the top of the IoTConnect portal
 * **Select** the "Import Dashboard" option and **Select** the *Template* and *Device Name* used previously 
