@@ -131,8 +131,17 @@ To accomplish this task, the IP Address of the board is required.  This can be o
 **Script Completion**: After completion, your device should be fully configured and ready for IoTConnect. If any issues arise, the script provides feedback to help with troubleshooting.
 
 ---
+# 12. Import a Dashboard
+The interactive demo can be visualized by using the Dynamic Dashboard feature of IoTConnect.  
+A preconfigured demo dashboard is available here: [dashboard_template_stm32mp2_classification.json](templates/dashboard_template_stm32mp2_classification.json) (**must** Right-Click the link, Save As)
 
-## 7. Viewing the Demo Through IoTConnect
+* **Download** the template then select "Create Dashboard" from the top of the IoTConnect portal
+* **Select** the "Import Dashboard" option and **Select** the *Template* and *Device Name* used previously 
+* **Input** a name and complete the import
+
+You will now be in the dashboard edit mode. You can add/remove widgets or just click **Save** in the upper-right to exit the edit mode.
+
+## 13. Using the Demo
 
 1. **Import Dashboard Template**: Download the dashboard JSON template and import it into IoTConnect.
 2. **Assign Device to Dashboard**: Select your device to display live telemetry and AI demo outputs.
