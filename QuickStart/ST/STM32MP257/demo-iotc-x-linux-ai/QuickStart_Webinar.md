@@ -118,12 +118,15 @@ To accomplish this task, the IP Address of the board is required.  This can be o
 
 1. Navigate to your working directory that contains the "onboard" folder in windows explorer
 2. Right-click on the onboard folder and select "Open Git Bash here"
-3. Enter ```./initial-device-config-and-update.sh```
-4. Enter the IP address of the board
-5. Assuming you placed the `iotcDeviceConfig.json` in the onboarding folder, just hit Enter
-6. Assuming you placed the `STM32MP257-certificates.zip` in the onboarding folder, just hit Enter
-7. When prompted to replace the .crt file Enter `A`
-8. When prompted again, Enter `yes`
+3. Enter
+```
+./initial-device-config-and-update.sh
+```
+5. Enter the IP address of the board
+6. Assuming you placed the `iotcDeviceConfig.json` in the onboarding folder, just hit Enter
+7. Assuming you placed the `STM32MP257-certificates.zip` in the onboarding folder, just hit Enter
+8. When prompted to replace the .crt file type `A`
+9. When prompted again, type `yes`
 
 **Script Completion**: After completion, your device should be fully configured and ready for IoTConnect. If any issues arise, the script provides feedback to help with troubleshooting.
 
