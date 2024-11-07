@@ -87,8 +87,10 @@ echo "Transferring files to ${TARGET_USER}@${TARGET_IP}:${TARGET_DIR}..."
 scp -r application local_data x-linux-ai install.sh ${TARGET_USER}@${TARGET_IP}:${TARGET_DIR}/
 
 # Step 3: Run the installation script on the target and set permissions
+echo "Setting executable permissions for install.sh on target device..."
+ssh ${TARGET_USER}@${TARGET_IP} "chmod +x ${TARGET_DIR}/install.sh"
 echo "Running installation script on the target..."
-ssh ${TARGET_USER}@${TARGET_IP} "cd ${TARGET_DIR} && ./install.sh"
+ssh ${TARGET_USER}@${TARGET_IP} "/bin/sh ${TARGET_DIR}/install.sh"
 
 # Step 4: Set file permissions and install requirements
 if [ $? -eq 0 ]; then
@@ -99,12 +101,12 @@ if [ $? -eq 0 ]; then
     echo "Read and write permissions set on /usr/iotc/local/data/*"
 
     # Make all scripts in /usr/iotc/local/scripts executable
-    ssh ${TARGET_USER}@${TARGET_IP} "chmod -R u+x,g+x,o+x /usr/iotc/local/scripts/*"
-    echo "Executable permissions set on all scripts in /usr/iotc/local/scripts/*"
-
-    # Install the requests library if not already installed
-    ssh ${TARGET_USER}@${TARGET_IP} "python3 -m pip install --user requests || echo 'requests installation failed'"
-    echo "Checked for and installed 'requests' package"
+    ssh ${TARGET_USER}@${TARGET_IP} "find /usr/iotc/local/scripts -type f -exec chmod +x {} \;"
+    echo "Executable permissions set on all files within /usr/iotc/local/scripts and its subdirectories"
+    
+    # Install the requests library for the 'weston' user if not already installed 
+    ssh ${TARGET_USER}@${TARGET_IP} "su -l weston -c 'python3 -m pip install --user requests'"
+    echo "'requests' package installed for 'weston' user"
 
     # Execute the IoTConnect program
     echo "Starting IoTConnect program..."
