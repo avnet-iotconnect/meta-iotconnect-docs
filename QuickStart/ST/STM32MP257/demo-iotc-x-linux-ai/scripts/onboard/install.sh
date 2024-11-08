@@ -7,6 +7,7 @@ LOCAL_DATA_PAYLOAD_DIR="$SCRIPT_DIR/local_data"
 DATA_PAYLOAD_DIR="$LOCAL_DATA_PAYLOAD_DIR/data"  # Data folder in the payload
 CONFIG_FILE="$LOCAL_DATA_PAYLOAD_DIR/config.json"  # Path to config.json
 CERTS_PAYLOAD_DIR="$LOCAL_DATA_PAYLOAD_DIR/certs"  # Certs directory
+SCRIPTS_PAYLOAD_DIR="$LOCAL_DATA_PAYLOAD_DIR/scripts"  # Scripts directory
 
 # Directories for AI updates
 X_LINUX_AI_PAYLOAD_DIR="$SCRIPT_DIR/x-linux-ai"
@@ -19,6 +20,7 @@ SEM_SEG_PAYLOAD_DIR="$X_LINUX_AI_PAYLOAD_DIR/semantic-segmentation"
 APPLICATION_INSTALLED_DIR="/usr/iotc/bin/iotc-python-sdk"
 LOCAL_DATA_INSTALLED_DIR="/usr/iotc/local"
 CERTS_INSTALLED_DIR="/usr/iotc/local/certs"
+SCRIPTS_INSTALLED_DIR="/usr/iotc/local/scripts"
 X_LINUX_AI_INSTALLED_DIR="/usr/local/x-linux-ai"
 IMAGE_CLASS_INSTALLED_DIR="$X_LINUX_AI_INSTALLED_DIR/image-classification"
 OBJECT_DETECT_INSTALLED_DIR="$X_LINUX_AI_INSTALLED_DIR/object-detection"
@@ -32,6 +34,7 @@ BACKUP_DIR="/tmp/.ota/backup"
 mkdir -p "$BACKUP_DIR"
 mkdir -p "$LOCAL_DATA_INSTALLED_DIR"
 mkdir -p "$CERTS_INSTALLED_DIR"
+mkdir -p "$SCRIPTS_INSTALLED_DIR"
 
 # Backup existing files in the target directories
 cp -va "$APPLICATION_INSTALLED_DIR"/* "$BACKUP_DIR/" 2>/dev/null
@@ -57,6 +60,9 @@ update_directory "$APPLICATION_PAYLOAD_DIR" "$APPLICATION_INSTALLED_DIR"
 
 # Update data files in /usr/iotc/local/data
 update_directory "$DATA_PAYLOAD_DIR" "$LOCAL_DATA_INSTALLED_DIR/data"
+
+# Update scripts in /usr/iotc/local/scripts
+update_directory "$SCRIPTS_PAYLOAD_DIR" "$SCRIPTS_INSTALLED_DIR"
 
 # Copy config.json to /usr/iotc/local/config.json
 if [ -f "$CONFIG_FILE" ]; then
