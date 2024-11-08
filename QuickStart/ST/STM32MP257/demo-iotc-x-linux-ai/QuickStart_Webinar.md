@@ -143,6 +143,11 @@ You will now be in the dashboard edit mode. You can add/remove widgets or just c
 
 # 13. Using the Demo
 
-1. **Import Dashboard Template**: Download the dashboard JSON template and import it into IoTConnect.
-2. **Assign Device to Dashboard**: Select your device to display live telemetry and AI demo outputs.
+The "Target Image" box will randomly display an image from an AWS S3 bucket every 60 seconds.  
+* Click the "Model ON / OFF" toggle button to turn on the AI Image Classification model on the device.
+* The Dashboard widgets to the right, will being to update with the results momentarily.
 
+# 14. Further Learning
+
+Other QuickStart guides are available that demonstrate the Object Detection and Pose Estimataion models as well as the ability to deploy new models via the IoTConnect OTA service.e
+To learn more, [view the unabridged QuickStart](https://github.com/avnet-iotconnect/meta-iotconnect-docs/blob/main/QuickStart/STM32MP257.md).
