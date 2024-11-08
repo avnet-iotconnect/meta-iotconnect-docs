@@ -149,5 +149,5 @@ The "Target Image" box will randomly display an image from an AWS S3 bucket ever
 
 # 14. Further Learning
 
-Other QuickStart guides are available that demonstrate the Object Detection and Pose Estimataion models as well as the ability to deploy new models via the IoTConnect OTA service.
+Other QuickStart guides are available that demonstrate the Object Detection and Pose Estimation models as well as the ability to deploy new models via the IoTConnect OTA service.
 To learn more, [view the unabridged QuickStart](https://github.com/avnet-iotconnect/meta-iotconnect-docs/blob/main/QuickStart/STM32MP257.md).
