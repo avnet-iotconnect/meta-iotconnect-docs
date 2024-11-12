@@ -1,7 +1,7 @@
 # Image Classification System Using AWS
 
 This tutorial outlines how to set up an image classification system using AWS services. The system uses two S3 buckets: one to store images for classification, and another to display classified images as a web page. AWS Lambda automates the image processing, while EventBridge triggers Lambda when new images are uploaded.
-
+![STM32MP257 Classification Setup](https://github.com/avnet-iotconnect/meta-iotconnect-docs/blob/main/QuickStart/ST/STM32MP257/media/image-server-architecture.png)
 ---
 
 ## **System Overview**
