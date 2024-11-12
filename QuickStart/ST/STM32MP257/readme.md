@@ -52,11 +52,11 @@ To connect the STM32MP257 to IoTConnect, follow this guide for creating an IoTCo
 
 ---
 
-### 4. Image Processing Dashboard Setup
+### 4. Running the Sample Dashboard
 
-Set up the Image Processing Dashboard to monitor and visualize AI classification results. The dashboard includes various widgets to display classification confidence, live data, and device status.
+Follow this guide to configure the STM32MP257 Image Processing Dashboard, including widgets for classification results, confidence levels, and historical logs.
 
-- [Dashboard Configuration Guide](STM - MP2 Image Classification_dashboard_export(2).json)
+- [STM32MP257 Classification Dashboard](running-the-sample-dashboard.md)
 
 ---
 
