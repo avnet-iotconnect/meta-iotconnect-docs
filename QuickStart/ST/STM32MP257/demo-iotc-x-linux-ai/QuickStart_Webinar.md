@@ -144,6 +144,7 @@ You will now be in the dashboard edit mode. You can add/remove widgets or just c
 # 13. Using the Demo
 
 The "Target Image" box will randomly display an image from an AWS S3 bucket every 60 seconds.  
+* Enter the Device ID dsiplayed on the dashboard into the field "Enter device ID" then press "View Logs"
 * Click the "Model ON / OFF" toggle button to turn on the AI Image Classification model on the device.
 * The Dashboard widgets to the right, will being to update with the results momentarily.
 
