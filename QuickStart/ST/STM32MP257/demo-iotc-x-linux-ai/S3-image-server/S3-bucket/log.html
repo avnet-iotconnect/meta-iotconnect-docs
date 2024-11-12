@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classification Log Viewer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            font-size: 36px;
+            color: #333;
+            visibility: visible; /* Ensure the h1 is always visible */
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 5px;
+            max-height: 300px;
+            overflow-y: scroll;
+        }
+    </style>
+    <script type="text/javascript">
+        function refreshLog() {
+            fetch('https://aiimagecapture.s3.amazonaws.com/classification_log.txt' + '?' + new Date().getTime())
+                .then(response => response.text())
+                .then(data => {
+                    // Log the raw data to ensure it's being fetched correctly
+                    console.log("Log data fetched:", data);
+
+                    // Split the data into lines
+                    const lines = data.split('\n').filter(line => line.trim() !== '');
+                    
+                    // Ensure there are lines to process
+                    if (lines.length === 0) {
+                        document.getElementById('classification-label').textContent = 'No data available';
+                        document.getElementById('log-content').textContent = 'Log is empty';
+                        return;
+                    }
+
+                    // Extract the first line and display it
+                    const firstLine = lines[0];
+                    console.log("First line:", firstLine);  // Debugging output to verify the first line
+
+                    // Split the first line to get the classification label
+                    const firstLineParts = firstLine.split(',');
+                    const classificationLabel = firstLineParts.length > 1 ? firstLineParts[1].trim() : 'No label';
+
+                    // Update the classification label in large font
+                    document.getElementById('classification-label').textContent = classificationLabel || 'No label';
+                    
+                    // Display the rest of the log
+                    document.getElementById('log-content').textContent = data;
+                })
+                .catch(error => {
+                    document.getElementById('log-content').textContent = 'Error loading log file.';
+                    console.error('Error:', error);
+                });
+        }
+
+        // Refresh the log every 5 seconds (5000 milliseconds)
+        setInterval(refreshLog, 5000);
+
+        // Initial load of the log
+        window.onload = refreshLog;
+    </script>
+</head>
+<body>
+    <h1 id="classification-label">Loading...</h1>
+    <pre id="log-content">Loading...</pre>
+</body>
+</html>
+

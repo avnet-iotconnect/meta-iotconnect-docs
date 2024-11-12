@@ -41,12 +41,22 @@ jq '. + {
   "device": {
     "commands_list_path": "/usr/iotc/local/scripts",
     "attributes": [
+      { "name": "unique_id", "private_data": "/usr/iotc/local/data/unique_id", "private_data_type": "ascii" },
       { "name": "version", "private_data": "/usr/iotc/local/data/version", "private_data_type": "ascii" },
       { "name": "runningmodel", "private_data": "/usr/iotc/local/data/running-model", "private_data_type": "ascii" },
-      { "name": "threshold", "private_data": "/usr/iotc/local/data/set-conf-level", "private_data_type": "ascii" },
       { "name": "classification", "private_data": "/usr/iotc/local/data/classification", "private_data_type": "ascii" },
       { "name": "confidence", "private_data": "/usr/iotc/local/data/confidence", "private_data_type": "ascii" },
-      { "name": "accel", "private_data": "/usr/iotc/local/data/script-version", "private_data_type": "ascii" }
+      { "name": "threshold", "private_data": "/usr/iotc/local/data/set-conf-level", "private_data_type": "ascii" },
+      { "name": "total_classifications", "private_data": "/usr/iotc/local/data/total_classifications", "private_data_type": "ascii" },
+      { "name": "unique_classifications", "private_data": "/usr/iotc/local/data/unique_classifications", "private_data_type": "ascii" },
+      { "name": "most_common_classification", "private_data": "/usr/iotc/local/data/most_common_classification", "private_data_type": "ascii" },
+      { "name": "avg_confidence", "private_data": "/usr/iotc/local/data/avg_confidence", "private_data_type": "ascii" },
+      { "name": "max_confidence", "private_data": "/usr/iotc/local/data/max_confidence", "private_data_type": "ascii" },
+      { "name": "min_confidence", "private_data": "/usr/iotc/local/data/min_confidence", "private_data_type": "ascii" },
+      { "name": "total_mem", "private_data": "/usr/iotc/local/data/total_mem", "private_data_type": "ascii" },
+      { "name": "systemd_mem", "private_data": "/usr/iotc/local/data/systemd_mem", "private_data_type": "ascii" },
+      { "name": "root_mem", "private_data": "/usr/iotc/local/data/root_mem", "private_data_type": "ascii" },
+      { "name": "weston_mem", "private_data": "/usr/iotc/local/data/weston_mem", "private_data_type": "ascii" }
     ]
   }
 }' "$CONFIG" > "$CONFIG.tmp" && mv "$CONFIG.tmp" "$CONFIG"

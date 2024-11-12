@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Viewer</title>
+    <script type="text/javascript">
+        function refreshImage() {
+            var img = document.getElementById("image");
+            // Append a timestamp to the image src to force refresh
+            img.src = "https://aiimagecapture.s3.amazonaws.com/bottom.jpg" + "?" + new Date().getTime();
+        }
+
+        // Refresh the image every 5 seconds (5000 milliseconds)
+        setInterval(refreshImage, 5000);
+    </script>
+</head>
+<body>
+    <h2>Latest Captured Image</h2>
+    <img id="image" src="https://aiimagecapture.s3.amazonaws.com/bottom.jpg" alt="Image">
+</body>
+</html>
+

@@ -52,6 +52,8 @@ BOTTOM_IMAGE_URL = f"https://{S3_BUCKET_NAME}.s3.amazonaws.com/bottom.jpg"
 LOG_FILE_URL = f"https://{S3_BUCKET_NAME}.s3.amazonaws.com/classification_log.txt"
 classification_file_path = '/usr/iotc/local/data/classification'
 
+CONFIG_PATH = '/usr/iotc/local/config.json'
+
 # Argument parsing
 parser = argparse.ArgumentParser(description="S3 Image Classification")
 parser.add_argument("-m", "--model_file", required=True, help="Path to the model file")
@@ -844,9 +846,13 @@ class Application:
     Class that handles the whole application
     """
     def __init__(self, args):
-        # Path constants for local usage
+        # Define paths for classification and confidence files as instance variables
+        self.classification_file_path = '/usr/iotc/local/data/classification'
+        self.confidence_file_path = '/usr/iotc/local/data/confidence'  # Correctly define confidence file path
+        self.unique_pair_file = "/usr/iotc/local/data/last_classification_confidence.txt"  # Unique pair file path
+        
+        # Other initializations...
         self.download_path = "/tmp/downloaded_image.jpg"
-        self.classification_file_path = classification_file_path
         
         #init variables uses :
         self.exit_app = False
@@ -912,7 +918,35 @@ class Application:
             self.main()
         else:
             print("Display components skipped.")
-    
+
+    def get_device_identifier(self):
+        """
+        Retrieves the device identifier from the config.json file.
+        Combines 'duid' and 'cpid' to form a unique identifier.
+        Writes the unique identifier to '/usr/iotc/local/data/unique_id'.
+        """
+        config_file_path = '/usr/iotc/local/config.json'
+        unique_id_file_path = '/usr/iotc/local/data/unique_id'  # Path to store unique ID
+
+        try:
+            # Read the configuration file
+            with open(config_file_path, 'r') as config_file:
+                config = json.load(config_file)
+                duid = config.get("duid", "unknown_duid")
+                cpid = config.get("cpid", "unknown_cpid")
+                device_identifier = f"{duid}-{cpid}"
+                
+                # Write the device identifier to 'unique_id' file
+                with open(unique_id_file_path, 'w') as unique_id_file:
+                    unique_id_file.write(device_identifier)
+                
+                print(f"Device identifier '{device_identifier}' written to '{unique_id_file_path}'")
+                return device_identifier
+
+        except Exception as e:
+            print(f"Error reading config file or writing unique ID: {e}")
+            return "unknown_duid-unknown_cpid"
+
     def download_image_from_s3(self, image_url):
         """
         Downloads an image from a public S3 URL.
@@ -963,12 +997,9 @@ class Application:
         """
         Download `bottom.jpg` from S3, classify it using NPU, and log the classification label and confidence.
         Write classification label and confidence to separate files, and update the log with both.
-        Only logs unique classification-confidence pairs.
+        Only logs unique classification-confidence pairs per device.
         """
-        classification_file_path = '/usr/iotc/local/data/classification'
-        confidence_file_path = '/usr/iotc/local/data/confidence'
-        log_url = "https://aiimagecapture.s3.amazonaws.com/classification_log.txt"  # Public S3 URL for log file
-        unique_pair_file = "/usr/iotc/local/data/last_classification_confidence.txt"  # Store last unique pair
+        device_identifier = self.get_device_identifier()
 
         # Initialize default values for label and confidence
         label = "Unknown"
@@ -997,46 +1028,46 @@ class Application:
             print(f"Classification: {label}, Confidence: {confidence:.2f}%")
         except Exception as e:
             print(f"Error during NPU inference: {e}")
-            
+
         # Write classification and confidence to local files
         try:
-            with open(classification_file_path, 'w') as f_classification:
+            with open(self.classification_file_path, 'w') as f_classification:
                 f_classification.write(label)
-            with open(confidence_file_path, 'w') as f_confidence:
+            with open(self.confidence_file_path, 'w') as f_confidence:
                 f_confidence.write(f"{confidence:.2f}")
             print(f"Classification and confidence written to files: {label}, {confidence:.2f}%")
         except Exception as e:
             print(f"Error writing classification/confidence to files: {e}")
 
-        # Check if the current classification-confidence pair is different from the last logged pair
+        # Check if the current classification-confidence pair is different for the current device
         new_pair = f"{label}, {confidence:.2f}%"
-        
-        # Read the last unique pair from the file, if it exists
+        unique_device_pair_file = f"{self.unique_pair_file}_{device_identifier}"  # Unique file per device
+
+        # Read the last unique pair from the device-specific file, if it exists
         try:
-            with open(unique_pair_file, 'r') as f_last_pair:
+            with open(unique_device_pair_file, 'r') as f_last_pair:
                 last_pair = f_last_pair.read().strip()
         except FileNotFoundError:
             last_pair = ""  # If the file doesn't exist, assume no prior pair
 
         if new_pair != last_pair:
-            # Only log if the new pair is unique
+            # Only log if the new pair is unique for this device
             timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            new_log_entry = f"{timestamp}, {label}, {confidence:.2f}%\n"
+            new_log_entry = f"{device_identifier}, {timestamp}, {label}, {confidence:.2f}%\n"
 
             # Fetch existing log content from S3
-            existing_log = self.download_log_from_s3(log_url)
+            existing_log = self.download_log_from_s3(LOG_FILE_URL)
             updated_log = new_log_entry + existing_log  # Prepend the new entry
 
             # Upload updated log back to S3
-            self.upload_log_to_s3(updated_log, log_url)
+            self.upload_log_to_s3(updated_log, LOG_FILE_URL)
             print("New unique entry added to log.")
 
-            # Update the last classification-confidence pair file
-            with open(unique_pair_file, 'w') as f_last_pair:
+            # Update the last classification-confidence pair file for this device
+            with open(unique_device_pair_file, 'w') as f_last_pair:
                 f_last_pair.write(new_pair)
         else:
-            print("Duplicate entry detected; not logging.")
-
+            print("Duplicate entry detected for this device; not logging.")
 
     def run(self):
         """

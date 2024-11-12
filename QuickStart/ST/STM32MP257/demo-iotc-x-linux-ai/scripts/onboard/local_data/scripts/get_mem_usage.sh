@@ -19,12 +19,12 @@ while read -r user mem; do
 done < <(ps --no-headers -eo user,%mem)
 
 # Write total memory usage to a file
-echo "$total_mem" > "$OUTPUT_DIR/total-mem"
+echo "$total_mem" > "$OUTPUT_DIR/total_mem"
 
 # Write specific user memory usage to files, or 0 if the user has no processes
-echo "${mem_usage_per_user[root]:-0}" > "$OUTPUT_DIR/root-mem"
-echo "${mem_usage_per_user[systemd+]:-0}" > "$OUTPUT_DIR/systemd-mem"
-echo "${mem_usage_per_user[weston]:-0}" > "$OUTPUT_DIR/weston-mem"
+echo "${mem_usage_per_user[root]:-0}" > "$OUTPUT_DIR/root_mem"
+echo "${mem_usage_per_user[systemd+]:-0}" > "$OUTPUT_DIR/systemd_mem"
+echo "${mem_usage_per_user[weston]:-0}" > "$OUTPUT_DIR/weston_mem"
 
 # Optionally, print output for confirmation
 echo "Total memory usage: $total_mem%"

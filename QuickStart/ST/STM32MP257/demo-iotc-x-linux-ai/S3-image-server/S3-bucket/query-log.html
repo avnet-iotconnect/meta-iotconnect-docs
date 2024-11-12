@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Device Log Viewer</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 4px; }
+        .log-entry { margin: 5px 0; padding: 5px; border: 1px solid #ddd; border-radius: 5px; }
+        .device-id { font-weight: bold; color: #333; display: block; margin-top: 1px; }
+        .highlight { font-weight: bold; color: #FFFFFF; background-color: #03234C; padding: 5px; border-radius: 5px; display: block; margin: 10px 0; font-size: 1.8em; }
+        .log-content { color: #555; }
+        #log-container { padding-top: 40px; }  /* Add padding instead of margin */
+    </style>
+</head>
+<body>
+    <h2>Device Log Viewer</h2>
+    <h2>-----------------</h2>
+    <label for="deviceIdInput">Enter Device ID:</label>
+    <input type="text" id="deviceIdInput" placeholder="Device ID">
+    <button onclick="startLogUpdates()">View Logs</button>
+
+    <!-- Log container with padding applied -->
+    <div id="log-container"></div>
+
+    <script>
+        let refreshInterval;  // To store the interval ID for refreshing logs
+
+        async function fetchLogFile(deviceId) {
+            try {
+                // Add a timestamp to the URL to prevent caching
+                const url = `https://aiimagecapture.s3.us-east-1.amazonaws.com/classification_log.txt?timestamp=${new Date().getTime()}`;
+                const response = await fetch(url);
+                const logText = await response.text();
+
+                displayLogs(logText, deviceId);
+            } catch (error) {
+                console.error("Error fetching the log file:", error);
+            }
+        }
+
+        function displayLogs(logText, filterDeviceId) {
+            const logContainer = document.getElementById('log-container');
+            logContainer.innerHTML = ''; // Clear previous logs
+
+            const lines = logText.split('\n');
+            const matchingLogs = []; // Array to hold logs for the specified device ID
+
+            lines.forEach(line => {
+                if (line.trim()) {
+                    // Split each line by commas to match the log format
+                    const [deviceId, timestamp, label, confidence] = line.trim().split(',');
+
+                    // Collect logs that match the specified device ID
+                    if (filterDeviceId === deviceId) {
+                        matchingLogs.push({ deviceId, timestamp, label, confidence });
+                    }
+                }
+            });
+
+            // Sort matching logs by timestamp in descending order (latest first)
+            matchingLogs.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+
+            if (matchingLogs.length > 0) {
+                // Display device ID and the latest label as a highlighted entry
+                const latestEntry = matchingLogs[0];
+
+                // Display Device ID at the top
+                //logContainer.innerHTML += `<span class="device-id">Device ID: ${latestEntry.deviceId.trim()}</span>`;
+
+                // Highlight the latest label
+                logContainer.innerHTML += `<div class="highlight">${latestEntry.label.trim()}</div>`;
+
+                // Display all log entries below
+                matchingLogs.forEach(({ timestamp, label, confidence }) => {
+                    const logEntry = document.createElement('div');
+                    logEntry.classList.add('log-entry');
+
+                    const timestampElement = document.createElement('span');
+                    timestampElement.classList.add('log-content');
+                    timestampElement.textContent = `Time: ${timestamp.trim()}`;
+
+                    const labelElement = document.createElement('span');
+                    labelElement.classList.add('log-content');
+                    labelElement.textContent = `Label: ${label.trim()}`;
+
+                    const confidenceElement = document.createElement('span');
+                    confidenceElement.classList.add('log-content');
+                    confidenceElement.textContent = `Confidence: ${confidence.trim()}`;
+
+                    logEntry.appendChild(timestampElement);
+                    logEntry.appendChild(document.createElement('br'));
+                    logEntry.appendChild(labelElement);
+                    logEntry.appendChild(document.createElement('br'));
+                    logEntry.appendChild(confidenceElement);
+
+                    logContainer.appendChild(logEntry);
+                });
+            } else {
+                logContainer.innerHTML = `<p>No logs found for Device ID: ${filterDeviceId}</p>`;
+            }
+        }
+
+        function startLogUpdates() {
+            const deviceId = document.getElementById('deviceIdInput').value.trim();
+            if (deviceId) {
+                // Clear any existing interval before starting a new one
+                clearInterval(refreshInterval);
+
+                // Fetch logs immediately and then every 5 seconds
+                fetchLogFile(deviceId);
+                refreshInterval = setInterval(() => fetchLogFile(deviceId), 5000);
+            } else {
+                alert("Please enter a valid Device ID.");
+            }
+        }
+
+        // Clear the interval when the page is closed or reloaded to stop fetches
+        window.addEventListener('beforeunload', () => clearInterval(refreshInterval));
+    </script>
+</body>
+</html>

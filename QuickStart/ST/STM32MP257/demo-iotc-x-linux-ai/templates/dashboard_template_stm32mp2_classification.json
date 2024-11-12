@@ -435,7 +435,7 @@
                 "titleAlign": "center",
                 "contents": {
                     "embedded": {
-                        "link": "https://ai-image-viewer.s3.amazonaws.com/log3.html",
+                        "link": "https://ai-image-viewer.s3.amazonaws.com/query-log.html",
                         "refresh": "",
                         "device": {
                             "deviceGuid": "93F9A877-F57C-4F13-BF54-7F0F6C65B0C1",
@@ -548,12 +548,217 @@
                 "x": "55",
                 "y": "5",
                 "w": "10",
-                "h": "12",
+                "h": "9",
                 "i": "gauge",
                 "minW": "10",
                 "minH": "9",
                 "maxH": "15",
                 "maxW": "16",
+                "isStatic": "false"
+            }
+        },
+        {
+            "widgetGuid": "F7979C1B-8637-4667-90A2-6961052C6E21",
+            "widgetProperties": {
+                "i": "Live",
+                "background": "#adadad",
+                "fontColor": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": "18",
+                "title": "Unique ID",
+                "titleAlign": "",
+                "contents": {
+                    "attributeValue": {
+                        "attributeName": "unique_id",
+                        "key": "attributeValue"
+                    },
+                    "attributeTime": {
+                        "attributeName": "unique_id",
+                        "key": "attributeTime"
+                    },
+                    "live": {
+                        "device": {
+                            "deviceGuid": "93F9A877-F57C-4F13-BF54-7F0F6C65B0C1",
+                            "deviceUniqueId": "stm32mp2ai3"
+                        },
+                        "attributes": {
+                            "attribute": [
+                                {
+                                    "attributeGuid": "328EE98E-3A09-451C-9A20-132B3CFC7544",
+                                    "attributeName": "weston_mem",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "0",
+                                    "deviceUpdatedDate": "2024-11-12T03:49:15.000Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "0"
+                                },
+                                {
+                                    "attributeGuid": "855F34F3-9110-46E5-B6F1-13A874B462F5",
+                                    "attributeName": "runningmodel",
+                                    "checked": "false",
+                                    "dataType": "STRING",
+                                    "attributeLatestValue": "image-s3",
+                                    "deviceUpdatedDate": "2024-11-12T03:49:15.000Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "image-s3"
+                                },
+                                {
+                                    "attributeGuid": "2B5B6A02-D7C3-4B89-931B-1B6D9CE4DB33",
+                                    "attributeName": "root_mem",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "19.5",
+                                    "deviceUpdatedDate": "2024-11-12T03:49:15.000Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "19.5"
+                                },
+                                {
+                                    "attributeGuid": "9BA83677-B69D-477B-A660-1E8A4AF7CB2D",
+                                    "attributeName": "total_classifications",
+                                    "checked": "false",
+                                    "dataType": "INTEGER",
+                                    "attributeLatestValue": "965",
+                                    "deviceUpdatedDate": "2024-11-12T03:49:15.000Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "965"
+                                },
+                                {
+                                    "attributeGuid": "791C989E-3833-45A7-A2C0-1EE947926151",
+                                    "attributeName": "avg_confidence",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "45.5",
+                                    "deviceUpdatedDate": "2024-11-12T03:49:15.000Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "45.5"
+                                },
+                                {
+                                    "attributeGuid": "E7DFF1D5-8232-4137-B17B-388AB81359A1",
+                                    "attributeName": "classification",
+                                    "checked": "false",
+                                    "dataType": "STRING",
+                                    "attributeLatestValue": "hourglass",
+                                    "deviceUpdatedDate": "2024-11-12T03:49:15.000Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "hourglass"
+                                },
+                                {
+                                    "attributeGuid": "68E26B72-896A-4476-AD0D-3DD1DE2F9A41",
+                                    "attributeName": "max_confidence",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "99.61",
+                                    "deviceUpdatedDate": "2024-11-12T03:49:15.000Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "99.61"
+                                },
+                                {
+                                    "attributeGuid": "53239FD9-887F-4DA5-A767-46F7CCACE407",
+                                    "attributeName": "systemd_mem",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "0.2",
+                                    "deviceUpdatedDate": "2024-11-12T03:49:15.000Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "0.2"
+                                },
+                                {
+                                    "attributeGuid": "E0768128-5AC6-4BFD-A0AF-7F1CE9E19779",
+                                    "attributeName": "version",
+                                    "checked": "false",
+                                    "dataType": "STRING",
+                                    "attributeLatestValue": "1.1\n",
+                                    "deviceUpdatedDate": "2024-11-12T03:49:15.000Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "1.1\n"
+                                },
+                                {
+                                    "attributeGuid": "95483BB9-5ACF-491D-BCCF-883940D91438",
+                                    "attributeName": "unique_id",
+                                    "checked": "true",
+                                    "dataType": "STRING",
+                                    "attributeLatestValue": "stm32mp2ai3-378DC01FEAE14C0697BD2E87E431A07E",
+                                    "deviceUpdatedDate": "2024-11-12T03:49:15.000Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "stm32mp2ai3-378DC01FEAE14C0697BD2E87E431A07E"
+                                },
+                                {
+                                    "attributeGuid": "EA94C63A-4F87-4B53-A502-8C7DE0AFFBAE",
+                                    "attributeName": "min_confidence",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "2.73",
+                                    "deviceUpdatedDate": "2024-11-12T03:49:15.000Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "2.73"
+                                },
+                                {
+                                    "attributeGuid": "05112C93-93F7-4BF9-B59D-9291D20DBFA5",
+                                    "attributeName": "total_mem",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "19.7",
+                                    "deviceUpdatedDate": "2024-11-12T03:49:15.000Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "19.7"
+                                },
+                                {
+                                    "attributeGuid": "8E761148-D0DB-4A36-8545-A3333E8D9422",
+                                    "attributeName": "unique_classifications",
+                                    "checked": "false",
+                                    "dataType": "INTEGER",
+                                    "attributeLatestValue": "179",
+                                    "deviceUpdatedDate": "2024-11-12T03:49:15.000Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "179"
+                                },
+                                {
+                                    "attributeGuid": "5B917734-F8E0-4828-A84A-DE6E42D663CB",
+                                    "attributeName": "threshold",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "85",
+                                    "deviceUpdatedDate": "2024-11-12T03:49:15.000Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "85"
+                                },
+                                {
+                                    "attributeGuid": "77080ED5-738F-4100-8B50-E2335F308275",
+                                    "attributeName": "confidence",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "16.8",
+                                    "deviceUpdatedDate": "2024-11-12T03:49:15.000Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "16.8"
+                                },
+                                {
+                                    "attributeGuid": "144987C3-93F9-49EA-AD4E-E47466770F75",
+                                    "attributeName": "most_common_classification",
+                                    "checked": "false",
+                                    "dataType": "STRING",
+                                    "attributeLatestValue": "binoculars",
+                                    "deviceUpdatedDate": "2024-11-12T03:49:15.000Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "binoculars"
+                                }
+                            ]
+                        },
+                        "rules": "",
+                        "key": "live"
+                    }
+                }
+            },
+            "properties": {
+                "x": "55",
+                "y": "14",
+                "w": "10",
+                "h": "4",
+                "i": "Live",
+                "minW": "7",
+                "minH": "4",
+                "maxH": "4",
                 "isStatic": "false"
             }
         },
@@ -754,7 +959,7 @@
             },
             "properties": {
                 "x": "55",
-                "y": "17",
+                "y": "18",
                 "w": "10",
                 "h": "8",
                 "i": "pie",
