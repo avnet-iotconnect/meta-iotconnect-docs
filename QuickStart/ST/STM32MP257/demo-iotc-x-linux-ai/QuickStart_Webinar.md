@@ -144,9 +144,12 @@ You will now be in the dashboard edit mode. You can add/remove widgets or just c
 # 13. Using the Demo
 
 The "Target Image" box will randomly display an image from an AWS S3 bucket every 60 seconds.  
-* Enter the Device ID displayed on the dashboard into the field "Enter device ID" then press "View Logs"
+* Enter the Device ID (Unique ID) displayed on the dashboard into the field "Enter device ID" then press "View Logs"
 * Click the "Model ON / OFF" toggle button to turn on the AI Image Classification model on the device.
 * The Dashboard widgets to the right, will being to update with the results momentarily.
+
+> [!NOTE]
+> For more information on configuring and using the dashboard see [this guide](https://github.com/avnet-iotconnect/meta-iotconnect-docs/blob/main/QuickStart/ST/STM32MP257/running-the-sample-dashboard.md).
 
 # 14. Further Learning
 
