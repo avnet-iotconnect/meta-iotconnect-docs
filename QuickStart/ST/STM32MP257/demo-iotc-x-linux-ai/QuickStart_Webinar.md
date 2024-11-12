@@ -155,3 +155,9 @@ The "Target Image" box will randomly display an image from an AWS S3 bucket ever
 
 Other QuickStart guides are available that demonstrate the Object Detection and Pose Estimation models as well as the ability to deploy new models via the IoTConnect OTA service.
 To learn more, [view the unabridged QuickStart](https://github.com/avnet-iotconnect/meta-iotconnect-docs/blob/main/QuickStart/STM32MP257.md).
+
+# 15. Resources
+* [Purchase the STM32MP257-EV1 Board](https://www.avnet.com/shop/us/products/stmicroelectronics/stm32mp257f-ev1-3074457345659668899)
+* [Additional ST QuickStart Guides](https://www.avnet.com/iotconnect/st)
+* [IoTConnect Overview](https://www.iotconnect.io/)
+* [IoTConnect Knowledgebase](https://help.iotconnect.io/)
