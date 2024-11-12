@@ -4,17 +4,6 @@ This guide provides the essential steps to set up your STM32MP257 evaluation kit
 
 ---
 
-## Table of Contents
-
-1. [Overview](#overview)
-2. [Requirements](#requirements)
-3. [Hardware Setup](#hardware-setup)
-4. [Flashing the Device](#flashing-the-device)
-5. [Basic Network Configuration](#basic-network-configuration)
-6. [Next Steps](#next-steps)
-
----
-
 ### 1. Overview
 
 The STM32MP257 board supports AI and IoT applications, enabling image classification, object detection, and telemetry. This guide outlines the steps to set up your board using a specific image for quick deployment.
@@ -28,7 +17,7 @@ The STM32MP257 board supports AI and IoT applications, enabling image classifica
 - **Hardware**:
   - STM32MP257 evaluation board
   - Power supply and cables (USB, Ethernet)
-  - MicroSD card (minimum 32GB) or eMMC storage
+  - MicroSD card (minimum 16GB)
 
 ---
 
