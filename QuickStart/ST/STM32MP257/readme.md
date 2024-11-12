@@ -16,9 +16,23 @@ This repository provides all the necessary documentation and scripts to set up a
 
 ---
 
-### 1. Introduction to STM32MP257
+### 1. Introduction to STM32MP257 Discovery Kit
 
-The STM32MP257 board integrates advanced AI processing and IoT functionality, enabling image classification, object detection, and telemetry through IoTConnect. For an overview of the board’s capabilities and essential setup steps, see the [STM32MP257 Overview and Setup Guide](board-setup.md).
+The **STM32MP257F-DK Discovery Kit** is a comprehensive development platform designed to showcase the advanced features of the STM32MP257 microprocessor, particularly its edge AI capabilities. This microprocessor integrates dual Arm® Cortex®-A35 cores operating at up to 1.5 GHz and a Cortex®-M33 core at 400 MHz, facilitating the development of applications that leverage both high-performance and real-time processing.
+
+#### Key AI Features
+
+- **Neural Processing Unit (NPU)**: The STM32MP257 includes an NPU capable of delivering up to 1.35 Tera Operations Per Second (TOPS), enabling efficient execution of complex neural network models directly on the device. [Read more on ST’s blog](https://blog.st.com/stm32mp25/).
+
+- **Graphics Processing Unit (GPU)**: Equipped with a 3D GPU, the microprocessor supports advanced graphics rendering, facilitating the development of sophisticated user interfaces and graphics-intensive applications. [More details on ST](https://www.st.com/en/microcontrollers-microprocessors/stm32mp257.html).
+
+- **AI Development Ecosystem**: The kit is compatible with the ST Edge AI Developer Cloud, allowing developers to test and deploy AI models using tools like TensorFlowLite and ONNX. This ecosystem streamlines the process of integrating AI functionalities into applications.
+
+#### Additional Resources
+
+- **Product Page**: Detailed information about the STM32MP257F-DK Discovery kit, including specifications and ordering options, is available on the [STMicroelectronics website](https://www.st.com/en/evaluation-tools/stm32mp257f-dk.html).
+
+- **Software Support**: Comprehensive software support, including distributions and development tools for the STM32MP257F-DK, can be found on the [STMicroelectronics Wiki](https://wiki.st.com/stm32mpu/wiki/STM32MP257x-DKx_-_software_distributions).
 
 ---
 
