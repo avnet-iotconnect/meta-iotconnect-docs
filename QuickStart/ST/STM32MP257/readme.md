@@ -60,11 +60,11 @@ Follow this guide to configure the STM32MP257 Image Processing Dashboard, includ
 
 ---
 
-### 5. Lambda Functions and S3 Image Processing
+### 5. Lambda Functions and S3 Image Server
 
 This section details the AWS Lambda functions supporting automated image processing and storage in an S3 bucket, including retry logic and error handling.
 
-- [AWS Lambda Image Processing Function](lambda-func-randompics.json)
+- [AWS Lambda Image Server](demo-iotc-x-linux-ai/S3-image-server/README.md)
 
 ---
 
