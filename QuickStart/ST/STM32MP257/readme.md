@@ -72,8 +72,8 @@ This section details the AWS Lambda functions supporting automated image process
 
 Manage OTA updates for firmware and scripts, as well as device commands, enabling continuous deployment and control of STM32MP257 operations.
 
-- [OTA Setup Guide](STM32MP-X-Linux-AI-OTA.md)
-- [Command Template and Configuration](stm32mp2ai_template.JSON)
+- [OTA Setup Guide for STM32MP257 X-Linux-AI Demo](https://github.com/avnet-iotconnect/meta-iotconnect-docs/tree/main/QuickStart/ST/STM32MP257/demo-iotc-x-linux-ai/ota)
+- [OTA Overview](https://github.com/avnet-iotconnect/meta-iotconnect-docs/blob/main/Tutorials/OTA.md)
 
 ---
 
