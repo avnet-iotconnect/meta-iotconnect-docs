@@ -6,13 +6,13 @@ This repository provides all the necessary documentation and scripts to set up a
 
 ## Table of Contents
 
-1. [Introduction to STM32MP257](#introduction-to-stm32mp257)
-2. [Setting Up the STM32MP257 Board](#setting-up-the-stm32mp257-board)
-3. [IoTConnect Configuration](#iotconnect-configuration)
-4. [Image Processing Dashboard Setup](#image-processing-dashboard-setup)
-5. [Lambda Functions and S3 Image Processing](#lambda-functions-and-s3-image-processing)
-6. [Over-the-Air (OTA) Updates and Commands](#over-the-air-ota-updates-and-commands)
-7. [Resources and Further Exploration](#resources-and-further-exploration)
+1. [Introduction to STM32MP257](readme.md#1-introduction-to-stm32mp257)
+2. [Setting Up the STM32MP257 Board](readme.md#2-setting-up-the-stm32mp257-board)
+3. [IoTConnect Configuration](readme.md#3-iotconnect-configuration)
+4. [Image Processing Dashboard Setup](readme.md#4-image-processing-dashboard-setup)
+5. [Lambda Functions and S3 Image Processing](#5-lambda-functions-and-s3-image-processing)
+6. [Over-the-Air (OTA) Updates and Commands](#6-over-the-air-ota-updates-and-commands)
+7. [Resources and Further Exploration](#7-resources-and-further-exploration)
 
 ---
 
