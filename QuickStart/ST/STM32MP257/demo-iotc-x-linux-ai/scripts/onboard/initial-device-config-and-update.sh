@@ -25,6 +25,8 @@ DUID=$(grep '"uid"' "$DEVICE_CONFIG" | awk -F'"' '{print $4}')
 CPID=$(grep '"cpid"' "$DEVICE_CONFIG" | awk -F'"' '{print $4}')
 ENV=$(grep '"env"' "$DEVICE_CONFIG" | awk -F'"' '{print $4}')
 DISCOVERY_URL=$(grep '"disc"' "$DEVICE_CONFIG" | awk -F'"' '{print $4}')
+# Concatenate DUID and CPID with a hyphen and store in unique_id variable
+unique_id="${DUID}-${CPID}"
 
 # Update config.json with the extracted values and default values for sdk_ver and connection_type
 sed -i "s/\"duid\": \".*\"/\"duid\": \"$DUID\"/" "$CONFIG"
@@ -115,6 +117,8 @@ if [ $? -eq 0 ]; then
     # Set read and write permissions for all files in /usr/iotc/local/data
     ssh ${TARGET_USER}@${TARGET_IP} "chmod -R u+rw,g+rw,o+rw /usr/iotc/local/data/*"
     echo "Read and write permissions set on /usr/iotc/local/data/*"
+    # Write unique_id to /usr/iotc/local/data/unique_id without a newline
+    echo -n "$unique_id" > /usr/iotc/local/data/unique_id
 
     # Make all scripts in /usr/iotc/local/scripts executable
     ssh ${TARGET_USER}@${TARGET_IP} "find /usr/iotc/local/scripts -type f -exec chmod +x {} \;"
