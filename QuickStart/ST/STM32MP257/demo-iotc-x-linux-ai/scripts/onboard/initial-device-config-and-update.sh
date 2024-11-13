@@ -63,10 +63,6 @@ jq '. + {
   }
 }' "$CONFIG" > "$CONFIG.tmp" && mv "$CONFIG.tmp" "$CONFIG"
 
-# Write unique_id to /usr/iotc/local/data/unique_id without a newline
-echo -n "$unique_id" > /usr/iotc/local/data/unique_id
-
-# Continue with the rest of the onboarding tasks
 # Verify that the certificate zip file exists
 if [ ! -f "$CERT_ZIP" ]; then
   echo "Error: Certificate zip file '$CERT_ZIP' not found."
@@ -95,6 +91,51 @@ sed -i "s|\"client_cert\": \".*\"|\"client_cert\": \"/usr/iotc/local/certs/$CERT
 
 echo "Configuration and certificates updated successfully."
 
+# Step 1: Create the target directory on the remote device
+echo "Creating directory on target device..."
+ssh ${TARGET_USER}@${TARGET_IP} "mkdir -p ${TARGET_DIR}"
+
+# Step 2: Transfer the entire payload directory to the target, excluding unnecessary files
+echo "Transferring files to ${TARGET_USER}@${TARGET_IP}:${TARGET_DIR}..."
+scp -r application local_data x-linux-ai install.sh ${TARGET_USER}@${TARGET_IP}:${TARGET_DIR}/
+
+# Step 3: Run the installation script on the target and set permissions
+echo "Setting executable permissions for install.sh on target device..."
+ssh ${TARGET_USER}@${TARGET_IP} "chmod +x ${TARGET_DIR}/install.sh"
+echo "Running installation script on the target..."
+ssh ${TARGET_USER}@${TARGET_IP} "/bin/sh ${TARGET_DIR}/install.sh"
+
+# Step 4: Set file permissions and install requirements
+if [ $? -eq 0 ]; then
+    echo "OTA update completed successfully."
+    
+    # Copy the labels file on the target device
+    echo "Copying labels_imagenet_2012.txt to labels_imagenet_2012 on the target device..."
+    ssh ${TARGET_USER}@${TARGET_IP} "cp /usr/local/x-linux-ai/image-classification/models/mobilenet/labels_imagenet_2012.txt /usr/local/x-linux-ai/image-classification/models/mobilenet/labels_imagenet_2012"
+    echo "Labels file copied successfully."
+
+    # Set read and write permissions for all files in /usr/iotc/local/data
+    ssh ${TARGET_USER}@${TARGET_IP} "chmod -R u+rw,g+rw,o+rw /usr/iotc/local/data/*"
+    echo "Read and write permissions set on /usr/iotc/local/data/*"
+
+    # Make all scripts in /usr/iotc/local/scripts executable
+    ssh ${TARGET_USER}@${TARGET_IP} "find /usr/iotc/local/scripts -type f -exec chmod +x {} \;"
+    echo "Executable permissions set on all files within /usr/iotc/local/scripts and its subdirectories"
+    
+    # Install the requests library for both 'weston' and 'root' users
+    echo "Installing 'requests' package for 'root' and 'weston' users..."
+    ssh ${TARGET_USER}@${TARGET_IP} "python3 -m pip install requests"
+    ssh ${TARGET_USER}@${TARGET_IP} "su -l weston -c 'python3 -m pip install --user requests'"
+    echo "'requests' package installed for both 'root' and 'weston' users."
+
+else
+    echo "OTA update failed." >&2
+    exit 1
+fi
+
+# Write unique_id to /usr/iotc/local/data/unique_id without a newline
+ssh ${TARGET_USER}@${TARGET_IP} "echo -n '$unique_id' > /usr/iotc/local/data/unique_id"
+
 # Create the systemd service file for IoTConnect on the target device
 echo "Setting up IoTConnect to run at startup on target device..."
 ssh ${TARGET_USER}@${TARGET_IP} "echo \"[Unit]
@@ -102,8 +143,8 @@ Description=IoTConnect Service
 After=network.target
 
 [Service]
-ExecStart=/root/iotc-application.sh
-WorkingDirectory=/usr/iotc/local/scripts
+ExecStart=/home/root/iotc-application.sh
+WorkingDirectory=/home/root
 StandardOutput=journal
 StandardError=journal
 Restart=on-failure

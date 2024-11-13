@@ -29,11 +29,11 @@
                         "key": "url"
                     },
                     "device": {
-                        "deviceGuid": "93F9A877-F57C-4F13-BF54-7F0F6C65B0C1",
+                        "deviceGuid": "B1824F43-7FA3-47A2-82AF-A8D7055527AC",
                         "deviceName": "",
                         "imageurl": "",
                         "key": "device",
-                        "deviceUniqueId": "stm32mp2ai3"
+                        "deviceUniqueId": "stm32mp2ai4"
                     },
                     "telemetry": {
                         "deviceGuid": "",
@@ -82,11 +82,11 @@
                         "key": "url"
                     },
                     "device": {
-                        "deviceGuid": "93F9A877-F57C-4F13-BF54-7F0F6C65B0C1",
+                        "deviceGuid": "B1824F43-7FA3-47A2-82AF-A8D7055527AC",
                         "deviceName": "",
                         "imageurl": "",
                         "key": "device",
-                        "deviceUniqueId": "stm32mp2ai3"
+                        "deviceUniqueId": "stm32mp2ai4"
                     },
                     "telemetry": {
                         "deviceGuid": "",
@@ -194,8 +194,8 @@
                         "link": "https://ai-image-viewer.s3.us-east-1.amazonaws.com/JavaScript.html",
                         "refresh": "",
                         "device": {
-                            "deviceGuid": "93F9A877-F57C-4F13-BF54-7F0F6C65B0C1",
-                            "deviceUniqueId": "stm32mp2ai3"
+                            "deviceGuid": "B1824F43-7FA3-47A2-82AF-A8D7055527AC",
+                            "deviceUniqueId": "stm32mp2ai4"
                         },
                         "attributes": "",
                         "key": "embedded"
@@ -228,8 +228,8 @@
                         "link": "https://ai-image-viewer.s3.us-east-1.amazonaws.com/query-log.html",
                         "refresh": "",
                         "device": {
-                            "deviceGuid": "93F9A877-F57C-4F13-BF54-7F0F6C65B0C1",
-                            "deviceUniqueId": "stm32mp2ai3"
+                            "deviceGuid": "B1824F43-7FA3-47A2-82AF-A8D7055527AC",
+                            "deviceUniqueId": "stm32mp2ai4"
                         },
                         "attributes": "",
                         "key": "embedded"
@@ -260,8 +260,8 @@
                 "contents": {
                     "gauge": {
                         "device": {
-                            "deviceGuid": "93F9A877-F57C-4F13-BF54-7F0F6C65B0C1",
-                            "deviceUniqueId": "stm32mp2ai3"
+                            "deviceGuid": "B1824F43-7FA3-47A2-82AF-A8D7055527AC",
+                            "deviceUniqueId": "stm32mp2ai4"
                         },
                         "attributes": {
                             "attribute": [
@@ -430,8 +430,8 @@
                 "contents": {
                     "devicelatestvalue": {
                         "device": {
-                            "deviceGuid": "93F9A877-F57C-4F13-BF54-7F0F6C65B0C1",
-                            "deviceUniqueId": "stm32mp2ai3"
+                            "deviceGuid": "B1824F43-7FA3-47A2-82AF-A8D7055527AC",
+                            "deviceUniqueId": "stm32mp2ai4"
                         },
                         "boxtypes": "2",
                         "attributes": {
@@ -598,8 +598,8 @@
                     },
                     "live": {
                         "device": {
-                            "deviceGuid": "93F9A877-F57C-4F13-BF54-7F0F6C65B0C1",
-                            "deviceUniqueId": "stm32mp2ai3"
+                            "deviceGuid": "B1824F43-7FA3-47A2-82AF-A8D7055527AC",
+                            "deviceUniqueId": "stm32mp2ai4"
                         },
                         "attributes": {
                             "attribute": [
@@ -877,8 +877,8 @@
                 "contents": {
                     "devicelatestvalue": {
                         "device": {
-                            "deviceGuid": "93F9A877-F57C-4F13-BF54-7F0F6C65B0C1",
-                            "deviceUniqueId": "stm32mp2ai3"
+                            "deviceGuid": "B1824F43-7FA3-47A2-82AF-A8D7055527AC",
+                            "deviceUniqueId": "stm32mp2ai4"
                         },
                         "boxtypes": "1",
                         "attributes": {
@@ -951,8 +951,8 @@
                 "titleAlign": "",
                 "contents": {
                     "control": {
-                        "device": "stm32mp2ai3",
-                        "deviceGuid": "93F9A877-F57C-4F13-BF54-7F0F6C65B0C1",
+                        "device": "stm32mp2ai4",
+                        "deviceGuid": "B1824F43-7FA3-47A2-82AF-A8D7055527AC",
                         "controlType": "button",
                         "leftText": "Image Classifer Off",
                         "leftCommand": "74A85713-F47D-4739-9D07-C81F3732E68A",
@@ -997,8 +997,8 @@
                 "titleAlign": "",
                 "contents": {
                     "control": {
-                        "device": "stm32mp2ai3",
-                        "deviceGuid": "93F9A877-F57C-4F13-BF54-7F0F6C65B0C1",
+                        "device": "stm32mp2ai4",
+                        "deviceGuid": "B1824F43-7FA3-47A2-82AF-A8D7055527AC",
                         "controlType": "button",
                         "leftText": "Refresh Model metrics",
                         "leftCommand": "3C51C43A-1210-4832-9715-56956343EB26",
@@ -1043,8 +1043,8 @@
                 "titleAlign": "",
                 "contents": {
                     "control": {
-                        "device": "stm32mp2ai3",
-                        "deviceGuid": "93F9A877-F57C-4F13-BF54-7F0F6C65B0C1",
+                        "device": "stm32mp2ai4",
+                        "deviceGuid": "B1824F43-7FA3-47A2-82AF-A8D7055527AC",
                         "controlType": "button",
                         "leftText": "Refresh Memory Usage",
                         "leftCommand": "E3E4DFD8-D7ED-4058-A3DC-417A088EA26C",
@@ -1107,23 +1107,28 @@
             }
         },
         {
-            "widgetGuid": "5AA3E988-15DE-4110-BBD8-0BE20086EE35",
+            "widgetGuid": "F7979C1B-8637-4667-90A2-6961052C6E21",
             "widgetProperties": {
-                "i": "lastrefreshed",
-                "background": "#FFFFFF",
-                "fontColor": "#343434",
+                "i": "Live",
+                "background": "#ffffff",
+                "fontColor": "#000000",
                 "fontFamily": "Proxima Nova",
-                "fontSize": "18",
-                "title": "Last Refreshed",
+                "fontSize": "22",
+                "title": "Running Model",
                 "titleAlign": "",
                 "contents": {
-                    "lastrefreshed": {
-                        "timezone": "UTC",
-                        "dateTimeColor": "#000000",
-                        "lastRefreshedDateTime": 1731383918,
+                    "attributeValue": {
+                        "attributeName": "runningmodel",
+                        "key": "attributeValue"
+                    },
+                    "attributeTime": {
+                        "attributeName": "runningmodel",
+                        "key": "attributeTime"
+                    },
+                    "live": {
                         "device": {
-                            "deviceGuid": "93F9A877-F57C-4F13-BF54-7F0F6C65B0C1",
-                            "deviceUniqueId": "stm32mp2ai3"
+                            "deviceGuid": "B1824F43-7FA3-47A2-82AF-A8D7055527AC",
+                            "deviceUniqueId": "stm32mp2ai4"
                         },
                         "attributes": {
                             "attribute": [
@@ -1132,90 +1137,80 @@
                                     "attributeName": "weston_mem",
                                     "checked": "false",
                                     "dataType": "DECIMAL",
-                                    "attributeLatestValue": "",
-                                    "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                                    "attributeLatestValue": "0",
+                                    "deviceUpdatedDate": "2024-11-13T20:57:26.000Z",
                                     "gatewayUpdatedDate": "NA",
-                                    "attributeValue": "NA"
+                                    "attributeValue": "0"
                                 },
                                 {
                                     "attributeGuid": "855F34F3-9110-46E5-B6F1-13A874B462F5",
                                     "attributeName": "runningmodel",
-                                    "checked": "false",
+                                    "checked": "true",
                                     "dataType": "STRING",
-                                    "attributeLatestValue": "image-s3\n",
-                                    "deviceUpdatedDate": "2024-11-11T17:18:28.000Z",
+                                    "attributeLatestValue": "image-s3",
+                                    "deviceUpdatedDate": "2024-11-13T20:57:26.000Z",
                                     "gatewayUpdatedDate": "NA",
-                                    "attributeValue": "image-s3\n"
+                                    "attributeValue": "image-s3"
                                 },
                                 {
                                     "attributeGuid": "2B5B6A02-D7C3-4B89-931B-1B6D9CE4DB33",
                                     "attributeName": "root_mem",
                                     "checked": "false",
                                     "dataType": "DECIMAL",
-                                    "attributeLatestValue": "",
-                                    "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                                    "attributeLatestValue": "7.6",
+                                    "deviceUpdatedDate": "2024-11-13T20:57:26.000Z",
                                     "gatewayUpdatedDate": "NA",
-                                    "attributeValue": "NA"
+                                    "attributeValue": "7.6"
                                 },
                                 {
                                     "attributeGuid": "9BA83677-B69D-477B-A660-1E8A4AF7CB2D",
                                     "attributeName": "total_classifications",
                                     "checked": "false",
                                     "dataType": "INTEGER",
-                                    "attributeLatestValue": "",
-                                    "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                                    "attributeLatestValue": "71",
+                                    "deviceUpdatedDate": "2024-11-13T20:57:26.000Z",
                                     "gatewayUpdatedDate": "NA",
-                                    "attributeValue": "NA"
+                                    "attributeValue": "71"
                                 },
                                 {
                                     "attributeGuid": "791C989E-3833-45A7-A2C0-1EE947926151",
                                     "attributeName": "avg_confidence",
                                     "checked": "false",
                                     "dataType": "DECIMAL",
-                                    "attributeLatestValue": "",
-                                    "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                                    "attributeLatestValue": "45.66",
+                                    "deviceUpdatedDate": "2024-11-13T20:57:26.000Z",
                                     "gatewayUpdatedDate": "NA",
-                                    "attributeValue": "NA"
+                                    "attributeValue": "45.66"
                                 },
                                 {
                                     "attributeGuid": "E7DFF1D5-8232-4137-B17B-388AB81359A1",
                                     "attributeName": "classification",
                                     "checked": "false",
                                     "dataType": "STRING",
-                                    "attributeLatestValue": "tree frog",
-                                    "deviceUpdatedDate": "2024-11-11T17:18:28.000Z",
+                                    "attributeLatestValue": "punching bag",
+                                    "deviceUpdatedDate": "2024-11-13T20:57:26.000Z",
                                     "gatewayUpdatedDate": "NA",
-                                    "attributeValue": "tree frog"
+                                    "attributeValue": "punching bag"
                                 },
                                 {
                                     "attributeGuid": "68E26B72-896A-4476-AD0D-3DD1DE2F9A41",
                                     "attributeName": "max_confidence",
                                     "checked": "false",
                                     "dataType": "DECIMAL",
-                                    "attributeLatestValue": "",
-                                    "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                                    "attributeLatestValue": "99.61",
+                                    "deviceUpdatedDate": "2024-11-13T20:57:26.000Z",
                                     "gatewayUpdatedDate": "NA",
-                                    "attributeValue": "NA"
+                                    "attributeValue": "99.61"
                                 },
                                 {
                                     "attributeGuid": "53239FD9-887F-4DA5-A767-46F7CCACE407",
                                     "attributeName": "systemd_mem",
                                     "checked": "false",
                                     "dataType": "DECIMAL",
-                                    "attributeLatestValue": "",
-                                    "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                                    "attributeLatestValue": "0.2",
+                                    "deviceUpdatedDate": "2024-11-13T20:57:26.000Z",
                                     "gatewayUpdatedDate": "NA",
-                                    "attributeValue": "NA"
-                                },
-                                {
-                                    "attributeGuid": "13D28FA8-4C84-4511-9ABB-5260BCD8F13D",
-                                    "attributeName": "temperature",
-                                    "checked": "false",
-                                    "dataType": "DECIMAL",
-                                    "attributeLatestValue": "",
-                                    "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
-                                    "gatewayUpdatedDate": "NA",
-                                    "attributeValue": "NA"
+                                    "attributeValue": "0.2"
                                 },
                                 {
                                     "attributeGuid": "E0768128-5AC6-4BFD-A0AF-7F1CE9E19779",
@@ -1223,7 +1218,7 @@
                                     "checked": "false",
                                     "dataType": "STRING",
                                     "attributeLatestValue": "1.1\n",
-                                    "deviceUpdatedDate": "2024-11-11T17:18:28.000Z",
+                                    "deviceUpdatedDate": "2024-11-13T20:57:26.000Z",
                                     "gatewayUpdatedDate": "NA",
                                     "attributeValue": "1.1\n"
                                 },
@@ -1232,40 +1227,40 @@
                                     "attributeName": "unique_id",
                                     "checked": "false",
                                     "dataType": "STRING",
-                                    "attributeLatestValue": "",
-                                    "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                                    "attributeLatestValue": "stm32mp2ai4-378DC01FEAE14C0697BD2E87E431A07E",
+                                    "deviceUpdatedDate": "2024-11-13T20:57:26.000Z",
                                     "gatewayUpdatedDate": "NA",
-                                    "attributeValue": "NA"
+                                    "attributeValue": "stm32mp2ai4-378DC01FEAE14C0697BD2E87E431A07E"
                                 },
                                 {
                                     "attributeGuid": "EA94C63A-4F87-4B53-A502-8C7DE0AFFBAE",
                                     "attributeName": "min_confidence",
                                     "checked": "false",
                                     "dataType": "DECIMAL",
-                                    "attributeLatestValue": "",
-                                    "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                                    "attributeLatestValue": "4.69",
+                                    "deviceUpdatedDate": "2024-11-13T20:57:26.000Z",
                                     "gatewayUpdatedDate": "NA",
-                                    "attributeValue": "NA"
+                                    "attributeValue": "4.69"
+                                },
+                                {
+                                    "attributeGuid": "05112C93-93F7-4BF9-B59D-9291D20DBFA5",
+                                    "attributeName": "total_mem",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "7.8",
+                                    "deviceUpdatedDate": "2024-11-13T20:57:26.000Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "7.8"
                                 },
                                 {
                                     "attributeGuid": "8E761148-D0DB-4A36-8545-A3333E8D9422",
                                     "attributeName": "unique_classifications",
                                     "checked": "false",
                                     "dataType": "INTEGER",
-                                    "attributeLatestValue": "",
-                                    "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                                    "attributeLatestValue": "47",
+                                    "deviceUpdatedDate": "2024-11-13T20:57:26.000Z",
                                     "gatewayUpdatedDate": "NA",
-                                    "attributeValue": "NA"
-                                },
-                                {
-                                    "attributeGuid": "AB3A15A7-4FC9-4011-9868-BE52B9BB9236",
-                                    "attributeName": "accel",
-                                    "checked": "false",
-                                    "dataType": "DECIMAL",
-                                    "attributeLatestValue": "1.1",
-                                    "deviceUpdatedDate": "2024-11-11T17:18:28.000Z",
-                                    "gatewayUpdatedDate": "NA",
-                                    "attributeValue": "1.1"
+                                    "attributeValue": "47"
                                 },
                                 {
                                     "attributeGuid": "5B917734-F8E0-4828-A84A-DE6E42D663CB",
@@ -1273,7 +1268,7 @@
                                     "checked": "false",
                                     "dataType": "DECIMAL",
                                     "attributeLatestValue": "85",
-                                    "deviceUpdatedDate": "2024-11-11T17:18:28.000Z",
+                                    "deviceUpdatedDate": "2024-11-13T20:57:26.000Z",
                                     "gatewayUpdatedDate": "NA",
                                     "attributeValue": "85"
                                 },
@@ -1282,36 +1277,37 @@
                                     "attributeName": "confidence",
                                     "checked": "false",
                                     "dataType": "DECIMAL",
-                                    "attributeLatestValue": "88.28",
-                                    "deviceUpdatedDate": "2024-11-11T17:18:28.000Z",
+                                    "attributeLatestValue": "12.5",
+                                    "deviceUpdatedDate": "2024-11-13T20:57:26.000Z",
                                     "gatewayUpdatedDate": "NA",
-                                    "attributeValue": "88.28"
+                                    "attributeValue": "12.5"
                                 },
                                 {
                                     "attributeGuid": "144987C3-93F9-49EA-AD4E-E47466770F75",
                                     "attributeName": "most_common_classification",
                                     "checked": "false",
                                     "dataType": "STRING",
-                                    "attributeLatestValue": "",
-                                    "deviceUpdatedDate": "1900-01-01T00:00:00.000Z",
+                                    "attributeLatestValue": "binoculars",
+                                    "deviceUpdatedDate": "2024-11-13T20:57:26.000Z",
                                     "gatewayUpdatedDate": "NA",
-                                    "attributeValue": "NA"
+                                    "attributeValue": "binoculars"
                                 }
                             ]
-                        }
+                        },
+                        "rules": "",
+                        "key": "live"
                     }
                 }
             },
             "properties": {
-                "x": "24",
+                "x": "22",
                 "y": "26",
-                "w": "9",
+                "w": "13",
                 "h": "4",
-                "i": "lastrefreshed",
-                "minW": "9",
+                "i": "Live",
+                "minW": "7",
                 "minH": "4",
                 "maxH": "4",
-                "maxW": "9",
                 "isStatic": "false"
             }
         },
