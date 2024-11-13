@@ -29,11 +29,11 @@
                         "key": "url"
                     },
                     "device": {
-                        "deviceGuid": "93F9A877-F57C-4F13-BF54-7F0F6C65B0C1",
+                        "deviceGuid": "3EE54203-203D-4C32-A1E4-1BD366CA302A",
                         "deviceName": "",
                         "imageurl": "",
                         "key": "device",
-                        "deviceUniqueId": "stm32mp2ai3"
+                        "deviceUniqueId": "STM32MP257"
                     },
                     "telemetry": {
                         "deviceGuid": "",
@@ -82,10 +82,11 @@
                         "key": "url"
                     },
                     "device": {
-                        "deviceGuid": "",
+                        "deviceGuid": "3EE54203-203D-4C32-A1E4-1BD366CA302A",
                         "deviceName": "",
                         "imageurl": "",
-                        "key": "device"
+                        "key": "device",
+                        "deviceUniqueId": "STM32MP257"
                     },
                     "telemetry": {
                         "deviceGuid": "",
@@ -119,8 +120,8 @@
                 "contents": {
                     "Transformation": {
                         "device": {
-                            "deviceGuid": "93F9A877-F57C-4F13-BF54-7F0F6C65B0C1",
-                            "deviceUniqueId": "stm32mp2ai3"
+                            "deviceGuid": "3EE54203-203D-4C32-A1E4-1BD366CA302A",
+                            "deviceUniqueId": "STM32MP257"
                         },
                         "attributes": {
                             "attribute": [
@@ -404,8 +405,8 @@
                         "link": "https://ai-image-viewer.s3.us-east-1.amazonaws.com/JavaScript.html",
                         "refresh": "",
                         "device": {
-                            "deviceGuid": "93F9A877-F57C-4F13-BF54-7F0F6C65B0C1",
-                            "deviceUniqueId": "stm32mp2ai3"
+                            "deviceGuid": "3EE54203-203D-4C32-A1E4-1BD366CA302A",
+                            "deviceUniqueId": "STM32MP257"
                         },
                         "attributes": "",
                         "key": "embedded"
@@ -438,8 +439,8 @@
                         "link": "https://ai-image-viewer.s3.amazonaws.com/query-log.html",
                         "refresh": "",
                         "device": {
-                            "deviceGuid": "93F9A877-F57C-4F13-BF54-7F0F6C65B0C1",
-                            "deviceUniqueId": "stm32mp2ai3"
+                            "deviceGuid": "3EE54203-203D-4C32-A1E4-1BD366CA302A",
+                            "deviceUniqueId": "STM32MP257"
                         },
                         "attributes": "",
                         "key": "embedded"
@@ -470,8 +471,8 @@
                 "contents": {
                     "gauge": {
                         "device": {
-                            "deviceGuid": "93F9A877-F57C-4F13-BF54-7F0F6C65B0C1",
-                            "deviceUniqueId": "stm32mp2ai3"
+                            "deviceGuid": "3EE54203-203D-4C32-A1E4-1BD366CA302A",
+                            "deviceUniqueId": "STM32MP257"
                         },
                         "attributes": {
                             "attribute": [
@@ -578,8 +579,8 @@
                     },
                     "live": {
                         "device": {
-                            "deviceGuid": "93F9A877-F57C-4F13-BF54-7F0F6C65B0C1",
-                            "deviceUniqueId": "stm32mp2ai3"
+                            "deviceGuid": "3EE54203-203D-4C32-A1E4-1BD366CA302A",
+                            "deviceUniqueId": "STM32MP257"
                         },
                         "attributes": {
                             "attribute": [
@@ -828,8 +829,8 @@
                 "contents": {
                     "devicelatestvalue": {
                         "device": {
-                            "deviceGuid": "93F9A877-F57C-4F13-BF54-7F0F6C65B0C1",
-                            "deviceUniqueId": "stm32mp2ai3"
+                            "deviceGuid": "3EE54203-203D-4C32-A1E4-1BD366CA302A",
+                            "deviceUniqueId": "STM32MP257"
                         },
                         "boxtypes": "1",
                         "attributes": {
@@ -874,8 +875,8 @@
                 "contents": {
                     "pie": {
                         "device": {
-                            "deviceGuid": "93F9A877-F57C-4F13-BF54-7F0F6C65B0C1",
-                            "deviceUniqueId": "stm32mp2ai3"
+                            "deviceGuid": "3EE54203-203D-4C32-A1E4-1BD366CA302A",
+                            "deviceUniqueId": "STM32MP257"
                         },
                         "attributes": {
                             "attribute": [
@@ -1011,21 +1012,21 @@
                 "titleAlign": "",
                 "contents": {
                     "control": {
-                        "device": "stm32mp2ai3",
-                        "deviceGuid": "93F9A877-F57C-4F13-BF54-7F0F6C65B0C1",
+                        "device": "STM32MP257",
+                        "deviceGuid": "3EE54203-203D-4C32-A1E4-1BD366CA302A",
                         "controlType": "button",
                         "leftText": "Image Classifer Off",
-                        "leftCommand": "74A85713-F47D-4739-9D07-C81F3732E68A",
+                        "leftCommand": "E55672E6-C600-4FA8-9A0E-506DCA868E4D",
                         "leftSwitchColor": "#4a4a4a",
                         "leftBackgroundColor": "",
                         "leftParam": "",
                         "rightText": "Image Classifer On",
-                        "rightCommand": "93DD62B7-9123-43A0-8B8B-34113DE2640C",
+                        "rightCommand": "108D5AB8-F895-48FF-9E29-A6DD3F7491FF",
                         "rightSwitchColor": "#7ed321",
                         "rightBackgroundColor": "",
                         "rightParam": "",
                         "showStatus": "true",
-                        "template": "6D9D2C9F-A0A0-44F4-9352-9A6964EFF28D",
+                        "template": "FC453BB1-3191-4E41-AE2B-81A8564D0D22",
                         "key": "control",
                         "showleftSwitchColorPicker": "false",
                         "showrightSwitchColorPicker": "false"
