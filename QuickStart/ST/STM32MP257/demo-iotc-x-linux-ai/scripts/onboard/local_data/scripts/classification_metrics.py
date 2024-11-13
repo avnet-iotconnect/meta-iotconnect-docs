@@ -3,7 +3,7 @@ import requests
 from collections import Counter
 
 LOG_FILE_URL = "https://aiimagecapture.s3.us-east-1.amazonaws.com/classification_log.txt"
-UNIQUE_ID_FILE = "/usr/iotc/local/data/unique-id"
+UNIQUE_ID_FILE = "/usr/iotc/local/data/unique_id"
 METRIC_FILES = [
     "/usr/iotc/local/data/total_classifications",
     "/usr/iotc/local/data/unique_classifications",
