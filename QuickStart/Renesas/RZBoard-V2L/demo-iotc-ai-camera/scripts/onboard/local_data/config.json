@@ -1,0 +1,34 @@
+{
+  "sdk_ver": "",
+  "__comment_duid": "Your Device's name",
+  "duid": "",
+  "_comment_cpid": "CPID from portal's Key Vault",
+  "cpid": "",
+  "_comment_env": "Environment from portal's Key Vault",
+  "env": "",
+  "_comment_iotc_server_cert": "Path to Global root cert, different depending on AWS/Azure instance",
+  "iotc_server_cert": "/etc/ssl/certs/Amazon_Root_CA_1.pem",
+  "_comment_sdk_id": "'SDK Identities -> Language: Python **, Version: 1.0' from portal's Key Vault, only needed for Python SDK",
+  "sdk_id": "<SDK_ID_PLACEHOLDER>",
+  "_comment_discovery_url": "Depending on the URL, it will connect to either Azure or AWS instance, only used for Python SDK",
+  "discovery_url": "https://awsdiscovery.iotconnect.io",
+  "_comment_connection_type": "Use IOTC_CT_AZURE or IOTC_CT_AWS to select connection type",
+  "connection_type": "IOTC_CT_AWS",
+  "auth": {
+    "auth_type": "IOTC_AT_X509",
+    "params": {
+      "client_key": "/usr/iotc/local/certs/",
+      "client_cert": "/usr/iotc/local/certs/"
+    }
+  },
+  "device": {
+    "commands_list_path": "/usr/iotc/local/scripts",
+    "attributes": [
+      {
+        "name": "version",
+        "private_data": "/usr/iotc/local/data/version",
+        "private_data_type": "ascii"
+      }
+    ]
+  }
+}
