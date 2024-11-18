@@ -1,5 +1,13 @@
 # RZ Board V2L IoTC Quick Start Guide
 
+# 1. Introduction
+
+# 2. Hardware Requirements
+
+# 3. Download / Install Software
+
+# 4. Hardware Setup
+
 1. Download the RZ Board V2L quick start package. You can do this by:
    - Clicking [here](./README.md) to download manually.
    - Or using the following command on Linux:
@@ -45,9 +53,10 @@
    - **Linux** / **Windows (Git Bash)**:
      ```bash
      git clone https://github.com/Avnet/rzboard_flash_util.git
+     ```
+     ```bash
      cd rzboard_flash_util
      ```
-
 6. Install Python requirements:
    - **Linux**:
      ```bash
