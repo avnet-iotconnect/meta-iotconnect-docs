@@ -1,19 +1,17 @@
 # RZ Board V2L IoTC Quick Start Guide
 
-1. Download the RZ Board V2L quick start package. You can do this by:
-   - Clicking [here](./README.md) to download manually.
-   - Or using the following command on Linux:
-     ```bash
-     wget {URL_HERE} -O RZBoardV2L_IoTC.zip
-     ```
+# 1. Introduction
 
-2. Unzip the package, which contains a `.wic` file for the root filesystem and bootloader files like `bl2_bp-rzboard.srec`, `fip-rzboard.srec`, and `Flash_Writer_SCIF_rzboard.mot`.
+# 2. Hardware Requirements
 
-   - **Linux**: 
-     ```bash
-     unzip RZBoardV2L_IoTC.zip
-     ```
-   - **Windows**: Right-click the file and select "Extract All."
+# 3. Download / Install Software
+
+1. Download the RZ Board V2L QuickStart package: [FILENAME](./README.md)
+2. Unzip the package by Right-Click, "Extract Here"
+3. Flash the `.wic` file to an SD Card
+
+5. 
+# 4. Hardware Setup
 
 3. **Flash the `.wic` File to an SD Card**
 
@@ -45,9 +43,10 @@
    - **Linux** / **Windows (Git Bash)**:
      ```bash
      git clone https://github.com/Avnet/rzboard_flash_util.git
+     ```
+     ```bash
      cd rzboard_flash_util
      ```
-
 6. Install Python requirements:
    - **Linux**:
      ```bash
