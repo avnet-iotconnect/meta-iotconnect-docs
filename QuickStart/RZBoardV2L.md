@@ -24,7 +24,7 @@ Configure the DIP switches:
 2 = OFF  
 
 Reference Image  
-![RZBoardV2L Flashing wiring diagram](https://hackster.imgix.net/uploads/attachments/1634133/image_Epd2Fx4Hue.png?auto=compress%2Cformat&w=740&h=555&fit=max)
+![RZBoardV2L Flashing wiring diagram](Renesas/RZBoard-V2L/Media/rzboardv2l_labled.png)
 
 
 # 4. Install Software
