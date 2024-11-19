@@ -11,6 +11,7 @@ SCRIPTS_PAYLOAD_DIR="$LOCAL_DATA_PAYLOAD_DIR/scripts"  # Scripts directory
 
 # Define target directories for installation in /usr/iotc
 APPLICATION_INSTALLED_DIR="/usr/iotc/bin/iotc-python-sdk"
+MODEL_INSTALLED_DIR="/usr/iotc/bin/iotc-python-sdk/model"
 LOCAL_DATA_INSTALLED_DIR="/usr/iotc/local"
 CERTS_INSTALLED_DIR="/usr/iotc/local/certs"
 SCRIPTS_INSTALLED_DIR="/usr/iotc/local/scripts"
@@ -20,6 +21,7 @@ BACKUP_DIR="/tmp/.ota/backup"
 
 # Create necessary directories if they don't exist
 mkdir -p "$BACKUP_DIR"
+mkdir -p "$MODEL_INSTALLED_DIR"
 mkdir -p "$LOCAL_DATA_INSTALLED_DIR"
 mkdir -p "$CERTS_INSTALLED_DIR"
 mkdir -p "$SCRIPTS_INSTALLED_DIR"
@@ -42,8 +44,8 @@ update_directory() {
     fi
 }
 
-# Update application files
-update_directory "$APPLICATION_PAYLOAD_DIR" "$APPLICATION_INSTALLED_DIR"
+# Update application model files
+update_directory "$APPLICATION_PAYLOAD_DIR" "$MODEL_INSTALLED_DIR"
 
 # Update data files in /usr/iotc/local/data
 update_directory "$DATA_PAYLOAD_DIR" "$LOCAL_DATA_INSTALLED_DIR/data"

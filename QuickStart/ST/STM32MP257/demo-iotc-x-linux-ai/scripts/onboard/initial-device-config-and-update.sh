@@ -26,7 +26,7 @@ CPID=$(grep '"cpid"' "$DEVICE_CONFIG" | awk -F'"' '{print $4}')
 ENV=$(grep '"env"' "$DEVICE_CONFIG" | awk -F'"' '{print $4}')
 DISCOVERY_URL=$(grep '"disc"' "$DEVICE_CONFIG" | awk -F'"' '{print $4}')
 # Concatenate DUID and CPID with a hyphen and store in unique_id variable
-unique_id="${DUID}-${CPID}"
+dunique_id="${DUID}-${CPID}"
 
 # Update config.json with the extracted values and default values for sdk_ver and connection_type
 sed -i "s/\"duid\": \".*\"/\"duid\": \"$DUID\"/" "$CONFIG"
@@ -134,7 +134,7 @@ else
 fi
 
 # Write unique_id to /usr/iotc/local/data/unique_id without a newline
-ssh ${TARGET_USER}@${TARGET_IP} "echo -n '$unique_id' > /usr/iotc/local/data/unique_id"
+ssh ${TARGET_USER}@${TARGET_IP} "echo -n '$dunique_id' > /usr/iotc/local/data/unique_id"
 
 # Create the systemd service file for IoTConnect on the target device
 echo "Setting up IoTConnect to run at startup on target device..."

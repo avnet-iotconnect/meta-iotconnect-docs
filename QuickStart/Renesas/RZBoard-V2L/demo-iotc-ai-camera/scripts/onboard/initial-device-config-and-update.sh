@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Function to check if SSH is running on the RZBoard and start it if necessary
+# Function to check if SSH is running on the target device
 check_ssh_service() {
     echo "Checking if SSH is running on the target device..."
     ssh $TARGET_USER@$TARGET_IP "ps aux | grep sshd" &>/dev/null
@@ -11,6 +11,42 @@ check_ssh_service() {
     else
         echo "SSH is already running on the target device."
     fi
+}
+
+setup_iotconnect_service() {
+    echo "Setting up IoTConnect as a systemd service on the target device..."
+    
+    SERVICE_CONFIG="[Unit]
+Description=IoTConnect Service
+After=network.target
+
+[Service]
+ExecStart=/home/root/iotc-application.sh
+WorkingDirectory=/home/root
+StandardOutput=journal
+StandardError=journal
+Restart=on-failure
+RestartSec=5
+User=root
+PermissionsStartOnly=true
+PrivateDevices=no
+ProtectSystem=off
+ProtectHome=no
+CapabilityBoundingSet=CAP_SYS_ADMIN CAP_DAC_OVERRIDE CAP_SYS_RAWIO
+
+[Install]
+WantedBy=multi-user.target"
+
+    # Create the service configuration on the target device
+    ssh $TARGET_USER@$TARGET_IP "echo \"$SERVICE_CONFIG\" > /etc/systemd/system/iotconnect.service"
+    
+    # Reload systemd, enable, and start the service
+    ssh $TARGET_USER@$TARGET_IP "systemctl daemon-reload && systemctl enable iotconnect.service && systemctl start iotconnect.service"
+    
+    # Check the status of the service
+    ssh $TARGET_USER@$TARGET_IP "systemctl status iotconnect.service --no-pager"
+    
+    echo "IoTConnect service has been set up and started with root-level permissions."
 }
 
 # Function to generate SSH keys if they don't exist
@@ -45,44 +81,22 @@ copy_ssh_key_to_target() {
     fi
 }
 
-# Function to ensure the correct permissions on the /tmp/ota-payload/local_data/data directory
-set_permissions() {
-    echo "Ensuring correct permissions for /tmp/ota-payload/local_data/data..."
-    ssh $TARGET_USER@$TARGET_IP "chmod -R u+rw,g+rw,o+rw /tmp/ota-payload/local_data/data/*"
-    if [ $? -eq 0 ]; then
-        echo "Permissions set correctly on /tmp/ota-payload/local_data/data/*."
-    else
-        echo "Failed to set permissions. Exiting."
-        exit 1
-    fi
-}
-
-# Main script execution
-echo "Starting SSH key setup and connection..."
-
-# Function to clean up old host keys
+# Function to clean up old SSH host keys
 cleanup_ssh_keys() {
     echo "Cleaning up old SSH host keys for the target device..."
     ssh-keygen -R "$TARGET_IP" > /dev/null 2>&1
     echo "Old SSH host keys removed for $TARGET_IP."
 }
 
-# Prompt the user for the target IP address
+# Prompt the user for the target IP address and username
 read -p "Enter the target IP address: " TARGET_IP
-cleanup_ssh_keys
 read -p "Enter the username for the target device (default: root): " TARGET_USER
 TARGET_USER=${TARGET_USER:-root}
 
-# Check SSH service status on the target device and start it if necessary
+cleanup_ssh_keys
 check_ssh_service
-
-# Ensure SSH keys exist, otherwise generate them
 generate_ssh_keys
-
-# Copy SSH public key to the target device
 copy_ssh_key_to_target
-
-echo "SSH setup completed successfully. You can now SSH into the target device without a password."
 
 # Prompt for paths and convert them to Unix format if necessary
 read -p "Enter the full path and filename for iotcDeviceConfig.json [default: ./iotcDeviceConfig.json]: " DEVICE_CONFIG
@@ -94,44 +108,29 @@ CERT_ZIP=${CERT_ZIP:-RZBoardV2L-certificates.zip}
 CERT_ZIP=$(cygpath -u "$CERT_ZIP" 2>/dev/null || echo "$CERT_ZIP")
 
 # Define constants
-TARGET_DIR="/tmp/ota-payload"  # Temporary directory on the target
-
-# Paths to local files and directories
 CONFIG="local_data/config.json"
-CERTS_DIR="local_data/certs"
+TARGET_DIR="/tmp/ota-payload"
 
 # Extract values from iotcDeviceConfig.json
 DUID=$(grep '"uid"' "$DEVICE_CONFIG" | awk -F'"' '{print $4}')
 CPID=$(grep '"cpid"' "$DEVICE_CONFIG" | awk -F'"' '{print $4}')
 ENV=$(grep '"env"' "$DEVICE_CONFIG" | awk -F'"' '{print $4}')
 DISCOVERY_URL=$(grep '"disc"' "$DEVICE_CONFIG" | awk -F'"' '{print $4}')
-# Concatenate DUID and CPID with a hyphen and store in unique_id variable
-dunique_id="${DUID}-${CPID}"
+UNIQUE_ID="${DUID}-${CPID}"
 
-# Update config.json with the extracted values and default values for sdk_ver and connection_type
+# Update config.json
 sed -i "s/\"duid\": \".*\"/\"duid\": \"$DUID\"/" "$CONFIG"
 sed -i "s/\"cpid\": \".*\"/\"cpid\": \"$CPID\"/" "$CONFIG"
 sed -i "s/\"env\": \".*\"/\"env\": \"$ENV\"/" "$CONFIG"
 sed -i "s|\"discovery_url\": \".*\"|\"discovery_url\": \"$DISCOVERY_URL\"|" "$CONFIG"
-sed -i "s|\"sdk_ver\": \".*\"|\"sdk_ver\": \"2.1\"|" "$CONFIG"
-sed -i "s|\"connection_type\": \".*\"|\"connection_type\": \"IOTC_CT_AWS\"|" "$CONFIG"
-sed -i "s|\"iotc_server_cert\": \".*\"|\"iotc_server_cert\": \"/etc/ssl/certs/Amazon_Root_CA_1.pem\"|" "$CONFIG"
-sed -i "s|\"sdk_id\": \".*\"|\"sdk_id\": \"<SDK_ID_PLACEHOLDER>\"|" "$CONFIG"  # Replace placeholder if needed
 
-# Add device configuration with telemetry attributes to config.json
-jq '. + {
-  "device": {
-    "commands_list_path": "/usr/iotc/local/scripts",
-    "attributes": [
-      { "name": "unique_id", "private_data": "/usr/iotc/local/data/unique_id", "private_data_type": "ascii" },
-      { "name": "version", "private_data": "/usr/iotc/local/data/version", "private_data_type": "ascii" },
-      { "name": "cpu_usage", "private_data": "/usr/iotc/local/data/cpu_usage", "private_data_type": "decimal" },
-      { "name": "mem_usage", "private_data": "/usr/iotc/local/data/mem_usage", "private_data_type": "decimal" },
+# Add extended attributes to config.json
+jq '.device.attributes += [
+      { "name": "cpu_usage", "private_data": "/usr/iotc/local/data/cpu_usage", "private_data_type": "ascii" },
+      { "name": "mem_usage", "private_data": "/usr/iotc/local/data/mem_usage", "private_data_type": "ascii" },
       { "name": "running_model", "private_data": "/usr/iotc/local/data/running_model", "private_data_type": "ascii" },
       { "name": "script_version", "private_data": "/usr/iotc/local/data/script_version", "private_data_type": "ascii" }
-    ]
-  }
-}' "$CONFIG" > "$CONFIG.tmp" && mv "$CONFIG.tmp" "$CONFIG"
+    ]' "$CONFIG" > "$CONFIG.tmp" && mv "$CONFIG.tmp" "$CONFIG"
 
 # Verify that the certificate zip file exists
 if [ ! -f "$CERT_ZIP" ]; then
@@ -161,60 +160,49 @@ sed -i "s|\"client_cert\": \".*\"|\"client_cert\": \"/usr/iotc/local/certs/$CERT
 
 echo "Configuration and certificates updated successfully."
 
-# Create the target directory on the remote device
-echo "Creating directory on target device..."
-ssh $TARGET_USER@$TARGET_IP "mkdir -p ${TARGET_DIR}"
 
-# Transfer the files to the target device
-echo "Transferring files to ${TARGET_USER}@${TARGET_IP}:${TARGET_DIR}..."
-scp -r application local_data x-linux-ai install.sh ${TARGET_USER}@${TARGET_IP}:${TARGET_DIR}/
+echo "Updated config.json contents:"
+cat "$CONFIG"
 
-# Set executable permissions for the install script on the target device
-echo "Setting executable permissions for install.sh on target device..."
-ssh $TARGET_USER@$TARGET_IP "chmod +x ${TARGET_DIR}/install.sh"
+# Ensure proper permissions locally
+chmod -R u+rwx,g+rwx,o+rwx ./
 
-# Set permissions for the /tmp/ota-payload/local_data/data/ directory
-set_permissions
+check_and_install_psutil() {
+    # Check if psutil is already installed
+    python3 -c "import psutil" 2>/dev/null
+    if [ $? -eq 0 ]; then
+        echo "psutil is already installed."
+    else
+        echo "psutil is not installed. Installing now..."
+        pip3 install psutil
+        if [ $? -eq 0 ]; then
+            echo "psutil installed successfully."
+        else
+            echo "Failed to install psutil. Exiting."
+            exit 1
+        fi
+    fi
+}
 
-# Run the installation script on the target
-echo "Running installation script on the target..."
-ssh $TARGET_USER@$TARGET_IP "/bin/sh ${TARGET_DIR}/install.sh"
+# Run the function to ensure psutil is installed
+check_and_install_psutil
 
-echo "OTA update completed successfully."
 
-# Set read and write permissions for all files in /usr/iotc/local/data
-ssh $TARGET_USER@$TARGET_IP "chmod -R u+rw,g+rw,o+rw /usr/iotc/local/data/*"
-echo "Read and write permissions set on /usr/iotc/local/data/*"
+# Transfer files to the target device
+scp -r ./ $TARGET_USER@$TARGET_IP:$TARGET_DIR
+scp "$CONFIG" $TARGET_USER@$TARGET_IP:/usr/iotc/local/config.json
 
-# Make all scripts in /usr/iotc/local/scripts executable
-ssh $TARGET_USER@$TARGET_IP "find /usr/iotc/local/scripts -type f -exec chmod +x {} \;"
-echo "Executable permissions set on all files within /usr/iotc/local/scripts and its subdirectories"
+# Write the unique ID to the target device
+ssh $TARGET_USER@$TARGET_IP "echo -n '$UNIQUE_ID' > /usr/iotc/local/data/unique_id"
 
-# Install the requests library for 'root' user
-echo "Installing 'requests' package for 'root' user..."
+# Ensure permissions on the target
+ssh $TARGET_USER@$TARGET_IP "chmod -R u+rw,g+rw,o+rw /usr/iotc/local/data"
+ssh $TARGET_USER@$TARGET_IP "chmod -R u+rwx,g+rwx,o+rwx /usr/iotc/local/scripts"
+
+# Install dependencies
 ssh $TARGET_USER@$TARGET_IP "python3 -m pip install requests"
 
-echo "'requests' package installed for 'root' user."
-
-# Set up IoTConnect to run at startup on target device
-echo "Setting up IoTConnect to run at startup on target device..."
-ssh $TARGET_USER@$TARGET_IP "echo \"[Unit]
-Description=IoTConnect Service
-After=network.target
-
-[Service]
-ExecStart=/home/root/iotc-application.sh
-WorkingDirectory=/home/root
-StandardOutput=journal
-StandardError=journal
-Restart=on-failure
-RestartSec=5
-User=root
-
-[Install]
-WantedBy=multi-user.target\" > /etc/systemd/system/iotconnect.service"
-
-# Enable and start the IoTConnect service on the target device
-ssh $TARGET_USER@$TARGET_IP "systemctl daemon-reload && systemctl enable iotconnect.service && systemctl start iotconnect.service"
+# Call the function to set up the systemd service
+setup_iotconnect_service
 
 echo "IoTConnect service has been set up and started on the target device."
