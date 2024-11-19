@@ -99,7 +99,7 @@ See the IoTConnect [Subscription Information](https://github.com/avnet-iotconnec
 
 # 9. IoTConnect Device Template Setup
 A Device Template define the type of telemetery the platform should expect to recieve.
-* Download the premade device template [device_template_RZboard_AI.json](https://github.com/avnet-iotconnect/meta-iotconnect-docs/blob/main/QuickStart/Renesas/RZBoard-V2L/demo-iotc-ai-camera/templates/device_template_RZboard_AI.json?raw=1) (**MUST** Right-Click and "Save-As" to get the raw json file)
+* Download the premade device template [device_template_RZboard_AI.json](/Renesas/RZBoard-V2L/demo-iotc-ai-camera/templates/device_template_RZboard_AI.json?raw=1) (**MUST** Right-Click and "Save-As" to get the raw json file)
 * Import the template into your IoTConnect instance. (A guide on [Importing a Device Template](https://github.com/avnet-iotconnect/avnet-iotconnect.github.io/blob/main/documentation/iotconnect/import_device_template.md) is available or for more information, please see the [IoTConnect Documentation](https://docs.iotconnect.io/iotconnect/) website.)
 
 # 10. Create a Device in IoTConnect
@@ -142,9 +142,26 @@ To accomplish this task, the IP Address of the board is required.  This can be o
 
 **Script Completion**: After completion, your device should be fully configured and ready for IoTConnect. If any issues arise, the script provides feedback to help with troubleshooting.
 
-## Additional Documentation
+# 13. Import a Dashboard
+The interactive demo can be loaded by using the Dynamic Dashboard feature of IoTConnect.  
+The pre-configured demo dashboard is available here: [dashboard_export_RZBOARD_AI.json](Renesas/RZBoard-V2L/demo-iotc-ai-camera/templates/dashboard_export_RZBOARD_AI.json?raw=1) (**must** Right-Click the link, Save As)
 
-For more advanced setup instructions, Yocto Project configurations, and other board features, refer to the following documents:
+* **Download** the template then select "Create Dashboard" from the top of the IoTConnect portal
+* **Select** the "Import Dashboard" option and **Select** the *Template* and *Device Name* used previously 
+* **Input** a name and complete the import
 
-- **[RZ Board Linux Yocto User Manual v2.3](https://www.avnet.com/wps/wcm/connect/onesite/9fe02bc9-8335-4da2-924a-1bdde941e534/RzBoard-Linux-Yocto-UserManual-v2.3.pdf):** Direct PDF Link
-- **[Avnet RZ Board V2L Product Page](https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/rzboard-v2l/):** Product Page (with access to additional guides and resources)
+You will now be in the dashboard edit mode. You can add/remove widgets or just click **Save** in the upper-right to exit the edit mode.
+
+# 14. Using the Demo
+
+TBD
+
+# 15. Further Learning
+For more advanced setup instructions, Yocto Project configurations, and other board features, refer to the following documents:  
+- [RZ Board Linux Yocto User Manual v2.3](https://www.avnet.com/wps/wcm/connect/onesite/9fe02bc9-8335-4da2-924a-1bdde941e534/RzBoard-Linux-Yocto-UserManual-v2.3.pdf): Direct PDF Link
+- [Avnet RZ Board V2L Product Page](https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/rzboard-v2l/): Product Page (with access to additional guides and resources)
+
+# 16. Resources
+* 1
+* 2
+* 3
