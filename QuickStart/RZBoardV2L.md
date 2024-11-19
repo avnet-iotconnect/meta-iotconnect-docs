@@ -1,7 +1,8 @@
 # RZ Board V2L IoTC Quick Start Guide
 
 # 1. Introduction
-This guide is designed to walk through the steps to connect the [RZBoard V2L](https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/rzboard-v2l) to the Avnet [IoTConnect platform](https://console.iotconnect.io/) and demonstrate the on-board AI functionality as demonstrated in the webinar hosted by [TRIA](https://www.tria-technologies.com/) and [Avnet](https://avnet.com/iotconnect/renesas) December, 2024. For greatest reach, this guide is written to be followed on a Windows 10/11 host machine.
+This guide is designed to walk through the steps to connect the [RZBoard V2L](https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/rzboard-v2l) to the Avnet [IoTConnect platform](https://console.iotconnect.io/) and demonstrate the on-board AI functionality as shown in the webinar hosted by [TRIA](https://www.tria-technologies.com/) and [Avnet](https://avnet.com/iotconnect/renesas), December, 2024.  
+For greatest reach, this guide is written to be followed on a Windows 10/11 host machine.
 
 # 2. Hardware Requirements
 * [RZBoard V2L](https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/rzboard-v2l)
@@ -14,7 +15,7 @@ This guide is designed to walk through the steps to connect the [RZBoard V2L](ht
 
 # 3. Hardware Setup
 Set up the device by connecting the following items:
-* Connect the USB to Serial port adapter from the PC to the board header
+* Connect the USB to Serial port adapter from the PC to the board header (See TX, RX and GND labels in the reference image below.)
 * Connect the Jumper Wire
 * Connect the Ethernet cable from the board to you LAN switch/router
 * Connect the USB-C cable to the board, but DON'T connect your PC yet
@@ -38,13 +39,13 @@ Reference Image
 # 5. Flash Image to the Board
 
 1. Download the [RZBoard V2L QuickStart Package](https://iotconnect-sdk-images.s3.amazonaws.com/MPU/hardknott/rz/rzboard-iotc-demo.zip) to a project directory such as `C:\Renesas\RZboardV2L\`
-2. Unzip the package by Right-Clicking and select "Extract Here"
+2. Unzip the package by Right-Clicking, select "Extract All..." and extract here `C:\Renesas\RZboardV2L\` (Do not extract to a sub-folder)
 3. Flash the `.wic` file to an SD Card:
-    * Insert the SD Card into your computer (or adapter)
+    * Insert the SD Card into your computer directly, or via an adapter
     * Open **Balena Etcher**.
-    * Select the `.wic` extracted from the .zip file as the **Source**
+    * Click **"Flash from file"** and select the `.wic` extracted from the .zip
     * Choose the SD Card as the **Target**
-    * Click **Flash** to start the process
+    * Click **"Flash!"** to start the process.  This will take 5-10 minutes.
 > [!NOTE]
 > Depending on PC permission, the flash process might fail at the verification step.  You can safely ignore this message.
     
@@ -52,7 +53,7 @@ Reference Image
 # 6. Download and Configure the Flash Utility  
 The Flash Utility will be used to setup the bootloader on the board:  
 1. Navigate the project directory `C:\Renesas\RZboardV2L\`
-2. Right-Click on a folder and select "Open Git Bash here"
+2. Right-Click in this folder and select "Open Git Bash here"
 3. Clone the latest flash utility from GitHub:  
 ```bash
 git clone https://github.com/Avnet/rzboard_flash_util.git
@@ -74,9 +75,9 @@ pip install -r rzboard_flash_util/requirements.txt
 7. Press and hold the power button for a couple seconds until the LED turns on. The script will begin flashing your bootloader.
 
 > [!NOTE]
-> This process will take a few minutes and may appear to be "stuck" at times, but be patient.
+> This process will take about 5 minutes and may appear to be "stuck" at times. Be patient.
 
-8. Once the bootloader is complete, remove power from the board
+8. Once the bootloader is complete, remove the USB-C power from the board
 9. Set the DIP switches to boot from the SD Card:  
 1 = OFF  
 2 = ON  
@@ -86,6 +87,8 @@ pip install -r rzboard_flash_util/requirements.txt
 # 7. Download Configuration Script  
 1. Download the device configuration script [onboard.zip](https://github.com/avnet-iotconnect/meta-iotconnect-docs/blob/main/QuickStart/Renesas/RZBoard-V2L/demo-iotc-ai-camera/scripts/onboard.zip?raw=1)
 2. Extract the contents to the `C:\Renesas\RZboardV2L\` project folder  
+
+You should now have a new folder called onboard here: `C:\Renesas\RZboardV2L\onboard`  
 
 # 8. Cloud Account Setup
 An IoTConnect account with AWS backend is required.  If you need to create an account, a free trial subscription is available.
