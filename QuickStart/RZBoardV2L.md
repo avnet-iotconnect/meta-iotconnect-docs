@@ -4,25 +4,27 @@
 This guide is designed to walk through the steps to connect the RZ Board V2L to the Avnet IoTConnect platform and demonstrate the on-board AI functionality as demonstrated in the webinar hosted by Tria and Avnet December, 2024. For greatest reach, this guide is written to be following on a Windows 10/11 host machine.
 
 # 2. Hardware Requirements
-* RZ Board V2L
+* [RZBoard V2L](https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/rzboard-v2l)
 * MicroSD Card (minimum 16GB)
+* MicroSD Card Slot on PC or adapter
 * USB Type-C Cable
 * Ethernet Cable
-* USB to TTL Serial Cable
+* [USB to TTL Serial Cable](https://www.amazon.com/s?k=usb+to+ttl+serial+cable)
 * Jumper wire
 
 # 3. Hardware Setup
-
 Set up the device by connecting the following items:
-* USB to Serial port adapter
-* Jumper wire
-* Ethernet Cable
-* USB-C
+* Connect the USB to Serial port adapter from the PC to the board header
+* Connect the Jumper Wire
+* Connect the Ethernet cable from the board to you LAN switch/router
+* Connect the USB-C cable to the board, but DON'T connect your PC yet
 *
 
-Configure the DIP switches 1 = ON, 2 = OFF
+Configure the DIP switches:  
+1 = ON  
+2 = OFF  
 
-Reference Image
+Reference Image  
 ![RZBoardV2L Flashing wiring diagram](https://hackster.imgix.net/uploads/attachments/1634133/image_Epd2Fx4Hue.png?auto=compress%2Cformat&w=740&h=555&fit=max)
 
 
@@ -30,56 +32,58 @@ Reference Image
 * Download and Install [BalenaEtcher](https://www.balena.io/etcher)
 * Download and Install [Git for Windows](https://gitforwindows.org/)
 * Download and Install [Python for Windows](https://www.python.org/downloads/)
-  * Ensure to select the add "PYTHON" to the PATH variable option during setup
+> [!IMPORTANT]
+> Ensure to select the add "PYTHON" to the PATH variable option during setup.
  
  
-# 5. Flash Image
+# 5. Flash Image to the Board
 
-1. Download the RZ Board V2L QuickStart package: [FILENAME](./README.md)
-2. Unzip the package by Right-Click, "Extract Here"
-3. Flash the `.wic` file to an SD Card
+1. Download the [RZBoard V2L QuickStart Package](./README.md) to a project directory such as `C:\Renesas\RZboardV2L\`
+2. Unzip the package by Right-Clicking and select "Extract Here"
+3. Flash the `.wic` file to an SD Card:
+    * Insert the SD Card into your computer (or adapter)
+    * Open **Balena Etcher**.
+    * Select the `.wic` extracted from the .zip file as the source
+    * Choose the SD Card as the target
+    * Click **Flash** to start the process
+> [!NOTE]
+> Depending on PC permission, the flash process might fail at the verification step.  You can safely ignore this message.
+    
 
- Insert your SD Card into your computer and choose one of the following methods to flash the `.wic` file:
-     1. Open **Balena Etcher**.
-     2. Select the `.wic` file as the source.
-     3. Choose the SD Card as the target.
-     4. Click **Flash** to start the process.
+# 6. Download and Setup the Flash Utility
+The Flash Utility will be used to setup the bootloader on the board
 
-5. Download the flash utility tool to your project directory:
-     ```bash
-     git clone https://github.com/Avnet/rzboard_flash_util.git
-     ```
-     ```bash
-     cd rzboard_flash_util
-     ```
-6. Install Python requirements:
+1. Navigate the project directory `C:\Renesas\RZboardV2L\`
+2. Right-Click and select "Open Git Bash here"
+3. Clone the latest flash utility from GitHub:  
+```bash
+git clone https://github.com/Avnet/rzboard_flash_util.git
+```
 
-     ```cmd
-     pip install -r requirements.txt
-     ```
+4. Install the Python Requirements:
+```bash
+pip install -r rzboard_flash_util/requirements.txt
+```
 
-7. Flash the bootloader to the device:
+5. Flash the bootloader to the device:
+>[!IMPORTANT]
+>Replace `COM00` with the COM port assigned to your USB to Serial adapter.  This can be found in the Device Manager.
+```bash
+  python rzboard_flash_util/flash_rzboard.py --serial_port COM00 --bootloader --image_path .
+```
 
-   Run `flash_rzboard.py` from a Python-enabled shell as Administrator, specifying the correct path to the images.
-    ```bash
-      python rzboard_flash_util/flash_rzboard.py --serial_port COM00 --bootloader --image_path .
-    ```
+6. When prompted, connect the USB cable to your PC.
+7. Press and hold the power button for a couple seconds until the LED turns on. The script will begin flashing your bootloader.
 
-8. When prompted to power on the board: connect the power cable and hold the power button for a few seconds until the LED turns on. The script will begin flashing your bootloader.
+> [!NOTE]
+> This process will take a few minutes and may appear to be "stuck" at times, but be patient.
 
-9. Set the DIP switches to boot from the SD Card as shown below:
+8. Once the bootloader is complete, remove power from the board
+9. Set the DIP switches to boot from the SD Card:
+1 = OFF  
+2 = ON  
 
-   | Switch | Position |
-   |--------|----------|
-   | 1      | OFF      |
-   | 2      | ON       |
-
-10. Remove the jumper wire, leave the serial cable connected, insert the SD Card, and power on the board by holding the power button. You can monitor the boot process:
-   - **Linux**: Use `minicom` or `screen` to read the serial output:
-     ```bash
-     minicom -D /dev/ttyUSB0 -b 115200
-     ```
-   - **Windows**: Use a serial terminal like PuTTY, selecting the appropriate COM port and baud rate (115200).
+10. Remove the jumper wire, insert the SD Card, connect the USB power and power on the board by holding the power button for a couple seconds.
 
 ## Additional Documentation
 
