@@ -10,7 +10,10 @@
 2. Unzip the package by Right-Click, "Extract Here"
 3. Flash the `.wic` file to an SD Card
 
-5. 
+5. Install Python for Windows
+  * Ensure to select the add "PYTHON" to the PATH variable option during setup
+
+    
 # 4. Hardware Setup
 
 3. **Flash the `.wic` File to an SD Card**
@@ -63,6 +66,10 @@
      sudo ./flash_rzboard.py --bootloader --image_path ./path/to/unzipped/dir
      ```
    - **Windows**: Run `flash_rzboard.py` from a Python-enabled shell as Administrator, specifying the correct path to the images.
+   - 
+     ```bash
+      python rzboard_flash_util/flash_rzboard.py --serial_port COM00 --bootloader --image_path .
+     ```
 
 8. When prompted to power on the board: connect the power cable and hold the power button for a few seconds until the LED turns on. The script will begin flashing your bootloader.
 
