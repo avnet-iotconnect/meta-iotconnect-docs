@@ -29,11 +29,11 @@
                         "key": "url"
                     },
                     "device": {
-                        "deviceGuid": "B31A12DD-5352-4D0B-8805-1AB1957C41A0",
+                        "deviceGuid": "F4E43CC1-4E3A-48C4-97EE-CF509ED3B813",
                         "deviceName": "",
                         "imageurl": "",
                         "key": "device",
-                        "deviceUniqueId": "mcl-RZboard1"
+                        "deviceUniqueId": "mclRZB5"
                     },
                     "telemetry": {
                         "deviceGuid": "",
@@ -46,134 +46,11 @@
             "properties": {
                 "x": "0",
                 "y": "0",
-                "w": "40",
-                "h": "15",
+                "w": "22",
+                "h": "10",
                 "i": "Image",
                 "minW": "5",
                 "minH": "5",
-                "isStatic": "false"
-            }
-        },
-        {
-            "widgetGuid": "6FEFF6B7-15C4-4095-A156-87A1B38D2FF5",
-            "widgetProperties": {
-                "i": "Transformation",
-                "background": "#ffffff",
-                "fontColor": "#ffffff",
-                "fontFamily": "Proxima Nova",
-                "fontSize": "18",
-                "title": "Transformation",
-                "titleAlign": "",
-                "contents": {
-                    "Transformation": {
-                        "device": {
-                            "deviceGuid": "B31A12DD-5352-4D0B-8805-1AB1957C41A0",
-                            "deviceUniqueId": "mcl-RZboard1"
-                        },
-                        "attributes": {
-                            "attribute": [
-                                {
-                                    "attributeGuid": "2238DF97-5C2B-4BFB-A654-2D57B59CAE0C",
-                                    "attributeName": "cpu_usage",
-                                    "checked": "false",
-                                    "dataType": "DECIMAL",
-                                    "attributeLatestValue": "84.6",
-                                    "deviceUpdatedDate": "2024-10-31T04:18:38.840Z",
-                                    "gatewayUpdatedDate": "NA",
-                                    "attributeValue": "84.6"
-                                },
-                                {
-                                    "attributeGuid": "9303E294-F262-420B-AC87-418CB59F6027",
-                                    "attributeName": "version",
-                                    "checked": "false",
-                                    "dataType": "STRING",
-                                    "attributeLatestValue": "1.0.1\n",
-                                    "deviceUpdatedDate": "2024-10-31T04:18:38.840Z",
-                                    "gatewayUpdatedDate": "NA",
-                                    "attributeValue": "1.0.1\n"
-                                },
-                                {
-                                    "attributeGuid": "43A92B1D-F409-4611-A93D-5606AF4F536A",
-                                    "attributeName": "running_model",
-                                    "checked": "true",
-                                    "dataType": "STRING",
-                                    "attributeLatestValue": "demoA",
-                                    "deviceUpdatedDate": "2024-10-31T04:18:38.840Z",
-                                    "gatewayUpdatedDate": "NA",
-                                    "attributeValue": "demoA"
-                                },
-                                {
-                                    "attributeGuid": "6236BB0B-9903-4FA8-986A-D2EB381F80DE",
-                                    "attributeName": "mem_usage",
-                                    "checked": "false",
-                                    "dataType": "DECIMAL",
-                                    "attributeLatestValue": "36.8",
-                                    "deviceUpdatedDate": "2024-10-31T04:18:38.840Z",
-                                    "gatewayUpdatedDate": "NA",
-                                    "attributeValue": "36.8"
-                                },
-                                {
-                                    "attributeGuid": "1F22DEFB-18B9-4B71-8223-D73C8493ABEF",
-                                    "attributeName": "script_version",
-                                    "checked": "false",
-                                    "dataType": "STRING",
-                                    "attributeLatestValue": "1.0",
-                                    "deviceUpdatedDate": "2024-10-31T03:17:09.000Z",
-                                    "gatewayUpdatedDate": "NA",
-                                    "attributeValue": "1.0"
-                                }
-                            ]
-                        },
-                        "key": "Transformation",
-                        "transformations": [
-                            {
-                                "condition": "eq",
-                                "conditionValue": "demoA",
-                                "type": "Url",
-                                "errors": "",
-                                "typeValue": "https://saleshosted.z13.web.core.windows.net/demo/rzboard/demoA.png"
-                            },
-                            {
-                                "condition": "eq",
-                                "conditionValue": "demoB",
-                                "type": "Url",
-                                "errors": "",
-                                "typeValue": "https://saleshosted.z13.web.core.windows.net/demo/rzboard/demoB.png"
-                            },
-                            {
-                                "condition": "eq",
-                                "conditionValue": "demoC",
-                                "type": "Url",
-                                "errors": "",
-                                "typeValue": "https://saleshosted.z13.web.core.windows.net/demo/rzboard/demoC.png"
-                            },
-                            {
-                                "condition": "eq",
-                                "conditionValue": "demoD",
-                                "type": "Url",
-                                "errors": "",
-                                "typeValue": "https://saleshosted.z13.web.core.windows.net/demo/rzboard/demoD.png"
-                            },
-                            {
-                                "condition": "ne",
-                                "conditionValue": "demoD",
-                                "type": "Url",
-                                "errors": "",
-                                "typeValue": "https://saleshosted.z13.web.core.windows.net/demo/rzboard/none.png"
-                            }
-                        ],
-                        "position": "center"
-                    }
-                }
-            },
-            "properties": {
-                "x": "40",
-                "y": "0",
-                "w": "20",
-                "h": "9",
-                "i": "Transformation",
-                "minW": "7",
-                "minH": "4",
                 "isStatic": "false"
             }
         },
@@ -190,9 +67,9 @@
                 "contents": ""
             },
             "properties": {
-                "x": "40",
-                "y": "9",
-                "w": "20",
+                "x": "22",
+                "y": "0",
+                "w": "35",
                 "h": "2",
                 "i": "Label",
                 "minW": "6",
@@ -214,8 +91,8 @@
                 "contents": {
                     "gauge": {
                         "device": {
-                            "deviceGuid": "B31A12DD-5352-4D0B-8805-1AB1957C41A0",
-                            "deviceUniqueId": "mcl-RZboard1"
+                            "deviceGuid": "F4E43CC1-4E3A-48C4-97EE-CF509ED3B813",
+                            "deviceUniqueId": "mclRZB5"
                         },
                         "attributes": {
                             "attribute": [
@@ -275,8 +152,8 @@
                 }
             },
             "properties": {
-                "x": "40",
-                "y": "11",
+                "x": "57",
+                "y": "0",
                 "w": "10",
                 "h": "9",
                 "i": "gauge",
@@ -288,20 +165,20 @@
             }
         },
         {
-            "widgetGuid": "21A18C90-2DBC-4283-89D2-B01E1B70E363",
+            "widgetGuid": "54D7CC1A-AB35-499E-85D7-2BC3D17526B0",
             "widgetProperties": {
-                "i": "gauge",
-                "background": "#000000",
-                "fontColor": "#ffffff",
+                "i": "pie",
+                "background": "#e0d9d9",
+                "fontColor": "#343434",
                 "fontFamily": "Proxima Nova",
-                "fontSize": "24",
-                "title": "Storage",
+                "fontSize": "22",
+                "title": "Running Models",
                 "titleAlign": "",
                 "contents": {
-                    "gauge": {
+                    "pie": {
                         "device": {
-                            "deviceGuid": "B31A12DD-5352-4D0B-8805-1AB1957C41A0",
-                            "deviceUniqueId": "mcl-RZboard1"
+                            "deviceGuid": "F4E43CC1-4E3A-48C4-97EE-CF509ED3B813",
+                            "deviceUniqueId": "mclRZB5"
                         },
                         "attributes": {
                             "attribute": [
@@ -310,20 +187,404 @@
                                     "attributeName": "cpu_usage",
                                     "checked": "false",
                                     "dataType": "DECIMAL",
-                                    "attributeLatestValue": "5",
-                                    "deviceUpdatedDate": "2024-09-23T00:51:14.137Z",
+                                    "attributeLatestValue": "81.2",
+                                    "deviceUpdatedDate": "2024-11-01T01:25:13.593Z",
                                     "gatewayUpdatedDate": "NA",
-                                    "attributeValue": "5"
+                                    "attributeValue": "81.2"
+                                },
+                                {
+                                    "attributeGuid": "9303E294-F262-420B-AC87-418CB59F6027",
+                                    "attributeName": "version",
+                                    "checked": "false",
+                                    "dataType": "STRING",
+                                    "attributeLatestValue": "1.0.1\n",
+                                    "deviceUpdatedDate": "2024-11-01T01:25:13.593Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "1.0.1\n"
+                                },
+                                {
+                                    "attributeGuid": "43A92B1D-F409-4611-A93D-5606AF4F536A",
+                                    "attributeName": "running_model",
+                                    "checked": "true",
+                                    "dataType": "STRING",
+                                    "attributeLatestValue": "demoC",
+                                    "deviceUpdatedDate": "2024-11-01T01:25:13.593Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "demoC"
+                                },
+                                {
+                                    "attributeGuid": "6236BB0B-9903-4FA8-986A-D2EB381F80DE",
+                                    "attributeName": "mem_usage",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "33.9",
+                                    "deviceUpdatedDate": "2024-11-01T01:25:13.593Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "33.9"
+                                },
+                                {
+                                    "attributeGuid": "1F22DEFB-18B9-4B71-8223-D73C8493ABEF",
+                                    "attributeName": "script_version",
+                                    "checked": "false",
+                                    "dataType": "STRING",
+                                    "attributeLatestValue": "1.0",
+                                    "deviceUpdatedDate": "2024-10-31T03:17:09.000Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "1.0"
+                                }
+                            ]
+                        },
+                        "pieTime": "100",
+                        "key": "pie",
+                        "recentEndPoints": "10"
+                    }
+                }
+            },
+            "properties": {
+                "x": "67",
+                "y": "0",
+                "w": "8",
+                "h": "10",
+                "i": "pie",
+                "minW": "8",
+                "minH": "8",
+                "maxH": "12",
+                "maxW": "12",
+                "isStatic": "false"
+            }
+        },
+        {
+            "widgetGuid": "6FEFF6B7-15C4-4095-A156-87A1B38D2FF5",
+            "widgetProperties": {
+                "i": "Transformation",
+                "background": "#ffffff",
+                "fontColor": "#ffffff",
+                "fontFamily": "Proxima Nova",
+                "fontSize": "18",
+                "title": "Transformation",
+                "titleAlign": "",
+                "contents": {
+                    "Transformation": {
+                        "device": {
+                            "deviceGuid": "F4E43CC1-4E3A-48C4-97EE-CF509ED3B813",
+                            "deviceUniqueId": "mclRZB5"
+                        },
+                        "attributes": {
+                            "attribute": [
+                                {
+                                    "attributeGuid": "2238DF97-5C2B-4BFB-A654-2D57B59CAE0C",
+                                    "attributeName": "cpu_usage",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "2.1212121212121214E+41",
+                                    "deviceUpdatedDate": "2024-11-19T05:36:35.347Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "2.1212121212121214E+41"
+                                },
+                                {
+                                    "attributeGuid": "9303E294-F262-420B-AC87-418CB59F6027",
+                                    "attributeName": "version",
+                                    "checked": "false",
+                                    "dataType": "STRING",
+                                    "attributeLatestValue": "1.0",
+                                    "deviceUpdatedDate": "2024-11-19T05:36:35.347Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "1.0"
+                                },
+                                {
+                                    "attributeGuid": "43A92B1D-F409-4611-A93D-5606AF4F536A",
+                                    "attributeName": "running_model",
+                                    "checked": "true",
+                                    "dataType": "STRING",
+                                    "attributeLatestValue": "none",
+                                    "deviceUpdatedDate": "2024-11-19T05:36:35.347Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "none"
+                                },
+                                {
+                                    "attributeGuid": "6236BB0B-9903-4FA8-986A-D2EB381F80DE",
+                                    "attributeName": "mem_usage",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "29",
+                                    "deviceUpdatedDate": "2024-11-19T05:36:35.347Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "29"
+                                },
+                                {
+                                    "attributeGuid": "1F22DEFB-18B9-4B71-8223-D73C8493ABEF",
+                                    "attributeName": "script_version",
+                                    "checked": "false",
+                                    "dataType": "STRING",
+                                    "attributeLatestValue": "2\n",
+                                    "deviceUpdatedDate": "2024-11-19T05:36:35.347Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "2\n"
+                                }
+                            ]
+                        },
+                        "key": "Transformation",
+                        "transformations": [
+                            {
+                                "condition": "eq",
+                                "conditionValue": "demoA",
+                                "type": "Url",
+                                "errors": "",
+                                "typeValue": "https://saleshosted.z13.web.core.windows.net/demo/rzboard/demoAn.png"
+                            },
+                            {
+                                "condition": "eq",
+                                "conditionValue": "demoB",
+                                "type": "Url",
+                                "errors": "",
+                                "typeValue": "https://saleshosted.z13.web.core.windows.net/demo/rzboard/demoBn.png"
+                            },
+                            {
+                                "condition": "eq",
+                                "conditionValue": "demoC",
+                                "type": "Url",
+                                "errors": "",
+                                "typeValue": "https://saleshosted.z13.web.core.windows.net/demo/rzboard/demoCn.png"
+                            },
+                            {
+                                "condition": "eq",
+                                "conditionValue": "demoD",
+                                "type": "Url",
+                                "errors": "",
+                                "typeValue": "https://saleshosted.z13.web.core.windows.net/demo/rzboard/demoDn.png"
+                            },
+                            {
+                                "condition": "eq",
+                                "conditionValue": "none",
+                                "type": "Url",
+                                "errors": "",
+                                "typeValue": "https://saleshosted.z13.web.core.windows.net/demo/rzboard/nonen.png"
+                            }
+                        ],
+                        "position": "center"
+                    }
+                }
+            },
+            "properties": {
+                "x": "22",
+                "y": "2",
+                "w": "17",
+                "h": "22",
+                "i": "Transformation",
+                "minW": "7",
+                "minH": "4",
+                "isStatic": "false"
+            }
+        },
+        {
+            "widgetGuid": "F66A9747-6C71-40E5-8639-9F53233494D2",
+            "widgetProperties": {
+                "i": "Label",
+                "background": "#0404df",
+                "fontColor": "#ffffff",
+                "fontFamily": "Proxima Nova",
+                "fontSize": "26",
+                "title": "Choose AI Model",
+                "titleAlign": "",
+                "contents": ""
+            },
+            "properties": {
+                "x": "39",
+                "y": "2",
+                "w": "18",
+                "h": "2",
+                "i": "Label",
+                "minW": "6",
+                "minH": "2",
+                "maxH": "2",
+                "isStatic": "false"
+            }
+        },
+        {
+            "widgetGuid": "6FEFF6B7-15C4-4095-A156-87A1B38D2FF5",
+            "widgetProperties": {
+                "i": "Transformation",
+                "background": "#9b9b9b",
+                "fontColor": "#9b9b9b",
+                "fontFamily": "Proxima Nova",
+                "fontSize": "18",
+                "title": "Transformation",
+                "titleAlign": "",
+                "contents": {
+                    "Transformation": {
+                        "device": {
+                            "deviceGuid": "F4E43CC1-4E3A-48C4-97EE-CF509ED3B813",
+                            "deviceUniqueId": "mclRZB5"
+                        },
+                        "attributes": {
+                            "attribute": [
+                                {
+                                    "attributeGuid": "2238DF97-5C2B-4BFB-A654-2D57B59CAE0C",
+                                    "attributeName": "cpu_usage",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "0.5",
+                                    "deviceUpdatedDate": "2024-10-31T21:26:03.987Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "0.5"
+                                },
+                                {
+                                    "attributeGuid": "9303E294-F262-420B-AC87-418CB59F6027",
+                                    "attributeName": "version",
+                                    "checked": "false",
+                                    "dataType": "STRING",
+                                    "attributeLatestValue": "1.0.1\n",
+                                    "deviceUpdatedDate": "2024-10-31T21:26:03.987Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "1.0.1\n"
+                                },
+                                {
+                                    "attributeGuid": "43A92B1D-F409-4611-A93D-5606AF4F536A",
+                                    "attributeName": "running_model",
+                                    "checked": "true",
+                                    "dataType": "STRING",
+                                    "attributeLatestValue": "none",
+                                    "deviceUpdatedDate": "2024-10-31T21:26:03.987Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "none"
+                                },
+                                {
+                                    "attributeGuid": "6236BB0B-9903-4FA8-986A-D2EB381F80DE",
+                                    "attributeName": "mem_usage",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "32.1",
+                                    "deviceUpdatedDate": "2024-10-31T21:26:03.987Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "32.1"
+                                },
+                                {
+                                    "attributeGuid": "1F22DEFB-18B9-4B71-8223-D73C8493ABEF",
+                                    "attributeName": "script_version",
+                                    "checked": "false",
+                                    "dataType": "STRING",
+                                    "attributeLatestValue": "1.0",
+                                    "deviceUpdatedDate": "2024-10-31T03:17:09.000Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "1.0"
+                                }
+                            ]
+                        },
+                        "key": "Transformation",
+                        "transformations": [
+                            {
+                                "condition": "eq",
+                                "conditionValue": "demoA",
+                                "type": "Url",
+                                "errors": "",
+                                "typeValue": "https://saleshosted.z13.web.core.windows.net/demo/rzboard/DemoAnA.png"
+                            },
+                            {
+                                "condition": "ne",
+                                "conditionValue": "demoA",
+                                "type": "Url",
+                                "errors": "",
+                                "typeValue": "https://saleshosted.z13.web.core.windows.net/demo/rzboard/DemoAn.png"
+                            }
+                        ],
+                        "position": "center"
+                    }
+                }
+            },
+            "properties": {
+                "x": "39",
+                "y": "4",
+                "w": "9",
+                "h": "6",
+                "i": "Transformation",
+                "minW": "7",
+                "minH": "4",
+                "isStatic": "false"
+            }
+        },
+        {
+            "widgetGuid": "C6C9FCF9-FAEF-49E1-B546-9E066BF9A02C",
+            "widgetProperties": {
+                "i": "Control",
+                "background": "#fff",
+                "fontColor": "#343434",
+                "fontFamily": "Proxima Nova",
+                "fontSize": "18",
+                "title": "HRNet",
+                "titleAlign": "",
+                "contents": {
+                    "control": {
+                        "device": "mclRZB5",
+                        "deviceGuid": "F4E43CC1-4E3A-48C4-97EE-CF509ED3B813",
+                        "controlType": "button",
+                        "leftText": "HRNet Pose Est",
+                        "leftCommand": "721804C1-AD33-482F-A261-B03D096E8B36",
+                        "leftSwitchColor": "#9b9b9b",
+                        "leftBackgroundColor": "",
+                        "leftParam": "",
+                        "rightText": "HRNet Pose Est",
+                        "rightCommand": "721804C1-AD33-482F-A261-B03D096E8B36",
+                        "rightSwitchColor": "#9b9b9b",
+                        "rightBackgroundColor": "",
+                        "rightParam": "",
+                        "showStatus": "true",
+                        "template": "540A3E92-0C47-409B-BCBB-2CCCD73AA435",
+                        "key": "control",
+                        "showleftSwitchColorPicker": "false",
+                        "showrightSwitchColorPicker": "false"
+                    }
+                }
+            },
+            "properties": {
+                "x": "48",
+                "y": "4",
+                "w": "9",
+                "h": "6",
+                "i": "Control",
+                "minW": "9",
+                "minH": "6",
+                "maxH": "15",
+                "maxW": "15",
+                "isStatic": "false"
+            }
+        },
+        {
+            "widgetGuid": "21A18C90-2DBC-4283-89D2-B01E1B70E363",
+            "widgetProperties": {
+                "i": "gauge",
+                "background": "#000000",
+                "fontColor": "#ffffff",
+                "fontFamily": "Proxima Nova",
+                "fontSize": "24",
+                "title": "Memory (Flash)",
+                "titleAlign": "",
+                "contents": {
+                    "gauge": {
+                        "device": {
+                            "deviceGuid": "F4E43CC1-4E3A-48C4-97EE-CF509ED3B813",
+                            "deviceUniqueId": "mclRZB5"
+                        },
+                        "attributes": {
+                            "attribute": [
+                                {
+                                    "attributeGuid": "2238DF97-5C2B-4BFB-A654-2D57B59CAE0C",
+                                    "attributeName": "cpu_usage",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "85.1",
+                                    "deviceUpdatedDate": "2024-11-01T16:19:24.000Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "85.1"
                                 },
                                 {
                                     "attributeGuid": "6236BB0B-9903-4FA8-986A-D2EB381F80DE",
                                     "attributeName": "mem_usage",
                                     "checked": "true",
                                     "dataType": "DECIMAL",
-                                    "attributeLatestValue": "44.1",
-                                    "deviceUpdatedDate": "2024-09-23T00:51:14.137Z",
+                                    "attributeLatestValue": "36.5",
+                                    "deviceUpdatedDate": "2024-11-01T16:19:24.000Z",
                                     "gatewayUpdatedDate": "NA",
-                                    "attributeValue": "44.1"
+                                    "attributeValue": "36.5"
                                 }
                             ]
                         },
@@ -361,8 +622,8 @@
                 }
             },
             "properties": {
-                "x": "50",
-                "y": "11",
+                "x": "57",
+                "y": "9",
                 "w": "10",
                 "h": "9",
                 "i": "gauge",
@@ -370,6 +631,186 @@
                 "minH": "9",
                 "maxH": "15",
                 "maxW": "16",
+                "isStatic": "false"
+            }
+        },
+        {
+            "widgetGuid": "E413CDFD-54EB-465E-BA97-CE610867E440",
+            "widgetProperties": {
+                "i": "DeviceCommand",
+                "background": "#e0d9d9",
+                "fontColor": "#000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": "24",
+                "title": "Cloud 2  Device Commands",
+                "titleAlign": "",
+                "contents": {
+                    "deviceCommand": {
+                        "template": "540A3E92-0C47-409B-BCBB-2CCCD73AA435",
+                        "device": "mclRZB5",
+                        "deviceGuid": "F4E43CC1-4E3A-48C4-97EE-CF509ED3B813",
+                        "key": "deviceCommand"
+                    }
+                }
+            },
+            "properties": {
+                "x": "0",
+                "y": "10",
+                "w": "22",
+                "h": "10",
+                "i": "DeviceCommand",
+                "minW": "22",
+                "minH": "10",
+                "maxH": "20",
+                "maxW": "35",
+                "isStatic": "false"
+            }
+        },
+        {
+            "widgetGuid": "6FEFF6B7-15C4-4095-A156-87A1B38D2FF5",
+            "widgetProperties": {
+                "i": "Transformation",
+                "background": "#f5a623",
+                "fontColor": "#f5a623",
+                "fontFamily": "Proxima Nova",
+                "fontSize": "18",
+                "title": "Transformation",
+                "titleAlign": "",
+                "contents": {
+                    "Transformation": {
+                        "device": {
+                            "deviceGuid": "F4E43CC1-4E3A-48C4-97EE-CF509ED3B813",
+                            "deviceUniqueId": "mclRZB5"
+                        },
+                        "attributes": {
+                            "attribute": [
+                                {
+                                    "attributeGuid": "2238DF97-5C2B-4BFB-A654-2D57B59CAE0C",
+                                    "attributeName": "cpu_usage",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "0.5",
+                                    "deviceUpdatedDate": "2024-11-19T23:19:19.747Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "0.5"
+                                },
+                                {
+                                    "attributeGuid": "9303E294-F262-420B-AC87-418CB59F6027",
+                                    "attributeName": "version",
+                                    "checked": "false",
+                                    "dataType": "STRING",
+                                    "attributeLatestValue": "None",
+                                    "deviceUpdatedDate": "2024-11-19T23:19:19.747Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "None"
+                                },
+                                {
+                                    "attributeGuid": "43A92B1D-F409-4611-A93D-5606AF4F536A",
+                                    "attributeName": "running_model",
+                                    "checked": "true",
+                                    "dataType": "STRING",
+                                    "attributeLatestValue": "None",
+                                    "deviceUpdatedDate": "2024-11-19T23:19:19.747Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "None"
+                                },
+                                {
+                                    "attributeGuid": "6236BB0B-9903-4FA8-986A-D2EB381F80DE",
+                                    "attributeName": "mem_usage",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "30.6",
+                                    "deviceUpdatedDate": "2024-11-19T23:19:19.747Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "30.6"
+                                },
+                                {
+                                    "attributeGuid": "1F22DEFB-18B9-4B71-8223-D73C8493ABEF",
+                                    "attributeName": "script_version",
+                                    "checked": "false",
+                                    "dataType": "STRING",
+                                    "attributeLatestValue": "None",
+                                    "deviceUpdatedDate": "2024-11-19T23:19:19.747Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "None"
+                                }
+                            ]
+                        },
+                        "key": "Transformation",
+                        "transformations": [
+                            {
+                                "condition": "eq",
+                                "conditionValue": "demoB",
+                                "type": "Url",
+                                "errors": "",
+                                "typeValue": "https://saleshosted.z13.web.core.windows.net/demo/rzboard/DemoBnA.png"
+                            },
+                            {
+                                "condition": "ne",
+                                "conditionValue": "demoB",
+                                "type": "Url",
+                                "errors": "",
+                                "typeValue": "https://saleshosted.z13.web.core.windows.net/demo/rzboard/demoBn.png"
+                            }
+                        ],
+                        "position": "center"
+                    }
+                }
+            },
+            "properties": {
+                "x": "39",
+                "y": "10",
+                "w": "9",
+                "h": "6",
+                "i": "Transformation",
+                "minW": "7",
+                "minH": "4",
+                "isStatic": "false"
+            }
+        },
+        {
+            "widgetGuid": "C6C9FCF9-FAEF-49E1-B546-9E066BF9A02C",
+            "widgetProperties": {
+                "i": "Control",
+                "background": "#fff",
+                "fontColor": "#343434",
+                "fontFamily": "Proxima Nova",
+                "fontSize": "18",
+                "title": "TinyYOLO",
+                "titleAlign": "",
+                "contents": {
+                    "control": {
+                        "device": "mclRZB5",
+                        "deviceGuid": "F4E43CC1-4E3A-48C4-97EE-CF509ED3B813",
+                        "controlType": "button",
+                        "leftText": "YOLO",
+                        "leftCommand": "CC888B7E-6849-4B89-AC8B-765CB0BDA38C",
+                        "leftSwitchColor": "#f5a623",
+                        "leftBackgroundColor": "",
+                        "leftParam": "",
+                        "rightText": "YOLO",
+                        "rightCommand": "CC888B7E-6849-4B89-AC8B-765CB0BDA38C",
+                        "rightSwitchColor": "#f5a623",
+                        "rightBackgroundColor": "",
+                        "rightParam": "",
+                        "showStatus": "true",
+                        "template": "540A3E92-0C47-409B-BCBB-2CCCD73AA435",
+                        "key": "control",
+                        "showleftSwitchColorPicker": "false",
+                        "showrightSwitchColorPicker": "false"
+                    }
+                }
+            },
+            "properties": {
+                "x": "48",
+                "y": "10",
+                "w": "9",
+                "h": "6",
+                "i": "Control",
+                "minW": "9",
+                "minH": "6",
+                "maxH": "15",
+                "maxW": "15",
                 "isStatic": "false"
             }
         },
@@ -394,8 +835,8 @@
                     },
                     "live": {
                         "device": {
-                            "deviceGuid": "B31A12DD-5352-4D0B-8805-1AB1957C41A0",
-                            "deviceUniqueId": "mcl-RZboard1"
+                            "deviceGuid": "F4E43CC1-4E3A-48C4-97EE-CF509ED3B813",
+                            "deviceUniqueId": "mclRZB5"
                         },
                         "attributes": {
                             "attribute": [
@@ -404,50 +845,50 @@
                                     "attributeName": "cpu_usage",
                                     "checked": "false",
                                     "dataType": "DECIMAL",
-                                    "attributeLatestValue": "0.5",
-                                    "deviceUpdatedDate": "2024-09-23T01:53:44.470Z",
+                                    "attributeLatestValue": "81.2",
+                                    "deviceUpdatedDate": "2024-11-01T01:25:13.593Z",
                                     "gatewayUpdatedDate": "NA",
-                                    "attributeValue": "0.5"
+                                    "attributeValue": "81.2"
                                 },
                                 {
                                     "attributeGuid": "9303E294-F262-420B-AC87-418CB59F6027",
                                     "attributeName": "version",
                                     "checked": "true",
                                     "dataType": "STRING",
-                                    "attributeLatestValue": "1.0.1",
-                                    "deviceUpdatedDate": "2024-09-23T01:53:44.470Z",
+                                    "attributeLatestValue": "1.0.1\n",
+                                    "deviceUpdatedDate": "2024-11-01T01:25:13.593Z",
                                     "gatewayUpdatedDate": "NA",
-                                    "attributeValue": "1.0.1"
+                                    "attributeValue": "1.0.1\n"
                                 },
                                 {
                                     "attributeGuid": "43A92B1D-F409-4611-A93D-5606AF4F536A",
                                     "attributeName": "running_model",
                                     "checked": "false",
                                     "dataType": "STRING",
-                                    "attributeLatestValue": "none",
-                                    "deviceUpdatedDate": "2024-09-23T01:53:44.470Z",
+                                    "attributeLatestValue": "demoC",
+                                    "deviceUpdatedDate": "2024-11-01T01:25:13.593Z",
                                     "gatewayUpdatedDate": "NA",
-                                    "attributeValue": "none"
+                                    "attributeValue": "demoC"
                                 },
                                 {
                                     "attributeGuid": "6236BB0B-9903-4FA8-986A-D2EB381F80DE",
                                     "attributeName": "mem_usage",
                                     "checked": "false",
                                     "dataType": "DECIMAL",
-                                    "attributeLatestValue": "37.9",
-                                    "deviceUpdatedDate": "2024-09-23T01:53:44.470Z",
+                                    "attributeLatestValue": "33.9",
+                                    "deviceUpdatedDate": "2024-11-01T01:25:13.593Z",
                                     "gatewayUpdatedDate": "NA",
-                                    "attributeValue": "37.9"
+                                    "attributeValue": "33.9"
                                 },
                                 {
                                     "attributeGuid": "1F22DEFB-18B9-4B71-8223-D73C8493ABEF",
                                     "attributeName": "script_version",
                                     "checked": "false",
                                     "dataType": "STRING",
-                                    "attributeLatestValue": "1.1.0\n",
-                                    "deviceUpdatedDate": "2024-09-23T01:08:44.360Z",
+                                    "attributeLatestValue": "1.0",
+                                    "deviceUpdatedDate": "2024-10-31T03:17:09.000Z",
                                     "gatewayUpdatedDate": "NA",
-                                    "attributeValue": "1.1.0\n"
+                                    "attributeValue": "1.0"
                                 }
                             ]
                         },
@@ -457,9 +898,9 @@
                 }
             },
             "properties": {
-                "x": "0",
-                "y": "15",
-                "w": "9",
+                "x": "67",
+                "y": "10",
+                "w": "8",
                 "h": "4",
                 "i": "Live",
                 "minW": "7",
@@ -489,8 +930,8 @@
                     },
                     "live": {
                         "device": {
-                            "deviceGuid": "B31A12DD-5352-4D0B-8805-1AB1957C41A0",
-                            "deviceUniqueId": "mcl-RZboard1"
+                            "deviceGuid": "F4E43CC1-4E3A-48C4-97EE-CF509ED3B813",
+                            "deviceUniqueId": "mclRZB5"
                         },
                         "attributes": {
                             "attribute": [
@@ -552,9 +993,9 @@
                 }
             },
             "properties": {
-                "x": "9",
-                "y": "15",
-                "w": "9",
+                "x": "67",
+                "y": "14",
+                "w": "8",
                 "h": "4",
                 "i": "Live",
                 "minW": "7",
@@ -564,87 +1005,150 @@
             }
         },
         {
-            "widgetGuid": "E413CDFD-54EB-465E-BA97-CE610867E440",
+            "widgetGuid": "6FEFF6B7-15C4-4095-A156-87A1B38D2FF5",
             "widgetProperties": {
-                "i": "DeviceCommand",
-                "background": "#e0d9d9",
-                "fontColor": "#000",
+                "i": "Transformation",
+                "background": "#7ed321",
+                "fontColor": "#7ed321",
                 "fontFamily": "Proxima Nova",
-                "fontSize": "24",
-                "title": "RZBoard V2L Decice Commands",
+                "fontSize": "18",
+                "title": "Transformation",
                 "titleAlign": "",
                 "contents": {
-                    "deviceCommand": {
-                        "template": "540A3E92-0C47-409B-BCBB-2CCCD73AA435",
-                        "device": "mcl-RZboard1",
-                        "deviceGuid": "B31A12DD-5352-4D0B-8805-1AB1957C41A0",
-                        "key": "deviceCommand"
+                    "Transformation": {
+                        "device": {
+                            "deviceGuid": "F4E43CC1-4E3A-48C4-97EE-CF509ED3B813",
+                            "deviceUniqueId": "mclRZB5"
+                        },
+                        "attributes": {
+                            "attribute": [
+                                {
+                                    "attributeGuid": "2238DF97-5C2B-4BFB-A654-2D57B59CAE0C",
+                                    "attributeName": "cpu_usage",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "0.5",
+                                    "deviceUpdatedDate": "2024-10-31T21:26:03.987Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "0.5"
+                                },
+                                {
+                                    "attributeGuid": "9303E294-F262-420B-AC87-418CB59F6027",
+                                    "attributeName": "version",
+                                    "checked": "false",
+                                    "dataType": "STRING",
+                                    "attributeLatestValue": "1.0.1\n",
+                                    "deviceUpdatedDate": "2024-10-31T21:26:03.987Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "1.0.1\n"
+                                },
+                                {
+                                    "attributeGuid": "43A92B1D-F409-4611-A93D-5606AF4F536A",
+                                    "attributeName": "running_model",
+                                    "checked": "true",
+                                    "dataType": "STRING",
+                                    "attributeLatestValue": "none",
+                                    "deviceUpdatedDate": "2024-10-31T21:26:03.987Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "none"
+                                },
+                                {
+                                    "attributeGuid": "6236BB0B-9903-4FA8-986A-D2EB381F80DE",
+                                    "attributeName": "mem_usage",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "32.1",
+                                    "deviceUpdatedDate": "2024-10-31T21:26:03.987Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "32.1"
+                                },
+                                {
+                                    "attributeGuid": "1F22DEFB-18B9-4B71-8223-D73C8493ABEF",
+                                    "attributeName": "script_version",
+                                    "checked": "false",
+                                    "dataType": "STRING",
+                                    "attributeLatestValue": "1.0",
+                                    "deviceUpdatedDate": "2024-10-31T03:17:09.000Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "1.0"
+                                }
+                            ]
+                        },
+                        "key": "Transformation",
+                        "transformations": [
+                            {
+                                "condition": "eq",
+                                "conditionValue": "demoC",
+                                "type": "Url",
+                                "errors": "",
+                                "typeValue": "https://saleshosted.z13.web.core.windows.net/demo/rzboard/DemoCnA.png"
+                            },
+                            {
+                                "condition": "ne",
+                                "conditionValue": "demoC",
+                                "type": "Url",
+                                "errors": "",
+                                "typeValue": "https://saleshosted.z13.web.core.windows.net/demo/rzboard/DemoCn.png"
+                            }
+                        ],
+                        "position": "center"
                     }
                 }
             },
             "properties": {
-                "x": "18",
-                "y": "15",
-                "w": "22",
-                "h": "14",
-                "i": "DeviceCommand",
-                "minW": "22",
-                "minH": "10",
-                "maxH": "20",
-                "maxW": "35",
+                "x": "39",
+                "y": "16",
+                "w": "9",
+                "h": "6",
+                "i": "Transformation",
+                "minW": "7",
+                "minH": "4",
                 "isStatic": "false"
             }
         },
         {
-            "widgetGuid": "A8CB394D-15B1-42C9-94FC-AD7BDC599E2A",
+            "widgetGuid": "C6C9FCF9-FAEF-49E1-B546-9E066BF9A02C",
             "widgetProperties": {
-                "i": "Image",
-                "background": "#FFFFFF",
+                "i": "Control",
+                "background": "#fff",
                 "fontColor": "#343434",
                 "fontFamily": "Proxima Nova",
                 "fontSize": "18",
-                "title": "",
+                "title": "ResNet50",
                 "titleAlign": "",
                 "contents": {
-                    "option": {
-                        "imageUpload": "false",
-                        "imageUrl": "true",
-                        "imageDevice": "false",
-                        "imageTelemetry": "false",
-                        "key": "option",
-                        "position": "center"
-                    },
-                    "upload": {
-                        "imageurl": "",
-                        "key": "upload"
-                    },
-                    "url": {
-                        "imageurl": "https://saleshosted.z13.web.core.windows.net/demo/rzboard/rzboard-devicecmds.png",
-                        "key": "url"
-                    },
-                    "device": {
-                        "deviceGuid": "B31A12DD-5352-4D0B-8805-1AB1957C41A0",
-                        "deviceName": "",
-                        "imageurl": "",
-                        "key": "device",
-                        "deviceUniqueId": "mcl-RZboard1"
-                    },
-                    "telemetry": {
-                        "deviceGuid": "",
-                        "deviceName": "",
-                        "imageurl": "",
-                        "key": "telemetry"
+                    "control": {
+                        "device": "mclRZB5",
+                        "deviceGuid": "F4E43CC1-4E3A-48C4-97EE-CF509ED3B813",
+                        "controlType": "button",
+                        "leftText": "RezNet50",
+                        "leftCommand": "144F109F-0F48-4916-A6A2-AB9DC24CD437",
+                        "leftSwitchColor": "#7ed321",
+                        "leftBackgroundColor": "",
+                        "leftParam": "",
+                        "rightText": "ResNet50",
+                        "rightCommand": "144F109F-0F48-4916-A6A2-AB9DC24CD437",
+                        "rightSwitchColor": "#7ed321",
+                        "rightBackgroundColor": "",
+                        "rightParam": "",
+                        "showStatus": "true",
+                        "template": "540A3E92-0C47-409B-BCBB-2CCCD73AA435",
+                        "key": "control",
+                        "showleftSwitchColorPicker": "false",
+                        "showrightSwitchColorPicker": "false"
                     }
                 }
             },
             "properties": {
-                "x": "0",
-                "y": "19",
-                "w": "18",
-                "h": "10",
-                "i": "Image",
-                "minW": "5",
-                "minH": "5",
+                "x": "48",
+                "y": "16",
+                "w": "9",
+                "h": "6",
+                "i": "Control",
+                "minW": "9",
+                "minH": "6",
+                "maxH": "15",
+                "maxW": "15",
                 "isStatic": "false"
             }
         },
@@ -694,15 +1198,388 @@
                 }
             },
             "properties": {
-                "x": "40",
-                "y": "20",
-                "w": "20",
-                "h": "9",
+                "x": "57",
+                "y": "18",
+                "w": "18",
+                "h": "12",
                 "i": "OTAUpdates",
                 "minW": "13",
                 "minH": "9",
                 "maxH": "902",
                 "maxW": "1094",
+                "isStatic": "false"
+            }
+        },
+        {
+            "widgetGuid": "F66A9747-6C71-40E5-8639-9F53233494D2",
+            "widgetProperties": {
+                "i": "Label",
+                "background": "#0404df",
+                "fontColor": "#ffffff",
+                "fontFamily": "Proxima Nova",
+                "fontSize": "26",
+                "title": "KEY",
+                "titleAlign": "",
+                "contents": ""
+            },
+            "properties": {
+                "x": "2",
+                "y": "20",
+                "w": "18",
+                "h": "2",
+                "i": "Label",
+                "minW": "6",
+                "minH": "2",
+                "maxH": "2",
+                "isStatic": "false"
+            }
+        },
+        {
+            "widgetGuid": "A8CB394D-15B1-42C9-94FC-AD7BDC599E2A",
+            "widgetProperties": {
+                "i": "Image",
+                "background": "#FFFFFF",
+                "fontColor": "#343434",
+                "fontFamily": "Proxima Nova",
+                "fontSize": "18",
+                "title": "",
+                "titleAlign": "",
+                "contents": {
+                    "option": {
+                        "imageUpload": "false",
+                        "imageUrl": "true",
+                        "imageDevice": "false",
+                        "imageTelemetry": "false",
+                        "key": "option",
+                        "position": "center"
+                    },
+                    "upload": {
+                        "imageurl": "",
+                        "key": "upload"
+                    },
+                    "url": {
+                        "imageurl": "https://saleshosted.z13.web.core.windows.net/demo/rzboard/rzboard-devicecmdsn.png",
+                        "key": "url"
+                    },
+                    "device": {
+                        "deviceGuid": "F4E43CC1-4E3A-48C4-97EE-CF509ED3B813",
+                        "deviceName": "",
+                        "imageurl": "",
+                        "key": "device",
+                        "deviceUniqueId": "mclRZB5"
+                    },
+                    "telemetry": {
+                        "deviceGuid": "",
+                        "deviceName": "",
+                        "imageurl": "",
+                        "key": "telemetry"
+                    }
+                }
+            },
+            "properties": {
+                "x": "0",
+                "y": "22",
+                "w": "22",
+                "h": "9",
+                "i": "Image",
+                "minW": "5",
+                "minH": "5",
+                "isStatic": "false"
+            }
+        },
+        {
+            "widgetGuid": "6FEFF6B7-15C4-4095-A156-87A1B38D2FF5",
+            "widgetProperties": {
+                "i": "Transformation",
+                "background": "#cb6ce6",
+                "fontColor": "#cb6ce6",
+                "fontFamily": "Proxima Nova",
+                "fontSize": "18",
+                "title": "Transformation",
+                "titleAlign": "",
+                "contents": {
+                    "Transformation": {
+                        "device": {
+                            "deviceGuid": "F4E43CC1-4E3A-48C4-97EE-CF509ED3B813",
+                            "deviceUniqueId": "mclRZB5"
+                        },
+                        "attributes": {
+                            "attribute": [
+                                {
+                                    "attributeGuid": "2238DF97-5C2B-4BFB-A654-2D57B59CAE0C",
+                                    "attributeName": "cpu_usage",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "0.5",
+                                    "deviceUpdatedDate": "2024-10-31T21:26:03.987Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "0.5"
+                                },
+                                {
+                                    "attributeGuid": "9303E294-F262-420B-AC87-418CB59F6027",
+                                    "attributeName": "version",
+                                    "checked": "false",
+                                    "dataType": "STRING",
+                                    "attributeLatestValue": "1.0.1\n",
+                                    "deviceUpdatedDate": "2024-10-31T21:26:03.987Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "1.0.1\n"
+                                },
+                                {
+                                    "attributeGuid": "43A92B1D-F409-4611-A93D-5606AF4F536A",
+                                    "attributeName": "running_model",
+                                    "checked": "true",
+                                    "dataType": "STRING",
+                                    "attributeLatestValue": "none",
+                                    "deviceUpdatedDate": "2024-10-31T21:26:03.987Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "none"
+                                },
+                                {
+                                    "attributeGuid": "6236BB0B-9903-4FA8-986A-D2EB381F80DE",
+                                    "attributeName": "mem_usage",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "32.1",
+                                    "deviceUpdatedDate": "2024-10-31T21:26:03.987Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "32.1"
+                                },
+                                {
+                                    "attributeGuid": "1F22DEFB-18B9-4B71-8223-D73C8493ABEF",
+                                    "attributeName": "script_version",
+                                    "checked": "false",
+                                    "dataType": "STRING",
+                                    "attributeLatestValue": "1.0",
+                                    "deviceUpdatedDate": "2024-10-31T03:17:09.000Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "1.0"
+                                }
+                            ]
+                        },
+                        "key": "Transformation",
+                        "transformations": [
+                            {
+                                "condition": "eq",
+                                "conditionValue": "demoD",
+                                "type": "Url",
+                                "errors": "",
+                                "typeValue": "https://saleshosted.z13.web.core.windows.net/demo/rzboard/DemoDnA.png"
+                            },
+                            {
+                                "condition": "ne",
+                                "conditionValue": "demoD",
+                                "type": "Url",
+                                "errors": "",
+                                "typeValue": "https://saleshosted.z13.web.core.windows.net/demo/rzboard/DemoDn.png"
+                            }
+                        ],
+                        "position": "center"
+                    }
+                }
+            },
+            "properties": {
+                "x": "39",
+                "y": "22",
+                "w": "9",
+                "h": "6",
+                "i": "Transformation",
+                "minW": "7",
+                "minH": "4",
+                "isStatic": "false"
+            }
+        },
+        {
+            "widgetGuid": "C6C9FCF9-FAEF-49E1-B546-9E066BF9A02C",
+            "widgetProperties": {
+                "i": "Control",
+                "background": "#fff",
+                "fontColor": "#343434",
+                "fontFamily": "Proxima Nova",
+                "fontSize": "18",
+                "title": "HRNet + Yolo",
+                "titleAlign": "",
+                "contents": {
+                    "control": {
+                        "device": "mclRZB5",
+                        "deviceGuid": "F4E43CC1-4E3A-48C4-97EE-CF509ED3B813",
+                        "controlType": "button",
+                        "leftText": "HRNet Pose Est",
+                        "leftCommand": "CD78EB1A-EE64-4BEE-8038-2321CBD07025",
+                        "leftSwitchColor": "#cb6ce6",
+                        "leftBackgroundColor": "",
+                        "leftParam": "",
+                        "rightText": "HRNet Pose Est",
+                        "rightCommand": "CD78EB1A-EE64-4BEE-8038-2321CBD07025",
+                        "rightSwitchColor": "#cb6ce6",
+                        "rightBackgroundColor": "",
+                        "rightParam": "",
+                        "showStatus": "true",
+                        "template": "540A3E92-0C47-409B-BCBB-2CCCD73AA435",
+                        "key": "control",
+                        "showleftSwitchColorPicker": "false",
+                        "showrightSwitchColorPicker": "false"
+                    }
+                }
+            },
+            "properties": {
+                "x": "48",
+                "y": "22",
+                "w": "9",
+                "h": "6",
+                "i": "Control",
+                "minW": "9",
+                "minH": "6",
+                "maxH": "15",
+                "maxW": "15",
+                "isStatic": "false"
+            }
+        },
+        {
+            "widgetGuid": "6FEFF6B7-15C4-4095-A156-87A1B38D2FF5",
+            "widgetProperties": {
+                "i": "Transformation",
+                "background": "#ff5757",
+                "fontColor": "#ff5757",
+                "fontFamily": "Proxima Nova",
+                "fontSize": "18",
+                "title": "Transformation",
+                "titleAlign": "",
+                "contents": {
+                    "Transformation": {
+                        "device": {
+                            "deviceGuid": "F4E43CC1-4E3A-48C4-97EE-CF509ED3B813",
+                            "deviceUniqueId": "mclRZB5"
+                        },
+                        "attributes": {
+                            "attribute": [
+                                {
+                                    "attributeGuid": "2238DF97-5C2B-4BFB-A654-2D57B59CAE0C",
+                                    "attributeName": "cpu_usage",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "0.5",
+                                    "deviceUpdatedDate": "2024-10-31T21:26:03.987Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "0.5"
+                                },
+                                {
+                                    "attributeGuid": "9303E294-F262-420B-AC87-418CB59F6027",
+                                    "attributeName": "version",
+                                    "checked": "false",
+                                    "dataType": "STRING",
+                                    "attributeLatestValue": "1.0.1\n",
+                                    "deviceUpdatedDate": "2024-10-31T21:26:03.987Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "1.0.1\n"
+                                },
+                                {
+                                    "attributeGuid": "43A92B1D-F409-4611-A93D-5606AF4F536A",
+                                    "attributeName": "running_model",
+                                    "checked": "true",
+                                    "dataType": "STRING",
+                                    "attributeLatestValue": "none",
+                                    "deviceUpdatedDate": "2024-10-31T21:26:03.987Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "none"
+                                },
+                                {
+                                    "attributeGuid": "6236BB0B-9903-4FA8-986A-D2EB381F80DE",
+                                    "attributeName": "mem_usage",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "32.1",
+                                    "deviceUpdatedDate": "2024-10-31T21:26:03.987Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "32.1"
+                                },
+                                {
+                                    "attributeGuid": "1F22DEFB-18B9-4B71-8223-D73C8493ABEF",
+                                    "attributeName": "script_version",
+                                    "checked": "false",
+                                    "dataType": "STRING",
+                                    "attributeLatestValue": "1.0",
+                                    "deviceUpdatedDate": "2024-10-31T03:17:09.000Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "1.0"
+                                }
+                            ]
+                        },
+                        "key": "Transformation",
+                        "transformations": [
+                            {
+                                "condition": "eq",
+                                "conditionValue": "none",
+                                "type": "Url",
+                                "errors": "",
+                                "typeValue": "https://saleshosted.z13.web.core.windows.net/demo/rzboard/StopnA.png"
+                            },
+                            {
+                                "condition": "ne",
+                                "conditionValue": "none",
+                                "type": "Url",
+                                "errors": "",
+                                "typeValue": "https://saleshosted.z13.web.core.windows.net/demo/rzboard/Stopn.png"
+                            }
+                        ],
+                        "position": "center"
+                    }
+                }
+            },
+            "properties": {
+                "x": "22",
+                "y": "24",
+                "w": "8",
+                "h": "6",
+                "i": "Transformation",
+                "minW": "7",
+                "minH": "4",
+                "isStatic": "false"
+            }
+        },
+        {
+            "widgetGuid": "C6C9FCF9-FAEF-49E1-B546-9E066BF9A02C",
+            "widgetProperties": {
+                "i": "Control",
+                "background": "#fff",
+                "fontColor": "#ffffff",
+                "fontFamily": "Proxima Nova",
+                "fontSize": "10",
+                "title": "Stop",
+                "titleAlign": "",
+                "contents": {
+                    "control": {
+                        "device": "mclRZB5",
+                        "deviceGuid": "F4E43CC1-4E3A-48C4-97EE-CF509ED3B813",
+                        "controlType": "button",
+                        "leftText": "Stop Running Demos",
+                        "leftCommand": "472B90BB-8107-49CD-BC24-A2B27F0B6E6F",
+                        "leftSwitchColor": "#ff5757",
+                        "leftBackgroundColor": "",
+                        "leftParam": "",
+                        "rightText": "Stop Running Demos",
+                        "rightCommand": "CC888B7E-6849-4B89-AC8B-765CB0BDA38C",
+                        "rightSwitchColor": "#ff5757",
+                        "rightBackgroundColor": "",
+                        "rightParam": "",
+                        "showStatus": "true",
+                        "template": "540A3E92-0C47-409B-BCBB-2CCCD73AA435",
+                        "key": "control",
+                        "showrightSwitchColorPicker": "false",
+                        "showleftSwitchColorPicker": "false"
+                    }
+                }
+            },
+            "properties": {
+                "x": "30",
+                "y": "24",
+                "w": "9",
+                "h": "6",
+                "i": "Control",
+                "minW": "9",
+                "minH": "6",
+                "maxH": "15",
+                "maxW": "15",
                 "isStatic": "false"
             }
         }

@@ -55,22 +55,8 @@
             "isOTACommand": false
         },
         {
-            "name": "OTA File Changes",
-            "command": "get_last_ota_file_changes.sh",
-            "requiredParam": false,
-            "requiredAck": true,
-            "isOTACommand": false
-        },
-        {
             "name": "Stop Demo",
             "command": "stop_demo.sh",
-            "requiredParam": false,
-            "requiredAck": true,
-            "isOTACommand": false
-        },
-        {
-            "name": "Memory Usage",
-            "command": "get_mem_usage.sh",
             "requiredParam": false,
             "requiredAck": true,
             "isOTACommand": false
