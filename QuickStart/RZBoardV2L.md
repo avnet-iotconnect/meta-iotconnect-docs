@@ -85,7 +85,7 @@ pip install -r rzboard_flash_util/requirements.txt
 10. Remove the jumper wire, insert the SD Card, connect the USB power and power on the board by holding the power button for a couple seconds.
 
 # 7. Download Configuration Script  
-1. Download the device configuration script [onboard.zip](scripts/onboard.zip?raw=1)
+1. Download the device configuration script [onboard.zip](https://github.com/avnet-iotconnect/meta-iotconnect-docs/blob/main/QuickStart/Renesas/RZBoard-V2L/demo-iotc-ai-camera/scripts/onboard.zip?raw=1)
 2. Extract the contents to the `RZboardV2L` project folder  
 
 # 8. Cloud Account Setup
