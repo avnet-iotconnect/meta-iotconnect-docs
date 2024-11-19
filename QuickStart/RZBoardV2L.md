@@ -79,11 +79,66 @@ pip install -r rzboard_flash_util/requirements.txt
 > This process will take a few minutes and may appear to be "stuck" at times, but be patient.
 
 8. Once the bootloader is complete, remove power from the board
-9. Set the DIP switches to boot from the SD Card:
+9. Set the DIP switches to boot from the SD Card:  
 1 = OFF  
 2 = ON  
 
 10. Remove the jumper wire, insert the SD Card, connect the USB power and power on the board by holding the power button for a couple seconds.
+
+# 7. Cloud Account Setup
+An IoTConnect account with AWS backend is required.  If you need to create an account, a free trial subscription is available.
+
+[IoTConnect Free Trial (AWS Version)](https://subscription.iotconnect.io/subscribe?cloud=aws)
+
+> [!NOTE]
+> Be sure to check any SPAM folder for the temporary password after registering.
+
+See the IoTConnect [Subscription Information](https://github.com/avnet-iotconnect/avnet-iotconnect.github.io/blob/main/documentation/iotconnect/subscription/subscription.md) for more details on the trial.
+
+# 8. IoTConnect Device Template Setup
+A Device Template define the type of telemetery the platform should expect to recieve.
+* Download the premade device template [device_template_RZboard_AI.json](https://github.com/avnet-iotconnect/meta-iotconnect-docs/blob/main/QuickStart/Renesas/RZBoard-V2L/demo-iotc-ai-camera/templates/device_template_RZboard_AI.json?raw=1) (**MUST** Right-Click and "Save-As" to get the raw json file)
+* Import the template into your IoTConnect instance. (A guide on [Importing a Device Template](https://github.com/avnet-iotconnect/avnet-iotconnect.github.io/blob/main/documentation/iotconnect/import_device_template.md) is available or for more information, please see the [IoTConnect Documentation](https://docs.iotconnect.io/iotconnect/) website.)
+
+# 9. Create a Device in IoTConnect
+
+1. **Click** the Device icon and the "Device" sub-menu
+2. At the top-right, click on the "Create Device" button
+3. Enter `RZboardV2L` for both **Unique ID** and **Device Name**
+4. Select the entity in the drop-down (if this is a new/trial account, there is only one option)
+5. Select the template ("RZBai") from the template dropdown box
+6. Leave the Device Certificate as "Auto-generated"
+7. Click Save & View
+8. Click the "Download device configuration" icon at the top-right and save the file "iotcDeviceConfig.json" into the `..\onboard\` folder
+9. Click the link for "Connection Info" and then the icon in the top-right and save the file "STM32MP257-certificates.zip" into the `..\onboard\` folder
+
+---
+
+# 10. Obtain Board IP address
+The script in the next sction will need to connect to the board update files and configure connection settings.
+To accomplish this task, the IP Address of the board is required.  This can be obtained in a couple of ways:
+1. Login to your router and find the DHCP lease associated with hostname `RZBoard`
+2. Connect to the board via a serial terminal such as https://googlechromelabs.github.io/serial-terminal/
+   * Look for a Device called `DEVICE NAME`
+   * Type `ifconfig` and look for the IP address under **end0**
+
+* Take note of the IP Address
+
+# 11. Running the Device Setup Script
+
+1. Navigate to your working directory that contains the "onboard" folder in windows explorer
+2. Right-click on the onboard folder and select "Open Git Bash here"
+3. Enter
+```
+./initial-device-config-and-update.sh
+```
+5. Enter the IP address of the board
+6. Assuming you placed the `iotcDeviceConfig.json` in the onboarding folder, just hit Enter
+7. Assuming you placed the `RZboardV2L-certificates.zip` in the onboarding folder, just hit Enter
+8. When prompted to replace the .crt file type `A`
+9. When prompted again, type `yes`
+
+**Script Completion**: After completion, your device should be fully configured and ready for IoTConnect. If any issues arise, the script provides feedback to help with troubleshooting.
 
 ## Additional Documentation
 
