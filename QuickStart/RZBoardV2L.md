@@ -1,7 +1,7 @@
 # RZ Board V2L IoTC Quick Start Guide
 
 # 1. Introduction
-This guide is designed to walk through the steps to connect the RZ Board V2L to the Avnet IoTConnect platform and demonstrate the on-board AI functionality as demonstrated in the webinar hosted by Tria and Avnet December, 2024. For greatest reach, this guide is written to be following on a Windows 10/11 host machine.
+This guide is designed to walk through the steps to connect the [RZBoard V2L](https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/rzboard-v2l) to the Avnet [IoTConnect platform](https://console.iotconnect.io/) and demonstrate the on-board AI functionality as demonstrated in the webinar hosted by [TRIA](https://www.tria-technologies.com/) and [Avnet](https://avnet.com/iotconnect/renesas) December, 2024. For greatest reach, this guide is written to be followed on a Windows 10/11 host machine.
 
 # 2. Hardware Requirements
 * [RZBoard V2L](https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/rzboard-v2l)
