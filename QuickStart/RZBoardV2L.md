@@ -102,12 +102,14 @@ See the IoTConnect [Subscription Information](https://github.com/avnet-iotconnec
 
 # 9. IoTConnect Device Template Setup
 A Device Template define the type of telemetery the platform should expect to recieve.
-* Download the premade device template [device_template_RZboard_AI.json](/Renesas/RZBoard-V2L/demo-iotc-ai-camera/templates/device_template_RZboard_AI.json?raw=1) (**MUST** Right-Click and "Save-As" to get the raw json file)
+* Download the premade device template [device_template_RZboard_AI.json](Renesas/RZBoard-V2L/demo-iotc-ai-camera/templates/device_template_RZboard_AI.json?raw=1) (**MUST** Right-Click and "Save-As" to get the raw json file)
+* Log-in the [console.iotconnect.io](https://console.iotconnect.io/login) using the credentials recieved when registering. 
 * Import the template into your IoTConnect instance. (A guide on [Importing a Device Template](https://github.com/avnet-iotconnect/avnet-iotconnect.github.io/blob/main/documentation/iotconnect/import_device_template.md) is available or for more information, please see the [IoTConnect Documentation](https://docs.iotconnect.io/iotconnect/) website.)
 
 # 10. Create a Device in IoTConnect
 
-1. **Click** the Device icon and the "Device" sub-menu
+
+1.  **Click** the Device icon and the "Device" sub-menu
 2. At the top-right, click on the "Create Device" button
 3. Enter `RZboardV2L` for both **Unique ID** and **Device Name**
 4. Select the entity in the drop-down (if this is a new/trial account, there is only one option)
@@ -122,26 +124,29 @@ A Device Template define the type of telemetery the platform should expect to re
 # 11. Obtain Board IP address
 The script in the next sction will need to connect to the board update files and configure connection settings.
 To accomplish this task, the IP Address of the board is required.  This can be obtained in a couple of ways:
-1. Login to your router and find the DHCP lease associated with hostname `RZBoard`
+1. Login to your router and find the DHCP lease associated with hostname `rzboard`
 2. Connect to the board via a serial terminal such as https://googlechromelabs.github.io/serial-terminal/
-   * Look for a Device called `DEVICE NAME`
-   * Type `ifconfig` and look for the IP address under **end0**
+   * Look for a device that matches the type of USB to Serial adapter you have
+   * Press `Enter` to obtain a login prompt
+   * Enter `root` for the username and `avnet` for the password
+   * Type `ifconfig` and look for the IP address next to **eth0**
 
 * Take note of the IP Address
 
 # 12. Running the Device Setup Script
 
-1. Navigate to your working directory that contains the "onboard" folder in windows explorer
-2. Right-click on the onboard folder and select "Open Git Bash here"
-3. Enter
+1. Navigate to the "onboard" directory in windows explorer
+2. Right-click in the folder and select "Open Git Bash here"
+3. Ensure you are in this directory `/c/Renesas/RZboardV2L/onboard`
+4. Enter the following command start the setup script:  
 ```
 ./initial-device-config-and-update.sh
 ```
-5. Enter the IP address of the board
-6. Assuming you placed the `iotcDeviceConfig.json` in the onboarding folder, just hit Enter
-7. Assuming you placed the `RZboardV2L-certificates.zip` in the onboarding folder, just hit Enter
-8. When prompted to replace the .crt file type `A`
-9. When prompted again, type `yes`
+5. Enter the IP address of the board and press `Enter`
+6. If prompted to continue connecting, type `yes` then `Enter`
+7. When prompted to enter a password, type `avnet` then `Enter` (This will happen 3 times)
+8. Assuming you placed the `iotcDeviceConfig.json` in the onboarding folder, just hit Enter
+9. Assuming you placed the `RZboardV2L-certificates.zip` in the onboarding folder, just hit Enter
 
 **Script Completion**: After completion, your device should be fully configured and ready for IoTConnect. If any issues arise, the script provides feedback to help with troubleshooting.
 
