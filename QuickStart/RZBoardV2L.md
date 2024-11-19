@@ -43,8 +43,8 @@ Reference Image
 3. Flash the `.wic` file to an SD Card:
     * Insert the SD Card into your computer (or adapter)
     * Open **Balena Etcher**.
-    * Select the `.wic` extracted from the .zip file as the source
-    * Choose the SD Card as the target
+    * Select the `.wic` extracted from the .zip file as the **Source**
+    * Choose the SD Card as the **Target**
     * Click **Flash** to start the process
 > [!NOTE]
 > Depending on PC permission, the flash process might fail at the verification step.  You can safely ignore this message.
@@ -53,7 +53,7 @@ Reference Image
 # 6. Download and Configure the Flash Utility  
 The Flash Utility will be used to setup the bootloader on the board:  
 1. Navigate the project directory `C:\Renesas\RZboardV2L\`
-2. Right-Click and select "Open Git Bash here"
+2. Right-Click on a folder and select "Open Git Bash here"
 3. Clone the latest flash utility from GitHub:  
 ```bash
 git clone https://github.com/Avnet/rzboard_flash_util.git
@@ -86,7 +86,7 @@ pip install -r rzboard_flash_util/requirements.txt
 
 # 7. Download Configuration Script  
 1. Download the device configuration script [onboard.zip](https://github.com/avnet-iotconnect/meta-iotconnect-docs/blob/main/QuickStart/Renesas/RZBoard-V2L/demo-iotc-ai-camera/scripts/onboard.zip?raw=1)
-2. Extract the contents to the `RZboardV2L` project folder  
+2. Extract the contents to the `C:\Renesas\RZboardV2L\` project folder  
 
 # 8. Cloud Account Setup
 An IoTConnect account with AWS backend is required.  If you need to create an account, a free trial subscription is available.
