@@ -107,107 +107,104 @@ read -p "Enter the full path and filename for the certificates zip file [default
 CERT_ZIP=${CERT_ZIP:-RZBoardV2L-certificates.zip}
 CERT_ZIP=$(cygpath -u "$CERT_ZIP" 2>/dev/null || echo "$CERT_ZIP")
 
-# Define constants
-CONFIG="local_data/config.json"
+# Define source and target directories
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 TARGET_DIR="/tmp/ota-payload"
 
-# Extract values from iotcDeviceConfig.json
-DUID=$(grep '"uid"' "$DEVICE_CONFIG" | awk -F'"' '{print $4}')
-CPID=$(grep '"cpid"' "$DEVICE_CONFIG" | awk -F'"' '{print $4}')
-ENV=$(grep '"env"' "$DEVICE_CONFIG" | awk -F'"' '{print $4}')
-DISCOVERY_URL=$(grep '"disc"' "$DEVICE_CONFIG" | awk -F'"' '{print $4}')
+APPLICATION_PAYLOAD_DIR="$SCRIPT_DIR/application"
+LOCAL_DATA_PAYLOAD_DIR="$SCRIPT_DIR/local_data"
+CERTS_PAYLOAD_DIR="$LOCAL_DATA_PAYLOAD_DIR/certs"
 
-# Update config.json
-sed -i "s/\"duid\": \".*\"/\"duid\": \"$DUID\"/" "$CONFIG"
-sed -i "s/\"cpid\": \".*\"/\"cpid\": \"$CPID\"/" "$CONFIG"
-sed -i "s/\"env\": \".*\"/\"env\": \"$ENV\"/" "$CONFIG"
-sed -i "s|\"discovery_url\": \".*\"|\"discovery_url\": \"$DISCOVERY_URL\"|" "$CONFIG"
-sed -i "s|\"sdk_ver\": \".*\"|\"sdk_ver\": \"2.1\"|" "$CONFIG"
-sed -i "s|\"connection_type\": \".*\"|\"connection_type\": \"IOTC_CT_AWS\"|" "$CONFIG"
-sed -i "s|\"iotc_server_cert\": \".*\"|\"iotc_server_cert\": \"/etc/ssl/certs/Amazon_Root_CA_1.pem\"|" "$CONFIG"
-sed -i "s|\"sdk_id\": \".*\"|\"sdk_id\": \"<SDK_ID_PLACEHOLDER>\"|" "$CONFIG"  # Replace placeholder if needed     
+APPLICATION_INSTALLED_DIR="/usr/iotc/bin/iotc-python-sdk"
+LOCAL_DATA_INSTALLED_DIR="/usr/iotc/local"
+CERTS_INSTALLED_DIR="$LOCAL_DATA_INSTALLED_DIR/certs"
 
-jq '. + {
-  "device": {
-    "commands_list_path": "/usr/iotc/local/scripts",
-    "attributes": [
-      { "name": "cpu_usage", "private_data": "/usr/iotc/local/data/cpu_usage", "private_data_type": "ascii" },
-      { "name": "version", "private_data": "/usr/iotc/local/data/version", "private_data_type": "ascii" },
-      { "name": "runningmodel", "private_data": "/usr/iotc/local/data/running-model", "private_data_type": "ascii" },
-      { "name": "script_version", "private_data": "/usr/iotc/local/data/script_version", "private_data_type": "ascii" },
-      { "name": "mem_usage", "private_data": "/usr/iotc/local/data/mem_usage", "private_data_type": "ascii" }
-]
-  }
-}' "$CONFIG" > "$CONFIG.tmp" && mv "$CONFIG.tmp" "$CONFIG"
+# Ensure certs directory exists
+mkdir -p "$CERTS_PAYLOAD_DIR"
 
-# Verify that the certificate zip file exists
-if [ ! -f "$CERT_ZIP" ]; then
-  echo "Error: Certificate zip file '$CERT_ZIP' not found."
-  exit 1
-fi
+# Move .crt and .pem files to the certs directory
+for cert in "$SCRIPT_DIR"/*.crt "$SCRIPT_DIR"/*.pem; do
+    if [ -f "$cert" ]; then
+        cp -v "$cert" "$CERTS_PAYLOAD_DIR/"
+        echo "Moved $cert to $CERTS_PAYLOAD_DIR"
+    fi
+done
 
-# Dynamically find certificate files within the ZIP archive
-CERT_KEY=$(unzip -l "$CERT_ZIP" | grep -o "pk_.*.pem" | head -1)
-CERT_FILE=$(unzip -l "$CERT_ZIP" | grep -o "cert_.*.crt" | head -1)
-
-if [ -z "$CERT_KEY" ] || [ -z "$CERT_FILE" ]; then
-  echo "Error: Certificate files not found in '$CERT_ZIP'."
-  exit 1
-fi
-
-# Extract the certificate files to the certs directory
-unzip -j "$CERT_ZIP" "$CERT_KEY" "$CERT_FILE" -d "$CERTS_DIR"
-if [ $? -ne 0 ]; then
-  echo "Error: Failed to extract certificates from '$CERT_ZIP'."
-  exit 1
-fi
-
-# Update the config.json paths for the certificates
-sed -i "s|\"client_key\": \".*\"|\"client_key\": \"/usr/iotc/local/certs/$CERT_KEY\"|" "$CONFIG"
-sed -i "s|\"client_cert\": \".*\"|\"client_cert\": \"/usr/iotc/local/certs/$CERT_FILE\"|" "$CONFIG"
-
-echo "Configuration and certificates updated successfully."
-
-
-echo "Updated config.json contents:"
-cat "$CONFIG"
-
-# Ensure proper permissions locally
-chmod -R u+rwx,g+rwx,o+rwx ./
-
-check_and_install_psutil() {
-    # Check if psutil is already installed
-    python3 -c "import psutil" 2>/dev/null
-    if [ $? -eq 0 ]; then
-        echo "psutil is already installed."
-    else
-        echo "psutil is not installed. Installing now..."
-        pip3 install psutil
-        if [ $? -eq 0 ]; then
-            echo "psutil installed successfully."
-        else
-            echo "Failed to install psutil. Exiting."
-            exit 1
-        fi
+# Function to transfer and validate OTA payload
+transfer_ota_payload() {
+    echo "Transferring OTA payload to target device..."
+    
+    # Transfer only required directories, ensuring structure
+    scp -r "$SCRIPT_DIR/application" "$TARGET_USER@$TARGET_IP:/tmp/ota-payload/"
+    scp -r "$SCRIPT_DIR/local_data" "$TARGET_USER@$TARGET_IP:/tmp/ota-payload/"
+    
+    # Validate structure on the target
+    ssh $TARGET_USER@$TARGET_IP "ls -R /tmp/ota-payload"
+    
+    # Check for certificate folder existence
+    ssh $TARGET_USER@$TARGET_IP "mkdir -p /tmp/ota-payload/local_data/certs"
+    ssh $TARGET_USER@$TARGET_IP "ls /tmp/ota-payload/local_data/certs"
+    
+    if [ $? -ne 0 ]; then
+        echo "Error: Certificates folder or files missing on target."
+        exit 1
     fi
 }
 
-# Run the function to ensure psutil is installed
-check_and_install_psutil
+# Move certificates locally before transfer
+prepare_certificates() {
+    echo "Organizing certificates in the certs folder..."
+    mkdir -p "$CERTS_PAYLOAD_DIR"
+    for cert in "$SCRIPT_DIR"/*.crt "$SCRIPT_DIR"/*.pem; do
+        if [ -f "$cert" ]; then
+            cp -v "$cert" "$CERTS_PAYLOAD_DIR/"
+            echo "Moved $cert to $CERTS_PAYLOAD_DIR"
+        fi
+    done
+}
 
 
-# Transfer files to the target device
-scp -r ./ $TARGET_USER@$TARGET_IP:$TARGET_DIR
-scp "$CONFIG" $TARGET_USER@$TARGET_IP:/usr/iotc/local/config.json
+# Function to update a directory
+update_directory() {
+    local payload_dir="$1"
+    local target_dir="$2"
 
-# Ensure permissions on the target
-ssh $TARGET_USER@$TARGET_IP "chmod -R u+rw,g+rw,o+rw /usr/iotc/local/data"
+    ssh $TARGET_USER@$TARGET_IP "[ -d $payload_dir ]"
+    if [ $? -eq 0 ]; then
+        ssh $TARGET_USER@$TARGET_IP "mkdir -p $target_dir"
+        ssh $TARGET_USER@$TARGET_IP "cp -va $payload_dir/* $target_dir/"
+        echo "Updated $target_dir with files from $payload_dir"
+    else
+        echo "Warning: Payload directory $payload_dir not found on target, skipping update."
+    fi
+}
+
+# Organize certificates before transfer
+prepare_certificates
+
+# Transfer the payload to the target
+transfer_ota_payload
+
+# Update application files
+update_directory "$TARGET_DIR/application" "$APPLICATION_INSTALLED_DIR"
+
+# Update certificates
+update_directory "$TARGET_DIR/local_data/certs" "$CERTS_INSTALLED_DIR"
+
+# Update local data
+update_directory "$TARGET_DIR/local_data" "$LOCAL_DATA_INSTALLED_DIR"
+
+# Final success message
+echo "All OTA payload files processed successfully."
+
+# Ensure proper permissions on the target
+ssh $TARGET_USER@$TARGET_IP "chmod -R u+rw,g+rw,o+rw /usr/iotc/local/"
 ssh $TARGET_USER@$TARGET_IP "chmod -R u+rwx,g+rwx,o+rwx /usr/iotc/local/scripts"
 
-# Install dependencies
-ssh $TARGET_USER@$TARGET_IP "python3 -m pip install requests"
+# Install dependencies on the target
+ssh $TARGET_USER@$TARGET_IP "python3 -m pip install requests psutil"
 
-# Call the function to set up the systemd service
+# Call the function to set up the IoTConnect systemd service
 setup_iotconnect_service
 
 echo "IoTConnect service has been set up and started on the target device."
