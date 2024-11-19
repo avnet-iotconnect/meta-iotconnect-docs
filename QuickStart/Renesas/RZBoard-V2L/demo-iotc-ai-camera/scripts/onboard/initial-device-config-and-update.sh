@@ -116,21 +116,29 @@ DUID=$(grep '"uid"' "$DEVICE_CONFIG" | awk -F'"' '{print $4}')
 CPID=$(grep '"cpid"' "$DEVICE_CONFIG" | awk -F'"' '{print $4}')
 ENV=$(grep '"env"' "$DEVICE_CONFIG" | awk -F'"' '{print $4}')
 DISCOVERY_URL=$(grep '"disc"' "$DEVICE_CONFIG" | awk -F'"' '{print $4}')
-UNIQUE_ID="${DUID}-${CPID}"
 
 # Update config.json
 sed -i "s/\"duid\": \".*\"/\"duid\": \"$DUID\"/" "$CONFIG"
 sed -i "s/\"cpid\": \".*\"/\"cpid\": \"$CPID\"/" "$CONFIG"
 sed -i "s/\"env\": \".*\"/\"env\": \"$ENV\"/" "$CONFIG"
 sed -i "s|\"discovery_url\": \".*\"|\"discovery_url\": \"$DISCOVERY_URL\"|" "$CONFIG"
+sed -i "s|\"sdk_ver\": \".*\"|\"sdk_ver\": \"2.1\"|" "$CONFIG"
+sed -i "s|\"connection_type\": \".*\"|\"connection_type\": \"IOTC_CT_AWS\"|" "$CONFIG"
+sed -i "s|\"iotc_server_cert\": \".*\"|\"iotc_server_cert\": \"/etc/ssl/certs/Amazon_Root_CA_1.pem\"|" "$CONFIG"
+sed -i "s|\"sdk_id\": \".*\"|\"sdk_id\": \"<SDK_ID_PLACEHOLDER>\"|" "$CONFIG"  # Replace placeholder if needed     
 
-# Add extended attributes to config.json
-jq '.device.attributes += [
+jq '. + {
+  "device": {
+    "commands_list_path": "/usr/iotc/local/scripts",
+    "attributes": [
       { "name": "cpu_usage", "private_data": "/usr/iotc/local/data/cpu_usage", "private_data_type": "ascii" },
-      { "name": "mem_usage", "private_data": "/usr/iotc/local/data/mem_usage", "private_data_type": "ascii" },
-      { "name": "running_model", "private_data": "/usr/iotc/local/data/running_model", "private_data_type": "ascii" },
-      { "name": "script_version", "private_data": "/usr/iotc/local/data/script_version", "private_data_type": "ascii" }
-    ]' "$CONFIG" > "$CONFIG.tmp" && mv "$CONFIG.tmp" "$CONFIG"
+      { "name": "version", "private_data": "/usr/iotc/local/data/version", "private_data_type": "ascii" },
+      { "name": "runningmodel", "private_data": "/usr/iotc/local/data/running-model", "private_data_type": "ascii" },
+      { "name": "script_version", "private_data": "/usr/iotc/local/data/script_version", "private_data_type": "ascii" },
+      { "name": "mem_usage", "private_data": "/usr/iotc/local/data/mem_usage", "private_data_type": "ascii" }
+]
+  }
+}' "$CONFIG" > "$CONFIG.tmp" && mv "$CONFIG.tmp" "$CONFIG"
 
 # Verify that the certificate zip file exists
 if [ ! -f "$CERT_ZIP" ]; then
@@ -191,9 +199,6 @@ check_and_install_psutil
 # Transfer files to the target device
 scp -r ./ $TARGET_USER@$TARGET_IP:$TARGET_DIR
 scp "$CONFIG" $TARGET_USER@$TARGET_IP:/usr/iotc/local/config.json
-
-# Write the unique ID to the target device
-ssh $TARGET_USER@$TARGET_IP "echo -n '$UNIQUE_ID' > /usr/iotc/local/data/unique_id"
 
 # Ensure permissions on the target
 ssh $TARGET_USER@$TARGET_IP "chmod -R u+rw,g+rw,o+rw /usr/iotc/local/data"
