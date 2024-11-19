@@ -38,7 +38,7 @@ Reference Image
  
 # 5. Flash Image to the Board
 
-1. Download the [RZBoard V2L QuickStart Package](./README.md) to a project directory such as `C:\Renesas\RZboardV2L\`
+1. Download the [RZBoard V2L QuickStart Package](https://iotconnect-sdk-images.s3.amazonaws.com/MPU/hardknott/rz/rzboard-iotc-demo.zip) to a project directory such as `C:\Renesas\RZboardV2L\`
 2. Unzip the package by Right-Clicking and select "Extract Here"
 3. Flash the `.wic` file to an SD Card:
     * Insert the SD Card into your computer (or adapter)
