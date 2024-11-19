@@ -50,9 +50,8 @@ Reference Image
 > Depending on PC permission, the flash process might fail at the verification step.  You can safely ignore this message.
     
 
-# 6. Download and Setup the Flash Utility
-The Flash Utility will be used to setup the bootloader on the board
-
+# 6. Download and Configure the Flash Utility  
+The Flash Utility will be used to setup the bootloader on the board:  
 1. Navigate the project directory `C:\Renesas\RZboardV2L\`
 2. Right-Click and select "Open Git Bash here"
 3. Clone the latest flash utility from GitHub:  
@@ -85,7 +84,11 @@ pip install -r rzboard_flash_util/requirements.txt
 
 10. Remove the jumper wire, insert the SD Card, connect the USB power and power on the board by holding the power button for a couple seconds.
 
-# 7. Cloud Account Setup
+# 7. Download Configuration Script  
+1. Download the device configuration script [onboard.zip](scripts/onboard.zip?raw=1)
+2. Extract the contents to the `RZboardV2L` project folder  
+
+# 8. Cloud Account Setup
 An IoTConnect account with AWS backend is required.  If you need to create an account, a free trial subscription is available.
 
 [IoTConnect Free Trial (AWS Version)](https://subscription.iotconnect.io/subscribe?cloud=aws)
@@ -95,12 +98,12 @@ An IoTConnect account with AWS backend is required.  If you need to create an ac
 
 See the IoTConnect [Subscription Information](https://github.com/avnet-iotconnect/avnet-iotconnect.github.io/blob/main/documentation/iotconnect/subscription/subscription.md) for more details on the trial.
 
-# 8. IoTConnect Device Template Setup
+# 9. IoTConnect Device Template Setup
 A Device Template define the type of telemetery the platform should expect to recieve.
 * Download the premade device template [device_template_RZboard_AI.json](https://github.com/avnet-iotconnect/meta-iotconnect-docs/blob/main/QuickStart/Renesas/RZBoard-V2L/demo-iotc-ai-camera/templates/device_template_RZboard_AI.json?raw=1) (**MUST** Right-Click and "Save-As" to get the raw json file)
 * Import the template into your IoTConnect instance. (A guide on [Importing a Device Template](https://github.com/avnet-iotconnect/avnet-iotconnect.github.io/blob/main/documentation/iotconnect/import_device_template.md) is available or for more information, please see the [IoTConnect Documentation](https://docs.iotconnect.io/iotconnect/) website.)
 
-# 9. Create a Device in IoTConnect
+# 10. Create a Device in IoTConnect
 
 1. **Click** the Device icon and the "Device" sub-menu
 2. At the top-right, click on the "Create Device" button
@@ -114,7 +117,7 @@ A Device Template define the type of telemetery the platform should expect to re
 
 ---
 
-# 10. Obtain Board IP address
+# 11. Obtain Board IP address
 The script in the next sction will need to connect to the board update files and configure connection settings.
 To accomplish this task, the IP Address of the board is required.  This can be obtained in a couple of ways:
 1. Login to your router and find the DHCP lease associated with hostname `RZBoard`
@@ -124,7 +127,7 @@ To accomplish this task, the IP Address of the board is required.  This can be o
 
 * Take note of the IP Address
 
-# 11. Running the Device Setup Script
+# 12. Running the Device Setup Script
 
 1. Navigate to your working directory that contains the "onboard" folder in windows explorer
 2. Right-click on the onboard folder and select "Open Git Bash here"
