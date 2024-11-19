@@ -12,6 +12,7 @@ For greatest reach, this guide is written to be followed on a Windows 10/11 host
 * Ethernet Cable
 * [USB to TTL Serial Cable](https://www.amazon.com/s?k=usb+to+ttl+serial+cable)
 * [Hook test cable](https://www.amazon.com/s?k=hook+test+cable) (or something similar)
+* USB Web Cam
 
 # 3. Hardware Setup
 Set up the device by connecting the following items:
@@ -117,7 +118,7 @@ A Device Template define the type of telemetery the platform should expect to re
 6. Leave the Device Certificate as "Auto-generated"
 7. Click Save & View
 8. Click the "Download device configuration" icon at the top-right and save the file "iotcDeviceConfig.json" into the `..\onboard\` folder
-9. Click the link for "Connection Info" and then the icon in the top-right and save the file "STM32MP257-certificates.zip" into the `..\onboard\` folder
+9. Click the link for "Connection Info" and then the icon in the top-right and save the file "RZboardV2L-certificates.zip" into the `..\onboard\` folder
 
 ---
 
