@@ -10,7 +10,7 @@ This guide is designed to walk through the steps to connect the RZ Board V2L to 
 * USB Type-C Cable
 * Ethernet Cable
 * [USB to TTL Serial Cable](https://www.amazon.com/s?k=usb+to+ttl+serial+cable)
-* Jumper wire
+* [Hook test cable](https://www.amazon.com/s?k=hook+test+cable) (or something similar)
 
 # 3. Hardware Setup
 Set up the device by connecting the following items:
@@ -18,7 +18,6 @@ Set up the device by connecting the following items:
 * Connect the Jumper Wire
 * Connect the Ethernet cable from the board to you LAN switch/router
 * Connect the USB-C cable to the board, but DON'T connect your PC yet
-*
 
 Configure the DIP switches:  
 1 = ON  
