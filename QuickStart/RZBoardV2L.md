@@ -12,7 +12,7 @@ For greatest reach, this guide is written to be followed on a Windows 10/11 host
 * Ethernet Cable
 * [USB to TTL Serial Cable](https://www.amazon.com/s?k=usb+to+ttl+serial+cable)
 * [Hook test cable](https://www.amazon.com/s?k=hook+test+cable) (or something similar)
-* [USB Web Cam](https://www.amazon.com/s?k=usb+webcam) - 1080p is sufficient
+* [USB Webcam](https://www.amazon.com/s?k=usb+webcam) - 1080p is sufficient
 * [Micro HDMI to HDMI](https://www.amazon.com/s?k=micro+hdmi+to+hdmi)
 
 # 3. Hardware Setup
@@ -20,6 +20,8 @@ Set up the device by connecting the following items:
 * Connect the USB to Serial port adapter from the PC to the board header (See TX, RX and GND labels in the reference image below.)
 * Connect the Jumper Wire
 * Connect the Ethernet cable from the board to you LAN switch/router
+* Connect the Micro HDMI cable to a monitor
+* Connect the the Webcam to a USB port on the board
 * Connect the USB-C cable to the board, but DON'T connect your PC yet
 
 Configure the DIP switches:  
