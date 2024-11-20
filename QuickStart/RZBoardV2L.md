@@ -173,7 +173,10 @@ You will now be in the dashboard edit mode. You can add/remove widgets or just c
 
 # 14. Using the Demo
 
-Use the colored buttons or the commands in the "Cloud 2 Device" menu to start the various AI models.
+* Use the colored buttons or the commands in the "Cloud 2 Device" menu to start the various AI models.
+* Aim your webcam at various people / objects to evaluate the models.
+* View the live video feed on a connected monitor.
+* View the results on the IoTConnect dashboard.
 
 # 15. Further Learning
 For more advanced setup instructions, Yocto Project configurations, and other board features, refer to the following documents:  
