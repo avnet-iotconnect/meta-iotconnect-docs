@@ -77,14 +77,15 @@ pip install -r rzboard_flash_util/requirements.txt
 7. Press and hold the power button for a couple seconds until the LED turns on. The script will begin flashing your bootloader.
 
 > [!NOTE]
-> This process will take about 5 minutes and may appear to be "stuck" at times. Be patient.
+> This process will take about 5 minutes and progress is only updated periodically.
 
-8. Once the bootloader is complete, remove the USB-C power from the board
+8. Once the bootloader is complete, remove the **USB-C power** and the **jumper wire**.
 9. Set the DIP switches to boot from the SD Card:  
 1 = OFF  
 2 = ON  
 
-10. Remove the jumper wire, insert the SD Card, connect the USB power and power on the board by holding the power button for a couple seconds.
+10. Insert the **SD Card** and re-connect the **USB-C power**
+11. Press and hold the board power button for a couple seconds to turn it on.
 
 # 7. Download Configuration Script  
 1. Download the device configuration script [onboard.zip](https://github.com/avnet-iotconnect/meta-iotconnect-docs/blob/main/QuickStart/Renesas/RZBoard-V2L/demo-iotc-ai-camera/scripts/onboard.zip?raw=1)
