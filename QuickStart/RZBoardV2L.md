@@ -173,7 +173,7 @@ You will now be in the dashboard edit mode. You can add/remove widgets or just c
 
 # 14. Using the Demo
 
-TBD
+Use the colored buttons or the commands in the "Cloud 2 Device" menu to start the various AI models.
 
 # 15. Further Learning
 For more advanced setup instructions, Yocto Project configurations, and other board features, refer to the following documents:  
@@ -181,6 +181,8 @@ For more advanced setup instructions, Yocto Project configurations, and other bo
 - [Avnet RZ Board V2L Product Page](https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/rzboard-v2l/): Product Page (with access to additional guides and resources)
 
 # 16. Resources
-* 1
-* 2
-* 3
+* [Webinar Slides](https://www.avnet.com/iot)
+* [Purchase the RZboardV2L](https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/rzboard-v2l)
+* [Additional Renesas QuickStart Guides](https://www.avnet.com/iotconnect/renesas)
+* [IoTConnect Overview](https://www.iotconnect.io/)
+* [IoTConnect Knowledgebase](https://help.iotconnect.io/)
