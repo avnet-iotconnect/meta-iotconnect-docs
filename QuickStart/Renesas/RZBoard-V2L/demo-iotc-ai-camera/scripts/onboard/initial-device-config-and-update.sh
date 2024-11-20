@@ -108,6 +108,7 @@ CERT_ZIP=${CERT_ZIP:-RZBoardV2L-certificates.zip}
 CERT_ZIP=$(cygpath -u "$CERT_ZIP" 2>/dev/null || echo "$CERT_ZIP")
 
 # Define source and target directories
+CONFIG="local_data/config.json"
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 TARGET_DIR="/tmp/ota-payload"
 
@@ -118,17 +119,6 @@ CERTS_PAYLOAD_DIR="$LOCAL_DATA_PAYLOAD_DIR/certs"
 APPLICATION_INSTALLED_DIR="/usr/iotc/bin/iotc-python-sdk"
 LOCAL_DATA_INSTALLED_DIR="/usr/iotc/local"
 CERTS_INSTALLED_DIR="$LOCAL_DATA_INSTALLED_DIR/certs"
-
-# Ensure certs directory exists
-mkdir -p "$CERTS_PAYLOAD_DIR"
-
-# Move .crt and .pem files to the certs directory
-for cert in "$SCRIPT_DIR"/*.crt "$SCRIPT_DIR"/*.pem; do
-    if [ -f "$cert" ]; then
-        cp -v "$cert" "$CERTS_PAYLOAD_DIR/"
-        echo "Moved $cert to $CERTS_PAYLOAD_DIR"
-    fi
-done
 
 # Function to transfer and validate OTA payload
 transfer_ota_payload() {
@@ -152,11 +142,11 @@ transfer_ota_payload() {
 }
 
 prepare_certificates() {
-    echo "Organizing certificates in the certs folder..."
-
+    echo "Updating config.json and organizing certificates in the certs folder..."
+    
     # Ensure the certs directory exists
     mkdir -p "$CERTS_PAYLOAD_DIR"
-
+    
     # Extract certificates from the ZIP file
     if [ -f "$CERT_ZIP" ]; then
         echo "Extracting certificates from $CERT_ZIP..."
@@ -176,6 +166,60 @@ prepare_certificates() {
             echo "Moved $cert to $CERTS_PAYLOAD_DIR"
         fi
     done
+    
+    # Extract values from iotcDeviceConfig.json
+    DUID=$(grep '"uid"' "$DEVICE_CONFIG" | awk -F'"' '{print $4}')
+    CPID=$(grep '"cpid"' "$DEVICE_CONFIG" | awk -F'"' '{print $4}')
+    ENV=$(grep '"env"' "$DEVICE_CONFIG" | awk -F'"' '{print $4}')
+    DISCOVERY_URL=$(grep '"disc"' "$DEVICE_CONFIG" | awk -F'"' '{print $4}')
+
+
+    # Update config.json
+    sed -i "s/\"duid\": \".*\"/\"duid\": \"$DUID\"/" "$CONFIG"
+    sed -i "s/\"cpid\": \".*\"/\"cpid\": \"$CPID\"/" "$CONFIG"
+    sed -i "s/\"env\": \".*\"/\"env\": \"$ENV\"/" "$CONFIG"
+    sed -i "s|\"discovery_url\": \".*\"|\"discovery_url\": \"$DISCOVERY_URL\"|" "$CONFIG"
+    sed -i "s|\"sdk_ver\": \".*\"|\"sdk_ver\": \"2.1\"|" "$CONFIG"
+    sed -i "s|\"connection_type\": \".*\"|\"connection_type\": \"IOTC_CT_AWS\"|" "$CONFIG"
+    sed -i "s|\"iotc_server_cert\": \".*\"|\"iotc_server_cert\": \"/etc/ssl/certs/Amazon_Root_CA_1.pem\"|" "$CONFIG"
+    sed -i "s|\"sdk_id\": \".*\"|\"sdk_id\": \"<SDK_ID_PLACEHOLDER>\"|" "$CONFIG"  # Replace placeholder if needed     
+    
+
+    # Add extended attributes to config.json
+    jq '.device.attributes += [
+          { "name": "cpu_usage", "private_data": "/usr/iotc/local/data/cpu_usage", "private_data_type": "ascii" },
+          { "name": "mem_usage", "private_data": "/usr/iotc/local/data/mem_usage", "private_data_type": "ascii" },
+          { "name": "running_model", "private_data": "/usr/iotc/local/data/running_model", "private_data_type": "ascii" },
+          { "name": "script_version", "private_data": "/usr/iotc/local/data/script_version", "private_data_type": "ascii" }
+        ]' "$CONFIG" > "$CONFIG.tmp" && mv "$CONFIG.tmp" "$CONFIG"
+
+
+    # Verify that the certificate zip file exists
+    if [ ! -f "$CERT_ZIP" ]; then
+      echo "Error: Certificate zip file '$CERT_ZIP' not found."
+      exit 1
+    fi
+
+    # Dynamically find certificate files within the ZIP archive
+    CERT_KEY=$(unzip -l "$CERT_ZIP" | grep -o "pk_.*.pem" | head -1)
+    CERT_FILE=$(unzip -l "$CERT_ZIP" | grep -o "cert_.*.crt" | head -1)
+
+    if [ -z "$CERT_KEY" ] || [ -z "$CERT_FILE" ]; then
+      echo "Error: Certificate files not found in '$CERT_ZIP'."
+      exit 1
+    fi
+
+    # Update the config.json paths for the certificates
+    sed -i "s|\"client_key\": \".*\"|\"client_key\": \"/usr/iotc/local/certs/$CERT_KEY\"|" "$CONFIG"
+    sed -i "s|\"client_cert\": \".*\"|\"client_cert\": \"/usr/iotc/local/certs/$CERT_FILE\"|" "$CONFIG"
+
+    echo "Configuration and certificates updated successfully."
+
+    echo "Updated config.json contents:"
+    cat "$CONFIG"
+
+    # Ensure proper permissions locally
+    chmod -R u+rwx,g+rwx,o+rwx ./
 }
 
 # Function to update a directory
@@ -222,3 +266,39 @@ ssh $TARGET_USER@$TARGET_IP "python3 -m pip install requests psutil"
 setup_iotconnect_service
 
 echo "IoTConnect service has been set up and started on the target device."
+
+# Note for systemd management
+cat <<EOF
+
+================================================================================
+Systemd Management Commands for iotconnect.service:
+
+Start the service:
+    systemctl start iotconnect.service
+
+Stop the service:
+    systemctl stop iotconnect.service
+
+Check the status of the service:
+    systemctl status iotconnect.service
+
+View the logs for the service:
+    journalctl -u iotconnect.service
+
+Reload systemd and restart the service after changes:
+    systemctl daemon-reload
+    systemctl restart iotconnect.service
+================================================================================
+
+EOF
+
+
+# Prompt to open an SSH session
+read -p "Do you want to open an SSH session to $TARGET_IP now? (yes/no): " OPEN_SSH
+if [[ "$OPEN_SSH" =~ ^[Yy][Ee][Ss]$ || "$OPEN_SSH" =~ ^[Yy]$ ]]; then
+    echo "Starting SSH session to $TARGET_IP..."
+    ssh $TARGET_USER@$TARGET_IP
+else
+    echo "SSH session skipped. You can connect later using:"
+    echo "    ssh $TARGET_USER@$TARGET_IP"
+fi
