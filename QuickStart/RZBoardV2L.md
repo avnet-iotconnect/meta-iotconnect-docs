@@ -148,10 +148,16 @@ To accomplish this task, the IP Address of the board is required.  This can be o
 5. Enter the IP address of the board and press `Enter`
 6. If prompted to continue connecting, type `yes` then `Enter`
 7. When prompted to enter a password, type `avnet` then `Enter` (This will happen 3 times)
-8. Assuming you placed the `iotcDeviceConfig.json` in the onboarding folder, just hit Enter
-9. Assuming you placed the `RZboardV2L-certificates.zip` in the onboarding folder, just hit Enter
+8. Assuming you placed the `iotcDeviceConfig.json` in the onboard folder, just hit Enter
+9. Assuming you placed the `RZboardV2L-certificates.zip` in the onboard folder, just hit Enter
 
-**Script Completion**: After completion, your device should be fully configured and ready for IoTConnect. If any issues arise, the script provides feedback to help with troubleshooting.
+After the script completes, you will be presented with some information and a prompt to open an SSH session.
+
+10. Type `yes` and then `Enter`
+11. To start the IoTConnect application copy/paste the following command:
+```bash
+~/iotc-application.sh
+```
 
 # 13. Import a Dashboard
 The interactive demo can be loaded by using the Dynamic Dashboard feature of IoTConnect.  
