@@ -12,7 +12,8 @@ For greatest reach, this guide is written to be followed on a Windows 10/11 host
 * Ethernet Cable
 * [USB to TTL Serial Cable](https://www.amazon.com/s?k=usb+to+ttl+serial+cable)
 * [Hook test cable](https://www.amazon.com/s?k=hook+test+cable) (or something similar)
-* USB Web Cam
+* [USB Web Cam](https://www.amazon.com/s?k=usb+webcam) - 1080p is sufficient
+* [Micro HDMI to HDMI](https://www.amazon.com/s?k=micro+hdmi+to+hdmi)
 
 # 3. Hardware Setup
 Set up the device by connecting the following items:
