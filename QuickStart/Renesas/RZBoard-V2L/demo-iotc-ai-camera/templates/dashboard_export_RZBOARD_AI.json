@@ -29,11 +29,11 @@
                         "key": "url"
                     },
                     "device": {
-                        "deviceGuid": "B31A12DD-5352-4D0B-8805-1AB1957C41A0",
+                        "deviceGuid": "B6580661-C895-474C-BB8E-C81BD972B4C2",
                         "deviceName": "",
                         "imageurl": "",
                         "key": "device",
-                        "deviceUniqueId": "mcl-RZboard1"
+                        "deviceUniqueId": "RZBoard6"
                     },
                     "telemetry": {
                         "deviceGuid": "",
@@ -91,8 +91,8 @@
                 "contents": {
                     "gauge": {
                         "device": {
-                            "deviceGuid": "B31A12DD-5352-4D0B-8805-1AB1957C41A0",
-                            "deviceUniqueId": "mcl-RZboard1"
+                            "deviceGuid": "B6580661-C895-474C-BB8E-C81BD972B4C2",
+                            "deviceUniqueId": "RZBoard6"
                         },
                         "attributes": {
                             "attribute": [
@@ -177,8 +177,8 @@
                 "contents": {
                     "pie": {
                         "device": {
-                            "deviceGuid": "B31A12DD-5352-4D0B-8805-1AB1957C41A0",
-                            "deviceUniqueId": "mcl-RZboard1"
+                            "deviceGuid": "B6580661-C895-474C-BB8E-C81BD972B4C2",
+                            "deviceUniqueId": "RZBoard6"
                         },
                         "attributes": {
                             "attribute": [
@@ -266,8 +266,8 @@
                 "contents": {
                     "Transformation": {
                         "device": {
-                            "deviceGuid": "B31A12DD-5352-4D0B-8805-1AB1957C41A0",
-                            "deviceUniqueId": "mcl-RZboard1"
+                            "deviceGuid": "B6580661-C895-474C-BB8E-C81BD972B4C2",
+                            "deviceUniqueId": "RZBoard6"
                         },
                         "attributes": {
                             "attribute": [
@@ -413,8 +413,8 @@
                 "contents": {
                     "Transformation": {
                         "device": {
-                            "deviceGuid": "B31A12DD-5352-4D0B-8805-1AB1957C41A0",
-                            "deviceUniqueId": "mcl-RZboard1"
+                            "deviceGuid": "B6580661-C895-474C-BB8E-C81BD972B4C2",
+                            "deviceUniqueId": "RZBoard6"
                         },
                         "attributes": {
                             "attribute": [
@@ -514,21 +514,21 @@
                 "titleAlign": "",
                 "contents": {
                     "control": {
-                        "device": "mcl-RZboard1",
-                        "deviceGuid": "B31A12DD-5352-4D0B-8805-1AB1957C41A0",
+                        "device": "RZBoard6",
+                        "deviceGuid": "B6580661-C895-474C-BB8E-C81BD972B4C2",
                         "controlType": "button",
                         "leftText": "HRNet Pose Est",
-                        "leftCommand": "721804C1-AD33-482F-A261-B03D096E8B36",
+                        "leftCommand": "9A853C7D-5B25-499E-BDBC-98C980AEB7D5",
                         "leftSwitchColor": "#9b9b9b",
                         "leftBackgroundColor": "",
                         "leftParam": "",
                         "rightText": "HRNet Pose Est",
-                        "rightCommand": "721804C1-AD33-482F-A261-B03D096E8B36",
+                        "rightCommand": "9A853C7D-5B25-499E-BDBC-98C980AEB7D5",
                         "rightSwitchColor": "#9b9b9b",
                         "rightBackgroundColor": "",
                         "rightParam": "",
                         "showStatus": "true",
-                        "template": "540A3E92-0C47-409B-BCBB-2CCCD73AA435",
+                        "template": "79EE71D9-3FD8-4900-80C2-1A654035AF07",
                         "key": "control",
                         "showleftSwitchColorPicker": "false",
                         "showrightSwitchColorPicker": "false"
@@ -561,8 +561,8 @@
                 "contents": {
                     "gauge": {
                         "device": {
-                            "deviceGuid": "B31A12DD-5352-4D0B-8805-1AB1957C41A0",
-                            "deviceUniqueId": "mcl-RZboard1"
+                            "deviceGuid": "B6580661-C895-474C-BB8E-C81BD972B4C2",
+                            "deviceUniqueId": "RZBoard6"
                         },
                         "attributes": {
                             "attribute": [
@@ -646,9 +646,9 @@
                 "titleAlign": "",
                 "contents": {
                     "deviceCommand": {
-                        "template": "540A3E92-0C47-409B-BCBB-2CCCD73AA435",
-                        "device": "mcl-RZboard1",
-                        "deviceGuid": "B31A12DD-5352-4D0B-8805-1AB1957C41A0",
+                        "template": "79EE71D9-3FD8-4900-80C2-1A654035AF07",
+                        "device": "RZBoard6",
+                        "deviceGuid": "B6580661-C895-474C-BB8E-C81BD972B4C2",
                         "key": "deviceCommand"
                     }
                 }
@@ -679,60 +679,60 @@
                 "contents": {
                     "Transformation": {
                         "device": {
-                            "deviceGuid": "B31A12DD-5352-4D0B-8805-1AB1957C41A0",
-                            "deviceUniqueId": "mcl-RZboard1"
+                            "deviceGuid": "B6580661-C895-474C-BB8E-C81BD972B4C2",
+                            "deviceUniqueId": "RZBoard6"
                         },
                         "attributes": {
                             "attribute": [
                                 {
-                                    "attributeGuid": "2238DF97-5C2B-4BFB-A654-2D57B59CAE0C",
+                                    "attributeGuid": "14A8A6D5-1DE2-4EF7-99B0-194C8D28AD10",
                                     "attributeName": "cpu_usage",
                                     "checked": "false",
                                     "dataType": "DECIMAL",
-                                    "attributeLatestValue": "81.3",
-                                    "deviceUpdatedDate": "2024-11-01T02:29:39.323Z",
+                                    "attributeLatestValue": "0.5",
+                                    "deviceUpdatedDate": "2024-11-20T07:09:25.893Z",
                                     "gatewayUpdatedDate": "NA",
-                                    "attributeValue": "81.3"
+                                    "attributeValue": "0.5"
                                 },
                                 {
-                                    "attributeGuid": "9303E294-F262-420B-AC87-418CB59F6027",
-                                    "attributeName": "version",
-                                    "checked": "false",
-                                    "dataType": "STRING",
-                                    "attributeLatestValue": "1.0.1\n",
-                                    "deviceUpdatedDate": "2024-11-01T02:29:39.323Z",
-                                    "gatewayUpdatedDate": "NA",
-                                    "attributeValue": "1.0.1\n"
-                                },
-                                {
-                                    "attributeGuid": "43A92B1D-F409-4611-A93D-5606AF4F536A",
-                                    "attributeName": "running_model",
-                                    "checked": "true",
-                                    "dataType": "STRING",
-                                    "attributeLatestValue": "demoC",
-                                    "deviceUpdatedDate": "2024-11-01T02:29:39.323Z",
-                                    "gatewayUpdatedDate": "NA",
-                                    "attributeValue": "demoC"
-                                },
-                                {
-                                    "attributeGuid": "6236BB0B-9903-4FA8-986A-D2EB381F80DE",
-                                    "attributeName": "mem_usage",
-                                    "checked": "false",
-                                    "dataType": "DECIMAL",
-                                    "attributeLatestValue": "33.4",
-                                    "deviceUpdatedDate": "2024-11-01T02:29:39.323Z",
-                                    "gatewayUpdatedDate": "NA",
-                                    "attributeValue": "33.4"
-                                },
-                                {
-                                    "attributeGuid": "1F22DEFB-18B9-4B71-8223-D73C8493ABEF",
+                                    "attributeGuid": "F666CE47-FE19-4180-8576-43D16029A5EE",
                                     "attributeName": "script_version",
                                     "checked": "false",
                                     "dataType": "STRING",
+                                    "attributeLatestValue": "1.0.1",
+                                    "deviceUpdatedDate": "2024-11-20T07:09:25.893Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "1.0.1"
+                                },
+                                {
+                                    "attributeGuid": "40A5C277-34FF-478F-BD31-97711C2395ED",
+                                    "attributeName": "version",
+                                    "checked": "false",
+                                    "dataType": "STRING",
                                     "attributeLatestValue": "1.0",
-                                    "deviceUpdatedDate": "2024-10-31T03:17:09.000Z",
+                                    "deviceUpdatedDate": "2024-11-20T07:09:25.893Z",
                                     "gatewayUpdatedDate": "NA",
                                     "attributeValue": "1.0"
+                                },
+                                {
+                                    "attributeGuid": "5ACB38B9-D2AC-447D-A137-BE32342373AC",
+                                    "attributeName": "mem_usage",
+                                    "checked": "false",
+                                    "dataType": "DECIMAL",
+                                    "attributeLatestValue": "34.3",
+                                    "deviceUpdatedDate": "2024-11-20T07:09:25.893Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "34.3"
+                                },
+                                {
+                                    "attributeGuid": "303A547A-8FAF-4AA4-ADD7-F4BF800EEF6D",
+                                    "attributeName": "running_model",
+                                    "checked": "true",
+                                    "dataType": "STRING",
+                                    "attributeLatestValue": "demoB",
+                                    "deviceUpdatedDate": "2024-11-20T07:09:25.893Z",
+                                    "gatewayUpdatedDate": "NA",
+                                    "attributeValue": "demoB"
                                 }
                             ]
                         },
@@ -740,14 +740,14 @@
                         "transformations": [
                             {
                                 "condition": "eq",
-                                "conditionValue": "demoDn",
+                                "conditionValue": "demoB",
                                 "type": "Url",
                                 "errors": "",
                                 "typeValue": "https://saleshosted.z13.web.core.windows.net/demo/rzboard/DemoBnA.png"
                             },
                             {
                                 "condition": "ne",
-                                "conditionValue": "demoDn",
+                                "conditionValue": "demoB",
                                 "type": "Url",
                                 "errors": "",
                                 "typeValue": "https://saleshosted.z13.web.core.windows.net/demo/rzboard/DemoBn.png"
@@ -780,21 +780,21 @@
                 "titleAlign": "",
                 "contents": {
                     "control": {
-                        "device": "mcl-RZboard1",
-                        "deviceGuid": "B31A12DD-5352-4D0B-8805-1AB1957C41A0",
+                        "device": "RZBoard6",
+                        "deviceGuid": "B6580661-C895-474C-BB8E-C81BD972B4C2",
                         "controlType": "button",
                         "leftText": "YOLO",
-                        "leftCommand": "CC888B7E-6849-4B89-AC8B-765CB0BDA38C",
+                        "leftCommand": "D37E268A-E392-4CA4-9A41-9A19F56F0A89",
                         "leftSwitchColor": "#f5a623",
                         "leftBackgroundColor": "",
                         "leftParam": "",
                         "rightText": "YOLO",
-                        "rightCommand": "CC888B7E-6849-4B89-AC8B-765CB0BDA38C",
+                        "rightCommand": "D37E268A-E392-4CA4-9A41-9A19F56F0A89",
                         "rightSwitchColor": "#f5a623",
                         "rightBackgroundColor": "",
                         "rightParam": "",
                         "showStatus": "true",
-                        "template": "540A3E92-0C47-409B-BCBB-2CCCD73AA435",
+                        "template": "79EE71D9-3FD8-4900-80C2-1A654035AF07",
                         "key": "control",
                         "showleftSwitchColorPicker": "false",
                         "showrightSwitchColorPicker": "false"
@@ -835,8 +835,8 @@
                     },
                     "live": {
                         "device": {
-                            "deviceGuid": "B31A12DD-5352-4D0B-8805-1AB1957C41A0",
-                            "deviceUniqueId": "mcl-RZboard1"
+                            "deviceGuid": "B6580661-C895-474C-BB8E-C81BD972B4C2",
+                            "deviceUniqueId": "RZBoard6"
                         },
                         "attributes": {
                             "attribute": [
@@ -930,8 +930,8 @@
                     },
                     "live": {
                         "device": {
-                            "deviceGuid": "B31A12DD-5352-4D0B-8805-1AB1957C41A0",
-                            "deviceUniqueId": "mcl-RZboard1"
+                            "deviceGuid": "B6580661-C895-474C-BB8E-C81BD972B4C2",
+                            "deviceUniqueId": "RZBoard6"
                         },
                         "attributes": {
                             "attribute": [
@@ -1017,8 +1017,8 @@
                 "contents": {
                     "Transformation": {
                         "device": {
-                            "deviceGuid": "B31A12DD-5352-4D0B-8805-1AB1957C41A0",
-                            "deviceUniqueId": "mcl-RZboard1"
+                            "deviceGuid": "B6580661-C895-474C-BB8E-C81BD972B4C2",
+                            "deviceUniqueId": "RZBoard6"
                         },
                         "attributes": {
                             "attribute": [
@@ -1118,21 +1118,21 @@
                 "titleAlign": "",
                 "contents": {
                     "control": {
-                        "device": "mcl-RZboard1",
-                        "deviceGuid": "B31A12DD-5352-4D0B-8805-1AB1957C41A0",
+                        "device": "RZBoard6",
+                        "deviceGuid": "B6580661-C895-474C-BB8E-C81BD972B4C2",
                         "controlType": "button",
                         "leftText": "RezNet50",
-                        "leftCommand": "144F109F-0F48-4916-A6A2-AB9DC24CD437",
+                        "leftCommand": "C55ECF48-5355-458C-94ED-F97AC190B8C1",
                         "leftSwitchColor": "#7ed321",
                         "leftBackgroundColor": "",
                         "leftParam": "",
                         "rightText": "ResNet50",
-                        "rightCommand": "144F109F-0F48-4916-A6A2-AB9DC24CD437",
+                        "rightCommand": "C55ECF48-5355-458C-94ED-F97AC190B8C1",
                         "rightSwitchColor": "#7ed321",
                         "rightBackgroundColor": "",
                         "rightParam": "",
                         "showStatus": "true",
-                        "template": "540A3E92-0C47-409B-BCBB-2CCCD73AA435",
+                        "template": "79EE71D9-3FD8-4900-80C2-1A654035AF07",
                         "key": "control",
                         "showleftSwitchColorPicker": "false",
                         "showrightSwitchColorPicker": "false"
@@ -1262,11 +1262,11 @@
                         "key": "url"
                     },
                     "device": {
-                        "deviceGuid": "B31A12DD-5352-4D0B-8805-1AB1957C41A0",
+                        "deviceGuid": "B6580661-C895-474C-BB8E-C81BD972B4C2",
                         "deviceName": "",
                         "imageurl": "",
                         "key": "device",
-                        "deviceUniqueId": "mcl-RZboard1"
+                        "deviceUniqueId": "RZBoard6"
                     },
                     "telemetry": {
                         "deviceGuid": "",
@@ -1300,8 +1300,8 @@
                 "contents": {
                     "Transformation": {
                         "device": {
-                            "deviceGuid": "B31A12DD-5352-4D0B-8805-1AB1957C41A0",
-                            "deviceUniqueId": "mcl-RZboard1"
+                            "deviceGuid": "B6580661-C895-474C-BB8E-C81BD972B4C2",
+                            "deviceUniqueId": "RZBoard6"
                         },
                         "attributes": {
                             "attribute": [
@@ -1401,21 +1401,21 @@
                 "titleAlign": "",
                 "contents": {
                     "control": {
-                        "device": "mcl-RZboard1",
-                        "deviceGuid": "B31A12DD-5352-4D0B-8805-1AB1957C41A0",
+                        "device": "RZBoard6",
+                        "deviceGuid": "B6580661-C895-474C-BB8E-C81BD972B4C2",
                         "controlType": "button",
                         "leftText": "HRNet Pose Est",
-                        "leftCommand": "CD78EB1A-EE64-4BEE-8038-2321CBD07025",
+                        "leftCommand": "537EAA40-F38B-4859-84D3-3F69663D2F8A",
                         "leftSwitchColor": "#cb6ce6",
                         "leftBackgroundColor": "",
                         "leftParam": "",
                         "rightText": "HRNet Pose Est",
-                        "rightCommand": "CD78EB1A-EE64-4BEE-8038-2321CBD07025",
+                        "rightCommand": "537EAA40-F38B-4859-84D3-3F69663D2F8A",
                         "rightSwitchColor": "#cb6ce6",
                         "rightBackgroundColor": "",
                         "rightParam": "",
                         "showStatus": "true",
-                        "template": "540A3E92-0C47-409B-BCBB-2CCCD73AA435",
+                        "template": "79EE71D9-3FD8-4900-80C2-1A654035AF07",
                         "key": "control",
                         "showleftSwitchColorPicker": "false",
                         "showrightSwitchColorPicker": "false"
@@ -1448,8 +1448,8 @@
                 "contents": {
                     "Transformation": {
                         "device": {
-                            "deviceGuid": "B31A12DD-5352-4D0B-8805-1AB1957C41A0",
-                            "deviceUniqueId": "mcl-RZboard1"
+                            "deviceGuid": "B6580661-C895-474C-BB8E-C81BD972B4C2",
+                            "deviceUniqueId": "RZBoard6"
                         },
                         "attributes": {
                             "attribute": [
@@ -1549,21 +1549,21 @@
                 "titleAlign": "",
                 "contents": {
                     "control": {
-                        "device": "mcl-RZboard1",
-                        "deviceGuid": "B31A12DD-5352-4D0B-8805-1AB1957C41A0",
+                        "device": "RZBoard6",
+                        "deviceGuid": "B6580661-C895-474C-BB8E-C81BD972B4C2",
                         "controlType": "button",
                         "leftText": "Stop Running Demos",
-                        "leftCommand": "472B90BB-8107-49CD-BC24-A2B27F0B6E6F",
+                        "leftCommand": "BF1C9213-32EB-4655-9268-CF637089608C",
                         "leftSwitchColor": "#ff5757",
                         "leftBackgroundColor": "",
                         "leftParam": "",
                         "rightText": "Stop Running Demos",
-                        "rightCommand": "CC888B7E-6849-4B89-AC8B-765CB0BDA38C",
+                        "rightCommand": "BF1C9213-32EB-4655-9268-CF637089608C",
                         "rightSwitchColor": "#ff5757",
                         "rightBackgroundColor": "",
                         "rightParam": "",
                         "showStatus": "true",
-                        "template": "540A3E92-0C47-409B-BCBB-2CCCD73AA435",
+                        "template": "79EE71D9-3FD8-4900-80C2-1A654035AF07",
                         "key": "control",
                         "showrightSwitchColorPicker": "false",
                         "showleftSwitchColorPicker": "false"
