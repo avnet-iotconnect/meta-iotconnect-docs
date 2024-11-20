@@ -151,10 +151,25 @@ transfer_ota_payload() {
     fi
 }
 
-# Move certificates locally before transfer
 prepare_certificates() {
     echo "Organizing certificates in the certs folder..."
+
+    # Ensure the certs directory exists
     mkdir -p "$CERTS_PAYLOAD_DIR"
+
+    # Extract certificates from the ZIP file
+    if [ -f "$CERT_ZIP" ]; then
+        echo "Extracting certificates from $CERT_ZIP..."
+        unzip -o "$CERT_ZIP" -d "$CERTS_PAYLOAD_DIR"
+        if [ $? -ne 0 ]; then
+            echo "Error: Failed to extract certificates from $CERT_ZIP"
+            exit 1
+        fi
+    else
+        echo "Warning: $CERT_ZIP not found. Skipping extraction."
+    fi
+
+    # Move any loose .crt and .pem files in the script directory to the certs folder
     for cert in "$SCRIPT_DIR"/*.crt "$SCRIPT_DIR"/*.pem; do
         if [ -f "$cert" ]; then
             cp -v "$cert" "$CERTS_PAYLOAD_DIR/"
@@ -162,7 +177,6 @@ prepare_certificates() {
         fi
     done
 }
-
 
 # Function to update a directory
 update_directory() {
