@@ -12,7 +12,7 @@ For greatest reach, this guide is written to be followed on a Windows 10/11 host
 * Ethernet Cable
 * [USB to TTL Serial Cable](https://www.amazon.com/s?k=usb+to+ttl+serial+cable)
 * [Hook test cable](https://www.amazon.com/s?k=hook+test+cable) (or something similar)
-* [USB Web Cam](https://www.amazon.com/s?k=usb+webcam) - 1080p is sufficient
+* [USB Webcam](https://www.amazon.com/s?k=usb+webcam) - 1080p is sufficient
 * [Micro HDMI to HDMI](https://www.amazon.com/s?k=micro+hdmi+to+hdmi)
 
 # 3. Hardware Setup
@@ -20,6 +20,8 @@ Set up the device by connecting the following items:
 * Connect the USB to Serial port adapter from the PC to the board header (See TX, RX and GND labels in the reference image below.)
 * Connect the Jumper Wire
 * Connect the Ethernet cable from the board to you LAN switch/router
+* Connect the Micro HDMI cable to a monitor
+* Connect the the Webcam to a USB port on the board
 * Connect the USB-C cable to the board, but DON'T connect your PC yet
 
 Configure the DIP switches:  
@@ -77,14 +79,15 @@ pip install -r rzboard_flash_util/requirements.txt
 7. Press and hold the power button for a couple seconds until the LED turns on. The script will begin flashing your bootloader.
 
 > [!NOTE]
-> This process will take about 5 minutes and may appear to be "stuck" at times. Be patient.
+> This process will take about 5 minutes and progress is only updated periodically.
 
-8. Once the bootloader is complete, remove the USB-C power from the board
+8. Once the bootloader is complete, remove the **USB-C power** and the **jumper wire**.
 9. Set the DIP switches to boot from the SD Card:  
 1 = OFF  
 2 = ON  
 
-10. Remove the jumper wire, insert the SD Card, connect the USB power and power on the board by holding the power button for a couple seconds.
+10. Insert the **SD Card** and re-connect the **USB-C power**
+11. Press and hold the board power button for a couple seconds to turn it on.
 
 # 7. Download Configuration Script  
 1. Download the device configuration script [onboard.zip](https://github.com/avnet-iotconnect/meta-iotconnect-docs/blob/main/QuickStart/Renesas/RZBoard-V2L/demo-iotc-ai-camera/scripts/onboard.zip?raw=1)
@@ -147,10 +150,16 @@ To accomplish this task, the IP Address of the board is required.  This can be o
 5. Enter the IP address of the board and press `Enter`
 6. If prompted to continue connecting, type `yes` then `Enter`
 7. When prompted to enter a password, type `avnet` then `Enter` (This will happen 3 times)
-8. Assuming you placed the `iotcDeviceConfig.json` in the onboarding folder, just hit Enter
-9. Assuming you placed the `RZboardV2L-certificates.zip` in the onboarding folder, just hit Enter
+8. Assuming you placed the `iotcDeviceConfig.json` in the onboard folder, just hit Enter
+9. Assuming you placed the `RZboardV2L-certificates.zip` in the onboard folder, just hit Enter
 
-**Script Completion**: After completion, your device should be fully configured and ready for IoTConnect. If any issues arise, the script provides feedback to help with troubleshooting.
+After the script completes, you will be presented with some information and a prompt to open an SSH session.
+
+10. Type `yes` and then `Enter`
+11. To start the IoTConnect application copy/paste the following command:
+```bash
+~/iotc-application.sh
+```
 
 # 13. Import a Dashboard
 The interactive demo can be loaded by using the Dynamic Dashboard feature of IoTConnect.  
@@ -164,7 +173,10 @@ You will now be in the dashboard edit mode. You can add/remove widgets or just c
 
 # 14. Using the Demo
 
-TBD
+* Use the colored buttons or the commands in the "Cloud 2 Device" menu to start the various AI models.
+* Aim your webcam at various people / objects to evaluate the models.
+* View the live video feed on a connected monitor.
+* View the results on the IoTConnect dashboard.
 
 # 15. Further Learning
 For more advanced setup instructions, Yocto Project configurations, and other board features, refer to the following documents:  
@@ -172,6 +184,8 @@ For more advanced setup instructions, Yocto Project configurations, and other bo
 - [Avnet RZ Board V2L Product Page](https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/rzboard-v2l/): Product Page (with access to additional guides and resources)
 
 # 16. Resources
-* 1
-* 2
-* 3
+* [Webinar Slides](https://www.avnet.com/iot)
+* [Purchase the RZboardV2L](https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/rzboard-v2l)
+* [Additional Renesas QuickStart Guides](https://www.avnet.com/iotconnect/renesas)
+* [IoTConnect Overview](https://www.iotconnect.io/)
+* [IoTConnect Knowledgebase](https://help.iotconnect.io/)
