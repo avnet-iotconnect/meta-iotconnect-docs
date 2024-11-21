@@ -8,6 +8,7 @@ DATA_PAYLOAD_DIR="$LOCAL_DATA_PAYLOAD_DIR/data"  # Data folder in the payload
 CONFIG_FILE="$LOCAL_DATA_PAYLOAD_DIR/config.json"  # Path to config.json
 CERTS_PAYLOAD_DIR="$LOCAL_DATA_PAYLOAD_DIR/certs"  # Certs directory
 SCRIPTS_PAYLOAD_DIR="$LOCAL_DATA_PAYLOAD_DIR/scripts"  # Scripts directory
+LOGS_PAYLOAD_DIR="$LOCAL_DATA_PAYLOAD_DIR/logs"  # Logs directory
 
 # Define target directories for installation in /usr/iotc
 APPLICATION_INSTALLED_DIR="/usr/iotc/bin/iotc-python-sdk"
@@ -15,6 +16,7 @@ MODEL_INSTALLED_DIR="/usr/iotc/bin/iotc-python-sdk/model"
 LOCAL_DATA_INSTALLED_DIR="/usr/iotc/local"
 CERTS_INSTALLED_DIR="/usr/iotc/local/certs"
 SCRIPTS_INSTALLED_DIR="/usr/iotc/local/scripts"
+LOGS_INSTALLED_DIR="/usr/iotc/local/logs"
 
 # Backup directory
 BACKUP_DIR="/tmp/.ota/backup"
@@ -25,6 +27,7 @@ mkdir -p "$MODEL_INSTALLED_DIR"
 mkdir -p "$LOCAL_DATA_INSTALLED_DIR"
 mkdir -p "$CERTS_INSTALLED_DIR"
 mkdir -p "$SCRIPTS_INSTALLED_DIR"
+mkdir -p "$LOGS_INSTALLED_DIR"
 
 # Backup existing files in the target directories
 cp -va "$APPLICATION_INSTALLED_DIR"/* "$BACKUP_DIR/" 2>/dev/null
@@ -52,6 +55,9 @@ update_directory "$DATA_PAYLOAD_DIR" "$LOCAL_DATA_INSTALLED_DIR/data"
 
 # Update scripts in /usr/iotc/local/scripts
 update_directory "$SCRIPTS_PAYLOAD_DIR" "$SCRIPTS_INSTALLED_DIR"
+
+# Update logs in /usr/iotc/local/logs
+update_directory "$LOGS_PAYLOAD_DIR" "$LOGS_INSTALLED_DIR"
 
 # Copy config.json to /usr/iotc/local/config.json
 if [ -f "$CONFIG_FILE" ]; then
