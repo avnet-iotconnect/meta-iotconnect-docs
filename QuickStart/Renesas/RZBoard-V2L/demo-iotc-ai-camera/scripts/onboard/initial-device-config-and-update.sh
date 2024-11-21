@@ -328,8 +328,6 @@ copy_and_execute_script "/tmp/ota-payload" "$SCRIPT_DIR/install.sh"
 
 validate_target_state
 
-echo "IoTConnect service has been set up and started on the target device."
-
 # Note for users
 cat <<EOF
 
