@@ -184,7 +184,7 @@ For more advanced setup instructions, Yocto Project configurations, and other bo
 - [Avnet RZ Board V2L Product Page](https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/rzboard-v2l/): Product Page (with access to additional guides and resources)
 
 # 16. Resources
-* [Webinar Slides](QuickStart/Renesas/RZBoard-V2L/Renesas Tria Combined Webinar Deck 1.pdf)
+* [Webinar Slides](Renesas/RZBoard-V2L/Media/Renesas-Tria-Avnet-Webinar.pdf)
 * [Purchase the RZboardV2L](https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/rzboard-v2l)
 * [Additional Renesas QuickStart Guides](https://www.avnet.com/iotconnect/renesas)
 * [IoTConnect Overview](https://www.iotconnect.io/)
