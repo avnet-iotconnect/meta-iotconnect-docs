@@ -108,11 +108,10 @@ See the IoTConnect [Subscription Information](https://github.com/avnet-iotconnec
 # 9. IoTConnect Device Template Setup
 A Device Template define the type of telemetery the platform should expect to recieve.
 * Download the premade device template [device_template_RZboard_AI.json](Renesas/RZBoard-V2L/demo-iotc-ai-camera/templates/device_template_RZboard_AI.json?raw=1) (**MUST** Right-Click and "Save-As" to get the raw json file)
-* Log-in the [console.iotconnect.io](https://console.iotconnect.io/login) using the credentials recieved when registering. 
+* Log-in the [console.iotconnect.io](https://console.iotconnect.io/login) using the credentials received when registering. 
 * Import the template into your IoTConnect instance. (A guide on [Importing a Device Template](https://github.com/avnet-iotconnect/avnet-iotconnect.github.io/blob/main/documentation/iotconnect/import_device_template.md) is available or for more information, please see the [IoTConnect Documentation](https://docs.iotconnect.io/iotconnect/) website.)
 
 # 10. Create a Device in IoTConnect
-
 
 1.  **Click** the Device icon and the "Device" sub-menu
 2. At the top-right, click on the "Create Device" button
