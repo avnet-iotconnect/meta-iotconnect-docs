@@ -18,7 +18,7 @@
 - [Revision Info](#revision-info)
 
 # 1. Introduction
-This guide is designed to walk through the steps to connect the STM32MP257-EV1 to the Avnet /IOTCONNECT platform and demonstrate the on-board Image Classification functionality as shown in the webinar hosted by ST and Avnet November, 2024. For greatest reach, this guide is written to be following on a Windows 10/11 host machine.
+This guide is designed to walk through the steps to connect the STM32MP257-EV1 to the Avnet /IOTCONNECT platform and demonstrate the on-board Image Classification functionality as shown in the [webinar hosted by ST and Avnet](https://players.brightcove.net/4598493563001/BkZJhSKu_default/index.html?videoId=6364751976112) November, 2024. For greatest reach, this guide is written to be following on a Windows 10/11 host machine.
 
 <table>
   <tr>
