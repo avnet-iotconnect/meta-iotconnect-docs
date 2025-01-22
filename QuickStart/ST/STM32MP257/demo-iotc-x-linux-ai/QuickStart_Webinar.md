@@ -1,10 +1,34 @@
 # STM32MP257x-EV1 Evaluation Kit QuickStart for Webinar
 
+1. [Introduction](#1-introduction)
+2. [Hardware Requirements](#2-hardware-requirements)
+3. [Hardware Setup](#3-hardware-setup)
+4. [Installing Required Tools](#4-installing-required-tools)
+5. [Obtain the Custom Image and Configuration Script](#5-obtain-the-custom-image-and-configuration-script)
+6. [Flash the Custom Image](#6-flash-the-custom-image)
+7. [Cloud Account Setup](#7-cloud-account-setup)
+8. [/IOTCONNECT Device Template Setup](#8-iotconnect-device-template-setup)
+9. [Create a Device in /IOTCONNECT](#9-create-a-device-in-iotconnect)
+10. [Obtain Board IP address](#10-obtain-board-ip-address)
+11. [Running the Device Setup Script](#11-running-the-device-setup-script)
+12. [Import a Dashboard](#12-import-a-dashboard)
+13. [Using the Demo](#13-using-the-demo)
+14. [Further Learning](#14-further-learning)
+15. [Resources](#15-resources)
+- [Revision Info](#revision-info)
+
 # 1. Introduction
-This guide is designed to walk through the steps to connect the STM32MP257-EV1 to the Avnet IoTConnect platform and demonstrate the on-board Image Classification functionality as shown in the webinar hosted by ST and Avnet November, 2024. For greatest reach, this guide is written to be following on a Windows 10/11 host machine.
+This guide is designed to walk through the steps to connect the STM32MP257-EV1 to the Avnet /IOTCONNECT platform and demonstrate the on-board Image Classification functionality as shown in the webinar hosted by ST and Avnet November, 2024. For greatest reach, this guide is written to be following on a Windows 10/11 host machine.
+
+<table>
+  <tr>
+    <td><img src="../media/STM32MP257F-EV1.jpg" width="6000"></td>
+    <td>The STM32MP257 is a powerful microprocessor board based on the ARM Cortex-A7 and Cortex-M4 cores, offering a blend of high-performance computing and low-power operation. It features extensive connectivity options, including Ethernet, USB, and UART interfaces, making it ideal for industrial, IoT, and embedded applications.</td>
+  </tr>
+</table>
 
 # 2. Hardware Requirements
-* STM32MP257F-EV1 Evaluation Board
+* STM32MP257F-EV1 Evaluation Board [Purchase](https://www.avnet.com/shop/us/products/stmicroelectronics/stm32mp257f-ev1-3074457345659668899) | [Specifications](https://www.st.com/resource/en/data_brief/stm32mp257f-ev1.pdf) | [User Manual & Kit Contents](https://www.st.com/resource/en/user_manual/um3359-evaluation-board-with-stm32mp257f-mpu-stmicroelectronics.pdf) | [All Resources](https://www.st.com/en/evaluation-tools/stm32mp257f-ev1.html#documentation)
 * MicroSD Card (minimum 16GB)
 * 2x USB Type-C Cables
 * (Optional) 7” LVDS WSVGA Display with Touch Panel (B-LVDS7-WSVGA)
@@ -14,7 +38,7 @@ This guide is designed to walk through the steps to connect the STM32MP257-EV1 t
 # 3. Hardware Setup
 See the reference image below for cable connections.
 <details>
-<summary>Reference Image</summary>
+<summary>Reference Image with Connections</summary>
 <img src="https://github.com/avnet-iotconnect/meta-iotconnect-docs/blob/main/QuickStart/ST/STM32MP257/media/STM32MP257x-EV1_connections.jpg" alt="STM32MP257x-EV1 Connections">
 </details>
 
@@ -76,21 +100,21 @@ See the reference image below for cable connections.
 ---
 
 # 7. Cloud Account Setup
-An IoTConnect account with AWS backend is required.  If you need to create an account, a free trial subscription is available.
+An /IOTCONNECT account with AWS backend is required.  If you need to create an account, a free trial subscription is available.
 
-[IoTConnect Free Trial (AWS Version)](https://subscription.iotconnect.io/subscribe?cloud=aws)
+[/IOTCONNECT Free Trial (AWS Version)](https://subscription.iotconnect.io/subscribe?cloud=aws)
 
 > [!NOTE]
 > Be sure to check any SPAM folder for the temporary password after registering.
 
-See the IoTConnect [Subscription Information](https://github.com/avnet-iotconnect/avnet-iotconnect.github.io/blob/main/documentation/iotconnect/subscription/subscription.md) for more details on the trial.
+See the /IOTCONNECT [Subscription Information](https://github.com/avnet-iotconnect/avnet-iotconnect.github.io/blob/main/documentation/iotconnect/subscription/subscription.md) for more details on the trial.
 
-# 8. IoTConnect Device Template Setup
+# 8. /IOTCONNECT Device Template Setup
 A Device Template define the type of telemetery the platform should expect to recieve.
 * Download the premade device template [device_template_stm32mp2ai.JSON](https://github.com/avnet-iotconnect/meta-iotconnect-docs/blob/main/QuickStart/ST/STM32MP257/demo-iotc-x-linux-ai/templates/device_template_stm32mp2ai.JSON?raw=1) (**MUST** Right-Click and "Save-As" to get the raw json file)
-* Import the template into your IoTConnect instance. (A guide on [Importing a Device Template](https://github.com/avnet-iotconnect/avnet-iotconnect.github.io/blob/main/documentation/iotconnect/import_device_template.md) is available or for more information, please see the [IoTConnect Documentation](https://docs.iotconnect.io/iotconnect/) website.)
+* Import the template into your /IOTCONNECT instance. (A guide on [Importing a Device Template](https://github.com/avnet-iotconnect/avnet-iotconnect.github.io/blob/main/documentation/iotconnect/import_device_template.md) is available or for more information, please see the [/IOTCONNECT Documentation](https://docs.iotconnect.io/iotconnect/) website.)
 
-# 9. Create a Device in IoTConnect
+# 9. Create a Device in /IOTCONNECT
 
 1. **Click** the Device icon and the "Device" sub-menu
 2. At the top-right, click on the "Create Device" button
@@ -105,7 +129,7 @@ A Device Template define the type of telemetery the platform should expect to re
 ---
 
 # 10. Obtain Board IP address
-The script in the next sction will need to connect to the board update files and configure connection settings.
+The script in the next section will need to connect to the board update files and configure connection settings.
 To accomplish this task, the IP Address of the board is required.  This can be obtained in a couple of ways:
 1. Login to your router and find the DHCP lease associated with hostname `stm32mp25-eval`
 2. Connect to the board via a serial terminal such as https://googlechromelabs.github.io/serial-terminal/
@@ -128,14 +152,14 @@ To accomplish this task, the IP Address of the board is required.  This can be o
 8. When prompted to replace the .crt file type `A`
 9. When prompted again, type `yes`
 
-**Script Completion**: After completion, your device should be fully configured and ready for IoTConnect. If any issues arise, the script provides feedback to help with troubleshooting.
+**Script Completion**: After completion, your device should be fully configured and ready for /IOTCONNECT. If any issues arise, the script provides feedback to help with troubleshooting.
 
 ---
 # 12. Import a Dashboard
-The interactive demo can be loaded by using the Dynamic Dashboard feature of IoTConnect.  
+The interactive demo can be loaded by using the Dynamic Dashboard feature of /IOTCONNECT.  
 The pre-configured demo dashboard is available here: [dashboard_template_stm32mp2_classification.json](templates/dashboard_template_stm32mp2_classification.json?raw=1) (**must** Right-Click the link, Save As)
 
-* **Download** the template then select "Create Dashboard" from the top of the IoTConnect portal
+* **Download** the template then select "Create Dashboard" from the top of the /IOTCONNECT portal
 * **Select** the "Import Dashboard" option and **Select** the *Template* and *Device Name* used previously 
 * **Input** a name and complete the import
 
@@ -153,12 +177,17 @@ The "Target Image" box will randomly display an image from an AWS S3 bucket ever
 
 # 14. Further Learning
 
-Other QuickStart guides are available that demonstrate the Object Detection and Pose Estimation models as well as the ability to deploy new models via the IoTConnect OTA service.
+Other QuickStart guides are available that demonstrate the Object Detection and Pose Estimation models as well as the ability to deploy new models via the /IOTCONNECT OTA service.
 To learn more, [view the unabridged QuickStart](https://github.com/avnet-iotconnect/meta-iotconnect-docs/blob/main/QuickStart/STM32MP257.md).
 
 # 15. Resources
 * [Webinar Slides](Rapidly_Create_Vision-based_EdgeAI_Solutions_STM32MP257.pdf)
 * [Purchase the STM32MP257-EV1 Board](https://www.avnet.com/shop/us/products/stmicroelectronics/stm32mp257f-ev1-3074457345659668899)
 * [Additional ST QuickStart Guides](https://www.avnet.com/iotconnect/st)
-* [IoTConnect Overview](https://www.iotconnect.io/)
-* [IoTConnect Knowledgebase](https://help.iotconnect.io/)
+* [/IOTCONNECT Overview](https://www.iotconnect.io/)
+* [/IOTCONNECT Knowledgebase](https://help.iotconnect.io/)
+
+# Revision Info
+![GitHub last commit](https://img.shields.io/github/last-commit/avnet-iotconnect/meta-iotconnect-docs?label=Last%20Commit)
+- View change to this repository: [Commit History](https://github.com/avnet-iotconnect/meta-iotconnect-docs/commits/main)
+- View changes to this document: [QUICKSTART.md](https://github.com/avnet-iotconnect/meta-iotconnect-docs/commits/main/QuickStart/ST/STM32MP257/demo-iotc-x-linux-ai/QuickStart_Webinar.md)
