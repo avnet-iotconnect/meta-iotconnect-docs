@@ -179,7 +179,7 @@ You will now be in the dashboard edit mode. You can add/remove widgets or just c
 
 # 15. Further Learning
 For more advanced setup instructions, Yocto Project configurations, and other board features, refer to the following documents:  
-- [RZ Board Linux Yocto User Manual v2.3](https://www.avnet.com/wps/wcm/connect/onesite/9fe02bc9-8335-4da2-924a-1bdde941e534/RzBoard-Linux-Yocto-UserManual-v2.3.pdf): Direct PDF Link
+- [RZ Board Linux Yocto User Manual v2.4](https://www.avnet.com/wcm/connect/9fe02bc9-8335-4da2-924a-1bdde941e534/RzBoard-Linux-Yocto-UserManual-v2.1.pdf?MOD=AJPERES&CACHEID=ROOTWORKSPACE.Z18_NA5A1I41L0ICD0ABNDMDDG0000-9fe02bc9-8335-4da2-924a-1bdde941e534-ogmf6kR?MOD=AJPERES&CACHEID=ROOTWORKSPACE.Z18_NA5A1I41L0ICD0ABNDMDDG0000-9fe02bc9-8335-4da2-924a-1bdde941e534-ogmf6kR): Direct PDF Link
 - [Avnet RZ Board V2L Product Page](https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/rzboard-v2l/): Product Page (with access to additional guides and resources)
 
 # 16. Resources
