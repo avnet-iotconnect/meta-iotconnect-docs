@@ -1,7 +1,7 @@
-# RZBoard V2L IoTC Quick Start Guide
+# RZBoard V2L /IOTCONNECT Quick Start Guide
 
 # 1. Introduction
-This guide is designed to walk through the steps to connect the [RZBoard V2L](https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/rzboard-v2l) to the Avnet [IoTConnect platform](https://console.iotconnect.io/) and demonstrate the on-board AI functionality as shown in the webinar hosted by [TRIA](https://www.tria-technologies.com/) and [Avnet](https://avnet.com/iotconnect/renesas), December, 2024.  
+This guide is designed to walk through the steps to connect the [RZBoard V2L](https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/rzboard-v2l) to the Avnet [/IOTCONNECT platform](https://console.iotconnect.io/) and demonstrate the on-board AI functionality as shown in the webinar hosted by [TRIA](https://www.tria-technologies.com/) and [Avnet](https://avnet.com/iotconnect/renesas), December, 2024.  
 For greatest reach, this guide is written to be followed on a Windows 10/11 host machine.
 
 # 2. Hardware Requirements
@@ -96,22 +96,22 @@ pip install -r rzboard_flash_util/requirements.txt
 You should now have a new folder called onboard here: `C:\Renesas\RZboardV2L\onboard`  
 
 # 8. Cloud Account Setup
-An IoTConnect account with AWS backend is required.  If you need to create an account, a free trial subscription is available.
+An /IOTCONNECT account with AWS backend is required.  If you need to create an account, a free trial subscription is available.
 
-[IoTConnect Free Trial (AWS Version)](https://subscription.iotconnect.io/subscribe?cloud=aws)
+[/IOTCONNECT Free Trial (AWS Version)](https://subscription.iotconnect.io/subscribe?cloud=aws)
 
 > [!NOTE]
 > Be sure to check any SPAM folder for the temporary password after registering.
 
-See the IoTConnect [Subscription Information](https://github.com/avnet-iotconnect/avnet-iotconnect.github.io/blob/main/documentation/iotconnect/subscription/subscription.md) for more details on the trial.
+See the /IOTCONNECT [Subscription Information](https://github.com/avnet-iotconnect/avnet-iotconnect.github.io/blob/main/documentation/iotconnect/subscription/subscription.md) for more details on the trial.
 
-# 9. IoTConnect Device Template Setup
+# 9. /IOTCONNECT Device Template Setup
 A Device Template defines the type of telemetery the platform should expect to receive.
 * Download the premade device template [device_template_RZboard_AI.json](Renesas/RZBoard-V2L/demo-iotc-ai-camera/templates/device_template_RZboard_AI.json?raw=1) (**MUST** Right-Click and "Save-As" to get the raw json file)
 * Log-in the [console.iotconnect.io](https://console.iotconnect.io/login) using the credentials received when registering. 
-* Import the template into your IoTConnect instance. (A guide on [Importing a Device Template](https://github.com/avnet-iotconnect/avnet-iotconnect.github.io/blob/main/documentation/iotconnect/import_device_template.md) is available or for more information, please see the [IoTConnect Documentation](https://docs.iotconnect.io/iotconnect/) website.)
+* Import the template into your /IOTCONNECT instance. (A guide on [Importing a Device Template](https://github.com/avnet-iotconnect/avnet-iotconnect.github.io/blob/main/documentation/iotconnect/import_device_template.md) is available or for more information, please see the [/IOTCONNECT Documentation](https://docs.iotconnect.io/iotconnect/) website.)
 
-# 10. Create a Device in IoTConnect
+# 10. Create a Device in /IOTCONNECT
 
 1.  **Click** the Device icon and the "Device" sub-menu
 2. At the top-right, click on the "Create Device" button
@@ -155,16 +155,16 @@ To accomplish this task, the IP Address of the board is required.  This can be o
 After the script completes, you will be presented with some information and a prompt to open an SSH session.
 
 10. Type `yes` and then `Enter`
-11. To start the IoTConnect application copy/paste the following command:
+11. To start the /IOTCONNECT application copy/paste the following command:
 ```bash
 ~/iotc-application.sh
 ```
 
 # 13. Import a Dashboard
-The interactive demo can be loaded by using the Dynamic Dashboard feature of IoTConnect.  
+The interactive demo can be loaded by using the Dynamic Dashboard feature of /IOTCONNECT.  
 The pre-configured demo dashboard is available here: [dashboard_export_RZBOARD_AI.json](Renesas/RZBoard-V2L/demo-iotc-ai-camera/templates/dashboard_export_RZBOARD_AI.json?raw=1) (**must** Right-Click the link, Save As)
 
-* **Download** the template then select "Create Dashboard" from the top of the IoTConnect portal
+* **Download** the template then select "Create Dashboard" from the top of the /IOTCONNECT portal
 * **Select** the "Import Dashboard" option and **Select** the *Template* and *Device Name* used previously 
 * **Input** a name and complete the import
 
@@ -175,7 +175,7 @@ You will now be in the dashboard edit mode. You can add/remove widgets or just c
 * Use the colored buttons or the commands in the "Cloud 2 Device" menu to start the various AI models.
 * Aim your webcam at various people / objects to evaluate the models.
 * View the live video feed on a connected monitor.
-* View the results on the IoTConnect dashboard.
+* View the results on the /IOTCONNECT dashboard.
 
 # 15. Further Learning
 For more advanced setup instructions, Yocto Project configurations, and other board features, refer to the following documents:  
@@ -186,5 +186,5 @@ For more advanced setup instructions, Yocto Project configurations, and other bo
 * [Webinar Slides](Renesas/RZBoard-V2L/Media/Renesas-Tria-Avnet-Webinar.pdf)
 * [Purchase the RZboardV2L](https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/rzboard-v2l)
 * [Additional Renesas QuickStart Guides](https://www.avnet.com/iotconnect/renesas)
-* [IoTConnect Overview](https://www.iotconnect.io/)
+* [/IOTCONNECT Overview](https://www.iotconnect.io/)
 * [IoTConnect Knowledgebase](https://help.iotconnect.io/)
