@@ -187,4 +187,4 @@ For more advanced setup instructions, Yocto Project configurations, and other bo
 * [Purchase the RZboardV2L](https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/rzboard-v2l)
 * [Additional Renesas QuickStart Guides](https://www.avnet.com/iotconnect/renesas)
 * [/IOTCONNECT Overview](https://www.iotconnect.io/)
-* [IoTConnect Knowledgebase](https://help.iotconnect.io/)
+* [/IOTCONNECT Knowledgebase](https://help.iotconnect.io/)
