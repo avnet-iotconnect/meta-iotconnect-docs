@@ -3,84 +3,66 @@
 LOG_FILE="/usr/iotc/local/logs/stop_demo.log"
 RUNNING_MODEL_FILE="/usr/iotc/local/data/running_model"
 
-echo "$(date): Stopping demos" >> $LOG_FILE
+echo "$(date): Stopping demos" >> "$LOG_FILE"
 
 # Write "none" to running_model file
-if echo -n "none" > $RUNNING_MODEL_FILE; then
-    echo "$(date): Cleared running_model file" >> $LOG_FILE
-else
-    echo "$(date): Error: Unable to clear running_model file" >> $LOG_FILE
-    exit 1
-fi
+echo -n "none" > "$RUNNING_MODEL_FILE" && \
+    echo "$(date): Cleared running_model file" >> "$LOG_FILE" || \
+    { echo "$(date): Error: Unable to clear running_model file" >> "$LOG_FILE"; exit 1; }
 
-# Demo patterns
-declare -a demo_patterns=("hrnet_cam" "hrnet_pre-tinyyolov2_cam" "resnet50_cam" "tinyyolov2_cam")
+# Demo executables
+declare -a demo_executables=(
+    "sample_app_hrnet_cam"
+    "sample_app_hrnet_pre-tinyyolov2_cam"
+    "sample_app_resnet50_cam"
+    "sample_app_tinyyolov2_cam"
+)
 
 kill_processes() {
     local signal=$1
     local description=$2
-    local retry_count=3
-    local retry_delay=2
 
-    for pattern in "${demo_patterns[@]}"; do
-        pids=$(pgrep -f "$pattern" | grep -v "$(pgrep -f iotc-application)")
-        if [ ! -z "$pids" ]; then
-            echo "$(date): $description for processes matching pattern: $pattern" >> $LOG_FILE
+    for exec_name in "${demo_executables[@]}"; do
+        pids=$(pgrep -f "$exec_name")
+        if [ -n "$pids" ]; then
+            echo "$(date): $description $exec_name (PIDs: $pids)" >> "$LOG_FILE"
+            kill "$signal" $pids
+            sleep 2  # Wait briefly to allow processes to terminate
+            # Verify if processes have stopped
             for pid in $pids; do
-                echo "$(date): Sending $signal to PID: $pid" >> $LOG_FILE
-                kill $signal $pid
-                for ((i = 0; i < retry_count; i++)); do
-                    if ! ps -p $pid > /dev/null; then
-                        echo "$(date): PID $pid terminated successfully." >> $LOG_FILE
-                        break
+                if ps -p "$pid" > /dev/null; then
+                    echo "$(date): PID $pid did not terminate with signal $signal." >> "$LOG_FILE"
+                    # Only use SIGKILL if the first attempt was SIGTERM
+                    if [ "$signal" != "-9" ]; then
+                        kill -9 "$pid"
+                        echo "$(date): PID $pid forcefully terminated." >> "$LOG_FILE"
                     fi
-                    echo "$(date): Waiting for PID $pid to terminate..." >> $LOG_FILE
-                    sleep $retry_delay
-                done
-
-                if ps -p $pid > /dev/null; then
-                    echo "$(date): PID $pid did not terminate. Forcing termination." >> $LOG_FILE
-                    kill -9 $pid
+                else
+                    echo "$(date): PID $pid terminated successfully." >> "$LOG_FILE"
                 fi
             done
         else
-            echo "$(date): No running processes found for pattern: $pattern" >> $LOG_FILE
+            echo "$(date): No running processes found for $exec_name." >> "$LOG_FILE"
         fi
     done
 }
 
-# Graceful stop
-kill_processes "-15" "Attempting graceful stop (SIGTERM)"
-sleep 5
+# First attempt graceful stop with SIGTERM
+kill_processes "-15" "Attempting graceful stop for"
 
-# Forceful stop if necessary
-kill_processes "-9" "Forcefully stopping (SIGKILL)"
-
-# Reset USB camera (if applicable)
-USB_DEVICE_PATH="/sys/bus/usb/devices/2-1.3/authorized"
-if [ -e "$USB_DEVICE_PATH" ]; then
-    echo "$(date): Resetting USB camera..." >> $LOG_FILE
-    echo 0 > "$USB_DEVICE_PATH"
-    sleep 1
-    echo 1 > "$USB_DEVICE_PATH"
-    echo "$(date): USB camera reset completed." >> $LOG_FILE
-else
-    echo "$(date): Warning: USB device path $USB_DEVICE_PATH not found. Skipping USB reset." >> $LOG_FILE
-fi
+# No explicit sleep needed here; handled in function already
 
 # Final verification
-process_running=false
-for pattern in "${demo_patterns[@]}"; do
-    if pgrep -f "$pattern" >/dev/null; then
-        echo "$(date): Warning: Process $pattern is still running after forced stop!" >> $LOG_FILE
-        process_running=true
+still_running=false
+for exec_name in "${demo_executables[@]}"; do
+    if pgrep -f "$exec_name" > /dev/null; then
+        echo "$(date): Warning: $exec_name still running after forced stop!" >> "$LOG_FILE"
+        still_running=true
     fi
 done
 
-if [ "$process_running" = false ]; then
-    echo "$(date): All demo processes stopped successfully." >> $LOG_FILE
+if [ "$still_running" = false ]; then
+    echo "$(date): All demo processes stopped successfully." >> "$LOG_FILE"
 else
-    echo "$(date): Warning: Some processes failed to terminate completely." >> $LOG_FILE
+    echo "$(date): Warning: Some processes failed to terminate completely." >> "$LOG_FILE"
 fi
-
-
