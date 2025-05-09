@@ -288,8 +288,8 @@ read -p "Enter the full path and filename for iotcDeviceConfig.json [default: ./
 DEVICE_CONFIG=${DEVICE_CONFIG:-iotcDeviceConfig.json}
 DEVICE_CONFIG=$(cygpath -u "$DEVICE_CONFIG" 2>/dev/null || echo "$DEVICE_CONFIG")
 
-read -p "Enter the full path and filename for the certificates zip file [default: ./RZBoardV2L-certificates.zip]: " CERT_ZIP
-CERT_ZIP=${CERT_ZIP:-RZBoardV2L-certificates.zip}
+read -p "Enter the full path and filename for the certificates zip file [default: ./RZboardV2L-certificates.zip]: " CERT_ZIP
+CERT_ZIP=${CERT_ZIP:-RZboardV2L-certificates.zip}
 CERT_ZIP=$(cygpath -u "$CERT_ZIP" 2>/dev/null || echo "$CERT_ZIP")
 
 # Define source and target directories
