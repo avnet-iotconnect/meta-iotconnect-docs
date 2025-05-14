@@ -1,5 +1,22 @@
 # RZBoard V2L /IOTCONNECT Quick Start Guide
 
+1. [Introduction](#1-introduction)
+2. [HardwareRequirements](#2-hardware-requirements)
+3. [Hardware Setup](#3-hardware-setup)
+4. [Install Software](#4-install-software)
+5. [Flash Image to the Board](#5-flash-image-to-the-board)
+6. [Download and Configure the Flash Utility ](#6-download-and-configure-the-flash-utility)
+7. [Download Configuration Script](#7-download-configuration-script)
+8. [Cloud Account Setup](#8-cloud-account-setup)
+9. [/IOTCONNECT Device Template Setup](#9-iotconnect-device-template-setup)
+10. [Create a Device in /IOTCONNECT](#10-create-a-device-in-iotconnect)
+11. [Obtain Board IP address](#11-obtain-board-ip-address)
+12. [Running the Device Setup Script](#12-running-the-device-setup-script)
+13. [Import a Dashboard](#13-import-a-dashboard)
+14. [Using the Demo](#14-using-the-demo)
+15. [Further Learning](#15-further-learning)
+16. [Resources](#16-resources)
+
 # 1. Introduction
 This guide is designed to walk through the steps to connect the [RZBoard V2L](https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/rzboard-v2l) to the Avnet [/IOTCONNECT platform](https://console.iotconnect.io/) and demonstrate the on-board AI functionality as shown in the webinar hosted by [TRIA](https://www.tria-technologies.com/) and [Avnet](https://avnet.com/iotconnect/renesas), December, 2024.  
 For greatest reach, this guide is written to be followed on a Windows 10/11 host machine.
