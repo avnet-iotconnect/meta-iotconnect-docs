@@ -4,9 +4,9 @@
 2. [HardwareRequirements](#2-hardware-requirements)
 3. [Hardware Setup](#3-hardware-setup)
 4. [Install Software](#4-install-software)
-5. [Flash Image to the Board](#5-flash-image-to-the-board)
+5. [Flash Image to the SD Card](#5-flash-image-to-the-sd-card)
 6. [Download and Configure the Flash Utility ](#6-download-and-configure-the-flash-utility)
-7. [Download Configuration Script](#7-download-configuration-script)
+7. [Download Configuration Files](#7-download-configuration-files)
 8. [Cloud Account Setup](#8-cloud-account-setup)
 9. [/IOTCONNECT Device Template Setup](#9-iotconnect-device-template-setup)
 10. [Create a Device in /IOTCONNECT](#10-create-a-device-in-iotconnect)
@@ -57,7 +57,7 @@ Reference Image
 > Ensure to select the add "PYTHON" to the PATH variable option during setup.
  
  
-# 5. Flash Image to the Board
+# 5. Flash Image to the SD Card
 
 1. Download the [RZBoard V2L QuickStart Package](https://iotconnect-sdk-images.s3.amazonaws.com/MPU/hardknott/rz/rzboard-iotc-demo.zip) to a project directory such as `C:\Renesas\RZboardV2L\`
 2. Unzip the package by Right-Clicking, select "Extract All..." and extract here `C:\Renesas\RZboardV2L\` (Do not extract to a sub-folder)
@@ -106,8 +106,8 @@ pip install -r rzboard_flash_util/requirements.txt
 10. Insert the **SD Card** and re-connect the **USB-C power**
 11. Press and hold the board power button for a couple seconds to turn it on.
 
-# 7. Download Configuration Script  
-1. Download the device configuration script [onboard.zip](https://github.com/avnet-iotconnect/meta-iotconnect-docs/blob/main/QuickStart/Renesas/RZBoard-V2L/demo-iotc-ai-camera/scripts/onboard.zip?raw=1)
+# 7. Download Configuration Files 
+1. Download this zipped folder containing the device configuration files: [onboard.zip](https://github.com/avnet-iotconnect/meta-iotconnect-docs/blob/main/QuickStart/Renesas/RZBoard-V2L/demo-iotc-ai-camera/scripts/onboard.zip?raw=1)
 2. Extract the contents to the `C:\Renesas\RZboardV2L\` project folder  
 
 You should now have a new folder called onboard here: `C:\Renesas\RZboardV2L\onboard`  
