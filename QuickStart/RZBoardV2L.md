@@ -1,7 +1,7 @@
 # RZBoard V2L /IOTCONNECT Quick Start Guide
 
 1. [Introduction](#1-introduction)
-2. [HardwareRequirements](#2-hardware-requirements)
+2. [Hardware Requirements](#2-hardware-requirements)
 3. [Hardware Setup](#3-hardware-setup)
 4. [Install Software](#4-install-software)
 5. [Flash Image to the SD Card](#5-flash-image-to-the-sd-card)
